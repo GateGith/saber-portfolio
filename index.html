@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -36,18 +36,20 @@
         </section>
 
         <!-- Stats Section -->
-        <section class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-number">3</span>
-                <span class="stat-label">Projets réalisés</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Responsive Mobile</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">24h</span>
-                <span class="stat-label">Temps de réponse</span>
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Projets réalisés</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Responsive Mobile</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24h</span>
+                    <span class="stat-label">Temps de réponse</span>
+                </div>
             </div>
         </section>
 
@@ -61,46 +63,52 @@
                 <!-- Project 1 - Hamiaphone -->
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="images/hamiaphone.jpg" alt="Hamiaphone - Site de réparation téléphone" loading="lazy">
+                        <img src="images/hamiaphone.jpg" alt="Hamiaphone - Site de réparation téléphone" loading="lazy" onerror="this.src='https://placehold.co/600x400/1e1e2e/818cf8?text=Hamiaphone'">
                     </div>
-                    <h3 class="project-title">Hamiaphone</h3>
-                    <p class="project-description">Site professionnel pour boutique de réparation et accessoires téléphones.</p>
-                    <div class="project-tags">
-                        <span class="tag">Design moderne</span>
-                        <span class="tag">WhatsApp intégré</span>
-                        <span class="tag">Optimisé mobile</span>
+                    <div class="project-content">
+                        <h3 class="project-title">Hamiaphone</h3>
+                        <p class="project-description">Site professionnel pour boutique de réparation et accessoires téléphones.</p>
+                        <div class="project-tags">
+                            <span class="tag">Design moderne</span>
+                            <span class="tag">WhatsApp intégré</span>
+                            <span class="tag">Optimisé mobile</span>
+                        </div>
+                        <a href="#" class="project-link">Voir le projet →</a>
                     </div>
-                    <a href="#" class="project-link">Voir le projet →</a>
                 </article>
 
                 <!-- Project 2 - Rogers Phone -->
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="images/rogers.jpg" alt="Rogers Phone - Site vitrine smartphones" loading="lazy">
+                        <img src="images/rogers.jpg" alt="Rogers Phone - Site vitrine smartphones" loading="lazy" onerror="this.src='https://placehold.co/600x400/1e1e2e/818cf8?text=Rogers+Phone'">
                     </div>
-                    <h3 class="project-title">Rogers Phone</h3>
-                    <p class="project-description">Site vitrine pour magasin spécialisé smartphones et accessoires.</p>
-                    <div class="project-tags">
-                        <span class="tag">Présentation produits</span>
-                        <span class="tag">Contact rapide</span>
-                        <span class="tag">Version mobile</span>
+                    <div class="project-content">
+                        <h3 class="project-title">Rogers Phone</h3>
+                        <p class="project-description">Site vitrine pour magasin spécialisé smartphones et accessoires.</p>
+                        <div class="project-tags">
+                            <span class="tag">Présentation produits</span>
+                            <span class="tag">Contact rapide</span>
+                            <span class="tag">Version mobile</span>
+                        </div>
+                        <a href="#" class="project-link">Voir le projet →</a>
                     </div>
-                    <a href="#" class="project-link">Voir le projet →</a>
                 </article>
 
                 <!-- Project 3 - YOKA TECH -->
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="images/yoka.jpg" alt="YOKA TECH - Site multi-boutiques" loading="lazy">
+                        <img src="images/yoka.jpg" alt="YOKA TECH - Site multi-boutiques" loading="lazy" onerror="this.src='https://placehold.co/600x400/1e1e2e/818cf8?text=YOKA+TECH'">
                     </div>
-                    <h3 class="project-title">YOKA TECH</h3>
-                    <p class="project-description">Site multi-boutiques regroupant téléphone, informatique et gaming.</p>
-                    <div class="project-tags">
-                        <span class="tag">2 boutiques</span>
-                        <span class="tag">Google Maps</span>
-                        <span class="tag">Réseaux sociaux intégrés</span>
+                    <div class="project-content">
+                        <h3 class="project-title">YOKA TECH</h3>
+                        <p class="project-description">Site multi-boutiques regroupant téléphone, informatique et gaming.</p>
+                        <div class="project-tags">
+                            <span class="tag">2 boutiques</span>
+                            <span class="tag">Google Maps</span>
+                            <span class="tag">Réseaux sociaux intégrés</span>
+                        </div>
+                        <a href="#" class="project-link">Voir le projet →</a>
                     </div>
-                    <a href="#" class="project-link">Voir le projet →</a>
                 </article>
             </div>
         </section>
@@ -169,7 +177,7 @@
         </footer>
     </div>
 
-    <!-- Simple Scroll JavaScript -->
+    <!-- Scroll JavaScript -->
     <script>
         document.getElementById('scrollToProjects')?.addEventListener('click', () => {
             document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
