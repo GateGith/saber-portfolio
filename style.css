@@ -699,3 +699,19 @@ body {
     }
     
     .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .contact-link {
+        justify-content: center;
+    }
+}
