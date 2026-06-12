@@ -46,7 +46,7 @@
             z-index: -2;
         }
         
-        /* Container - CENTRÉ */
+        /* Container */
         .container {
             max-width: 1280px;
             width: 100%;
@@ -152,7 +152,6 @@
             gap: 1.5rem;
             margin: 4rem 0;
             text-align: center;
-            justify-content: center;
         }
         
         .stat-item {
@@ -162,7 +161,6 @@
             padding: 2rem;
             border: 1px solid rgba(255,255,255,0.08);
             transition: all 0.3s ease;
-            text-align: center;
         }
         
         .stat-item:hover {
@@ -217,7 +215,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            justify-content: center;
         }
         
         .project-card {
@@ -301,13 +298,11 @@
             gap: 0.75rem;
         }
         
-        /* Services Grid - CENTRÉ */
+        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            justify-content: center;
-            align-items: stretch;
         }
         
         .service-card {
@@ -318,10 +313,6 @@
             text-align: center;
             border: 1px solid rgba(255,255,255,0.08);
             transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
         
         .service-card:hover {
@@ -337,45 +328,163 @@
         .service-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
-            text-align: center;
         }
         
         .service-card p {
             color: #a0aec0;
-            text-align: center;
-            max-width: 200px;
-            margin: 0 auto;
         }
         
-        /* Features Grid - CENTRÉ */
+        /* ========== FEATURES SECTION - DESIGN UNIQUE ========== */
+        .features-wrapper {
+            background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(139,92,246,0.02));
+            border-radius: 3rem;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%);
+            animation: rotateBg 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes rotateBg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            background: rgba(18,22,30,0.85);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            justify-content: center;
-            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
         
-        .feature-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            font-size: 1rem;
-            padding: 0.75rem;
-            text-align: center;
+        .feature-card {
+            background: rgba(18,22,30,0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(99,102,241,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #6366f1;
+            box-shadow: 0 20px 40px rgba(99,102,241,0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
             transition: transform 0.3s ease;
         }
         
-        .feature-item:hover {
-            transform: translateX(5px);
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
-        /* Contact Section - CENTRÉ */
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, #a0aec0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .feature-desc {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-desc {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-progress {
+            width: 100%;
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+        
+        .feature-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+        
+        .feature-card:hover .feature-progress-bar {
+            width: 100%;
+        }
+        
+        .feature-number {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 0.7rem;
+            color: #4a4a5a;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        /* Stats badges inside features */
+        .feature-stats {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+            justify-content: center;
+        }
+        
+        .feature-stat {
+            font-size: 0.7rem;
+            background: rgba(99,102,241,0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 1rem;
+            color: #818cf8;
+        }
+        
+        /* Contact Section */
         .contact-section {
             background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.05));
             border-radius: 2rem;
@@ -387,7 +496,6 @@
         .contact-text {
             color: #a0aec0;
             margin-bottom: 2rem;
-            text-align: center;
         }
         
         .contact-form {
@@ -408,7 +516,6 @@
             border-radius: 1rem;
             color: #f1f5f9;
             font-family: inherit;
-            text-align: left;
         }
         
         .contact-form input:focus,
@@ -505,7 +612,7 @@
             color: #f1f5f9;
         }
         
-        /* ========== RESPONSIVE ========== */
+        /* Responsive */
         @media (max-width: 1024px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -540,6 +647,12 @@
             .contact-section {
                 padding: 1.5rem;
             }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-wrapper {
+                padding: 1.5rem;
+            }
         }
         
         @media (max-width: 640px) {
@@ -549,19 +662,16 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
         }
         
-        /* Animation on scroll */
-        .project-card, .service-card, .stat-item {
+        /* Animations */
+        .project-card, .service-card, .stat-item, .feature-card {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         
-        .project-card.visible, .service-card.visible, .stat-item.visible {
+        .project-card.visible, .service-card.visible, .stat-item.visible, .feature-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -605,7 +715,6 @@
             </div>
             
             <div class="projects-grid">
-                <!-- Hamiaphone -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1e1e2e, #2a2a3e)'; this.parentElement.innerHTML='<span style=\'font-size:4rem;\'>📱</span>'">
@@ -622,7 +731,6 @@
                     </div>
                 </div>
 
-                <!-- Rogers Phone -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/rogers.webp" alt="Rogers Phone" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1e1e2e, #2a2a3e)'; this.parentElement.innerHTML='<span style=\'font-size:4rem;\'>📞</span>'">
@@ -639,7 +747,6 @@
                     </div>
                 </div>
 
-                <!-- YOKA TECH -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/yoka.webp" alt="YOKA TECH" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1e1e2e, #2a2a3e)'; this.parentElement.innerHTML='<span style=\'font-size:4rem;\'>💻</span>'">
@@ -688,18 +795,105 @@
             </div>
         </section>
 
-        <!-- Features Section -->
+        <!-- Features Section - UNIQUE DESIGN -->
         <section class="section">
             <div class="section-header">
                 <h2 class="section-title">Pourquoi travailler avec moi ?</h2>
+                <p class="section-subtitle">Des atouts qui font la différence</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-item">✅ Design moderne</div>
-                <div class="feature-item">✅ Optimisé mobile</div>
-                <div class="feature-item">✅ Livraison rapide</div>
-                <div class="feature-item">✅ Support après livraison</div>
-                <div class="feature-item">✅ Intégration WhatsApp</div>
-                <div class="feature-item">✅ Prix accessibles</div>
+            
+            <div class="features-wrapper">
+                <div class="features-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-card">
+                        <div class="feature-number">01</div>
+                        <div class="feature-icon">🎨</div>
+                        <h3>Design moderne</h3>
+                        <div class="feature-stats">
+                            <span class="feature-stat">UI/UX</span>
+                            <span class="feature-stat">Trending</span>
+                        </div>
+                        <div class="feature-desc">Des interfaces élégantes, minimalistes et adaptées aux tendances actuelles.</div>
+                        <div class="feature-progress">
+                            <div class="feature-progress-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="feature-card">
+                        <div class="feature-number">02</div>
+                        <div class="feature-icon">📱</div>
+                        <h3>Optimisé mobile</h3>
+                        <div class="feature-stats">
+                            <span class="feature-stat">100% Responsive</span>
+                            <span class="feature-stat">Mobile First</span>
+                        </div>
+                        <div class="feature-desc">Sites parfaitement adaptés à tous les écrans : smartphones, tablettes, desktop.</div>
+                        <div class="feature-progress">
+                            <div class="feature-progress-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="feature-card">
+                        <div class="feature-number">03</div>
+                        <div class="feature-icon">🚀</div>
+                        <h3>Livraison rapide</h3>
+                        <div class="feature-stats">
+                            <span class="feature-stat">24-48h</span>
+                            <span class="feature-stat">Express</span>
+                        </div>
+                        <div class="feature-desc">Des délais de livraison respectés avec un suivi personnalisé.</div>
+                        <div class="feature-progress">
+                            <div class="feature-progress-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 4 -->
+                    <div class="feature-card">
+                        <div class="feature-number">04</div>
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Support après livraison</h3>
+                        <div class="feature-stats">
+                            <span class="feature-stat">24/7</span>
+                            <span class="feature-stat">Garantie</span>
+                        </div>
+                        <div class="feature-desc">Assistance continue et maintenance après la mise en ligne de votre site.</div>
+                        <div class="feature-progress">
+                            <div class="feature-progress-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 5 -->
+                    <div class="feature-card">
+                        <div class="feature-number">05</div>
+                        <div class="feature-icon">💬</div>
+                        <h3>Intégration WhatsApp</h3>
+                        <div class="feature-stats">
+                            <span class="feature-stat">Direct</span>
+                            <span class="feature-stat">Instant</span>
+                        </div>
+                        <div class="feature-desc">Communication instantanée avec vos clients via WhatsApp intégré.</div>
+                        <div class="feature-progress">
+                            <div class="feature-progress-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 6 -->
+                    <div class="feature-card">
+                        <div class="feature-number">06</div>
+                        <div class="feature-icon">💰</div>
+                        <h3>Prix accessibles</h3>
+                        <div class="feature-stats">
+                            <span class="feature-stat">Sur mesure</span>
+                            <span class="feature-stat">Sans surprise</span>
+                        </div>
+                        <div class="feature-desc">Des tarifs adaptés à votre budget, qualité professionnelle garantie.</div>
+                        <div class="feature-progress">
+                            <div class="feature-progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -788,7 +982,7 @@
             });
         }, observerOptions);
         
-        document.querySelectorAll('.project-card, .service-card, .stat-item').forEach(el => {
+        document.querySelectorAll('.project-card, .service-card, .stat-item, .feature-card').forEach(el => {
             observer.observe(el);
         });
         
