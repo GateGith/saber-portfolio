@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Rebas Ifils - Web Designer professionnel. Création de sites web modernes pour commerces et entreprises.">
     <meta name="author" content="Rebas Ifils">
-    <title>Rebas Ifils | Web Designer Professionnel</title>
+    <meta name="keywords" content="web designer, création site web, portfolio, freelance, paris">
+    <title>Rebas Ifils | Web Designer Créatif</title>
+    
+    <!-- Font Awesome pour les icônes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
     <style>
-        /* ========== RESET ========== */
+        /* ========== RESET & VARIABLES ========== */
         * {
             margin: 0;
             padding: 0;
@@ -21,10 +32,29 @@
             scroll-behavior: smooth;
         }
         
+        :root {
+            --bg-dark: #0a0c10;
+            --bg-card: rgba(18, 22, 30, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-primary: #6366f1;
+            --accent-glow: #818cf8;
+            --accent-secondary: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
+            --text-white: #ffffff;
+            --text-offwhite: #f1f5f9;
+            --text-gray: #a0aec0;
+            --text-muted: #6b7280;
+            --gradient-1: linear-gradient(135deg, #6366f1, #8b5cf6);
+            --gradient-2: linear-gradient(135deg, #ec4899, #f43f5e);
+            --gradient-3: linear-gradient(135deg, #06b6d4, #3b82f6);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0c10;
-            color: #f1f5f9;
+            background: var(--bg-dark);
+            color: var(--text-offwhite);
             line-height: 1.6;
             min-height: 100vh;
             padding: 2rem 1rem;
@@ -40,13 +70,32 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(99,102,241,0.15), transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(139,92,246,0.1), transparent 60%);
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99,102,241,0.12), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(236,72,153,0.08), transparent 40%),
+                radial-gradient(circle at 40% 90%, rgba(6,182,212,0.06), transparent 40%);
             pointer-events: none;
             z-index: -2;
         }
         
-        /* Container */
+        /* Floating particles animation */
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: -1;
+            animation: floatParticle 20s infinite ease-in-out;
+        }
+        
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+            50% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+        }
+        
         .container {
             max-width: 1280px;
             width: 100%;
@@ -55,34 +104,91 @@
             z-index: 1;
         }
         
+        /* ========== PROFILE SECTION UNIQUE ========== */
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+            background: linear-gradient(135deg, #6366f1, #ec4899, #06b6d4) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            transition: var(--transition);
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(99,102,241,0.5));
+        }
+        
+        .profile-ring {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #ec4899, #06b6d4);
+            z-index: -1;
+            animation: rotateRing 3s linear infinite;
+        }
+        
+        @keyframes rotateRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         /* ========== HERO ========== */
         .hero {
             text-align: center;
-            padding: 4rem 0;
+            padding: 2rem 0 3rem;
         }
         
         .hero-badge {
             display: inline-block;
             font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            background: rgba(99,102,241,0.2);
-            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(236,72,153,0.1));
+            padding: 0.5rem 1.2rem;
             border-radius: 2rem;
             border: 1px solid rgba(99,102,241,0.3);
-            color: #818cf8;
+            color: var(--accent-glow);
             margin-bottom: 1.5rem;
+            backdrop-filter: blur(4px);
         }
         
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 5vw, 3.8rem);
             font-weight: 800;
             margin-bottom: 1rem;
+            line-height: 1.2;
         }
         
-        .text-gradient {
-            background: linear-gradient(135deg, #fff, #818cf8);
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #fff, var(--accent-glow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .text-gradient-multicolor {
+            background: linear-gradient(135deg, #6366f1, #ec4899, #06b6d4);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -90,13 +196,13 @@
         
         .hero-description {
             font-size: clamp(1rem, 4vw, 1.25rem);
-            color: #a0aec0;
+            color: var(--text-gray);
             max-width: 600px;
             margin: 0 auto 0.5rem;
         }
         
         .hero-text {
-            color: #a0aec0;
+            color: var(--text-gray);
             max-width: 600px;
             margin: 0 auto 2rem;
         }
@@ -117,35 +223,57 @@
             padding: 0.875rem 2rem;
             border-radius: 3rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             cursor: pointer;
             border: none;
             font-size: 1rem;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: var(--gradient-1);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99,102,241,0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99,102,241,0.4);
         }
         
         .btn-outline {
             background: transparent;
             border: 2px solid rgba(99,102,241,0.5);
-            color: #f1f5f9;
+            color: var(--text-offwhite);
+            position: relative;
+            overflow: hidden;
         }
         
         .btn-outline:hover {
-            border-color: #6366f1;
+            border-color: var(--accent-primary);
             background: rgba(99,102,241,0.1);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
         
-        /* ========== STATS ========== */
+        /* ========== STATS WITH COUNTER ========== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -155,37 +283,58 @@
         }
         
         .stat-item {
-            background: rgba(18,22,30,0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 1.5rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
             padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s ease;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .stat-item:hover::after {
+            transform: scaleX(1);
         }
         
         .stat-item:hover {
-            transform: scale(1.05);
-            border-color: #6366f1;
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
         }
         
         .stat-number {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: var(--gradient-1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             display: block;
+            font-family: monospace;
         }
         
         .stat-label {
-            color: #a0aec0;
+            color: var(--text-gray);
             margin-top: 0.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
         
         /* ========== SECTIONS ========== */
         .section {
-            margin: 5rem 0;
+            margin: 6rem 0;
         }
         
         .section-header {
@@ -197,7 +346,7 @@
             font-size: clamp(1.75rem, 5vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #fff, #818cf8);
+            background: linear-gradient(135deg, #fff, var(--accent-glow));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -205,31 +354,49 @@
         }
         
         .section-subtitle {
-            color: #a0aec0;
+            color: var(--text-gray);
             font-size: 1.125rem;
             text-align: center;
         }
         
-        /* Projects Grid */
+        /* Projects Grid - 3D Tilt Effect */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
         
         .project-card {
-            background: rgba(18,22,30,0.85);
+            background: var(--bg-card);
             backdrop-filter: blur(12px);
             border-radius: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s ease;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
             overflow: hidden;
             text-align: center;
+            position: relative;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(99,102,241,0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
         }
         
         .project-card:hover {
-            transform: translateY(-8px);
-            border-color: #6366f1;
+            transform: translateY(-10px) rotateX(3deg);
+            border-color: var(--accent-primary);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.3);
         }
         
         .project-image {
@@ -240,17 +407,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
         
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.7s cubic-bezier(0.33, 1, 0.68, 1);
         }
         
         .project-card:hover .project-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+        }
+        
+        .project-image span {
+            font-size: 4rem;
         }
         
         .project-content {
@@ -258,14 +430,15 @@
         }
         
         .project-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
         
         .project-description {
-            color: #a0aec0;
+            color: var(--text-gray);
             margin-bottom: 1rem;
+            font-size: 0.9rem;
         }
         
         .project-tags {
@@ -280,25 +453,25 @@
             background: rgba(99,102,241,0.15);
             padding: 0.25rem 0.75rem;
             border-radius: 2rem;
-            font-size: 0.75rem;
-            color: #818cf8;
+            font-size: 0.7rem;
+            color: var(--accent-glow);
         }
         
         .project-link {
-            color: #818cf8;
+            color: var(--accent-glow);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: gap 0.3s ease;
+            transition: gap 0.3s;
         }
         
         .project-link:hover {
             gap: 0.75rem;
         }
         
-        /* Services Grid */
+        /* Services Grid - Unique Design */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -306,195 +479,114 @@
         }
         
         .service-card {
-            background: rgba(18,22,30,0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 1.25rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
             padding: 2rem;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s ease;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            position: relative;
         }
         
+        .service-card:nth-child(1):hover { border-color: #6366f1; }
+        .service-card:nth-child(2):hover { border-color: #06b6d4; }
+        .service-card:nth-child(3):hover { border-color: #10b981; }
+        .service-card:nth-child(4):hover { border-color: #ec4899; }
+        
         .service-card:hover {
-            transform: translateY(-5px);
-            border-color: #6366f1;
+            transform: translateY(-8px);
         }
         
         .service-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .service-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
         
         .service-card p {
-            color: #a0aec0;
+            color: var(--text-gray);
+            font-size: 0.85rem;
         }
         
-        /* ========== FEATURES SECTION - DESIGN UNIQUE ========== */
-        .features-wrapper {
-            background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(139,92,246,0.02));
+        /* Features Section - Unique Neon Cards */
+        .features-section {
+            background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(236,72,153,0.02));
             border-radius: 3rem;
             padding: 3rem;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .features-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%);
-            animation: rotateBg 20s linear infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        @keyframes rotateBg {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
         }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
         
         .feature-card {
-            background: rgba(18,22,30,0.7);
+            background: var(--bg-card);
             backdrop-filter: blur(12px);
-            border-radius: 2rem;
-            padding: 1.8rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--glass-border);
             position: relative;
             overflow: hidden;
-            cursor: pointer;
+            text-align: center;
         }
         
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99,102,241,0.2), transparent);
-            transition: left 0.6s ease;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99,102,241,0.08), transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
         }
         
         .feature-card:hover::before {
-            left: 100%;
+            opacity: 1;
         }
         
         .feature-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: #6366f1;
-            box-shadow: 0 20px 40px rgba(99,102,241,0.2);
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
         }
         
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
         }
         
         .feature-card h3 {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #fff, #a0aec0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
         
-        .feature-desc {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-top: 0.5rem;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover .feature-desc {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .feature-progress {
-            width: 100%;
-            height: 3px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 3px;
-            margin-top: 1rem;
-            overflow: hidden;
-        }
-        
-        .feature-progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-            border-radius: 3px;
-            transition: width 0.6s ease;
-        }
-        
-        .feature-card:hover .feature-progress-bar {
-            width: 100%;
-        }
-        
-        .feature-number {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 0.7rem;
-            color: #4a4a5a;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
-        /* Stats badges inside features */
-        .feature-stats {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
-            justify-content: center;
-        }
-        
-        .feature-stat {
-            font-size: 0.7rem;
-            background: rgba(99,102,241,0.2);
-            padding: 0.2rem 0.5rem;
-            border-radius: 1rem;
-            color: #818cf8;
-        }
-        
-        /* Contact Section */
+        /* ========== CONTACT WITH REAL SOCIAL ICONS ========== */
         .contact-section {
-            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.05));
+            background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(236,72,153,0.04));
             border-radius: 2rem;
             padding: 3rem;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid var(--glass-border);
         }
         
         .contact-text {
-            color: #a0aec0;
+            color: var(--text-gray);
             margin-bottom: 2rem;
         }
         
@@ -511,42 +603,56 @@
         .contact-form textarea {
             width: 100%;
             padding: 1rem;
-            background: rgba(18,22,30,0.85);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
             border-radius: 1rem;
-            color: #f1f5f9;
+            color: var(--text-offwhite);
             font-family: inherit;
+            transition: var(--transition);
         }
         
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: #6366f1;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 15px rgba(99,102,241,0.2);
         }
         
-        .contact-links {
+        .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1.8rem;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
         
-        .contact-link {
+        .social-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(18,22,30,0.85);
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 3rem;
             text-decoration: none;
-            color: #f1f5f9;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.08);
+            color: white;
+            transition: var(--transition);
+            font-weight: 500;
         }
         
-        .contact-link:hover {
-            transform: translateY(-3px);
-            background: #6366f1;
+        /* Real social media colors */
+        .social-link.email { background: linear-gradient(135deg, #ea4335, #fbbc04); }
+        .social-link.instagram { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+        .social-link.whatsapp { background: #25D366; }
+        .social-link.linkedin { background: #0077B5; }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .social-link i {
+            font-size: 1.2rem;
         }
         
         /* Footer */
@@ -554,67 +660,14 @@
             text-align: center;
             padding-top: 3rem;
             margin-top: 5rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            color: #6b7280;
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: #0a0c10;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            border: 1px solid rgba(255,255,255,0.08);
-            text-align: center;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #a0aec0;
-        }
-        
-        .modal-close:hover {
-            color: #6366f1;
-        }
-        
-        .modal-form input,
-        .modal-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background: rgba(18,22,30,0.85);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 1rem;
-            color: #f1f5f9;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
         
         /* Responsive */
         @media (max-width: 1024px) {
-            .services-grid {
+            .services-grid, .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .features-grid {
@@ -623,55 +676,25 @@
         }
         
         @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-            .stats-grid {
+            body { padding: 1rem; }
+            .stats-grid, .services-grid, .projects-grid, .features-grid {
                 grid-template-columns: 1fr;
             }
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            .btn {
-                width: 100%;
-                max-width: 250px;
-            }
-            .contact-links {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .contact-link {
-                justify-content: center;
-            }
-            .contact-section {
-                padding: 1.5rem;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .features-wrapper {
-                padding: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+            .features-section { padding: 1.5rem; }
+            .social-links { gap: 1rem; }
+            .social-link { padding: 0.6rem 1.2rem; font-size: 0.8rem; }
+            .btn-group { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 250px; }
         }
         
         /* Animations */
-        .project-card, .service-card, .stat-item, .feature-card {
+        .fade-up {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
         
-        .project-card.visible, .service-card.visible, .stat-item.visible, .feature-card.visible {
+        .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -679,31 +702,39 @@
 </head>
 <body>
     <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-wrapper">
+                <div class="profile-ring"></div>
+                <img src="images/profile.webp" alt="Rebas Ifils" class="profile-image" onerror="this.src='https://placehold.co/140x140/1e1e2e/818cf8?text=RI'">
+            </div>
+        </div>
+        
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-badge">Rebas Ifils | Portfolio Web</div>
-            <h1>Web Designer <span class="text-gradient">• Portfolio</span></h1>
-            <p class="hero-description">Je crée des sites web modernes pour les commerces et entreprises</p>
+            <div class="hero-badge">✨ REBAS IFILS | WEB DESIGNER ✨</div>
+            <h1>Je crée des <span class="text-gradient-primary">sites web modernes</span><br>pour <span class="text-gradient-multicolor">votre succès</span></h1>
+            <p class="hero-description">Web Designer • Portfolio</p>
             <p class="hero-text">Sites rapides, professionnels, optimisés mobile et conçus pour transformer les visiteurs en clients.</p>
             <div class="btn-group">
                 <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">✨ Voir mes réalisations</button>
-                <button class="btn btn-outline" id="openContactBtn">💬 Me contacter</button>
+                <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">💬 Me contacter</button>
             </div>
         </section>
 
         <!-- Stats Section -->
         <div class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-number">3</span>
-                <span class="stat-label">Projets réalisés</span>
+            <div class="stat-item fade-up">
+                <span class="stat-number" data-target="3">0</span>
+                <span class="stat-label">PROJETS RÉALISÉS</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Responsive Mobile</span>
+            <div class="stat-item fade-up">
+                <span class="stat-number" data-target="100">0</span>
+                <span class="stat-label">RESPONSIVE MOBILE</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">24h</span>
-                <span class="stat-label">Temps de réponse</span>
+            <div class="stat-item fade-up">
+                <span class="stat-number" data-target="24">0</span>
+                <span class="stat-label">TEMPS DE RÉPONSE (h)</span>
             </div>
         </div>
 
@@ -711,53 +742,53 @@
         <section class="section" id="projects">
             <div class="section-header">
                 <h2 class="section-title">Mes Réalisations</h2>
-                <p class="section-subtitle">Quelques exemples de sites réalisés.</p>
+                <p class="section-subtitle">Des projets uniques pour des clients satisfaits</p>
             </div>
             
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card fade-up">
                     <div class="project-image">
-                        <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1e1e2e, #2a2a3e)'; this.parentElement.innerHTML='<span style=\'font-size:4rem;\'>📱</span>'">
+                        <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>📱</span>'">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Hamiaphone</h3>
-                        <p class="project-description">Site professionnel pour boutique de réparation et accessoires téléphones.</p>
+                        <p class="project-description">Boutique de réparation téléphone avec WhatsApp intégré</p>
                         <div class="project-tags">
                             <span class="tag">Design moderne</span>
-                            <span class="tag">WhatsApp intégré</span>
-                            <span class="tag">Optimisé mobile</span>
+                            <span class="tag">WhatsApp</span>
+                            <span class="tag">Mobile first</span>
                         </div>
                         <a href="#" class="project-link">Voir le projet →</a>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card fade-up">
                     <div class="project-image">
-                        <img src="images/rogers.webp" alt="Rogers Phone" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1e1e2e, #2a2a3e)'; this.parentElement.innerHTML='<span style=\'font-size:4rem;\'>📞</span>'">
+                        <img src="images/rogers.webp" alt="Rogers Phone" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>📞</span>'">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Rogers Phone</h3>
-                        <p class="project-description">Site vitrine pour magasin spécialisé smartphones et accessoires.</p>
+                        <p class="project-description">Site vitrine pour magasin de smartphones</p>
                         <div class="project-tags">
-                            <span class="tag">Présentation produits</span>
+                            <span class="tag">Vitrine</span>
                             <span class="tag">Contact rapide</span>
-                            <span class="tag">Version mobile</span>
+                            <span class="tag">Responsive</span>
                         </div>
                         <a href="#" class="project-link">Voir le projet →</a>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card fade-up">
                     <div class="project-image">
-                        <img src="images/yoka.webp" alt="YOKA TECH" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1e1e2e, #2a2a3e)'; this.parentElement.innerHTML='<span style=\'font-size:4rem;\'>💻</span>'">
+                        <img src="images/yoka.webp" alt="YOKA TECH" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>💻</span>'">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">YOKA TECH</h3>
-                        <p class="project-description">Site multi-boutiques regroupant téléphone, informatique et gaming.</p>
+                        <p class="project-description">Multi-boutiques : téléphone, informatique, gaming</p>
                         <div class="project-tags">
-                            <span class="tag">2 boutiques</span>
+                            <span class="tag">Multi-sites</span>
                             <span class="tag">Google Maps</span>
-                            <span class="tag">Réseaux sociaux intégrés</span>
+                            <span class="tag">Réseaux sociaux</span>
                         </div>
                         <a href="#" class="project-link">Voir le projet →</a>
                     </div>
@@ -772,136 +803,52 @@
                 <p class="section-subtitle">Ce que je peux vous apporter</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card fade-up">
                     <div class="service-icon">✨</div>
                     <h3>Site Vitrine</h3>
-                    <p>Présentation professionnelle de votre activité.</p>
+                    <p>Présentation professionnelle de votre activité</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card fade-up">
                     <div class="service-icon">📱</div>
                     <h3>Responsive</h3>
-                    <p>Compatible smartphones, tablettes et ordinateurs.</p>
+                    <p>Compatible tous écrans</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card fade-up">
                     <div class="service-icon">💬</div>
                     <h3>WhatsApp</h3>
-                    <p>Contact direct avec vos clients.</p>
+                    <p>Contact direct clients</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card fade-up">
                     <div class="service-icon">⚡</div>
                     <h3>Performance</h3>
-                    <p>Sites rapides et optimisés.</p>
+                    <p>Sites rapides et optimisés</p>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section - UNIQUE DESIGN -->
+        <!-- Features Section -->
         <section class="section">
             <div class="section-header">
                 <h2 class="section-title">Pourquoi travailler avec moi ?</h2>
-                <p class="section-subtitle">Des atouts qui font la différence</p>
+                <p class="section-subtitle">6 raisons de me faire confiance</p>
             </div>
-            
-            <div class="features-wrapper">
+            <div class="features-section">
                 <div class="features-grid">
-                    <!-- Feature 1 -->
-                    <div class="feature-card">
-                        <div class="feature-number">01</div>
-                        <div class="feature-icon">🎨</div>
-                        <h3>Design moderne</h3>
-                        <div class="feature-stats">
-                            <span class="feature-stat">UI/UX</span>
-                            <span class="feature-stat">Trending</span>
-                        </div>
-                        <div class="feature-desc">Des interfaces élégantes, minimalistes et adaptées aux tendances actuelles.</div>
-                        <div class="feature-progress">
-                            <div class="feature-progress-bar"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Feature 2 -->
-                    <div class="feature-card">
-                        <div class="feature-number">02</div>
-                        <div class="feature-icon">📱</div>
-                        <h3>Optimisé mobile</h3>
-                        <div class="feature-stats">
-                            <span class="feature-stat">100% Responsive</span>
-                            <span class="feature-stat">Mobile First</span>
-                        </div>
-                        <div class="feature-desc">Sites parfaitement adaptés à tous les écrans : smartphones, tablettes, desktop.</div>
-                        <div class="feature-progress">
-                            <div class="feature-progress-bar"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Feature 3 -->
-                    <div class="feature-card">
-                        <div class="feature-number">03</div>
-                        <div class="feature-icon">🚀</div>
-                        <h3>Livraison rapide</h3>
-                        <div class="feature-stats">
-                            <span class="feature-stat">24-48h</span>
-                            <span class="feature-stat">Express</span>
-                        </div>
-                        <div class="feature-desc">Des délais de livraison respectés avec un suivi personnalisé.</div>
-                        <div class="feature-progress">
-                            <div class="feature-progress-bar"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Feature 4 -->
-                    <div class="feature-card">
-                        <div class="feature-number">04</div>
-                        <div class="feature-icon">🛡️</div>
-                        <h3>Support après livraison</h3>
-                        <div class="feature-stats">
-                            <span class="feature-stat">24/7</span>
-                            <span class="feature-stat">Garantie</span>
-                        </div>
-                        <div class="feature-desc">Assistance continue et maintenance après la mise en ligne de votre site.</div>
-                        <div class="feature-progress">
-                            <div class="feature-progress-bar"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Feature 5 -->
-                    <div class="feature-card">
-                        <div class="feature-number">05</div>
-                        <div class="feature-icon">💬</div>
-                        <h3>Intégration WhatsApp</h3>
-                        <div class="feature-stats">
-                            <span class="feature-stat">Direct</span>
-                            <span class="feature-stat">Instant</span>
-                        </div>
-                        <div class="feature-desc">Communication instantanée avec vos clients via WhatsApp intégré.</div>
-                        <div class="feature-progress">
-                            <div class="feature-progress-bar"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Feature 6 -->
-                    <div class="feature-card">
-                        <div class="feature-number">06</div>
-                        <div class="feature-icon">💰</div>
-                        <h3>Prix accessibles</h3>
-                        <div class="feature-stats">
-                            <span class="feature-stat">Sur mesure</span>
-                            <span class="feature-stat">Sans surprise</span>
-                        </div>
-                        <div class="feature-desc">Des tarifs adaptés à votre budget, qualité professionnelle garantie.</div>
-                        <div class="feature-progress">
-                            <div class="feature-progress-bar"></div>
-                        </div>
-                    </div>
+                    <div class="feature-card fade-up"><div class="feature-icon">🎨</div><h3>Design moderne</h3></div>
+                    <div class="feature-card fade-up"><div class="feature-icon">📱</div><h3>Optimisé mobile</h3></div>
+                    <div class="feature-card fade-up"><div class="feature-icon">🚀</div><h3>Livraison rapide</h3></div>
+                    <div class="feature-card fade-up"><div class="feature-icon">🛡️</div><h3>Support après livraison</h3></div>
+                    <div class="feature-card fade-up"><div class="feature-icon">💬</div><h3>WhatsApp intégré</h3></div>
+                    <div class="feature-card fade-up"><div class="feature-icon">💰</div><h3>Prix accessibles</h3></div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section with Real Social Icons -->
         <section class="section" id="contact">
             <div class="contact-section">
                 <h2 class="section-title" style="font-size: 2rem;">Contact</h2>
-                <p class="contact-text">Disponible pour nouveaux projets. Envoyez-moi un message !</p>
+                <p class="contact-text">Disponible pour nouveaux projets. Parlons de votre idée !</p>
                 
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
@@ -913,49 +860,88 @@
                     <div class="form-group">
                         <textarea id="message" rows="4" placeholder="Votre message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">📨 Envoyer</button>
+                    <button type="submit" class="btn btn-primary">📨 Envoyer le message</button>
                     <p id="formStatus" style="margin-top: 1rem;"></p>
                 </form>
                 
-                <div class="contact-links">
-                    <a href="mailto:contact@rebas-ifils.com" class="contact-link">📧 Email</a>
-                    <a href="#" class="contact-link">📸 Instagram</a>
-                    <a href="#" class="contact-link">📲 WhatsApp</a>
-                    <a href="#" class="contact-link">🔗 LinkedIn</a>
+                <div class="social-links">
+                    <a href="mailto:contact@rebas-ifils.com" class="social-link email"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://instagram.com/rebasifils" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://wa.me/33123456789" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://linkedin.com/in/rebas-ifils" target="_blank" class="social-link linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
                 </div>
             </div>
         </section>
 
         <footer class="footer">
-            <p>© 2026 Rebas Ifils — Portfolio Web</p>
+            <p>© 2026 Rebas Ifils — Web Designer Portfolio — Création de sites web modernes</p>
         </footer>
     </div>
 
-    <!-- Modal -->
-    <div class="modal" id="contactModal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <h3>Contactez-moi</h3>
-            <form class="modal-form">
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre email" required>
-                <textarea rows="4" placeholder="Votre message" required></textarea>
-                <button type="submit" class="btn btn-primary">Envoyer</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Modal
-        const modal = document.getElementById('contactModal');
-        const openBtn = document.getElementById('openContactBtn');
-        const closeBtn = document.querySelector('.modal-close');
+        // GSAP Scroll Animations
+        gsap.registerPlugin(ScrollTrigger);
         
-        openBtn?.addEventListener('click', () => modal.classList.add('active'));
-        closeBtn?.addEventListener('click', () => modal.classList.remove('active'));
-        modal?.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+        gsap.from(".hero h1", {
+            scrollTrigger: { trigger: ".hero", start: "top 85%" },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out"
+        });
         
-        // Form submission
+        gsap.from(".hero-description, .hero-text, .btn-group", {
+            scrollTrigger: { trigger: ".hero", start: "top 85%" },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.15
+        });
+        
+        // Counter Animation
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 100;
+        
+        const animateCounter = (counter) => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            let count = 0;
+            const updateCount = () => {
+                const increment = target / speed;
+                if (count < target) {
+                    count += increment;
+                    counter.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target + (target === 100 ? '%' : '');
+                }
+            };
+            updateCount();
+        };
+        
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        counters.forEach(counter => observer.observe(counter));
+        
+        // Fade Up Observer
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+        
+        // Form Submission
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
         
@@ -972,21 +958,18 @@
             }, 1000);
         });
         
-        // Animation on scroll
-        const observerOptions = { threshold: 0.2 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        // Create floating particles
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = 15 + Math.random() * 20 + 's';
+            document.body.appendChild(particle);
+        }
         
-        document.querySelectorAll('.project-card, .service-card, .stat-item, .feature-card').forEach(el => {
-            observer.observe(el);
-        });
-        
-        console.log('🚀 Portfolio prêt !');
+        console.log('🚀 Portfolio Premium prêt !');
     </script>
 </body>
 </html>
