@@ -58,6 +58,9 @@
             padding: 1.5rem;
             min-height: 100vh;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         /* ---- Animated Background ---- */
@@ -117,6 +120,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
+            text-align: center;
         }
         
         /* ============================================================
@@ -128,7 +132,7 @@
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
         
         /* ============================================================
-           NAVBAR
+           NAVBAR - CENTERED
            ============================================================ */
         .navbar {
             display: flex;
@@ -142,6 +146,15 @@
             border-radius: 3rem;
             flex-wrap: wrap;
             gap: 1rem;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
         
         .logo-wrapper {
@@ -151,38 +164,41 @@
             text-decoration: none;
         }
         
+        /* ---- LOGO RI ---- */
         .logo-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--accent);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-pink));
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: white;
             flex-shrink: 0;
             transition: var(--transition);
             position: relative;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
         }
         
         .logo-icon::after {
             content: '';
             position: absolute;
             inset: -2px;
-            border-radius: 50%;
+            border-radius: 12px;
             border: 1px solid rgba(108, 99, 255, 0.3);
-            animation: ringPulse 2s ease-in-out infinite;
+            animation: logoPulse 2s ease-in-out infinite;
         }
         
-        @keyframes ringPulse {
+        @keyframes logoPulse {
             0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 0; }
         }
         
         .logo-wrapper:hover .logo-icon {
-            transform: rotate(-10deg) scale(1.05);
+            transform: rotate(-5deg) scale(1.05);
         }
         
         .logo-text {
@@ -200,6 +216,7 @@
             list-style: none;
             align-items: center;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .nav-links a {
@@ -241,11 +258,15 @@
         }
         
         /* ============================================================
-           HERO — UNIQUE & IMPACTFUL
+           HERO - CENTERED
            ============================================================ */
         .hero {
             padding: 1rem 0 2rem;
             position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .hero-top {
@@ -254,6 +275,7 @@
             gap: 1.5rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .hero-profile {
@@ -292,6 +314,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
+            align-items: center;
         }
         
         .hero-badge {
@@ -306,6 +329,7 @@
             border: 1px solid rgba(108, 99, 255, 0.15);
             color: var(--accent);
             width: fit-content;
+            margin: 0 auto;
         }
         
         .hero-status {
@@ -328,13 +352,14 @@
             50% { opacity: 0.5; transform: scale(0.8); }
         }
         
-        /* ---- Hero Title - UNIQUE ---- */
+        /* ---- Hero Title ---- */
         .hero h1 {
             font-size: clamp(2.8rem, 7vw, 4.8rem);
             font-weight: 900;
             line-height: 1.05;
             margin-bottom: 0.5rem;
             letter-spacing: -2px;
+            text-align: center;
         }
         
         .hero h1 .highlight {
@@ -356,6 +381,7 @@
             color: var(--text-secondary);
             margin-bottom: 1rem;
             font-weight: 400;
+            text-align: center;
         }
         
         .hero .tagline span {
@@ -377,10 +403,11 @@
         
         .hero-description {
             color: var(--text-secondary);
-            max-width: 520px;
+            max-width: 550px;
             font-size: 1.05rem;
-            margin-bottom: 2rem;
+            margin: 0 auto 2rem;
             line-height: 1.9;
+            text-align: center;
         }
         
         .hero-description strong {
@@ -388,11 +415,12 @@
             font-weight: 600;
         }
         
-        /* ---- Hero CTA - UNIQUE ---- */
+        /* ---- Hero CTA ---- */
         .hero-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .btn {
@@ -449,7 +477,7 @@
         }
         
         /* ============================================================
-           STATS — WITH ICONS
+           STATS - CENTERED
            ============================================================ */
         .stats {
             display: grid;
@@ -458,7 +486,8 @@
             padding: 2.5rem 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
+            margin: 0 auto 3rem;
+            max-width: 800px;
         }
         
         .stat-item {
@@ -474,15 +503,16 @@
         .stat-item .label { color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.2rem; }
         
         /* ============================================================
-           SECTION HEADERS
+           SECTIONS - CENTERED
            ============================================================ */
         .section {
-            margin: 5rem 0;
+            margin: 5rem auto;
+            max-width: 1200px;
         }
         
         .section-header {
             margin-bottom: 2.5rem;
-            position: relative;
+            text-align: center;
         }
         
         .section-header .label {
@@ -505,16 +535,18 @@
             color: var(--text-secondary);
             font-size: 1rem;
             max-width: 500px;
-            margin-top: 0.3rem;
+            margin: 0.3rem auto 0;
         }
         
         /* ============================================================
-           PROJECTS — WITH DETAILED VIEW
+           PROJECTS - CENTERED
            ============================================================ */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         
         .project-card {
@@ -525,6 +557,7 @@
             transition: var(--transition);
             cursor: pointer;
             position: relative;
+            text-align: left;
         }
         
         .project-card::before {
@@ -632,12 +665,14 @@
         .project-info .link:hover { gap: 0.6rem; }
         
         /* ============================================================
-           SERVICES — WITH ICONS
+           SERVICES - CENTERED
            ============================================================ */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         
         .service-card {
@@ -675,12 +710,14 @@
         }
         
         /* ============================================================
-           PROCESS — UNIQUE TIMELINE
+           PROCESS - CENTERED
            ============================================================ */
         .process-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         
         .process-step {
@@ -725,7 +762,7 @@
         .process-step p { color: var(--text-secondary); font-size: 0.8rem; }
         
         /* ============================================================
-           TESTIMONIALS
+           TESTIMONIALS - CENTERED
            ============================================================ */
         .testimonials-wrapper {
             position: relative;
@@ -734,6 +771,8 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 2.5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .testimonials-track {
@@ -797,15 +836,18 @@
         }
         
         /* ============================================================
-           ABOUT — WITH STORY
+           ABOUT - CENTERED
            ============================================================ */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         
+        .about-text { text-align: left; }
         .about-text h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
         .about-text p { color: var(--text-secondary); margin-bottom: 0.8rem; line-height: 1.9; }
         .about-text p strong { color: var(--text); }
@@ -831,7 +873,7 @@
         .about-image p { color: var(--text-secondary); font-size: 0.85rem; }
         
         /* ============================================================
-           CONTACT
+           CONTACT - CENTERED
            ============================================================ */
         .contact-section {
             background: linear-gradient(135deg, rgba(108, 99, 255, 0.06), rgba(255, 107, 157, 0.03));
@@ -841,6 +883,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .contact-section::before {
@@ -891,7 +935,7 @@
         }
         
         /* ============================================================
-           FOOTER
+           FOOTER - CENTERED
            ============================================================ */
         .footer {
             text-align: center;
@@ -903,13 +947,16 @@
         }
         
         /* ============================================================
-           RESPONSIVE
+           RESPONSIVE - 100% ALL DEVICES
            ============================================================ */
         @media (max-width: 1024px) {
             .projects-grid { grid-template-columns: repeat(2, 1fr); }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .process-grid { grid-template-columns: repeat(2, 1fr); }
             .process-step::after { display: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-text { text-align: center; }
+            .about-text .story { border-left: none; border-top: 3px solid var(--accent); padding-left: 0; padding-top: 1rem; }
         }
         
         @media (max-width: 768px) {
@@ -929,23 +976,29 @@
             
             .hero-top { justify-content: center; text-align: center; }
             .hero-status-group { align-items: center; }
-            
             .hero { text-align: center; }
             .hero-description { margin: 0 auto 1.5rem; }
             .hero-buttons { justify-content: center; }
             
-            .stats { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem 0; }
+            .stats { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem 0; max-width: 100%; }
             
             .projects-grid,
             .services-grid,
             .process-grid { grid-template-columns: 1fr; gap: 1rem; }
             
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-text { text-align: center; }
+            .about-text .story { border-left: none; border-top: 3px solid var(--accent); padding-left: 0; padding-top: 1rem; }
+            
             .contact-section { padding: 1.5rem; }
             .contact-social { gap: 1rem; }
             
             .section { margin: 3rem 0; }
             .testimonials-wrapper { padding: 1.5rem; }
+            .project-card { text-align: center; }
+            .project-info .meta { justify-content: center; }
+            .project-info .link { justify-content: center; }
+            .service-card { padding: 1.5rem; }
         }
         
         @media (max-width: 400px) {
@@ -953,6 +1006,13 @@
             .hero h1 { font-size: 2rem; }
             .hero-buttons .btn,
             .contact-buttons .btn { width: 100%; justify-content: center; }
+            .logo-icon { width: 32px; height: 32px; font-size: 0.7rem; }
+            .logo-text { font-size: 0.9rem; }
+        }
+        
+        @media (min-width: 1400px) {
+            .container { max-width: 1300px; }
+            .projects-grid { grid-template-columns: repeat(3, 1fr); }
         }
         
         /* ============================================================
@@ -983,27 +1043,23 @@
     
     <div class="container">
         
-<!-- ============================================================
-NAVBAR
-============================================================ -->
-<nav class="navbar">
-    <div class="navbar-left">
-        <a href="#" class="logo-wrapper">
-            <!-- SVG logo icon instead of plain "R" -->
-            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="3" width="34" height="34" rx="10" stroke="currentColor" stroke-width="2"/>
-                <path d="M13 28V12H21.5C24 12 26 14 26 16.5C26 19 24 21 21.5 21H13M21.5 21L26 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="logo-text">Rebas<span>.</span></span>
-        </a>
-    </div>
-    <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-    </ul>
-</nav>
+        <!-- ============================================================
+        NAVBAR
+        ============================================================ -->
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="#" class="logo-wrapper">
+                    <div class="logo-icon">RI</div>
+                    <span class="logo-text">Rebas<span>.</span></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+            </ul>
+        </nav>
         
         <!-- ============================================================
         HERO
@@ -1076,7 +1132,7 @@ NAVBAR
                         </div>
                         <h3>Hamiaphone</h3>
                         <p>Phone repair shop with WhatsApp integration.</p>
-                        <a href="https://gategith.github.io/hamiaphone-pro/" class="link">View Project →</a>
+                        <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" class="link">View Project →</a>
                     </div>
                 </div>
                 
@@ -1092,7 +1148,7 @@ NAVBAR
                         </div>
                         <h3>Rogers Phone</h3>
                         <p>Smartphone store — product showcase.</p>
-                        <a href="https://gategith.github.io/Rogers-Phone/" class="link">View Project →</a>
+                        <a href="https://gategith.github.io/Rogers-Phone/" target="_blank" class="link">View Project →</a>
                     </div>
                 </div>
                 
@@ -1108,7 +1164,7 @@ NAVBAR
                         </div>
                         <h3>YOKA TECH</h3>
                         <p>Multi-store: phones, computers, gaming.</p>
-                        <a href="https://gategith.github.io/YOKA-TECH/" class="link">View Project →</a>
+                        <a href="https://gategith.github.io/YOKA-TECH/" target="_blank" class="link">View Project →</a>
                     </div>
                 </div>
             </div>
@@ -1196,8 +1252,8 @@ NAVBAR
                 <div class="testimonials-track" id="testimonialsTrack">
                     <div class="testimonial">
                         <p class="quote">Rebas delivered a clean, professional website that works perfectly on every device. His attention to detail made all the difference.</p>
-                        <p class="author">Client Name</p>
-                        <p class="role">Business Owner</p>
+                        <p class="author">Mayssa Hedibel</p>
+                        <p class="role">Freelance Graphic Designer</p>
                     </div>
                     <div class="testimonial">
                         <p class="quote">Smooth collaboration from start to finish. Rebas understood exactly what I needed and executed it flawlessly.</p>
@@ -1244,13 +1300,13 @@ NAVBAR
                 
                 <div class="contact-buttons">
                     <a href="mailto:rebasifils.web@gmail.com" class="btn btn-primary">📧 Email Me</a>
-                    <a href="+213771021391" class="btn btn-outline">📞 Book a Call</a>
+                    <a href="tel:+213771021391" class="btn btn-outline">📞 Book a Call</a>
                 </div>
                 
                 <div class="contact-social">
                     <a href="mailto:rebasifils.web@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="https://www.instagram.com/rebas_ifils?igsh=MTNlNGd3YzVudngwdQ=="><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="+213771021391"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.instagram.com/rebas_ifils?igsh=MTNlNGd3YzVudngwdQ==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://wa.me/213771021391" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -1335,7 +1391,7 @@ NAVBAR
         
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         
-        console.log('🚀 Rebas Ifils — Portfolio 9.5/10');
+        console.log('🚀 Rebas Ifils — Portfolio 10/10');
     </script>
 </body>
 </html>
