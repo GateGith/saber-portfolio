@@ -1130,8 +1130,29 @@
         .fade-up.delay-1 { transition-delay: 0.1s; }
         .fade-up.delay-2 { transition-delay: 0.2s; }
         .fade-up.delay-3 { transition-delay: 0.3s; }
+        
+        /* ===== FIX: Make sure links work ===== */
+.project-card .link {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    position: relative !important;
+}
     </style>
 </head>
+    <script>
+    // ===== FORCE OPEN LINKS =====
+    document.addEventListener('click', function(e) {
+        var target = e.target.closest('.project-card .link');
+        if (target) {
+            e.preventDefault();
+            var url = target.getAttribute('href');
+            if (url && url !== '#') {
+                window.location.href = url;
+            }
+        }
+    });
+</script>
 <body>
     <!-- PARTICLES -->
     <div class="particles" id="particles"></div>
