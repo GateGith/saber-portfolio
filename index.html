@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
-    <title>Rebas Ifils — Web Designer & Digital Craftsman</title>
-    <meta name="description" content="Rebas Ifils - Web Designer. I craft websites that tell stories, drive growth, and leave lasting impressions.">
+    <title>Rebas Ifils — Digital Craftsmanship</title>
+    <meta name="description" content="Professional web design and development. Crafting digital experiences that matter.">
     <meta name="author" content="Rebas Ifils">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
     
     <style>
         /* ============================================================
-           RESET & VARIABLES
+           RESET & VARIABLES - FRAMER INSPIRED
            ============================================================ */
         * {
             margin: 0;
@@ -30,29 +30,32 @@
         }
         
         :root {
-            --bg: #080a0e;
+            --bg-primary: #0a0b0f;
+            --bg-secondary: #12141a;
             --bg-card: rgba(255, 255, 255, 0.03);
             --bg-card-hover: rgba(255, 255, 255, 0.06);
-            --border: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.06);
             --border-hover: rgba(108, 99, 255, 0.3);
             --accent: #6C63FF;
             --accent-hover: #7B73FF;
-            --accent-glow: rgba(108, 99, 255, 0.25);
+            --accent-glow: rgba(108, 99, 255, 0.2);
             --accent-pink: #FF6B9D;
             --accent-cyan: #4ECDC4;
+            --accent-yellow: #FFD93D;
             --text: #ffffff;
             --text-secondary: #a0aec0;
             --text-muted: #6b7280;
             --radius: 1.2rem;
             --radius-sm: 0.8rem;
+            --radius-full: 9999px;
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
         body {
             font-family: var(--font);
-            background: var(--bg);
+            background: var(--bg-primary);
             color: var(--text);
             line-height: 1.6;
             padding: 1.5rem;
@@ -72,46 +75,28 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse at 20% 50%, rgba(108, 99, 255, 0.08), transparent 60%),
-                radial-gradient(ellipse at 80% 50%, rgba(255, 107, 157, 0.06), transparent 60%),
-                radial-gradient(ellipse at 50% 100%, rgba(78, 205, 196, 0.04), transparent 50%);
+                radial-gradient(ellipse at 20% 30%, rgba(108, 99, 255, 0.06), transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(255, 107, 157, 0.04), transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(78, 205, 196, 0.03), transparent 40%);
             pointer-events: none;
             z-index: -2;
         }
         
-        /* ---- Floating Particles ---- */
-        .particles {
+        /* ---- Grid Background - FRAMER STYLE ---- */
+        body::after {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
             pointer-events: none;
             z-index: -1;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0.15;
-            animation: floatParticle linear infinite;
-        }
-        
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 0.15; }
-            90% { opacity: 0.15; }
-            100% {
-                transform: translateY(-10vh) rotate(720deg);
-                opacity: 0;
-            }
+            opacity: 0.3;
         }
         
         .container {
@@ -120,30 +105,22 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            text-align: center;
         }
         
         /* ============================================================
-           SCROLLBAR
-           ============================================================ */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
-        
-        /* ============================================================
-           NAVBAR - CENTERED
+           FRAMER-STYLE NAVBAR
            ============================================================ */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.5rem;
             margin-bottom: 2rem;
-            background: rgba(8, 10, 14, 0.7);
-            backdrop-filter: blur(12px);
+            background: rgba(10, 11, 15, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 3rem;
+            border-radius: var(--radius-full);
             flex-wrap: wrap;
             gap: 1rem;
             max-width: 1100px;
@@ -164,17 +141,16 @@
             text-decoration: none;
         }
         
-        /* ---- LOGO RI ---- */
         .logo-icon {
             width: 40px;
             height: 40px;
-            border-radius: 12px;
+            border-radius: var(--radius-sm);
             background: linear-gradient(135deg, var(--accent), var(--accent-pink));
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: white;
             flex-shrink: 0;
             transition: var(--transition);
@@ -187,7 +163,7 @@
             content: '';
             position: absolute;
             inset: -2px;
-            border-radius: 12px;
+            border-radius: var(--radius-sm);
             border: 1px solid rgba(108, 99, 255, 0.3);
             animation: logoPulse 2s ease-in-out infinite;
         }
@@ -226,15 +202,16 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
+            padding: 0.3rem 0;
         }
         
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 1.5px;
             background: var(--accent);
             transition: var(--transition);
         }
@@ -246,7 +223,7 @@
             background: var(--accent);
             color: white !important;
             padding: 0.4rem 1.2rem;
-            border-radius: 2rem;
+            border-radius: var(--radius-full);
             font-weight: 600;
         }
         
@@ -255,95 +232,51 @@
             background: var(--accent-hover);
             transform: translateY(-2px);
             box-shadow: 0 8px 25px var(--accent-glow);
+            color: white !important;
         }
         
         /* ============================================================
-           HERO - CENTERED
+           HERO - FRAMER STYLE
            ============================================================ */
         .hero {
-            padding: 1rem 0 2rem;
-            position: relative;
+            padding: 2rem 0 3rem;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        
-        .hero-top {
-            display: flex;
-            align-items: center;
             gap: 1.5rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
         }
         
-        .hero-profile {
-            position: relative;
-            width: 85px;
-            height: 85px;
-            flex-shrink: 0;
-        }
-        
-        .hero-profile .ring {
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, var(--accent), var(--accent-pink), var(--accent-cyan), var(--accent));
-            animation: ringSpin 4s linear infinite;
-            z-index: 0;
-        }
-        
-        @keyframes ringSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .hero-profile img {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--bg);
-            display: block;
-        }
-        
-        .hero-status-group {
+        .hero-badge-group {
             display: flex;
             flex-direction: column;
-            gap: 0.2rem;
             align-items: center;
+            gap: 0.3rem;
         }
         
         .hero-badge {
-            display: inline-block;
-            font-size: 0.65rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            background: rgba(108, 99, 255, 0.12);
-            padding: 0.2rem 1rem;
-            border-radius: 2rem;
-            border: 1px solid rgba(108, 99, 255, 0.15);
+            background: rgba(108, 99, 255, 0.08);
+            padding: 0.3rem 1.2rem;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(108, 99, 255, 0.12);
             color: var(--accent);
             width: fit-content;
             margin: 0 auto;
         }
         
-        .hero-status {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-        
-        .hero-status .dot {
+        .hero-badge .dot {
             display: inline-block;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: #4ade80;
             border-radius: 50%;
-            margin-right: 6px;
             animation: pulseDot 2s infinite;
         }
         
@@ -352,14 +285,12 @@
             50% { opacity: 0.5; transform: scale(0.8); }
         }
         
-        /* ---- Hero Title ---- */
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 4.8rem);
+            font-size: clamp(2.8rem, 8vw, 5.2rem);
             font-weight: 900;
             line-height: 1.05;
-            margin-bottom: 0.5rem;
-            letter-spacing: -2px;
-            text-align: center;
+            letter-spacing: -3px;
+            max-width: 900px;
         }
         
         .hero h1 .highlight {
@@ -377,37 +308,24 @@
         }
         
         .hero .tagline {
-            font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
             color: var(--text-secondary);
-            margin-bottom: 1rem;
             font-weight: 400;
-            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .hero .tagline span {
             color: var(--text);
             font-weight: 600;
-            position: relative;
-        }
-        
-        .hero .tagline span::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            opacity: 0.3;
         }
         
         .hero-description {
             color: var(--text-secondary);
             max-width: 550px;
             font-size: 1.05rem;
-            margin: 0 auto 2rem;
+            margin: 0 auto;
             line-height: 1.9;
-            text-align: center;
         }
         
         .hero-description strong {
@@ -415,12 +333,13 @@
             font-weight: 600;
         }
         
-        /* ---- Hero CTA ---- */
+        /* ---- Hero CTA - FRAMER STYLE ---- */
         .hero-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             justify-content: center;
+            margin-top: 0.5rem;
         }
         
         .btn {
@@ -428,8 +347,8 @@
             align-items: center;
             justify-content: center;
             gap: 0.6rem;
-            padding: 0.8rem 2rem;
-            border-radius: 3rem;
+            padding: 0.8rem 2.2rem;
+            border-radius: var(--radius-full);
             font-weight: 600;
             font-size: 0.9rem;
             font-family: inherit;
@@ -444,6 +363,7 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--accent), var(--accent-hover));
             color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
         }
         
         .btn-primary::before {
@@ -466,7 +386,7 @@
         
         .btn-outline {
             background: transparent;
-            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
             color: var(--text);
         }
         
@@ -477,7 +397,7 @@
         }
         
         /* ============================================================
-           STATS - CENTERED
+           STATS - FRAMER MINIMAL STYLE
            ============================================================ */
         .stats {
             display: grid;
@@ -486,7 +406,7 @@
             padding: 2.5rem 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            margin: 0 auto 3rem;
+            margin: 2rem auto 3rem;
             max-width: 800px;
         }
         
@@ -498,12 +418,18 @@
         
         .stat-item:hover { transform: translateY(-4px); }
         
-        .stat-item .icon { font-size: 1.5rem; display: block; margin-bottom: 0.3rem; }
-        .stat-item .number { font-size: 2rem; font-weight: 800; color: var(--text); }
+        .stat-item .number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -1px;
+        }
+        
+        .stat-item .number .percent { color: var(--accent); }
         .stat-item .label { color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.2rem; }
         
         /* ============================================================
-           SECTIONS - CENTERED
+           SECTIONS - FRAMER CMS STYLE
            ============================================================ */
         .section {
             margin: 5rem auto;
@@ -516,7 +442,7 @@
         }
         
         .section-header .label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -539,7 +465,7 @@
         }
         
         /* ============================================================
-           PROJECTS - CENTERED
+           PROJECTS - FRAMER GRID
            ============================================================ */
         .projects-grid {
             display: grid;
@@ -605,7 +531,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(8, 10, 14, 0.5);
+            background: rgba(10, 11, 15, 0.5);
             opacity: 0;
             transition: var(--transition);
             font-size: 2rem;
@@ -631,7 +557,7 @@
             color: var(--accent);
             background: rgba(108, 99, 255, 0.1);
             padding: 0.15rem 0.6rem;
-            border-radius: 1rem;
+            border-radius: var(--radius-full);
         }
         
         .project-info .year {
@@ -665,7 +591,7 @@
         .project-info .link:hover { gap: 0.6rem; }
         
         /* ============================================================
-           SERVICES - CENTERED
+           SERVICES - FRAMER 4-COLUMN
            ============================================================ */
         .services-grid {
             display: grid;
@@ -710,7 +636,7 @@
         }
         
         /* ============================================================
-           PROCESS - CENTERED
+           PROCESS - FRAMER TIMELINE
            ============================================================ */
         .process-grid {
             display: grid;
@@ -762,7 +688,7 @@
         .process-step p { color: var(--text-secondary); font-size: 0.8rem; }
         
         /* ============================================================
-           TESTIMONIALS - CENTERED
+           TESTIMONIALS - FRAMER CAROUSEL
            ============================================================ */
         .testimonials-wrapper {
             position: relative;
@@ -797,15 +723,15 @@
         .testimonial .quote::before {
             content: '"';
             color: var(--accent);
-            font-size: 2rem;
-            opacity: 0.3;
+            font-size: 2.5rem;
+            opacity: 0.2;
         }
         
         .testimonial .quote::after {
             content: '"';
             color: var(--accent);
-            font-size: 2rem;
-            opacity: 0.3;
+            font-size: 2.5rem;
+            opacity: 0.2;
         }
         
         .testimonial .author { font-weight: 700; font-size: 0.95rem; }
@@ -836,7 +762,7 @@
         }
         
         /* ============================================================
-           ABOUT - CENTERED
+           ABOUT - FRAMER SPLIT
            ============================================================ */
         .about-grid {
             display: grid;
@@ -873,13 +799,13 @@
         .about-image p { color: var(--text-secondary); font-size: 0.85rem; }
         
         /* ============================================================
-           CONTACT - CENTERED
+           CONTACT - FRAMER CTA
            ============================================================ */
         .contact-section {
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.06), rgba(255, 107, 157, 0.03));
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.05), rgba(255, 107, 157, 0.02));
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 3rem;
+            padding: 3.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -914,8 +840,8 @@
         .contact-social {
             display: flex;
             justify-content: center;
-            gap: 1.8rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin-top: 2.5rem;
             flex-wrap: wrap;
         }
         
@@ -926,7 +852,7 @@
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
         
         .contact-social a:hover {
@@ -935,7 +861,7 @@
         }
         
         /* ============================================================
-           FOOTER - CENTERED
+           FOOTER - FRAMER MINIMAL
            ============================================================ */
         .footer {
             text-align: center;
@@ -965,7 +891,7 @@
             .navbar {
                 flex-direction: column;
                 align-items: stretch;
-                border-radius: 1.5rem;
+                border-radius: var(--radius);
                 padding: 0.8rem 1.2rem;
             }
             
@@ -974,9 +900,7 @@
             .nav-links a { font-size: 0.75rem; }
             .nav-cta { padding: 0.3rem 1rem; font-size: 0.7rem; }
             
-            .hero-top { justify-content: center; text-align: center; }
-            .hero-status-group { align-items: center; }
-            .hero { text-align: center; }
+            .hero { text-align: center; padding: 1rem 0 2rem; }
             .hero-description { margin: 0 auto 1.5rem; }
             .hero-buttons { justify-content: center; }
             
@@ -1002,8 +926,7 @@
         }
         
         @media (max-width: 400px) {
-            .hero-profile { width: 65px; height: 65px; }
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
             .hero-buttons .btn,
             .contact-buttons .btn { width: 100%; justify-content: center; }
             .logo-icon { width: 32px; height: 32px; font-size: 0.7rem; }
@@ -1016,7 +939,7 @@
         }
         
         /* ============================================================
-           ANIMATIONS
+           ANIMATIONS - FRAMER SMOOTH
            ============================================================ */
         .fade-up {
             opacity: 0;
@@ -1033,6 +956,34 @@
         .fade-up.delay-2 { transition-delay: 0.2s; }
         .fade-up.delay-3 { transition-delay: 0.3s; }
         .fade-up.delay-4 { transition-delay: 0.4s; }
+        
+        /* ---- Scroll indicator ---- */
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounceDown 2s infinite;
+        }
+        
+        .scroll-indicator .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--text-muted);
+            border-bottom: 2px solid var(--text-muted);
+            transform: rotate(45deg);
+            opacity: 0.5;
+        }
+        
+        @keyframes bounceDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
     </style>
 </head>
 <body>
@@ -1044,7 +995,7 @@
     <div class="container">
         
         <!-- ============================================================
-        NAVBAR
+        NAVBAR - FRAMER STYLE
         ============================================================ -->
         <nav class="navbar">
             <div class="navbar-left">
@@ -1062,18 +1013,11 @@
         </nav>
         
         <!-- ============================================================
-        HERO
+        HERO - FRAMER INSPIRED
         ============================================================ -->
         <section class="hero">
-            <div class="hero-top">
-                <div class="hero-profile">
-                    <div class="ring"></div>
-                    <img src="images/profile.webp" alt="Rebas Ifils" onerror="this.src='https://ui-avatars.com/api/?background=6C63FF&color=fff&bold=true&size=85&name=RI'">
-                </div>
-                <div class="hero-status-group">
-                    <span class="hero-badge">✦ Web Designer</span>
-                    <span class="hero-status"><span class="dot"></span> Available for projects</span>
-                </div>
+            <div class="hero-badge-group">
+                <span class="hero-badge"><span class="dot"></span> Available for projects</span>
             </div>
             
             <h1>I craft <span class="highlight">digital experiences</span> that matter.</h1>
@@ -1086,31 +1030,33 @@
                 <a href="#work" class="btn btn-primary">See My Work</a>
                 <a href="#contact" class="btn btn-outline">Let's Talk</a>
             </div>
+            
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="arrow"></div>
+            </div>
         </section>
         
         <!-- ============================================================
-        STATS
+        STATS - FRAMER STYLE
         ============================================================ -->
         <div class="stats">
             <div class="stat-item">
-                <span class="icon">🛠️</span>
                 <div class="number">3</div>
                 <div class="label">Projects Delivered</div>
             </div>
             <div class="stat-item">
-                <span class="icon">📱</span>
-                <div class="number">100%</div>
+                <div class="number">100<span class="percent">%</span></div>
                 <div class="label">Responsive Design</div>
             </div>
             <div class="stat-item">
-                <span class="icon">⚡</span>
-                <div class="number">24h</div>
+                <div class="number">24<span class="percent">h</span></div>
                 <div class="label">Avg. Response Time</div>
             </div>
         </div>
         
         <!-- ============================================================
-        WORK
+        WORK - FRAMER GRID
         ============================================================ -->
         <section class="section" id="work">
             <div class="section-header">
@@ -1171,7 +1117,7 @@
         </section>
         
         <!-- ============================================================
-        SERVICES
+        SERVICES - FRAMER 4-COLUMN
         ============================================================ -->
         <section class="section" id="services">
             <div class="section-header">
@@ -1205,7 +1151,7 @@
         </section>
         
         <!-- ============================================================
-        PROCESS
+        PROCESS - FRAMER TIMELINE
         ============================================================ -->
         <section class="section">
             <div class="section-header">
@@ -1239,7 +1185,7 @@
         </section>
         
         <!-- ============================================================
-        TESTIMONIALS
+        TESTIMONIALS - FRAMER CAROUSEL
         ============================================================ -->
         <section class="section">
             <div class="section-header">
@@ -1271,7 +1217,7 @@
         </section>
         
         <!-- ============================================================
-        ABOUT
+        ABOUT - FRAMER SPLIT
         ============================================================ -->
         <section class="section" id="about">
             <div class="about-grid">
@@ -1291,7 +1237,7 @@
         </section>
         
         <!-- ============================================================
-        CONTACT
+        CONTACT - FRAMER CTA
         ============================================================ -->
         <section class="section" id="contact">
             <div class="contact-section">
@@ -1322,24 +1268,25 @@
     
     <script>
         // ============================================================
-        // PARTICLES
+        // PARTICLES - FRAMER INSPIRED
         // ============================================================
         (function() {
             const container = document.getElementById('particles');
-            for (let i = 0; i < 25; i++) {
+            for (let i = 0; i < 30; i++) {
                 const p = document.createElement('span');
                 p.className = 'particle';
                 p.style.left = Math.random() * 100 + '%';
-                p.style.animationDuration = (15 + Math.random() * 25) + 's';
+                p.style.animationDuration = (20 + Math.random() * 30) + 's';
                 p.style.animationDelay = (Math.random() * 20) + 's';
-                p.style.width = (2 + Math.random() * 3) + 'px';
+                p.style.width = (2 + Math.random() * 4) + 'px';
                 p.style.height = p.style.width;
+                p.style.opacity = 0.1 + Math.random() * 0.1;
                 container.appendChild(p);
             }
         })();
         
         // ============================================================
-        // TESTIMONIALS CAROUSEL
+        // TESTIMONIALS CAROUSEL - FRAMER STYLE
         // ============================================================
         const track = document.getElementById('testimonialsTrack');
         const dotsContainer = document.getElementById('testimonialDots');
@@ -1376,7 +1323,7 @@
         });
         
         // ============================================================
-        // FADE UP OBSERVER
+        // FADE UP OBSERVER - FRAMER SMOOTH
         // ============================================================
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1391,7 +1338,7 @@
         
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         
-        console.log('🚀 Rebas Ifils — Portfolio 10/10');
+        console.log('🚀 Rebas Ifils — FRAMER-Inspired Portfolio 10/10');
     </script>
 </body>
 </html>
