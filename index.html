@@ -1138,6 +1138,139 @@
     z-index: 10 !important;
     position: relative !important;
 }
+        /* ============================================================
+   PRICING SECTION
+   ============================================================ */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.2rem;
+    transition: var(--transition);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    box-shadow: var(--shadow);
+}
+
+.pricing-highlight {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.pricing-highlight:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.pricing-header {
+    margin-bottom: 0.8rem;
+}
+
+.pricing-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.pricing-header h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.pricing-price {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    flex: 1;
+}
+
+.pricing-features li {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: 0.2rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.75rem;
+    font-family: inherit;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: auto;
+}
+
+.pricing-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    border-color: #25D366;
+    color: #fff;
+}
+
+.btn-whatsapp:hover {
+    background: #1da851;
+    border-color: #1da851;
+    color: #fff;
+}
+
+/* Responsive Pricing */
+@media (max-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+    
+    .pricing-card {
+        padding: 1.2rem;
+    }
+}
     </style>
 </head>
     <script>
@@ -1320,7 +1453,153 @@
                 </div>
             </div>
         </section>
-        
+        <!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="section" id="pricing">
+    <div class="section-header">
+        <span class="label">Pricing</span>
+        <h2>Simple, Transparent Pricing</h2>
+        <p>Choose what fits your needs, or request a custom quote.</p>
+    </div>
+
+    <!-- Fixed Services -->
+    <div style="max-width:1100px;margin:0 auto 2.5rem;">
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">Fixed Services</h3>
+        <div class="pricing-grid">
+
+            <!-- FREE Website Audit -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="pricing-icon">🔍</span>
+                    <h4>Website Audit</h4>
+                    <div class="pricing-price">FREE</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Website review</li>
+                    <li>Mobile experience review</li>
+                    <li>Performance observations</li>
+                    <li>Conversion suggestions</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Get Started</a>
+            </div>
+
+            <!-- Website Optimization -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="pricing-icon">⚡</span>
+                    <h4>Website Optimization</h4>
+                    <div class="pricing-price">From 8,000 DA</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Mobile optimization</li>
+                    <li>UI improvements</li>
+                    <li>WhatsApp integration</li>
+                    <li>CTA optimization</li>
+                    <li>Speed improvements</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Request Quote</a>
+            </div>
+
+            <!-- Landing Page -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="pricing-icon">📄</span>
+                    <h4>Landing Page</h4>
+                    <div class="pricing-price">From 15,000 DA</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Responsive design</li>
+                    <li>Modern UI</li>
+                    <li>SEO-ready</li>
+                    <li>Fast loading</li>
+                    <li>WhatsApp integration</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Request Quote</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Custom Projects -->
+    <div style="max-width:1100px;margin:0 auto;">
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">Custom Projects</h3>
+        <p style="text-align:center;color:var(--text-secondary);font-size:0.9rem;margin-bottom:1.5rem;">
+            Every business is different. The final price depends on: number of pages, features required, existing website or new project, design complexity, and timeline.
+        </p>
+
+        <div class="pricing-grid custom-grid">
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="pricing-icon">🏢</span>
+                    <h4>Business Website</h4>
+                    <div class="pricing-price">From 35,000 DA</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Up to 5 pages</li>
+                    <li>Contact form</li>
+                    <li>WhatsApp integration</li>
+                    <li>Basic SEO</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Request Quote</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="pricing-icon">🛒</span>
+                    <h4>E-commerce Website</h4>
+                    <div class="pricing-price">From 70,000 DA</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Product catalog</li>
+                    <li>Shopping cart</li>
+                    <li>Payment gateway</li>
+                    <li>Order management</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Request Quote</a>
+            </div>
+
+            <div class="pricing-card pricing-highlight">
+                <div class="pricing-header">
+                    <span class="pricing-icon">📐</span>
+                    <h4>Custom Project</h4>
+                    <div class="pricing-price" style="font-size:1rem;color:var(--accent);">Request a Quote</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Website Redesign</li>
+                    <li>WordPress Improvements</li>
+                    <li>Booking Systems</li>
+                    <li>Custom Features</li>
+                </ul>
+                <a href="https://wa.me/213771021391" target="_blank" class="pricing-btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Request a Quote
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- What's Included -->
+    <div style="max-width:900px;margin:2.5rem auto 0;padding:1.5rem;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);text-align:center;">
+        <p style="font-size:0.9rem;font-weight:600;margin-bottom:0.5rem;color:var(--accent);">✓ Every Project Includes</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem 1.5rem;font-size:0.8rem;color:var(--text-secondary);">
+            <span>✓ Responsive Design</span>
+            <span>✓ Mobile Optimization</span>
+            <span>✓ Modern UI / UX</span>
+            <span>✓ Basic SEO</span>
+            <span>✓ WhatsApp Integration</span>
+            <span>✓ Performance Optimization</span>
+            <span>✓ Delivery Support</span>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center;margin-top:2rem;">
+        <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:0.8rem;">Not sure what you need? Let's talk.</p>
+        <a href="#contact" class="btn btn-primary">📩 Get a Free Consultation</a>
+    </div>
+                        </section>
         <!-- ===== PROCESS ===== -->
         <section class="section">
             <div class="section-header">
