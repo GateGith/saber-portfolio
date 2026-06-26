@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- ============================================================
-    SEO OPTIMIZED — 40% BETTER VISIBILITY
+    SEO OPTIMIZED
     ============================================================ -->
     <title>Rebas Ifils — Professional Web Designer & Developer</title>
-    <meta name="description" content="Rebas Ifils - Professional web designer. I build modern, responsive websites that help businesses grow. 3+ projects delivered, 100% responsive, 24h response.">
+    <meta name="description" content="Rebas Ifils - Professional web designer. I build modern, responsive websites that help businesses grow. 4+ projects delivered, 100% responsive, 24h response.">
     <meta name="keywords" content="web designer, web developer, freelance web designer, responsive design, website design, UI/UX, landing page">
-    <meta name="author" content="Rebas Ifils">
+    <meta name="author" content="Saber Slifi">
     <meta name="robots" content="index, follow">
-    <meta name="revisit-after" content="7 days">
     <link rel="canonical" href="https://rebas-ifils.com">
     
     <!-- ============================================================
-    OPEN GRAPH / SOCIAL MEDIA
+    OPEN GRAPH
     ============================================================ -->
     <meta property="og:title" content="Rebas Ifils — Professional Web Designer">
     <meta property="og:description" content="Modern, responsive websites that help businesses grow. 100% responsive, 24h response.">
@@ -24,11 +23,9 @@
     <meta property="og:url" content="https://rebas-ifils.com">
     <meta property="og:image" content="images/og-image.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Rebas Ifils — Professional Web Designer">
-    <meta name="twitter:description" content="Modern, responsive websites that help businesses grow.">
     
     <!-- ============================================================
-    SCHEMA.ORG — LOCAL BUSINESS (SEO)
+    SCHEMA.ORG
     ============================================================ -->
     <script type="application/ld+json">
     {
@@ -45,21 +42,12 @@
             "ratingValue": "4.9",
             "reviewCount": "12"
         },
-        "areaServed": ["DZ", "FR", "Worldwide"],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Web Design Services",
-            "itemListElement": [
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Design"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Responsive Design"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "WhatsApp Integration"}}
-            ]
-        }
+        "areaServed": ["DZ", "FR", "Worldwide"]
     }
     </script>
     
     <!-- ============================================================
-    FONTS — PERFORMANCE OPTIMIZED
+    FONTS
     ============================================================ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,60 +56,32 @@
     
     <style>
         /* ============================================================
-           CSS — 60% FASTER, 70% CLEANER
+           RESET & VARIABLES
            ============================================================ */
-        
-        /* ----- RESET & VARIABLES ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
         
         :root {
-            /* === COLORS === */
-            --bg: #080a0e;
-            --bg-card: rgba(255,255,255,0.03);
-            --bg-card-hover: rgba(255,255,255,0.06);
-            --border: rgba(255,255,255,0.05);
-            --border-hover: rgba(108,99,255,0.35);
-            
-            /* === ACCENT GRADIENTS === */
-            --accent: #6C63FF;
-            --accent-hover: #7B73FF;
-            --accent-glow: rgba(108,99,255,0.25);
-            --accent-pink: #FF6B9D;
-            --accent-cyan: #4ECDC4;
-            --accent-yellow: #FFD93D;
-            --gradient-main: linear-gradient(135deg, #6C63FF, #FF6B9D, #4ECDC4);
-            --gradient-btn: linear-gradient(135deg, #6C63FF, #7B73FF);
-            
-            /* === TEXT === */
-            --text: #ffffff;
-            --text-secondary: #a0aec0;
-            --text-muted: #6b7280;
-            
-            /* === SPACING === */
+            --bg: #07090d;
+            --bg-card: rgba(255,255,255,0.02);
+            --bg-card-hover: rgba(255,255,255,0.05);
+            --border: rgba(255,255,255,0.04);
+            --border-hover: rgba(180,140,255,0.2);
+            --accent: #b48cff;
+            --accent-dim: rgba(180,140,255,0.08);
+            --accent-glow: rgba(180,140,255,0.12);
+            --accent-pink: #ff6b9d;
+            --accent-cyan: #4ecdc4;
+            --text: #f1f1f1;
+            --text-secondary: #8a8a9a;
+            --text-muted: #5a5a6a;
             --radius: 1.2rem;
-            --radius-sm: 0.8rem;
             --radius-full: 9999px;
-            
-            /* === TRANSITIONS === */
-            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             --shadow: 0 20px 60px rgba(0,0,0,0.5);
-            --shadow-glow: 0 0 40px rgba(108,99,255,0.15);
-            
-            /* === FONTS === */
             --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
-        /* ----- BASE ----- */
         body {
             font-family: var(--font);
             background: var(--bg);
@@ -132,49 +92,35 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         
-        /* Animated gradient background */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
-            background: 
-                radial-gradient(ellipse at 20% 30%, rgba(108,99,255,0.07), transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(255,107,157,0.05), transparent 50%),
-                radial-gradient(ellipse at 50% 100%, rgba(78,205,196,0.03), transparent 40%);
+            background:
+                radial-gradient(ellipse at 15% 25%, rgba(180,140,255,0.06), transparent 50%),
+                radial-gradient(ellipse at 85% 75%, rgba(255,107,157,0.04), transparent 50%);
             pointer-events: none;
             z-index: -2;
-            animation: bgPulse 10s ease-in-out infinite alternate;
         }
         
-        @keyframes bgPulse {
-            0% { opacity: 0.8; }
-            100% { opacity: 1.2; }
-        }
-        
-        /* Grid pattern */
         body::after {
             content: '';
             position: fixed;
             inset: 0;
             background-image: 
-                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+            background-size: 60px 60px;
             pointer-events: none;
             z-index: -1;
         }
         
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
+        .container { max-width: 1200px; width: 100%; margin: 0 auto; position: relative; z-index: 1; }
         
-        /* ----- PARTICLES (Lightweight) ----- */
+        /* PARTICLES */
         .particles {
             position: fixed;
             inset: 0;
@@ -182,296 +128,229 @@
             z-index: -1;
             overflow: hidden;
         }
-        
         .particle {
             position: absolute;
-            width: 3px;
-            height: 3px;
+            width: 2px;
+            height: 2px;
             background: var(--accent);
             border-radius: 50%;
-            opacity: 0.08;
+            opacity: 0.06;
             animation: floatParticle linear infinite;
         }
-        
         @keyframes floatParticle {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.08; }
-            90% { opacity: 0.08; }
+            10% { opacity: 0.06; }
+            90% { opacity: 0.06; }
             100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
         }
         
-        /* ----- SCROLLBAR ----- */
-        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
         
         /* ============================================================
-           NAVBAR — 70% CLEANER
+           NAVBAR
            ============================================================ */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem 1.5rem;
+            padding: 0.4rem 1.2rem;
             margin-bottom: 2rem;
-            background: rgba(8,10,14,0.8);
+            background: rgba(7,9,13,0.7);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: var(--radius-full);
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
             max-width: 1100px;
             margin-left: auto;
             margin-right: auto;
             transition: var(--transition);
         }
+        .navbar:hover { border-color: rgba(180,140,255,0.12); }
         
-        .navbar:hover {
-            border-color: rgba(108,99,255,0.15);
-            box-shadow: var(--shadow-glow);
-        }
-        
-        .navbar-left {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        
-        /* ----- LOGO "RI" WITH GLOW ----- */
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-        }
+        .navbar-left { display: flex; align-items: center; gap: 0.6rem; }
+        .logo-wrapper { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
         
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-sm);
-            background: var(--gradient-main);
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-pink));
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: 0.85rem;
-            color: white;
+            font-size: 0.7rem;
+            color: #fff;
             flex-shrink: 0;
             transition: var(--transition);
             position: relative;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(108,99,255,0.2);
         }
-        
         .logo-icon::after {
             content: '';
             position: absolute;
-            inset: -3px;
-            border-radius: var(--radius-sm);
-            border: 1.5px solid rgba(108,99,255,0.2);
+            inset: -2px;
+            border-radius: 10px;
+            border: 1px solid rgba(180,140,255,0.15);
             animation: logoPulse 2.5s ease-in-out infinite;
         }
-        
         @keyframes logoPulse {
-            0%, 100% { transform: scale(1); opacity: 0.4; }
-            50% { transform: scale(1.15); opacity: 0; }
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.12); opacity: 0; }
         }
+        .logo-wrapper:hover .logo-icon { transform: rotate(-6deg) scale(1.04); }
         
-        .logo-wrapper:hover .logo-icon {
-            transform: rotate(-8deg) scale(1.05);
-            box-shadow: 0 0 40px rgba(108,99,255,0.4);
-        }
-        
-        .logo-text {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--text);
-            letter-spacing: -0.5px;
-        }
-        
-        .logo-text span { 
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+        .logo-text { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+        .logo-text span { color: var(--accent); }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.8rem;
             list-style: none;
             align-items: center;
             flex-wrap: wrap;
             justify-content: center;
         }
-        
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             transition: var(--transition);
             position: relative;
-            padding: 0.3rem 0;
+            padding: 0.2rem 0;
         }
-        
         .nav-links a::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--gradient-main);
+            height: 1.5px;
+            background: var(--accent);
             transition: var(--transition);
         }
-        
         .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover { color: var(--text); }
         
         .nav-cta {
-            background: var(--gradient-btn);
-            color: white !important;
-            padding: 0.4rem 1.2rem;
+            background: var(--accent);
+            color: #fff !important;
+            padding: 0.3rem 1rem;
             border-radius: var(--radius-full);
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(108,99,255,0.2);
+            font-size: 0.7rem;
         }
-        
         .nav-cta::after { display: none !important; }
         .nav-cta:hover {
+            background: #c4a0ff;
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(108,99,255,0.4);
-            color: white !important;
+            box-shadow: 0 8px 25px var(--accent-glow);
         }
         
         /* ============================================================
-           HERO — WITH TYPING EFFECT
+           HERO
            ============================================================ */
         .hero {
-            padding: 2rem 0 3rem;
+            padding: 1.5rem 0 2.5rem;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
         
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.7rem;
+            gap: 0.4rem;
+            font-size: 0.6rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            background: rgba(108,99,255,0.08);
-            padding: 0.3rem 1.2rem;
+            background: var(--accent-dim);
+            padding: 0.2rem 1rem;
             border-radius: var(--radius-full);
-            border: 1px solid rgba(108,99,255,0.12);
+            border: 1px solid rgba(180,140,255,0.1);
             color: var(--accent);
         }
-        
         .hero-badge .dot {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: #4ade80;
+            width: 5px; height: 5px;
             border-radius: 50%;
+            background: #4ade80;
             animation: pulseDot 2s infinite;
         }
-        
         @keyframes pulseDot {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
+            50% { opacity: 0.4; transform: scale(0.7); }
         }
         
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.2rem, 7vw, 4.5rem);
             font-weight: 900;
             line-height: 1.05;
             letter-spacing: -2px;
-            max-width: 900px;
+            max-width: 850px;
         }
-        
         .hero h1 .highlight {
-            background: var(--gradient-main);
+            background: linear-gradient(135deg, var(--accent), var(--accent-pink), var(--accent-cyan));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             background-size: 300% 300%;
             animation: gradientShift 5s ease-in-out infinite;
         }
-        
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
         
-        /* ----- TYPING EFFECT ----- */
         .typing-wrapper {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-size: clamp(1rem, 2vw, 1.3rem);
             color: var(--text-secondary);
-            min-height: 2.5rem;
+            min-height: 2.2rem;
             font-weight: 400;
         }
-        
-        .typing-wrapper .static-text {
-            color: var(--text-secondary);
-        }
-        
         .typing-wrapper .dynamic-text {
             color: var(--text);
             font-weight: 600;
             position: relative;
         }
-        
         .typing-wrapper .dynamic-text::after {
             content: '|';
             display: inline-block;
             animation: blink 0.8s step-end infinite;
             color: var(--accent);
             font-weight: 300;
-            margin-left: 2px;
         }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         
         .hero-description {
             color: var(--text-secondary);
-            max-width: 550px;
-            font-size: 1rem;
-            line-height: 1.9;
+            max-width: 480px;
+            font-size: 0.95rem;
+            line-height: 1.8;
         }
-        
-        .hero-description strong {
-            color: var(--text);
-            font-weight: 600;
-        }
+        .hero-description strong { color: var(--text); font-weight: 600; }
         
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
         }
         
-        /* ----- BUTTONS ----- */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            padding: 0.8rem 2rem;
+            gap: 0.5rem;
+            padding: 0.7rem 1.8rem;
             border-radius: var(--radius-full);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-family: inherit;
             border: none;
             cursor: pointer;
@@ -480,13 +359,11 @@
             position: relative;
             overflow: hidden;
         }
-        
         .btn-primary {
-            background: var(--gradient-btn);
-            color: white;
-            box-shadow: 0 4px 20px rgba(108,99,255,0.3);
+            background: linear-gradient(135deg, var(--accent), #a070ff);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--accent-glow);
         }
-        
         .btn-primary::before {
             content: '';
             position: absolute;
@@ -494,54 +371,47 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
             transition: left 0.6s;
         }
-        
         .btn-primary:hover::before { left: 100%; }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(108,99,255,0.4);
+            box-shadow: 0 12px 35px var(--accent-glow);
         }
-        
         .btn-outline {
             background: transparent;
-            border: 1.5px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.06);
             color: var(--text);
         }
-        
         .btn-outline:hover {
             border-color: var(--accent);
-            background: rgba(108,99,255,0.06);
+            background: var(--accent-dim);
             transform: translateY(-3px);
         }
         
-        /* ----- SCROLL INDICATOR ----- */
         .scroll-indicator {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.3rem;
-            margin-top: 1.5rem;
+            gap: 0.2rem;
+            margin-top: 1rem;
             color: var(--text-muted);
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             animation: bounceDown 2s infinite;
         }
-        
         .scroll-indicator .arrow {
-            width: 18px;
-            height: 18px;
-            border-right: 2px solid var(--text-muted);
-            border-bottom: 2px solid var(--text-muted);
+            width: 16px; height: 16px;
+            border-right: 1.5px solid var(--text-muted);
+            border-bottom: 1.5px solid var(--text-muted);
             transform: rotate(45deg);
-            opacity: 0.4;
+            opacity: 0.3;
         }
-        
         @keyframes bounceDown {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(6px); }
+            50% { transform: translateY(5px); }
         }
         
         /* ============================================================
@@ -550,75 +420,55 @@
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            padding: 2rem 0;
+            gap: 1.2rem;
+            padding: 1.8rem 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            margin: 1.5rem auto 3rem;
-            max-width: 700px;
+            margin: 1rem auto 2.5rem;
+            max-width: 600px;
         }
-        
         .stat-item {
             text-align: center;
-            padding: 0.5rem;
+            padding: 0.3rem;
             transition: var(--transition);
         }
-        
-        .stat-item:hover { transform: translateY(-4px); }
-        
+        .stat-item:hover { transform: translateY(-3px); }
         .stat-item .number {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--text);
             letter-spacing: -1px;
         }
-        
-        .stat-item .number .accent { 
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .stat-item .label { color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.2rem; }
+        .stat-item .number .accent { color: var(--accent); }
+        .stat-item .label { color: var(--text-secondary); font-size: 0.7rem; margin-top: 0.1rem; }
         
         /* ============================================================
            SECTIONS
            ============================================================ */
-        .section {
-            margin: 4rem auto;
-            max-width: 1200px;
-        }
-        
+        .section { margin: 3.5rem auto; max-width: 1200px; }
         .section-header {
             margin-bottom: 2rem;
             text-align: center;
         }
-        
         .section-header .label {
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--accent);
             display: block;
             margin-bottom: 0.2rem;
         }
-        
         .section-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
             font-weight: 800;
             letter-spacing: -1px;
         }
-        
         .section-header p {
             color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 500px;
-            margin: 0.3rem auto 0;
+            font-size: 0.9rem;
+            max-width: 450px;
+            margin: 0.2rem auto 0;
         }
         
         /* ============================================================
@@ -627,11 +477,10 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 1.2rem;
             max-width: 1100px;
             margin: 0 auto;
         }
-        
         .project-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -642,110 +491,95 @@
             text-align: left;
             position: relative;
         }
-        
         .project-card::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: var(--radius);
-            background: linear-gradient(135deg, rgba(108,99,255,0.05), rgba(255,107,157,0.02));
+            background: linear-gradient(135deg, rgba(180,140,255,0.04), rgba(255,107,157,0.02));
             opacity: 0;
             transition: var(--transition);
         }
-        
         .project-card:hover::before { opacity: 1; }
         .project-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--border-hover);
             box-shadow: var(--shadow);
             background: var(--bg-card-hover);
         }
-        
         .project-image {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #12121f, #1e1e32);
+            height: 180px;
+            background: linear-gradient(135deg, #111122, #1a1a2e);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
+            font-size: 3rem;
             overflow: hidden;
             position: relative;
         }
-        
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
-        
-        .project-card:hover .project-image img { transform: scale(1.05); }
-        
+        .project-card:hover .project-image img { transform: scale(1.04); }
         .project-image .overlay-icon {
             position: absolute;
             inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(8,10,14,0.5);
+            background: rgba(7,9,13,0.5);
             opacity: 0;
             transition: var(--transition);
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
-        
         .project-card:hover .project-image .overlay-icon { opacity: 1; }
-        
-        .project-info { padding: 1.2rem 1.5rem 1.5rem; }
-        
+        .project-info { padding: 1rem 1.2rem 1.2rem; }
         .project-info .meta {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.6rem;
             align-items: center;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
             flex-wrap: wrap;
         }
-        
         .project-info .tag {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--accent);
-            background: rgba(108,99,255,0.1);
-            padding: 0.15rem 0.6rem;
+            background: var(--accent-dim);
+            padding: 0.1rem 0.5rem;
             border-radius: var(--radius-full);
         }
-        
         .project-info .year {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: var(--text-muted);
         }
-        
         .project-info h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
         }
-        
         .project-info p {
             color: var(--text-secondary);
-            font-size: 0.8rem;
-            margin-bottom: 0.8rem;
+            font-size: 0.75rem;
+            margin-bottom: 0.6rem;
         }
-        
         .project-info .link {
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.2rem;
             transition: gap 0.3s;
         }
-        
-        .project-info .link:hover { gap: 0.6rem; }
+        .project-info .link:hover { gap: 0.5rem; }
         
         /* ============================================================
            SERVICES
@@ -753,43 +587,123 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: 1.2rem;
             max-width: 1100px;
             margin: 0 auto;
         }
-        
         .service-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.8rem 1.5rem;
+            padding: 1.5rem 1.2rem;
             transition: var(--transition);
             text-align: center;
         }
-        
         .service-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             border-color: var(--border-hover);
             background: var(--bg-card-hover);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
         }
-        
         .service-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.8rem;
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
             display: block;
         }
-        
         .service-card h3 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
-        
         .service-card p {
             color: var(--text-secondary);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             line-height: 1.6;
+        }
+        
+        /* ============================================================
+           PRICING
+           ============================================================ */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem 1.2rem;
+            transition: var(--transition);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            box-shadow: var(--shadow);
+        }
+        .pricing-highlight {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+        .pricing-highlight:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+        .pricing-header { margin-bottom: 0.8rem; }
+        .pricing-icon { font-size: 2rem; display: block; margin-bottom: 0.3rem; }
+        .pricing-header h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .pricing-price { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem;
+            flex: 1;
+        }
+        .pricing-features li {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            padding: 0.15rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.7rem;
+            font-family: inherit;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+        .pricing-btn:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            transform: translateY(-2px);
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            border-color: #25D366;
+            color: #fff;
+        }
+        .btn-whatsapp:hover {
+            background: #1da851;
+            border-color: #1da851;
+            color: #fff;
         }
         
         /* ============================================================
@@ -798,51 +712,45 @@
         .process-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: 1.2rem;
             max-width: 1100px;
             margin: 0 auto;
         }
-        
         .process-step {
             text-align: center;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.8rem 1rem;
+            padding: 1.5rem 1rem;
             transition: var(--transition);
             position: relative;
         }
-        
         .process-step::after {
             content: '→';
             position: absolute;
-            right: -1.2rem;
+            right: -1rem;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
-        
         .process-step:last-child::after { display: none; }
-        
         .process-step:hover {
             border-color: var(--border-hover);
             transform: translateY(-4px);
         }
-        
         .process-step .number {
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 900;
-            background: var(--gradient-main);
+            background: linear-gradient(135deg, var(--accent), var(--accent-pink));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             display: block;
-            opacity: 0.6;
+            opacity: 0.5;
         }
-        
-        .process-step h4 { font-size: 1rem; margin: 0.5rem 0 0.2rem; }
-        .process-step p { color: var(--text-secondary); font-size: 0.8rem; }
+        .process-step h4 { font-size: 0.9rem; margin: 0.4rem 0 0.1rem; }
+        .process-step p { color: var(--text-secondary); font-size: 0.7rem; }
         
         /* ============================================================
            TESTIMONIALS
@@ -853,57 +761,48 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 2.5rem 2rem;
-            max-width: 900px;
+            padding: 2rem 1.5rem;
+            max-width: 850px;
             margin: 0 auto;
         }
-        
         .testimonials-track {
             display: flex;
             transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
         .testimonial {
             min-width: 100%;
-            padding: 0.5rem;
+            padding: 0.3rem;
             text-align: center;
         }
-        
         .testimonial .quote {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            max-width: 650px;
-            margin: 0 auto 1.2rem;
-            line-height: 1.9;
+            max-width: 600px;
+            margin: 0 auto 1rem;
+            line-height: 1.8;
         }
-        
         .testimonial .quote::before {
             content: '"';
             color: var(--accent);
-            font-size: 2.5rem;
+            font-size: 2rem;
             opacity: 0.2;
         }
-        
         .testimonial .quote::after {
             content: '"';
             color: var(--accent);
-            font-size: 2.5rem;
+            font-size: 2rem;
             opacity: 0.2;
         }
-        
-        .testimonial .author { font-weight: 700; font-size: 0.95rem; }
-        .testimonial .role { color: var(--text-muted); font-size: 0.8rem; }
-        
+        .testimonial .author { font-weight: 700; font-size: 0.85rem; }
+        .testimonial .role { color: var(--text-muted); font-size: 0.7rem; }
         .testimonial-dots {
             display: flex;
             justify-content: center;
-            gap: 0.6rem;
-            margin-top: 1.5rem;
+            gap: 0.4rem;
+            margin-top: 1.2rem;
         }
-        
         .testimonial-dots .dot {
-            width: 8px;
-            height: 8px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: var(--text-muted);
             border: none;
@@ -911,77 +810,71 @@
             transition: var(--transition);
             padding: 0;
         }
-        
         .testimonial-dots .dot.active {
             background: var(--accent);
-            width: 28px;
-            border-radius: 4px;
+            width: 22px;
+            border-radius: 3px;
         }
         
         /* ============================================================
-           ABOUT
+           ABOUT — UNIQUE STORY
            ============================================================ */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 2.5rem;
             align-items: center;
             max-width: 1100px;
             margin: 0 auto;
         }
-        
         .about-text { text-align: left; }
-        .about-text h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
-        .about-text p { color: var(--text-secondary); margin-bottom: 0.8rem; line-height: 1.9; }
+        .about-text h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.3rem; }
+        .about-text p { color: var(--text-secondary); margin-bottom: 0.6rem; line-height: 1.8; font-size: 0.9rem; }
         .about-text p strong { color: var(--text); }
         
         .about-text .story {
             color: var(--text-secondary);
             font-style: italic;
-            border-left: 3px solid var(--accent);
-            padding-left: 1rem;
-            margin-top: 0.5rem;
+            border-left: 2px solid var(--accent);
+            padding-left: 0.8rem;
+            margin-top: 0.3rem;
+            font-size: 0.85rem;
         }
         
         .about-image {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 2rem;
+            padding: 1.8rem;
             text-align: center;
             transition: var(--transition);
         }
-        
         .about-image:hover {
             border-color: var(--border-hover);
             box-shadow: var(--shadow-glow);
         }
-        
-        .about-image .emoji { font-size: 4rem; }
-        .about-image h3 { margin-top: 0.5rem; }
-        .about-image p { color: var(--text-secondary); font-size: 0.85rem; }
+        .about-image .emoji { font-size: 3.5rem; }
+        .about-image h3 { margin-top: 0.3rem; font-size: 1rem; }
+        .about-image p { color: var(--text-secondary); font-size: 0.8rem; }
         
         /* ============================================================
            CONTACT
            ============================================================ */
         .contact-section {
-            background: linear-gradient(135deg, rgba(108,99,255,0.05), rgba(255,107,157,0.02));
+            background: linear-gradient(135deg, rgba(180,140,255,0.04), rgba(255,107,157,0.02));
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 3rem;
+            padding: 2.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
             transition: var(--transition);
         }
-        
         .contact-section:hover {
-            border-color: rgba(108,99,255,0.15);
-            box-shadow: var(--shadow-glow);
+            border-color: rgba(180,140,255,0.12);
         }
-        
         .contact-section::before {
             content: '';
             position: absolute;
@@ -989,44 +882,37 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(108,99,255,0.03), transparent 60%);
+            background: radial-gradient(circle, rgba(180,140,255,0.03), transparent 60%);
             animation: rotateBg 20s linear infinite;
             pointer-events: none;
         }
-        
         @keyframes rotateBg {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        
         .contact-section > * { position: relative; z-index: 1; }
-        
-        .contact-section h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
-        .contact-section p { color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-        
-        .contact-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        
+        .contact-section h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.3rem; }
+        .contact-section p { color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 450px; margin-left: auto; margin-right: auto; font-size: 0.9rem; }
+        .contact-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
         .contact-social {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 1.8rem;
             flex-wrap: wrap;
         }
-        
         .contact-social a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.4rem;
         }
-        
         .contact-social a:hover {
             color: var(--text);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
         
         /* ============================================================
@@ -1034,11 +920,11 @@
            ============================================================ */
         .footer {
             text-align: center;
-            padding: 2rem 0 1rem;
-            margin-top: 4rem;
+            padding: 1.8rem 0 0.8rem;
+            margin-top: 3.5rem;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
-            font-size: 0.75rem;
+            font-size: 0.65rem;
         }
         
         /* ============================================================
@@ -1048,63 +934,52 @@
             .projects-grid { grid-template-columns: repeat(2, 1fr); }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
             .process-step::after { display: none; }
-            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .about-text { text-align: center; }
-            .about-text .story { border-left: none; border-top: 3px solid var(--accent); padding-left: 0; padding-top: 1rem; }
+            .about-text .story { border-left: none; border-top: 2px solid var(--accent); padding-left: 0; padding-top: 0.6rem; }
         }
         
         @media (max-width: 768px) {
             body { padding: 1rem; }
-            
             .navbar {
                 flex-direction: column;
                 align-items: stretch;
                 border-radius: var(--radius);
-                padding: 0.8rem 1.2rem;
+                padding: 0.6rem 1rem;
             }
-            
             .navbar .navbar-left { justify-content: space-between; width: 100%; }
-            .nav-links { 
-                justify-content: center; 
-                gap: 0.8rem; 
-                border-top: 1px solid var(--border); 
-                padding-top: 0.8rem; 
-            }
-            .nav-links a { font-size: 0.7rem; }
-            .nav-cta { padding: 0.3rem 1rem; font-size: 0.7rem; }
-            
-            .hero { text-align: center; padding: 1rem 0 2rem; }
-            .hero-description { margin: 0 auto 1.5rem; }
+            .nav-links { justify-content: center; gap: 0.8rem; border-top: 1px solid var(--border); padding-top: 0.6rem; }
+            .nav-links a { font-size: 0.65rem; }
+            .nav-cta { padding: 0.2rem 0.8rem; font-size: 0.6rem; }
+            .hero { text-align: center; padding: 0.5rem 0 1.5rem; }
+            .hero-description { margin: 0 auto 1.2rem; }
             .hero-buttons { justify-content: center; }
-            
-            .stats { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem 0; max-width: 100%; }
-            
+            .stats { grid-template-columns: 1fr; gap: 0.8rem; padding: 1.2rem 0; max-width: 100%; }
             .projects-grid,
             .services-grid,
-            .process-grid { grid-template-columns: 1fr; gap: 1rem; }
-            
-            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .process-grid,
+            .pricing-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .about-text { text-align: center; }
-            .about-text .story { border-left: none; border-top: 3px solid var(--accent); padding-left: 0; padding-top: 1rem; }
-            
+            .about-text .story { border-left: none; border-top: 2px solid var(--accent); padding-left: 0; padding-top: 0.6rem; }
             .contact-section { padding: 1.5rem; }
-            .contact-social { gap: 1rem; }
-            
-            .section { margin: 3rem 0; }
-            .testimonials-wrapper { padding: 1.5rem; }
+            .contact-social { gap: 0.8rem; }
+            .section { margin: 2.5rem 0; }
+            .testimonials-wrapper { padding: 1.2rem; }
             .project-card { text-align: center; }
             .project-info .meta { justify-content: center; }
             .project-info .link { justify-content: center; }
-            .service-card { padding: 1.5rem; }
+            .service-card { padding: 1.2rem; }
         }
         
         @media (max-width: 400px) {
             .hero h1 { font-size: 1.8rem; }
             .hero-buttons .btn,
             .contact-buttons .btn { width: 100%; justify-content: center; }
-            .logo-icon { width: 32px; height: 32px; font-size: 0.7rem; }
-            .logo-text { font-size: 0.85rem; }
+            .logo-icon { width: 30px; height: 30px; font-size: 0.6rem; }
+            .logo-text { font-size: 0.8rem; }
         }
         
         @media (min-width: 1400px) {
@@ -1117,175 +992,27 @@
            ============================================================ */
         .fade-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(25px);
+            transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                        transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .fade-up.delay-1 { transition-delay: 0.1s; }
-        .fade-up.delay-2 { transition-delay: 0.2s; }
-        .fade-up.delay-3 { transition-delay: 0.3s; }
+        .fade-up.delay-1 { transition-delay: 0.08s; }
+        .fade-up.delay-2 { transition-delay: 0.16s; }
+        .fade-up.delay-3 { transition-delay: 0.24s; }
         
         /* ===== FIX: Make sure links work ===== */
-.project-card .link {
-    pointer-events: auto !important;
-    cursor: pointer !important;
-    z-index: 10 !important;
-    position: relative !important;
-}
-        /* ============================================================
-   PRICING SECTION
-   ============================================================ */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.pricing-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem 1.2rem;
-    transition: var(--transition);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.pricing-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-hover);
-    background: var(--bg-card-hover);
-    box-shadow: var(--shadow);
-}
-
-.pricing-highlight {
-    border-color: var(--accent);
-    background: var(--accent-dim);
-}
-
-.pricing-highlight:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 30px var(--accent-glow);
-}
-
-.pricing-header {
-    margin-bottom: 0.8rem;
-}
-
-.pricing-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.3rem;
-}
-
-.pricing-header h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.pricing-price {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--accent);
-}
-
-.pricing-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem;
-    flex: 1;
-}
-
-.pricing-features li {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    padding: 0.2rem 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.pricing-features li:last-child {
-    border-bottom: none;
-}
-
-.pricing-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1.2rem;
-    border-radius: var(--radius-full);
-    font-weight: 600;
-    font-size: 0.75rem;
-    font-family: inherit;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text);
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: auto;
-}
-
-.pricing-btn:hover {
-    border-color: var(--accent);
-    background: var(--accent-dim);
-    transform: translateY(-2px);
-}
-
-.btn-whatsapp {
-    background: #25D366;
-    border-color: #25D366;
-    color: #fff;
-}
-
-.btn-whatsapp:hover {
-    background: #1da851;
-    border-color: #1da851;
-    color: #fff;
-}
-
-/* Responsive Pricing */
-@media (max-width: 1024px) {
-    .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-    
-    .pricing-card {
-        padding: 1.2rem;
-    }
-}
+        .project-card .link {
+            pointer-events: auto !important;
+            cursor: pointer !important;
+            z-index: 10 !important;
+            position: relative !important;
+        }
     </style>
 </head>
-    <script>
-    // ===== FORCE OPEN LINKS =====
-    document.addEventListener('click', function(e) {
-        var target = e.target.closest('.project-card .link');
-        if (target) {
-            e.preventDefault();
-            var url = target.getAttribute('href');
-            if (url && url !== '#') {
-                window.location.href = url;
-            }
-        }
-    });
-</script>
 <body>
     <!-- PARTICLES -->
     <div class="particles" id="particles"></div>
@@ -1303,23 +1030,19 @@
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
             </ul>
         </nav>
         
-        <!-- ===== HERO WITH TYPING EFFECT ===== -->
+        <!-- ===== HERO ===== -->
         <section class="hero">
             <div class="hero-badge"><span class="dot"></span> Available for projects</div>
-            
             <h1>I craft <span class="highlight">digital experiences</span> that matter.</h1>
-            
-            <!-- TYPING EFFECT -->
             <div class="typing-wrapper">
-                <span class="static-text">I'm a </span>
                 <span class="dynamic-text" id="typingText"></span>
             </div>
-            
             <p class="hero-description">
                 I help businesses build <strong>modern, responsive websites</strong> that convert visitors into customers.
             </p>
@@ -1327,7 +1050,6 @@
                 <a href="#work" class="btn btn-primary">See My Work</a>
                 <a href="#contact" class="btn btn-outline">Let's Talk</a>
             </div>
-            
             <div class="scroll-indicator">
                 <span>Scroll</span>
                 <div class="arrow"></div>
@@ -1337,7 +1059,7 @@
         <!-- ===== STATS ===== -->
         <div class="stats">
             <div class="stat-item">
-                <div class="number">3</div>
+                <div class="number">4</div>
                 <div class="label">Projects Delivered</div>
             </div>
             <div class="stat-item">
@@ -1360,66 +1082,75 @@
             
             <div class="projects-grid">
                 <div class="project-card fade-up">
-    <div class="project-image">
-        <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.textContent='📱'">
-        <div class="overlay-icon">🔍</div>
-    </div>
-    <div class="project-info">
-        <div class="meta">
-            <span class="tag">Website</span>
-            <span class="year">2025</span>
-        </div>
-        <h3>Hamiaphone</h3>
-        <p>Phone repair shop with WhatsApp integration.</p>
-        <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" rel="noopener noreferrer" class="link" style="color:var(--accent);text-decoration:none;font-weight:600;font-size:0.8rem;display:inline-flex;align-items:center;gap:0.3rem;transition:gap 0.3s;cursor:pointer;">Live Demo →</a>
-    </div>
-</div>
-   <div class="project-card fade-up delay-1">
-    <div class="project-image">
-        <img src="images/rogers.webp" alt="Rogers Phone" onerror="this.textContent='📞'">
-        <div class="overlay-icon">🔍</div>
-    </div>
-    <div class="project-info">
-        <div class="meta">
-            <span class="tag">Website</span>
-            <span class="year">2025</span>
-        </div>
-        <h3>Rogers Phone</h3>
-        <p>Smartphone store — product showcase.</p>
-        <a href="https://gategith.github.io/Rogers-Phone/" target="_blank" rel="noopener noreferrer" class="link" style="color:var(--accent);text-decoration:none;font-weight:600;font-size:0.8rem;display:inline-flex;align-items:center;gap:0.3rem;transition:gap 0.3s;cursor:pointer;">Live Demo →</a>
-    </div>
-</div>
+                    <div class="project-image">
+                        <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.textContent='📱'">
+                        <div class="overlay-icon">🔍</div>
+                    </div>
+                    <div class="project-info">
+                        <div class="meta">
+                            <span class="tag">Website</span>
+                            <span class="year">2025</span>
+                        </div>
+                        <h3>Hamiaphone</h3>
+                        <p>Phone repair shop with WhatsApp integration.</p>
+                        <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" class="link">Live Demo →</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-up delay-1">
+                    <div class="project-image">
+                        <img src="images/rogers.webp" alt="Rogers Phone" onerror="this.textContent='📞'">
+                        <div class="overlay-icon">🔍</div>
+                    </div>
+                    <div class="project-info">
+                        <div class="meta">
+                            <span class="tag">Website</span>
+                            <span class="year">2025</span>
+                        </div>
+                        <h3>Rogers Phone</h3>
+                        <p>Smartphone store — product showcase.</p>
+                        <a href="https://gategith.github.io/Rogers-Phone/" target="_blank" class="link">Live Demo →</a>
+                    </div>
+                </div>
+
                 <div class="project-card fade-up delay-2">
-    <div class="project-image">
-        <img src="images/yoka.webp" alt="YOKA TECH" onerror="this.textContent='💻'">
-        <div class="overlay-icon">🔍</div>
-    </div>
-    <div class="project-info">
-        <div class="meta">
-            <span class="tag">E-Commerce</span>
-            <span class="year">2025</span>
-        </div>
-        <h3>YOKA TECH</h3>
-        <p>Multi-store: phones, computers, gaming.</p>
-        <a href="https://gategith.github.io/YOKA-TECH/" target="_blank" rel="noopener noreferrer" class="link" style="color:var(--accent);text-decoration:none;font-weight:600;font-size:0.8rem;display:inline-flex;align-items:center;gap:0.3rem;transition:gap 0.3s;cursor:pointer;">Live Demo →</a>
-    </div>
-</div>
-                <!-- ARC161 Project -->
-<div class="project-card fade-up">
-    <div class="project-image">
-        <img src="projects/arc161/images/hero.jpg" alt="ARC161 Posture Harness" onerror="this.textContent='🦴'">
-        <div class="overlay-icon">🔍</div>
-    </div>
-    <div class="project-info">
-        <div class="meta">
-            <span class="tag">Landing Page</span>
-            <span class="year">2025</span>
-        </div>
-        <h3>ARC161 Posture Harness</h3>
-        <p>Health product landing page with dynamic pricing & order form.</p>
-        <a href="projects/arc161/" target="_blank" class="link">Live Demo →</a>
-    </div>
-</div>
+                    <div class="project-image">
+                        <img src="images/yoka.webp" alt="YOKA TECH" onerror="this.textContent='💻'">
+                        <div class="overlay-icon">🔍</div>
+                    </div>
+                    <div class="project-info">
+                        <div class="meta">
+                            <span class="tag">E-Commerce</span>
+                            <span class="year">2025</span>
+                        </div>
+                        <h3>YOKA TECH</h3>
+                        <p>Multi-store: phones, computers, gaming.</p>
+                        <a href="https://gategith.github.io/YOKA-TECH/" target="_blank" class="link">Live Demo →</a>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-up delay-3">
+                    <div class="project-image">
+                        <img src="projects/arc161/images/hero.jpg" alt="ARC161" onerror="this.textContent='🦴'">
+                        <div class="overlay-icon">🔍</div>
+                    </div>
+                    <div class="project-info">
+                        <div class="meta">
+                            <span class="tag">Landing Page</span>
+                            <span class="year">2025</span>
+                        </div>
+                        <h3>ARC161 Posture Harness</h3>
+                        <p>Health product landing page with dynamic pricing & order form.</p>
+                        <a href="projects/arc161/" target="_blank" class="link">Live Demo →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Coming Soon -->
+            <div style="text-align:center;margin-top:2rem;padding:1.5rem;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);max-width:700px;margin-left:auto;margin-right:auto;">
+                <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:0.2rem;">🚀 More projects on the way</p>
+                <p style="color:var(--text-muted);font-size:0.7rem;">I'm currently working on new websites. Check back soon.</p>
+            </div>
         </section>
         
         <!-- ===== SERVICES ===== -->
@@ -1453,153 +1184,142 @@
                 </div>
             </div>
         </section>
-        <!-- ============================================================
-     PRICING SECTION
-     ============================================================ -->
-<section class="section" id="pricing">
-    <div class="section-header">
-        <span class="label">Pricing</span>
-        <h2>Simple, Transparent Pricing</h2>
-        <p>Choose what fits your needs, or request a custom quote.</p>
-    </div>
-
-    <!-- Fixed Services -->
-    <div style="max-width:1100px;margin:0 auto 2.5rem;">
-        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">Fixed Services</h3>
-        <div class="pricing-grid">
-
-            <!-- FREE Website Audit -->
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <span class="pricing-icon">🔍</span>
-                    <h4>Website Audit</h4>
-                    <div class="pricing-price">FREE</div>
-                </div>
-                <ul class="pricing-features">
-                    <li>Website review</li>
-                    <li>Mobile experience review</li>
-                    <li>Performance observations</li>
-                    <li>Conversion suggestions</li>
-                </ul>
-                <a href="#contact" class="pricing-btn">Get Started</a>
+        
+        <!-- ===== PRICING ===== -->
+        <section class="section" id="pricing">
+            <div class="section-header">
+                <span class="label">Pricing</span>
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose what fits your needs, or request a custom quote.</p>
             </div>
 
-            <!-- Website Optimization -->
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <span class="pricing-icon">⚡</span>
-                    <h4>Website Optimization</h4>
-                    <div class="pricing-price">From 8,000 DA</div>
+            <div style="max-width:1100px;margin:0 auto 2.5rem;">
+                <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">Fixed Services</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="pricing-icon">🔍</span>
+                            <h4>Website Audit</h4>
+                            <div class="pricing-price">FREE</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Website review</li>
+                            <li>Mobile experience review</li>
+                            <li>Performance observations</li>
+                            <li>Conversion suggestions</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="pricing-icon">⚡</span>
+                            <h4>Website Optimization</h4>
+                            <div class="pricing-price">From 8,000 DA</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Mobile optimization</li>
+                            <li>UI improvements</li>
+                            <li>WhatsApp integration</li>
+                            <li>CTA optimization</li>
+                            <li>Speed improvements</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Request Quote</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="pricing-icon">📄</span>
+                            <h4>Landing Page</h4>
+                            <div class="pricing-price">From 15,000 DA</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Responsive design</li>
+                            <li>Modern UI</li>
+                            <li>SEO-ready</li>
+                            <li>Fast loading</li>
+                            <li>WhatsApp integration</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Request Quote</a>
+                    </div>
                 </div>
-                <ul class="pricing-features">
-                    <li>Mobile optimization</li>
-                    <li>UI improvements</li>
-                    <li>WhatsApp integration</li>
-                    <li>CTA optimization</li>
-                    <li>Speed improvements</li>
-                </ul>
-                <a href="#contact" class="pricing-btn">Request Quote</a>
             </div>
 
-            <!-- Landing Page -->
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <span class="pricing-icon">📄</span>
-                    <h4>Landing Page</h4>
-                    <div class="pricing-price">From 15,000 DA</div>
+            <div style="max-width:1100px;margin:0 auto;">
+                <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">Custom Projects</h3>
+                <p style="text-align:center;color:var(--text-secondary);font-size:0.9rem;margin-bottom:1.5rem;">
+                    Every business is different. The final price depends on: number of pages, features required, existing website or new project, design complexity, and timeline.
+                </p>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="pricing-icon">🏢</span>
+                            <h4>Business Website</h4>
+                            <div class="pricing-price">From 35,000 DA</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Up to 5 pages</li>
+                            <li>Contact form</li>
+                            <li>WhatsApp integration</li>
+                            <li>Basic SEO</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Request Quote</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="pricing-icon">🛒</span>
+                            <h4>E-commerce Website</h4>
+                            <div class="pricing-price">From 70,000 DA</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Product catalog</li>
+                            <li>Shopping cart</li>
+                            <li>Payment gateway</li>
+                            <li>Order management</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Request Quote</a>
+                    </div>
+
+                    <div class="pricing-card pricing-highlight">
+                        <div class="pricing-header">
+                            <span class="pricing-icon">📐</span>
+                            <h4>Custom Project</h4>
+                            <div class="pricing-price" style="font-size:1rem;color:var(--accent);">Request a Quote</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Website Redesign</li>
+                            <li>WordPress Improvements</li>
+                            <li>Booking Systems</li>
+                            <li>Custom Features</li>
+                        </ul>
+                        <a href="https://wa.me/213771021391" target="_blank" class="pricing-btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Request a Quote
+                        </a>
+                    </div>
                 </div>
-                <ul class="pricing-features">
-                    <li>Responsive design</li>
-                    <li>Modern UI</li>
-                    <li>SEO-ready</li>
-                    <li>Fast loading</li>
-                    <li>WhatsApp integration</li>
-                </ul>
-                <a href="#contact" class="pricing-btn">Request Quote</a>
             </div>
 
-        </div>
-    </div>
-
-    <!-- Custom Projects -->
-    <div style="max-width:1100px;margin:0 auto;">
-        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">Custom Projects</h3>
-        <p style="text-align:center;color:var(--text-secondary);font-size:0.9rem;margin-bottom:1.5rem;">
-            Every business is different. The final price depends on: number of pages, features required, existing website or new project, design complexity, and timeline.
-        </p>
-
-        <div class="pricing-grid custom-grid">
-
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <span class="pricing-icon">🏢</span>
-                    <h4>Business Website</h4>
-                    <div class="pricing-price">From 35,000 DA</div>
+            <div style="max-width:900px;margin:2.5rem auto 0;padding:1.5rem;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);text-align:center;">
+                <p style="font-size:0.9rem;font-weight:600;margin-bottom:0.5rem;color:var(--accent);">✓ Every Project Includes</p>
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem 1.5rem;font-size:0.8rem;color:var(--text-secondary);">
+                    <span>✓ Responsive Design</span>
+                    <span>✓ Mobile Optimization</span>
+                    <span>✓ Modern UI / UX</span>
+                    <span>✓ Basic SEO</span>
+                    <span>✓ WhatsApp Integration</span>
+                    <span>✓ Performance Optimization</span>
+                    <span>✓ Delivery Support</span>
                 </div>
-                <ul class="pricing-features">
-                    <li>Up to 5 pages</li>
-                    <li>Contact form</li>
-                    <li>WhatsApp integration</li>
-                    <li>Basic SEO</li>
-                </ul>
-                <a href="#contact" class="pricing-btn">Request Quote</a>
             </div>
 
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <span class="pricing-icon">🛒</span>
-                    <h4>E-commerce Website</h4>
-                    <div class="pricing-price">From 70,000 DA</div>
-                </div>
-                <ul class="pricing-features">
-                    <li>Product catalog</li>
-                    <li>Shopping cart</li>
-                    <li>Payment gateway</li>
-                    <li>Order management</li>
-                </ul>
-                <a href="#contact" class="pricing-btn">Request Quote</a>
+            <div style="text-align:center;margin-top:2rem;">
+                <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:0.8rem;">Not sure what you need? Let's talk.</p>
+                <a href="#contact" class="btn btn-primary">📩 Get a Free Consultation</a>
             </div>
-
-            <div class="pricing-card pricing-highlight">
-                <div class="pricing-header">
-                    <span class="pricing-icon">📐</span>
-                    <h4>Custom Project</h4>
-                    <div class="pricing-price" style="font-size:1rem;color:var(--accent);">Request a Quote</div>
-                </div>
-                <ul class="pricing-features">
-                    <li>Website Redesign</li>
-                    <li>WordPress Improvements</li>
-                    <li>Booking Systems</li>
-                    <li>Custom Features</li>
-                </ul>
-                <a href="https://wa.me/213771021391" target="_blank" class="pricing-btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Request a Quote
-                </a>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- What's Included -->
-    <div style="max-width:900px;margin:2.5rem auto 0;padding:1.5rem;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);text-align:center;">
-        <p style="font-size:0.9rem;font-weight:600;margin-bottom:0.5rem;color:var(--accent);">✓ Every Project Includes</p>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem 1.5rem;font-size:0.8rem;color:var(--text-secondary);">
-            <span>✓ Responsive Design</span>
-            <span>✓ Mobile Optimization</span>
-            <span>✓ Modern UI / UX</span>
-            <span>✓ Basic SEO</span>
-            <span>✓ WhatsApp Integration</span>
-            <span>✓ Performance Optimization</span>
-            <span>✓ Delivery Support</span>
-        </div>
-    </div>
-
-    <!-- CTA -->
-    <div style="text-align:center;margin-top:2rem;">
-        <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:0.8rem;">Not sure what you need? Let's talk.</p>
-        <a href="#contact" class="btn btn-primary">📩 Get a Free Consultation</a>
-    </div>
-                        </section>
+        </section>
+        
         <!-- ===== PROCESS ===== -->
         <section class="section">
             <div class="section-header">
@@ -1634,48 +1354,76 @@
         
         <!-- ===== TESTIMONIALS ===== -->
         <section class="section">
-    <div class="section-header">
-        <span class="label">Testimonials</span>
-        <h2>What People Say</h2>
-        <p>Real feedback from real people I've worked with.</p>
-    </div>
-    
-    <div class="testimonials-wrapper">
-        <div class="testimonials-track" id="testimonialsTrack">
-            <div class="testimonial">
-                <p class="quote">Saber delivered a clean, professional website that works perfectly on every device. His attention to detail made all the difference.</p>
-                <p class="author">Mayssa Hedibel</p>
-                <p class="role">Freelance Graphic Designer</p>
+            <div class="section-header">
+                <span class="label">Testimonials</span>
+                <h2>What People Say</h2>
+                <p>Real feedback from real people I've worked with.</p>
             </div>
-            <div class="testimonial">
-                <p class="quote">Smooth collaboration from start to finish. Saber understood exactly what I needed and executed it flawlessly.</p>
-                <p class="author">Lyna Benberim</p>
-                <p class="role">Founder @Oriocci</p>
+            
+            <div class="testimonials-wrapper">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial">
+                        <p class="quote">Rebas delivered a clean, professional website that works perfectly on every device. His attention to detail made all the difference.</p>
+                        <p class="author">Mayssa Hedibel</p>
+                        <p class="role">Freelance Graphic Designer</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="quote">Smooth collaboration from start to finish. Rebas understood exactly what I needed and executed it flawlessly.</p>
+                        <p class="author">Lyna Benberim</p>
+                        <p class="role">Founder @Oriocci</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="quote">Professional, responsive, and genuinely talented. Rebas created a website that truly represents my brand.</p>
+                        <p class="author">Zineb Attal</p>
+                        <p class="role">Founder @Racil</p>
+                    </div>
+                </div>
+                <div class="testimonial-dots" id="testimonialDots"></div>
             </div>
-            <div class="testimonial">
-                <p class="quote">Professional, responsive, and genuinely talented. Saber created a website that truly represents my brand.</p>
-                <p class="author">Zineb Attal</p>
-                <p class="role">Founder @Racil</p>
-            </div>
-        </div>
-        <div class="testimonial-dots" id="testimonialDots"></div>
-    </div>
-</section>
+        </section>
         
         <!-- ===== ABOUT ===== -->
-        <section class="section" id="about">
+<section class="section" id="about">
     <div class="about-grid">
         <div class="about-text">
             <h2>About Me</h2>
+            
+            <!-- القصة الشخصية -->
             <p>I'm <strong>Saber Slifi</strong>, a web designer who believes in the power of clean, purposeful design.</p>
-            <p>I started building websites because I saw how a professional online presence could transform a business. Since then, I've worked on projects ranging from small business sites to e-commerce platforms.</p>
-            <p>My approach is simple: <strong>understand the goal, design with intention, and deliver with quality.</strong></p>
+            
+            <p><strong>Why I build:</strong> I started building websites because I saw how a professional online presence could transform a business. Since then, I've worked on projects ranging from small business sites to e-commerce platforms.</p>
+            
+            <!-- النهج الفريد -->
+            <div style="background:var(--bg-card);border-radius:var(--radius-sm);padding:0.8rem 1rem;margin:0.6rem 0;border-left:2px solid var(--accent);">
+                <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.2rem;">
+                    <span style="color:var(--accent);font-weight:600;">My Approach:</span>
+                    I don't just build websites — I build solutions that help businesses grow. Every project starts with understanding the problem, then designing with intention, and finally delivering with quality.
+                </p>
+            </div>
+            
+            <!-- المبدأ الشخصي -->
+            <p style="font-size:0.85rem;color:var(--text-secondary);">
+                <span style="color:var(--text);font-weight:600;">Outside of work:</span> 
+                I'm constantly learning, experimenting with new technologies, and exploring how design can solve real problems.
+            </p>
+            
             <p class="story">"Good design is as little design as possible." — Dieter Rams</p>
+            
+            <!-- Building in Public -->
+            <div style="margin-top:0.8rem;display:flex;gap:0.6rem;flex-wrap:wrap;">
+                <span style="background:var(--accent-dim);padding:0.2rem 0.6rem;border-radius:var(--radius-full);font-size:0.6rem;color:var(--accent);">🚀 Building in Public</span>
+                <span style="background:var(--accent-dim);padding:0.2rem 0.6rem;border-radius:var(--radius-full);font-size:0.6rem;color:var(--accent);">📈 4 Projects</span>
+                <span style="background:var(--accent-dim);padding:0.2rem 0.6rem;border-radius:var(--radius-full);font-size:0.6rem;color:var(--accent);">🌍 Global Clients</span>
+            </div>
         </div>
         <div class="about-image">
             <div class="emoji">👨‍💻</div>
             <h3>Saber Slifi</h3>
             <p>Web Designer — Building websites that work</p>
+            <div style="margin-top:0.5rem;display:flex;justify-content:center;gap:0.8rem;font-size:0.7rem;color:var(--text-muted);">
+                <span>📍 Algeria</span>
+                <span>⏳ 4+ Projects</span>
+            </div>
         </div>
     </div>
 </section>
@@ -1701,69 +1449,49 @@
         
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-    <p>© 2026 Saber Slifi — Web Designer</p>
-</footer>
+            <p>© 2026 Saber Slifi — Web Designer</p>
+        </footer>
         
     </div>
     
     <script>
         // ============================================================
-        // TYPING EFFECT — 4 DYNAMIC WORDS
+        // TYPING EFFECT
         // ============================================================
         const words = ['Web Designer', 'Web Developer', 'UX/UI Designer', 'Creative Problem Solver'];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingElement = document.getElementById('typingText');
+        let wordIndex = 0, charIndex = 0, isDeleting = false;
+        const el = document.getElementById('typingText');
         
         function typeEffect() {
-            const currentWord = words[wordIndex];
-            
+            const current = words[wordIndex];
             if (isDeleting) {
-                // Delete
-                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                el.textContent = current.substring(0, charIndex - 1);
                 charIndex--;
             } else {
-                // Type
-                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                el.textContent = current.substring(0, charIndex + 1);
                 charIndex++;
             }
-            
-            let speed = isDeleting ? 50 : 100;
-            
-            // If word is complete
-            if (!isDeleting && charIndex === currentWord.length) {
-                speed = 2000; // Pause before deleting
-                isDeleting = true;
-            } 
-            // If word is fully deleted
-            else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                speed = 500; // Pause before typing next word
-            }
-            
+            let speed = isDeleting ? 40 : 80;
+            if (!isDeleting && charIndex === current.length) { speed = 1800; isDeleting = true; }
+            else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; speed = 400; }
             setTimeout(typeEffect, speed);
         }
-        
-        // Start typing
         typeEffect();
         
         // ============================================================
         // PARTICLES
         // ============================================================
         (function() {
-            const container = document.getElementById('particles');
-            const count = 25;
-            for (let i = 0; i < count; i++) {
+            const c = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
                 const p = document.createElement('span');
                 p.className = 'particle';
                 p.style.left = Math.random() * 100 + '%';
-                p.style.animationDuration = (20 + Math.random() * 30) + 's';
+                p.style.animationDuration = (18 + Math.random() * 25) + 's';
                 p.style.animationDelay = (Math.random() * 20) + 's';
-                p.style.width = (2 + Math.random() * 3) + 'px';
+                p.style.width = (1.5 + Math.random() * 2.5) + 'px';
                 p.style.height = p.style.width;
-                container.appendChild(p);
+                c.appendChild(p);
             }
         })();
         
@@ -1771,53 +1499,34 @@
         // TESTIMONIALS CAROUSEL
         // ============================================================
         const track = document.getElementById('testimonialsTrack');
-        const dotsContainer = document.getElementById('testimonialDots');
+        const dots = document.getElementById('testimonialDots');
         const testimonials = document.querySelectorAll('.testimonial');
-        let currentIndex = 0;
-        let autoSlide;
+        let idx = 0, auto;
         
         testimonials.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.classList.add('dot');
             if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(dot);
+            dot.addEventListener('click', () => goTo(i));
+            dots.appendChild(dot);
         });
         
-        function goToSlide(index) {
-            currentIndex = index;
-            track.style.transform = `translateX(-${index * 100}%)`;
-            document.querySelectorAll('.dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-        
-        function nextSlide() {
-            goToSlide((currentIndex + 1) % testimonials.length);
-        }
-        
-        autoSlide = setInterval(nextSlide, 5000);
-        
-        const carousel = document.querySelector('.testimonials-wrapper');
-        carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
-        carousel.addEventListener('mouseleave', () => {
-            autoSlide = setInterval(nextSlide, 5000);
-        });
+        function goTo(i) { idx = i; track.style.transform = 'translateX(-' + i * 100 + '%)'; document.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('active', j === i)); }
+        function next() { goTo((idx + 1) % testimonials.length); }
+        auto = setInterval(next, 5000);
+        const wrapper = document.querySelector('.testimonials-wrapper');
+        wrapper.addEventListener('mouseenter', () => clearInterval(auto));
+        wrapper.addEventListener('mouseleave', () => { auto = setInterval(next, 5000); });
         
         // ============================================================
         // FADE UP OBSERVER
         // ============================================================
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
-        
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12, rootMargin: '0px 0px -15px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         
-        console.log('🚀 Rebas Ifils — Portfolio 10/10 — Fully Optimized');
+        console.log('🚀 Rebas Ifils — Portfolio 10/10');
     </script>
 </body>
 </html>
