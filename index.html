@@ -1146,12 +1146,41 @@
                 </div>
             </div>
             
-            <!-- Coming Soon -->
-            <div style="text-align:center;margin-top:2rem;padding:1.5rem;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);max-width:700px;margin-left:auto;margin-right:auto;">
-                <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:0.2rem;">🚀 More projects on the way</p>
-                <p style="color:var(--text-muted);font-size:0.7rem;">I'm currently working on new websites. Check back soon.</p>
-            </div>
-        </section>
+            <!-- ===== Coming Soon ===== -->
+<div style="text-align:center;margin-top:2rem;padding:1.8rem;border-radius:var(--radius);background:linear-gradient(135deg, var(--bg-card), var(--accent-dim));border:1px solid var(--border);max-width:700px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;">
+    
+    <!-- أنيميشن الخلفية -->
+    <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%, rgba(180,140,255,0.05), transparent 60%);animation:pulseBg 3s ease-in-out infinite;pointer-events:none;"></div>
+    
+    <div style="position:relative;z-index:1;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:0.8rem;margin-bottom:0.3rem;">
+            <span style="font-size:1.8rem;animation:spinGlobe 6s linear infinite;">🌐</span>
+            <span style="font-size:1.2rem;font-weight:700;background:linear-gradient(135deg, var(--accent), var(--accent-pink));-webkit-background-clip:text;background-clip:text;color:transparent;">Crafting the Next Experience</span>
+        </div>
+        
+        <!-- النص المتغير + النقاط المتحركة -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:0.3rem;flex-wrap:wrap;">
+            <span id="comingText" style="color:var(--text-secondary);font-size:0.9rem;min-width:200px;text-align:center;display:inline-block;"></span>
+            <span id="dotsLoader" style="font-size:1.2rem;color:var(--accent);font-weight:700;letter-spacing:2px;min-width:30px;text-align:left;"></span>
+        </div>
+        
+        <p style="color:var(--text-muted);font-size:0.7rem;margin-top:0.3rem;">
+            <span style="color:var(--accent);">⏳</span> Every project is built with purpose. More work is unfolding.
+        </p>
+    </div>
+</div>
+
+<style>
+    @keyframes pulseBg {
+        0%, 100% { opacity: 0.5; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+    }
+    
+    @keyframes spinGlobe {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
         
         <!-- ===== SERVICES ===== -->
         <section class="section" id="services">
@@ -1410,11 +1439,23 @@
             <p class="story">"Good design is as little design as possible." — Dieter Rams</p>
             
             <!-- Building in Public -->
-            <div style="margin-top:0.8rem;display:flex;gap:0.6rem;flex-wrap:wrap;">
-                <span style="background:var(--accent-dim);padding:0.2rem 0.6rem;border-radius:var(--radius-full);font-size:0.6rem;color:var(--accent);">🚀 Building in Public</span>
-                <span style="background:var(--accent-dim);padding:0.2rem 0.6rem;border-radius:var(--radius-full);font-size:0.6rem;color:var(--accent);">📈 4 Projects</span>
-                <span style="background:var(--accent-dim);padding:0.2rem 0.6rem;border-radius:var(--radius-full);font-size:0.6rem;color:var(--accent);">🌍 Global Clients</span>
-            </div>
+            <div style="margin-top:0.8rem;display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap;">
+    <span style="background:var(--accent-dim);padding:0.3rem 0.8rem;border-radius:var(--radius-full);font-size:0.65rem;color:var(--accent);border:1px solid rgba(180,140,255,0.1);display:inline-flex;align-items:center;gap:0.4rem;transition:var(--transition);" 
+          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 15px rgba(180,140,255,0.15)';" 
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+        <span style="font-size:0.8rem;">⚡</span> Building in Public
+    </span>
+    <span style="background:var(--accent-dim);padding:0.3rem 0.8rem;border-radius:var(--radius-full);font-size:0.65rem;color:var(--accent);border:1px solid rgba(180,140,255,0.1);display:inline-flex;align-items:center;gap:0.4rem;transition:var(--transition);"
+          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 15px rgba(180,140,255,0.15)';" 
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+        <span style="font-size:0.8rem;">🛠️</span> 4 Projects
+    </span>
+    <span style="background:var(--accent-dim);padding:0.3rem 0.8rem;border-radius:var(--radius-full);font-size:0.65rem;color:var(--accent);border:1px solid rgba(180,140,255,0.1);display:inline-flex;align-items:center;gap:0.4rem;transition:var(--transition);"
+          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 15px rgba(180,140,255,0.15)';" 
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+        <span style="font-size:0.8rem;">🌍</span> Global Clients
+    </span>
+</div>
         </div>
         <div class="about-image">
             <div class="emoji">👨‍💻</div>
@@ -1527,6 +1568,59 @@
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         
         console.log('🚀 Rebas Ifils — Portfolio 10/10');
+        // ===== COMING SOON — TYPING EFFECT =====
+const comingPhrases = [
+    'Building something new...',
+    'Next project in progress...',
+    'Crafting digital experiences...',
+    'More work is unfolding...',
+    'Stay tuned for the next...'
+];
+let phraseIndex = 0;
+let charIndex2 = 0;
+let isDeleting2 = false;
+const comingText = document.getElementById('comingText');
+const dotsLoader = document.getElementById('dotsLoader');
+
+function typeComingEffect() {
+    const currentPhrase = comingPhrases[phraseIndex];
+    
+    if (isDeleting2) {
+        comingText.textContent = currentPhrase.substring(0, charIndex2 - 1);
+        charIndex2--;
+    } else {
+        comingText.textContent = currentPhrase.substring(0, charIndex2 + 1);
+        charIndex2++;
+    }
+    
+    let speed = isDeleting2 ? 30 : 60;
+    
+    if (!isDeleting2 && charIndex2 === currentPhrase.length) {
+        speed = 2000;
+        isDeleting2 = true;
+    } else if (isDeleting2 && charIndex2 === 0) {
+        isDeleting2 = false;
+        phraseIndex = (phraseIndex + 1) % comingPhrases.length;
+        speed = 400;
+    }
+    
+    setTimeout(typeComingEffect, speed);
+}
+
+// ===== DOTS ANIMATION =====
+function animateDots() {
+    let dotCount = 0;
+    setInterval(() => {
+        dotCount = (dotCount % 3) + 1;
+        dotsLoader.textContent = '.'.repeat(dotCount);
+    }, 500);
+}
+
+// Start both effects
+setTimeout(() => {
+    typeComingEffect();
+    animateDots();
+}, 500);
     </script>
 </body>
 </html>
