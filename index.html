@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
-    <!-- ===== SEO ===== -->
     <title>Saber Slifi — I Show You How Your Project Could Look</title>
     <meta name="description" content="I don't sell websites — I show you how your project could look. Web designer creating modern, responsive websites that help businesses grow." />
     <meta name="keywords" content="web designer, web developer, freelance, responsive design, UI/UX, landing page" />
@@ -12,15 +11,12 @@
     <link rel="canonical" href="https://saberslifi.com" />
     <meta name="robots" content="index, follow" />
     
-    <!-- ===== Open Graph ===== -->
     <meta property="og:title" content="Saber Slifi — I Show You How Your Project Could Look" />
     <meta property="og:description" content="I don't sell websites — I show you how your project could look." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/og-image.webp" />
-    <meta property="og:url" content="https://saberslifi.com" />
     <meta name="twitter:card" content="summary_large_image" />
     
-    <!-- ===== Schema.org ===== -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -35,14 +31,13 @@
     }
     </script>
     
-    <!-- ===== Preconnect & Preload ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" as="style" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     
-    <!-- ===== External Libraries ===== -->
+    <!-- External Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js" defer></script>
@@ -51,28 +46,28 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- ===== PRELOADER ===== -->
+    <!-- Preloader -->
     <div id="preloader">
         <div class="loader-logo">SS</div>
         <div class="loader-bar"></div>
     </div>
     
-    <!-- ===== SCROLL PROGRESS ===== -->
+    <!-- Scroll Progress -->
     <div id="scroll-progress"></div>
     
-    <!-- ===== CUSTOM CURSOR ===== -->
+    <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-follower"></div>
     
-    <!-- ===== PARTICLES (Three.js Background) ===== -->
-    <div id="three-bg"></div>
-    
-    <!-- ===== NOISE OVERLAY ===== -->
+    <!-- Noise Overlay -->
     <div class="noise-overlay"></div>
+    
+    <!-- Three.js Background -->
+    <div id="three-bg"></div>
     
     <div class="container">
         
-        <!-- ===== NAVBAR ===== -->
+        <!-- Navbar -->
         <nav class="navbar" id="navbar">
             <div class="navbar-left">
                 <a href="#" class="logo-wrapper">
@@ -90,30 +85,36 @@
             </ul>
         </nav>
         
-        <!-- ===== HERO ===== -->
+        <!-- Hero -->
         <section class="hero" id="hero">
-            <div class="hero-badge"><span class="dot"></span> Available for projects</div>
-            <h1 class="hero-title">
-                <span class="line">I don't sell websites —</span>
-                <span class="line highlight-line">I show you how your project could look.</span>
-            </h1>
-            <div class="hero-typing">
-                <span class="dynamic-text" id="typingText"></span>
-            </div>
-            <p class="hero-description">
-                I help businesses build <strong>modern, responsive websites</strong> that convert visitors into customers. Every project starts with understanding your vision, then bringing it to life.
-            </p>
-            <div class="hero-buttons">
-                <a href="#work" class="btn btn-primary magnetic">See My Work</a>
-                <a href="#contact" class="btn btn-outline magnetic">Let's Talk</a>
-            </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <div class="arrow"></div>
+            <div class="hero-glow"></div>
+            <div class="hero-rays"></div>
+            <div class="hero-spotlight" id="heroSpotlight"></div>
+            
+            <div class="hero-content">
+                <div class="hero-badge"><span class="dot"></span> Available for projects</div>
+                <h1 class="hero-title">
+                    <span class="line">I don't sell websites —</span>
+                    <span class="line highlight-line">I show you how your project could look.</span>
+                </h1>
+                <div class="hero-typing">
+                    <span class="dynamic-text" id="typingText"></span>
+                </div>
+                <p class="hero-description">
+                    I help businesses build <strong>modern, responsive websites</strong> that convert visitors into customers. Every project starts with understanding your vision, then bringing it to life.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#work" class="btn btn-primary magnetic">See My Work</a>
+                    <a href="#contact" class="btn btn-outline magnetic">Let's Talk</a>
+                </div>
+                <div class="scroll-indicator">
+                    <span>Scroll</span>
+                    <div class="arrow"></div>
+                </div>
             </div>
         </section>
         
-        <!-- ===== STATS (Animated Numbers) ===== -->
+        <!-- Stats -->
         <div class="stats" id="stats">
             <div class="stat-item">
                 <div class="number" data-count="4">0</div>
@@ -131,7 +132,7 @@
             </div>
         </div>
         
-        <!-- ===== WORK (Projects) ===== -->
+        <!-- Work -->
         <section class="section" id="work">
             <div class="section-header">
                 <span class="label">⚡ Experimental</span>
@@ -139,7 +140,6 @@
                 <p>These are <strong>concept models</strong> I built to explore ideas and showcase my approach. Each one reflects a different style and purpose — <strong>real projects coming soon.</strong></p>
             </div>
             <div class="projects-grid">
-                <!-- Project cards will have 3D tilt and live preview -->
                 <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" class="project-card" data-tilt>
                     <div class="project-image">
                         <img src="images/hamiaphone.webp" alt="Hamiaphone" loading="lazy" />
@@ -195,7 +195,7 @@
             </div>
         </section>
         
-        <!-- ===== COMING SOON ===== -->
+        <!-- Coming Soon -->
         <div class="coming-soon" id="coming-soon">
             <div class="coming-soon-glow"></div>
             <div class="coming-soon-content">
@@ -211,7 +211,7 @@
             </div>
         </div>
         
-        <!-- ===== RESULTS ===== -->
+        <!-- Results -->
         <section class="section" id="results">
             <div class="section-header">
                 <span class="label">Real Impact</span>
@@ -237,7 +237,7 @@
             </div>
         </section>
         
-        <!-- ===== CASE STUDY ===== -->
+        <!-- Case Study -->
         <section class="section" id="case-study">
             <div class="section-header">
                 <span class="label">Case Study</span>
@@ -260,7 +260,7 @@
             </div>
         </section>
         
-        <!-- ===== SERVICES ===== -->
+        <!-- Services -->
         <section class="section" id="services">
             <div class="section-header">
                 <span class="label">What I Do</span>
@@ -291,14 +291,13 @@
             </div>
         </section>
         
-        <!-- ===== PRICING ===== -->
+        <!-- Pricing -->
         <section class="section" id="pricing">
             <div class="section-header">
                 <span class="label">Pricing</span>
                 <h2>Simple, Transparent Pricing</h2>
                 <p>Choose what fits your needs, or request a custom quote.</p>
             </div>
-            <!-- Pricing cards go here (same as before) -->
             <div class="pricing-fixed">
                 <h3>Fixed Services</h3>
                 <div class="pricing-grid">
@@ -424,7 +423,7 @@
             </div>
         </section>
         
-        <!-- ===== PROCESS & HOW WE WORK ===== -->
+        <!-- Process -->
         <section class="section" id="process">
             <div class="section-header">
                 <span class="label">How It Works</span>
@@ -462,7 +461,7 @@
             </div>
         </section>
         
-        <!-- ===== WHY ME ===== -->
+        <!-- Why Me -->
         <section class="section" id="why-me">
             <div class="section-header">
                 <span class="label">Why Me</span>
@@ -476,7 +475,7 @@
             </div>
         </section>
         
-        <!-- ===== TESTIMONIALS ===== -->
+        <!-- Testimonials -->
         <section class="section" id="testimonials">
             <div class="section-header">
                 <span class="label">Testimonials</span>
@@ -505,7 +504,7 @@
             </div>
         </section>
         
-        <!-- ===== FAQ ===== -->
+        <!-- FAQ -->
         <section class="section" id="faq">
             <div class="section-header">
                 <span class="label">FAQ</span>
@@ -531,7 +530,7 @@
             </div>
         </section>
         
-        <!-- ===== ABOUT ===== -->
+        <!-- About -->
         <section class="section" id="about">
             <div class="about-grid">
                 <div class="about-text">
@@ -565,57 +564,31 @@
             </div>
         </section>
         
-        <!-- ===== GUARANTEE ===== -->
+        <!-- Guarantee -->
         <div class="guarantee-box glass">
             <div class="guarantee-icon">🛡️</div>
             <h4>100% Satisfaction Guarantee</h4>
             <p>If you're not happy with the result, I'll revise it until you are. No questions asked.</p>
         </div>
         
-        <!-- ===== INFINITE MARQUEE ===== -->
+        <!-- Marquee -->
         <div class="marquee">
             <div class="marquee-track">
-                <span>Web Design</span>
-                <span>✦</span>
-                <span>UI/UX</span>
-                <span>✦</span>
-                <span>Responsive</span>
-                <span>✦</span>
-                <span>Performance</span>
-                <span>✦</span>
-                <span>GSAP</span>
-                <span>✦</span>
-                <span>Framer</span>
-                <span>✦</span>
-                <span>React</span>
-                <span>✦</span>
-                <span>Animation</span>
-                <span>✦</span>
-                <span>Creative</span>
-                <span>✦</span>
-                <!-- Duplicate for seamless loop -->
-                <span>Web Design</span>
-                <span>✦</span>
-                <span>UI/UX</span>
-                <span>✦</span>
-                <span>Responsive</span>
-                <span>✦</span>
-                <span>Performance</span>
-                <span>✦</span>
-                <span>GSAP</span>
-                <span>✦</span>
-                <span>Framer</span>
-                <span>✦</span>
-                <span>React</span>
-                <span>✦</span>
-                <span>Animation</span>
-                <span>✦</span>
-                <span>Creative</span>
-                <span>✦</span>
+                <span>Web Design</span><span>✦</span><span>UI/UX</span><span>✦</span>
+                <span>Responsive</span><span>✦</span><span>Performance</span><span>✦</span>
+                <span>GSAP</span><span>✦</span><span>Framer</span><span>✦</span>
+                <span>React</span><span>✦</span><span>Animation</span><span>✦</span>
+                <span>Creative</span><span>✦</span>
+                <!-- duplicate -->
+                <span>Web Design</span><span>✦</span><span>UI/UX</span><span>✦</span>
+                <span>Responsive</span><span>✦</span><span>Performance</span><span>✦</span>
+                <span>GSAP</span><span>✦</span><span>Framer</span><span>✦</span>
+                <span>React</span><span>✦</span><span>Animation</span><span>✦</span>
+                <span>Creative</span><span>✦</span>
             </div>
         </div>
         
-        <!-- ===== CONTACT ===== -->
+        <!-- Contact -->
         <section class="section" id="contact">
             <div class="contact-section glass">
                 <h2>Let's Build Something Great</h2>
@@ -632,7 +605,7 @@
             </div>
         </section>
         
-        <!-- ===== FOOTER ===== -->
+        <!-- Footer -->
         <footer class="footer animated-footer">
             <div class="footer-content">
                 <p>© 2026 Saber Slifi — I show you how your project could look.</p>
@@ -646,8 +619,6 @@
         
     </div>
     
-    <!-- ===== SCRIPTS ===== -->
-    <script src="style.css"></script> <!-- This is wrong, but we'll separate -->
     <script src="script.js" defer></script>
 </body>
 </html>
