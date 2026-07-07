@@ -1554,3 +1554,24 @@ body {
     .container { max-width: 1300px; }
     .projects-grid { grid-template-columns: repeat(3, 1fr); }
 }
+/* ===== FIX: STATS NUMBERS VISIBILITY ===== */
+.stat-item .number {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+.stat-item .percent,
+.stat-item .hours {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline !important;
+    color: #b48cff !important;
+}
+
+.stat-item .label {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    color: #8a8a9a !important;
+}
