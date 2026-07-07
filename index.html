@@ -37,34 +37,34 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     
-    <!-- GSAP + ScrollTrigger (خفيف) -->
+    <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <!-- Lenis للتمرير الناعم -->
+    <!-- Lenis -->
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js" defer></script>
     
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Preloader -->
+    <!-- PRELOADER -->
     <div id="preloader">
         <div class="loader-logo">SS</div>
         <div class="loader-bar"></div>
     </div>
     
-    <!-- Scroll Progress -->
+    <!-- SCROLL PROGRESS -->
     <div id="scroll-progress"></div>
     
-    <!-- Custom Cursor -->
+    <!-- CUSTOM CURSOR -->
     <div class="cursor-dot"></div>
     <div class="cursor-follower"></div>
     
-    <!-- Noise Overlay (خفيف) -->
+    <!-- NOISE OVERLAY -->
     <div class="noise-overlay"></div>
     
     <div class="container">
         
-        <!-- Navbar -->
+        <!-- NAVBAR -->
         <nav class="navbar" id="navbar">
             <div class="navbar-left">
                 <a href="#" class="logo-wrapper">
@@ -82,7 +82,7 @@
             </ul>
         </nav>
         
-        <!-- Hero -->
+        <!-- HERO -->
         <section class="hero" id="hero">
             <div class="hero-glow"></div>
             <div class="hero-rays"></div>
@@ -111,7 +111,7 @@
             </div>
         </section>
         
-        <!-- Stats -->
+        <!-- STATS -->
         <div class="stats" id="stats">
             <div class="stat-item">
                 <div class="number" data-count="4">0</div>
@@ -129,7 +129,7 @@
             </div>
         </div>
         
-        <!-- Work -->
+        <!-- WORK -->
         <section class="section" id="work">
             <div class="section-header">
                 <span class="label">⚡ Experimental</span>
@@ -196,7 +196,7 @@
             </div>
         </section>
         
-        <!-- Coming Soon -->
+        <!-- COMING SOON -->
         <div class="coming-soon" id="coming-soon">
             <div class="coming-soon-glow"></div>
             <div class="coming-soon-content">
@@ -212,7 +212,7 @@
             </div>
         </div>
         
-        <!-- Results -->
+        <!-- RESULTS -->
         <section class="section" id="results">
             <div class="section-header">
                 <span class="label">Real Impact</span>
@@ -238,7 +238,7 @@
             </div>
         </section>
         
-        <!-- Case Study -->
+        <!-- CASE STUDY -->
         <section class="section" id="case-study">
             <div class="section-header">
                 <span class="label">Case Study</span>
@@ -261,7 +261,7 @@
             </div>
         </section>
         
-        <!-- Services -->
+        <!-- SERVICES -->
         <section class="section" id="services">
             <div class="section-header">
                 <span class="label">What I Do</span>
@@ -292,7 +292,7 @@
             </div>
         </section>
         
-        <!-- Pricing -->
+        <!-- PRICING -->
         <section class="section" id="pricing">
             <div class="section-header">
                 <span class="label">Pricing</span>
@@ -424,7 +424,7 @@
             </div>
         </section>
         
-        <!-- Process -->
+        <!-- PROCESS -->
         <section class="section" id="process">
             <div class="section-header">
                 <span class="label">How It Works</span>
@@ -462,7 +462,7 @@
             </div>
         </section>
         
-        <!-- Why Me -->
+        <!-- WHY ME -->
         <section class="section" id="why-me">
             <div class="section-header">
                 <span class="label">Why Me</span>
@@ -476,7 +476,7 @@
             </div>
         </section>
         
-        <!-- Testimonials -->
+        <!-- TESTIMONIALS -->
         <section class="section" id="testimonials">
             <div class="section-header">
                 <span class="label">Testimonials</span>
@@ -531,7 +531,7 @@
             </div>
         </section>
         
-        <!-- About -->
+        <!-- ABOUT -->
         <section class="section" id="about">
             <div class="about-grid">
                 <div class="about-text">
@@ -554,25 +554,19 @@
                     </div>
                 </div>
                 <div class="about-image glass">
-                    <div class="about-image-emoji">👨‍💻</div>
-                    <h3>Saber Slifi</h3>
-                    <p>Web Designer — Building websites that work</p>
-                    <div class="about-image-meta">
-                        <span>📍 Algeria</span>
-                        <span>⏳ 4+ Projects</span>
-                    </div>
+                    <img src="images/profile.webp" alt="Saber Slifi" class="about-profile-img" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'about-image-emoji\'>👨‍💻</div><h3>Saber Slifi</h3><p>Web Designer — Building websites that work</p><div class=\'about-image-meta\'><span>📍 Algeria</span><span>⏳ 4+ Projects</span></div>'">
                 </div>
             </div>
         </section>
         
-        <!-- Guarantee -->
+        <!-- GUARANTEE -->
         <div class="guarantee-box glass">
             <div class="guarantee-icon">🛡️</div>
             <h4>100% Satisfaction Guarantee</h4>
             <p>If you're not happy with the result, I'll revise it until you are. No questions asked.</p>
         </div>
         
-        <!-- Marquee -->
+        <!-- MARQUEE -->
         <div class="marquee">
             <div class="marquee-track">
                 <span>Web Design</span><span>✦</span><span>UI/UX</span><span>✦</span>
@@ -580,7 +574,6 @@
                 <span>GSAP</span><span>✦</span><span>Framer</span><span>✦</span>
                 <span>React</span><span>✦</span><span>Animation</span><span>✦</span>
                 <span>Creative</span><span>✦</span>
-                <!-- duplicate for seamless loop -->
                 <span>Web Design</span><span>✦</span><span>UI/UX</span><span>✦</span>
                 <span>Responsive</span><span>✦</span><span>Performance</span><span>✦</span>
                 <span>GSAP</span><span>✦</span><span>Framer</span><span>✦</span>
@@ -589,7 +582,7 @@
             </div>
         </div>
         
-        <!-- Contact -->
+        <!-- CONTACT -->
         <section class="section" id="contact">
             <div class="contact-section glass">
                 <h2>Let's Build Something Great</h2>
@@ -606,7 +599,7 @@
             </div>
         </section>
         
-        <!-- Footer -->
+        <!-- FOOTER -->
         <footer class="footer animated-footer">
             <div class="footer-content">
                 <p>© 2026 Saber Slifi — I show you how your project could look.</p>
