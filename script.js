@@ -403,3 +403,21 @@ if (prefersReducedMotion.matches) {
 }
 
 console.log('✅ Saber Portfolio — Ready.');
+
+// ===== FORCE STATS TO APPEAR CORRECTLY =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Set the numbers directly
+    document.querySelectorAll('.stat-item .number[data-count]').forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-count'));
+        if (!isNaN(target)) {
+            el.textContent = target;
+            // Re-add percent or hours if needed
+            var parent = el.parentNode;
+            if (target === 100 && !el.querySelector('.percent')) {
+                el.innerHTML = target + '<span class="percent">%</span>';
+            } else if (target === 24 && !el.querySelector('.hours')) {
+                el.innerHTML = target + '<span class="hours">h</span>';
+            }
+        }
+    });
+});
