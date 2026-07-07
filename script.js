@@ -1,8 +1,8 @@
 // ============================================================
-// SABER PORTFOLIO — LIGHTWEIGHT & RESPONSIVE
+// SABER PORTFOLIO — SCRIPT COMPLETE
 // ============================================================
 
-console.log('🚀 Saber Portfolio — Lightweight Edition');
+console.log('🚀 Saber Portfolio — Complete');
 
 // ============================================================
 // PRELOADER
@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 });
 
 // ============================================================
-// LENIS SMOOTH SCROLL (خفيف)
+// LENIS SMOOTH SCROLL
 // ============================================================
 const lenis = new Lenis({
     duration: 1.2,
@@ -30,7 +30,7 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 // ============================================================
-// GSAP + SCROLLTRIGGER (أساسي)
+// GSAP + SCROLLTRIGGER
 // ============================================================
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,31 +61,111 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('.hero-buttons', { y: 30, opacity: 0, duration: 0.8, delay: 1, ease: 'power3.out' });
     gsap.from('.scroll-indicator', { y: 20, opacity: 0, duration: 0.8, delay: 1.2, ease: 'power3.out' });
 
-    // All other sections with basic fade-up
-    const sections = [
-        { trigger: '#stats', target: '.stat-item', stagger: 0.15 },
-        { trigger: '#work', target: '.project-card', stagger: 0.12 },
-        { trigger: '#results', target: '.result-card', stagger: 0.15 },
-        { trigger: '#case-study', target: '.case-item', stagger: 0.15 },
-        { trigger: '#services', target: '.service-card', stagger: 0.12 },
-        { trigger: '#pricing', target: '.pricing-card', stagger: 0.12 },
-        { trigger: '#process', target: '.process-step', stagger: 0.12 },
-        { trigger: '#why-me', target: '.why-item', stagger: 0.15 },
-        { trigger: '#faq', target: '.faq-item', stagger: 0.12 },
-    ];
+    // Stats
+    gsap.from('.stat-item', {
+        scrollTrigger: { trigger: '#stats', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power3.out',
+    });
 
-    sections.forEach(({ trigger, target, stagger }) => {
-        gsap.from(target, {
-            scrollTrigger: {
-                trigger: trigger,
-                start: 'top 80%',
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            stagger: stagger,
-            ease: 'power3.out',
-        });
+    // Projects
+    gsap.from('.project-card', {
+        scrollTrigger: { trigger: '#work', start: 'top 80%' },
+        y: 40,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: 'power3.out',
+    });
+
+    // Results
+    gsap.from('.result-card', {
+        scrollTrigger: { trigger: '#results', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power3.out',
+    });
+
+    // Case Study
+    gsap.from('.case-item', {
+        scrollTrigger: { trigger: '#case-study', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power3.out',
+    });
+
+    // Services
+    gsap.from('.service-card', {
+        scrollTrigger: { trigger: '#services', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power3.out',
+    });
+
+    // Pricing
+    gsap.from('.pricing-card', {
+        scrollTrigger: { trigger: '#pricing', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power3.out',
+    });
+
+    // Process
+    gsap.from('.process-step', {
+        scrollTrigger: { trigger: '#process', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power3.out',
+    });
+    gsap.from('.flow-step', {
+        scrollTrigger: { trigger: '#process', start: 'top 80%' },
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power3.out',
+    });
+
+    // Why Me
+    gsap.from('.why-item', {
+        scrollTrigger: { trigger: '#why-me', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power3.out',
+    });
+
+    // Testimonials
+    gsap.from('.testimonials-wrapper', {
+        scrollTrigger: { trigger: '#testimonials', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'power3.out',
+    });
+
+    // FAQ
+    gsap.from('.faq-item', {
+        scrollTrigger: { trigger: '#faq', start: 'top 80%' },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power3.out',
     });
 
     // About
@@ -104,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
     });
 
-    // Guarantee, Contact, Footer
+    // Guarantee
     gsap.from('.guarantee-box', {
         scrollTrigger: { trigger: '.guarantee-box', start: 'top 85%' },
         y: 30,
@@ -112,6 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.7,
         ease: 'power3.out',
     });
+
+    // Contact
     gsap.from('.contact-section', {
         scrollTrigger: { trigger: '#contact', start: 'top 80%' },
         y: 30,
@@ -119,6 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.7,
         ease: 'power3.out',
     });
+
+    // Footer
     gsap.from('.footer', {
         scrollTrigger: { trigger: '.footer', start: 'top 90%' },
         y: 20,
@@ -188,7 +272,7 @@ document.querySelectorAll('.stat-item .number').forEach((el) => {
 });
 
 // ============================================================
-// CUSTOM CURSOR (خفيف)
+// CUSTOM CURSOR
 // ============================================================
 const dot = document.querySelector('.cursor-dot');
 const follower = document.querySelector('.cursor-follower');
@@ -417,7 +501,7 @@ setTimeout(() => {
 }, 1000);
 
 // ============================================================
-// LAZY LOADING (Intersection Observer)
+// LAZY LOADING
 // ============================================================
 const lazyImages = document.querySelectorAll('img[loading="lazy"]');
 if ('IntersectionObserver' in window) {
@@ -447,4 +531,4 @@ if (prefersReducedMotion.matches) {
     gsap.globalTimeline.pause();
 }
 
-console.log('✅ Saber Portfolio — Lightweight Edition loaded.');
+console.log('✅ Saber Portfolio — Complete.');
