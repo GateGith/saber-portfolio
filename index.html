@@ -1,1042 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
-    <!-- ============================================================
-    SEO OPTIMIZED
-    ============================================================ -->
-    <title>Rebas Ifils — Professional Web Designer & Developer</title>
-    <meta name="description" content="Rebas Ifils - Professional web designer. I build modern, responsive websites that help businesses grow. 4+ projects delivered, 100% responsive, 24h response.">
-    <meta name="keywords" content="web designer, web developer, freelance web designer, responsive design, website design, UI/UX, landing page">
-    <meta name="author" content="Saber Slifi">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://rebas-ifils.com">
+    <!-- ===== SEO ===== -->
+    <title>Saber Slifi — I Show You How Your Project Could Look</title>
+    <meta name="description" content="I don't sell websites — I show you how your project could look. Web designer creating modern, responsive websites that help businesses grow." />
+    <meta name="keywords" content="web designer, web developer, freelance, responsive design, UI/UX, landing page" />
+    <meta name="author" content="Saber Slifi" />
+    <link rel="canonical" href="https://saberslifi.com" />
     
-    <!-- ============================================================
-    OPEN GRAPH
-    ============================================================ -->
-    <meta property="og:title" content="Rebas Ifils — Professional Web Designer">
-    <meta property="og:description" content="Modern, responsive websites that help businesses grow. 100% responsive, 24h response.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rebas-ifils.com">
-    <meta property="og:image" content="images/og-image.webp">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- ===== Open Graph ===== -->
+    <meta property="og:title" content="Saber Slifi — I Show You How Your Project Could Look" />
+    <meta property="og:description" content="I don't sell websites — I show you how your project could look." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/og-image.webp" />
     
-    <!-- ============================================================
-    SCHEMA.ORG
-    ============================================================ -->
+    <!-- ===== Schema.org ===== -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "Rebas Ifils - Web Designer",
-        "url": "https://rebas-ifils.com",
+        "name": "Saber Slifi - Web Designer",
+        "url": "https://saberslifi.com",
         "email": "rebasifils.web@gmail.com",
         "telephone": "+213771021391",
         "priceRange": "$$",
-        "description": "Professional web designer building modern, responsive websites.",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "12"
-        },
-        "areaServed": ["DZ", "FR", "Worldwide"]
+        "description": "Web designer who shows you how your project could look.",
+        "areaServed": ["DZ", "Worldwide"]
     }
     </script>
     
-    <!-- ============================================================
-    FONTS
-    ============================================================ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- ===== Fonts ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     
-    <style>
-        /* ============================================================
-           RESET & VARIABLES
-           ============================================================ */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-        
-        :root {
-            --bg: #07090d;
-            --bg-card: rgba(255,255,255,0.02);
-            --bg-card-hover: rgba(255,255,255,0.05);
-            --border: rgba(255,255,255,0.04);
-            --border-hover: rgba(180,140,255,0.2);
-            --accent: #b48cff;
-            --accent-dim: rgba(180,140,255,0.08);
-            --accent-glow: rgba(180,140,255,0.12);
-            --accent-pink: #ff6b9d;
-            --accent-cyan: #4ecdc4;
-            --text: #f1f1f1;
-            --text-secondary: #8a8a9a;
-            --text-muted: #5a5a6a;
-            --radius: 1.2rem;
-            --radius-full: 9999px;
-            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            --shadow: 0 20px 60px rgba(0,0,0,0.5);
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        body {
-            font-family: var(--font);
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            padding: 1.5rem;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 15% 25%, rgba(180,140,255,0.06), transparent 50%),
-                radial-gradient(ellipse at 85% 75%, rgba(255,107,157,0.04), transparent 50%);
-            pointer-events: none;
-            z-index: -2;
-        }
-        
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .container { max-width: 1200px; width: 100%; margin: 0 auto; position: relative; z-index: 1; }
-        
-        /* PARTICLES */
-        .particles {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0.06;
-            animation: floatParticle linear infinite;
-        }
-        @keyframes floatParticle {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.06; }
-            90% { opacity: 0.06; }
-            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
-        }
-        
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
-        
-        /* ============================================================
-           NAVBAR
-           ============================================================ */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.4rem 1.2rem;
-            margin-bottom: 2rem;
-            background: rgba(7,9,13,0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-full);
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-            transition: var(--transition);
-        }
-        .navbar:hover { border-color: rgba(180,140,255,0.12); }
-        
-        .navbar-left { display: flex; align-items: center; gap: 0.6rem; }
-        .logo-wrapper { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
-        
-        .logo-icon {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-pink));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 0.7rem;
-            color: #fff;
-            flex-shrink: 0;
-            transition: var(--transition);
-            position: relative;
-        }
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 10px;
-            border: 1px solid rgba(180,140,255,0.15);
-            animation: logoPulse 2.5s ease-in-out infinite;
-        }
-        @keyframes logoPulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.12); opacity: 0; }
-        }
-        .logo-wrapper:hover .logo-icon { transform: rotate(-6deg) scale(1.04); }
-        
-        .logo-text { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
-        .logo-text span { color: var(--accent); }
-        
-        .nav-links {
-            display: flex;
-            gap: 1.8rem;
-            list-style: none;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.2rem 0;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--text); }
-        
-        .nav-cta {
-            background: var(--accent);
-            color: #fff !important;
-            padding: 0.3rem 1rem;
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: 0.7rem;
-        }
-        .nav-cta::after { display: none !important; }
-        .nav-cta:hover {
-            background: #c4a0ff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--accent-glow);
-        }
-        
-        /* ============================================================
-           HERO
-           ============================================================ */
-        .hero {
-            padding: 1.5rem 0 2.5rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.2rem;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: var(--accent-dim);
-            padding: 0.2rem 1rem;
-            border-radius: var(--radius-full);
-            border: 1px solid rgba(180,140,255,0.1);
-            color: var(--accent);
-        }
-        .hero-badge .dot {
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: #4ade80;
-            animation: pulseDot 2s infinite;
-        }
-        @keyframes pulseDot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.7); }
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.2rem, 7vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            max-width: 850px;
-        }
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--accent), var(--accent-pink), var(--accent-cyan));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 300% 300%;
-            animation: gradientShift 5s ease-in-out infinite;
-        }
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .typing-wrapper {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            color: var(--text-secondary);
-            min-height: 2.2rem;
-            font-weight: 400;
-        }
-        .typing-wrapper .dynamic-text {
-            color: var(--text);
-            font-weight: 600;
-            position: relative;
-        }
-        .typing-wrapper .dynamic-text::after {
-            content: '|';
-            display: inline-block;
-            animation: blink 0.8s step-end infinite;
-            color: var(--accent);
-            font-weight: 300;
-        }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        
-        .hero-description {
-            color: var(--text-secondary);
-            max-width: 480px;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-        .hero-description strong { color: var(--text); font-weight: 600; }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 0.3rem;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.8rem;
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: 0.8rem;
-            font-family: inherit;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), #a070ff);
-            color: #fff;
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            transition: left 0.6s;
-        }
-        .btn-primary:hover::before { left: 100%; }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px var(--accent-glow);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.06);
-            color: var(--text);
-        }
-        .btn-outline:hover {
-            border-color: var(--accent);
-            background: var(--accent-dim);
-            transform: translateY(-3px);
-        }
-        
-        .scroll-indicator {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.2rem;
-            margin-top: 1rem;
-            color: var(--text-muted);
-            font-size: 0.55rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: bounceDown 2s infinite;
-        }
-        .scroll-indicator .arrow {
-            width: 16px; height: 16px;
-            border-right: 1.5px solid var(--text-muted);
-            border-bottom: 1.5px solid var(--text-muted);
-            transform: rotate(45deg);
-            opacity: 0.3;
-        }
-        @keyframes bounceDown {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(5px); }
-        }
-        
-        /* ============================================================
-           STATS
-           ============================================================ */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-            padding: 1.8rem 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            margin: 1rem auto 2.5rem;
-            max-width: 600px;
-        }
-        .stat-item {
-            text-align: center;
-            padding: 0.3rem;
-            transition: var(--transition);
-        }
-        .stat-item:hover { transform: translateY(-3px); }
-        .stat-item .number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--text);
-            letter-spacing: -1px;
-        }
-        .stat-item .number .accent { color: var(--accent); }
-        .stat-item .label { color: var(--text-secondary); font-size: 0.7rem; margin-top: 0.1rem; }
-        
-        /* ============================================================
-           SECTIONS
-           ============================================================ */
-        .section { margin: 3.5rem auto; max-width: 1200px; }
-        .section-header {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        .section-header .label {
-            font-size: 0.55rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 0.2rem;
-        }
-        .section-header h2 {
-            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            max-width: 450px;
-            margin: 0.2rem auto 0;
-        }
-        
-        /* ============================================================
-           PROJECTS
-           ============================================================ */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: var(--transition);
-            cursor: pointer;
-            text-align: left;
-            position: relative;
-        }
-        .project-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius);
-            background: linear-gradient(135deg, rgba(180,140,255,0.04), rgba(255,107,157,0.02));
-            opacity: 0;
-            transition: var(--transition);
-        }
-        .project-card:hover::before { opacity: 1; }
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow);
-            background: var(--bg-card-hover);
-        }
-        .project-image {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, #111122, #1a1a2e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            overflow: hidden;
-            position: relative;
-        }
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        .project-card:hover .project-image img { transform: scale(1.04); }
-        .project-image .overlay-icon {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(7,9,13,0.5);
-            opacity: 0;
-            transition: var(--transition);
-            font-size: 1.6rem;
-        }
-        .project-card:hover .project-image .overlay-icon { opacity: 1; }
-        .project-info { padding: 1rem 1.2rem 1.2rem; }
-        .project-info .meta {
-            display: flex;
-            gap: 0.6rem;
-            align-items: center;
-            margin-bottom: 0.2rem;
-            flex-wrap: wrap;
-        }
-        .project-info .tag {
-            font-size: 0.55rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--accent);
-            background: var(--accent-dim);
-            padding: 0.1rem 0.5rem;
-            border-radius: var(--radius-full);
-        }
-        .project-info .year {
-            font-size: 0.55rem;
-            color: var(--text-muted);
-        }
-        .project-info h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.1rem;
-        }
-        .project-info p {
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            margin-bottom: 0.6rem;
-        }
-        .project-info .link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.7rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            transition: gap 0.3s;
-        }
-        .project-info .link:hover { gap: 0.5rem; }
-        
-        /* ============================================================
-           SERVICES
-           ============================================================ */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem 1.2rem;
-            transition: var(--transition);
-            text-align: center;
-        }
-        .service-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-hover);
-            background: var(--bg-card-hover);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
-        }
-        .service-card .icon {
-            font-size: 2rem;
-            margin-bottom: 0.6rem;
-            display: block;
-        }
-        .service-card h3 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            line-height: 1.6;
-        }
-        
-        /* ============================================================
-           PRICING
-           ============================================================ */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .pricing-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem 1.2rem;
-            transition: var(--transition);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-        .pricing-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-hover);
-            background: var(--bg-card-hover);
-            box-shadow: var(--shadow);
-        }
-        .pricing-highlight {
-            border-color: var(--accent);
-            background: var(--accent-dim);
-        }
-        .pricing-highlight:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow);
-        }
-        .pricing-header { margin-bottom: 0.8rem; }
-        .pricing-icon { font-size: 2rem; display: block; margin-bottom: 0.3rem; }
-        .pricing-header h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
-        .pricing-price { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
-        .pricing-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1rem;
-            flex: 1;
-        }
-        .pricing-features li {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            padding: 0.15rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .pricing-features li:last-child { border-bottom: none; }
-        .pricing-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.2rem;
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: 0.7rem;
-            font-family: inherit;
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text);
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: auto;
-        }
-        .pricing-btn:hover {
-            border-color: var(--accent);
-            background: var(--accent-dim);
-            transform: translateY(-2px);
-        }
-        .btn-whatsapp {
-            background: #25D366;
-            border-color: #25D366;
-            color: #fff;
-        }
-        .btn-whatsapp:hover {
-            background: #1da851;
-            border-color: #1da851;
-            color: #fff;
-        }
-        
-        /* ============================================================
-           PROCESS
-           ============================================================ */
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .process-step {
-            text-align: center;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem 1rem;
-            transition: var(--transition);
-            position: relative;
-        }
-        .process-step::after {
-            content: '→';
-            position: absolute;
-            right: -1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-        .process-step:last-child::after { display: none; }
-        .process-step:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-        }
-        .process-step .number {
-            font-size: 2.4rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--accent-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: block;
-            opacity: 0.5;
-        }
-        .process-step h4 { font-size: 0.9rem; margin: 0.4rem 0 0.1rem; }
-        .process-step p { color: var(--text-secondary); font-size: 0.7rem; }
-        
-        /* ============================================================
-           TESTIMONIALS
-           ============================================================ */
-        .testimonials-wrapper {
-            position: relative;
-            overflow: hidden;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem 1.5rem;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-        .testimonials-track {
-            display: flex;
-            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .testimonial {
-            min-width: 100%;
-            padding: 0.3rem;
-            text-align: center;
-        }
-        .testimonial .quote {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 1rem;
-            line-height: 1.8;
-        }
-        .testimonial .quote::before {
-            content: '"';
-            color: var(--accent);
-            font-size: 2rem;
-            opacity: 0.2;
-        }
-        .testimonial .quote::after {
-            content: '"';
-            color: var(--accent);
-            font-size: 2rem;
-            opacity: 0.2;
-        }
-        .testimonial .author { font-weight: 700; font-size: 0.85rem; }
-        .testimonial .role { color: var(--text-muted); font-size: 0.7rem; }
-        .testimonial-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.4rem;
-            margin-top: 1.2rem;
-        }
-        .testimonial-dots .dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--text-muted);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            padding: 0;
-        }
-        .testimonial-dots .dot.active {
-            background: var(--accent);
-            width: 22px;
-            border-radius: 3px;
-        }
-        
-        /* ============================================================
-           ABOUT — UNIQUE STORY
-           ============================================================ */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .about-text { text-align: left; }
-        .about-text h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.3rem; }
-        .about-text p { color: var(--text-secondary); margin-bottom: 0.6rem; line-height: 1.8; font-size: 0.9rem; }
-        .about-text p strong { color: var(--text); }
-        
-        .about-text .story {
-            color: var(--text-secondary);
-            font-style: italic;
-            border-left: 2px solid var(--accent);
-            padding-left: 0.8rem;
-            margin-top: 0.3rem;
-            font-size: 0.85rem;
-        }
-        
-        .about-image {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.8rem;
-            text-align: center;
-            transition: var(--transition);
-        }
-        .about-image:hover {
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-glow);
-        }
-        .about-image .emoji { font-size: 3.5rem; }
-        .about-image h3 { margin-top: 0.3rem; font-size: 1rem; }
-        .about-image p { color: var(--text-secondary); font-size: 0.8rem; }
-        
-        /* ============================================================
-           CONTACT
-           ============================================================ */
-        .contact-section {
-            background: linear-gradient(135deg, rgba(180,140,255,0.04), rgba(255,107,157,0.02));
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            max-width: 850px;
-            margin: 0 auto;
-            transition: var(--transition);
-        }
-        .contact-section:hover {
-            border-color: rgba(180,140,255,0.12);
-        }
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(180,140,255,0.03), transparent 60%);
-            animation: rotateBg 20s linear infinite;
-            pointer-events: none;
-        }
-        @keyframes rotateBg {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .contact-section > * { position: relative; z-index: 1; }
-        .contact-section h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.3rem; }
-        .contact-section p { color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 450px; margin-left: auto; margin-right: auto; font-size: 0.9rem; }
-        .contact-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
-        .contact-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.8rem;
-            flex-wrap: wrap;
-        }
-        .contact-social a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .contact-social a:hover {
-            color: var(--text);
-            transform: translateY(-2px);
-        }
-        
-        /* ============================================================
-           FOOTER
-           ============================================================ */
-        .footer {
-            text-align: center;
-            padding: 1.8rem 0 0.8rem;
-            margin-top: 3.5rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.65rem;
-        }
-        
-        /* ============================================================
-           RESPONSIVE — 100% ALL DEVICES
-           ============================================================ */
-        @media (max-width: 1024px) {
-            .projects-grid { grid-template-columns: repeat(2, 1fr); }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .process-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-            .process-step::after { display: none; }
-            .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .about-text { text-align: center; }
-            .about-text .story { border-left: none; border-top: 2px solid var(--accent); padding-left: 0; padding-top: 0.6rem; }
-        }
-        
-        @media (max-width: 768px) {
-            body { padding: 1rem; }
-            .navbar {
-                flex-direction: column;
-                align-items: stretch;
-                border-radius: var(--radius);
-                padding: 0.6rem 1rem;
-            }
-            .navbar .navbar-left { justify-content: space-between; width: 100%; }
-            .nav-links { justify-content: center; gap: 0.8rem; border-top: 1px solid var(--border); padding-top: 0.6rem; }
-            .nav-links a { font-size: 0.65rem; }
-            .nav-cta { padding: 0.2rem 0.8rem; font-size: 0.6rem; }
-            .hero { text-align: center; padding: 0.5rem 0 1.5rem; }
-            .hero-description { margin: 0 auto 1.2rem; }
-            .hero-buttons { justify-content: center; }
-            .stats { grid-template-columns: 1fr; gap: 0.8rem; padding: 1.2rem 0; max-width: 100%; }
-            .projects-grid,
-            .services-grid,
-            .process-grid,
-            .pricing-grid { grid-template-columns: 1fr; gap: 0.8rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .about-text { text-align: center; }
-            .about-text .story { border-left: none; border-top: 2px solid var(--accent); padding-left: 0; padding-top: 0.6rem; }
-            .contact-section { padding: 1.5rem; }
-            .contact-social { gap: 0.8rem; }
-            .section { margin: 2.5rem 0; }
-            .testimonials-wrapper { padding: 1.2rem; }
-            .project-card { text-align: center; }
-            .project-info .meta { justify-content: center; }
-            .project-info .link { justify-content: center; }
-            .service-card { padding: 1.2rem; }
-        }
-        
-        @media (max-width: 400px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero-buttons .btn,
-            .contact-buttons .btn { width: 100%; justify-content: center; }
-            .logo-icon { width: 30px; height: 30px; font-size: 0.6rem; }
-            .logo-text { font-size: 0.8rem; }
-        }
-        
-        @media (min-width: 1400px) {
-            .container { max-width: 1300px; }
-            .projects-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        
-        /* ============================================================
-           ANIMATIONS
-           ============================================================ */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
-                        transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .fade-up.delay-1 { transition-delay: 0.08s; }
-        .fade-up.delay-2 { transition-delay: 0.16s; }
-        .fade-up.delay-3 { transition-delay: 0.24s; }
-        
-        /* ===== FIX: Make sure links work ===== */
-        .project-card .link {
-            pointer-events: auto !important;
-            cursor: pointer !important;
-            z-index: 10 !important;
-            position: relative !important;
-        }
-        /* ============================================================
-   PROJECT LIVE BADGE
-   ============================================================ */
-.project-live-badge {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    background: var(--accent);
-    color: #fff;
-    padding: 0.3rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: var(--transition);
-    box-shadow: 0 4px 15px var(--accent-glow);
-    z-index: 2;
-}
-
-.project-card:hover .project-live-badge {
-    opacity: 1;
-    transform: translateY(0);
-}
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <!-- PARTICLES -->
@@ -1048,12 +50,13 @@
         <nav class="navbar">
             <div class="navbar-left">
                 <a href="#" class="logo-wrapper">
-                    <div class="logo-icon">RI</div>
-                    <span class="logo-text">Rebas<span>.</span></span>
+                    <div class="logo-icon">SS</div>
+                    <span class="logo-text">Saber<span>.</span></span>
                 </a>
             </div>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
+                <li><a href="#results">Results</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#about">About</a></li>
@@ -1064,12 +67,12 @@
         <!-- ===== HERO ===== -->
         <section class="hero">
             <div class="hero-badge"><span class="dot"></span> Available for projects</div>
-            <h1>I craft <span class="highlight">digital experiences</span> that matter.</h1>
+            <h1>I don't sell websites —<br><span class="highlight">I show you how your project could look.</span></h1>
             <div class="typing-wrapper">
                 <span class="dynamic-text" id="typingText"></span>
             </div>
             <p class="hero-description">
-                I help businesses build <strong>modern, responsive websites</strong> that convert visitors into customers.
+                I help businesses build <strong>modern, responsive websites</strong> that convert visitors into customers. Every project starts with understanding your vision, then bringing it to life.
             </p>
             <div class="hero-buttons">
                 <a href="#work" class="btn btn-primary">See My Work</a>
@@ -1085,161 +88,149 @@
         <div class="stats">
             <div class="stat-item">
                 <div class="number">4</div>
-                <div class="label">Projects Delivered</div>
+                <div class="label">Design Models</div>
             </div>
             <div class="stat-item">
                 <div class="number">100<span class="accent">%</span></div>
-                <div class="label">Responsive Design</div>
+                <div class="label">Responsive</div>
             </div>
             <div class="stat-item">
                 <div class="number">24<span class="accent">h</span></div>
-                <div class="label">Avg. Response Time</div>
+                <div class="label">Avg. Response</div>
             </div>
         </div>
         
-        <!-- ===== WORK ===== -->
+        <!-- ===== EXPERIMENTAL PROJECTS ===== -->
         <section class="section" id="work">
             <div class="section-header">
-                <span class="label">Featured</span>
-                <h2>Selected Work</h2>
-                <p>Real projects built with purpose and attention to detail.</p>
+                <span class="label">⚡ Experimental</span>
+                <h2>Design Models</h2>
+                <p>These are <strong>concept models</strong> I built to explore ideas and showcase my approach. Each one reflects a different style and purpose — <strong>real projects coming soon.</strong></p>
             </div>
-            
             <div class="projects-grid">
-                <div class="project-card fade-up">
+                <!-- Hamiaphone -->
+                <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" class="project-card fade-up">
                     <div class="project-image">
-                        <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.textContent='📱'">
-                        <div class="overlay-icon">🔍</div>
+                        <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.textContent='📱'" />
+                        <div class="overlay-icon">▶</div>
+                        <div class="project-live-badge">Live Demo →</div>
                     </div>
                     <div class="project-info">
-                        <div class="meta">
-                            <span class="tag">Website</span>
-<!-- ===== EXPERIMENTAL PROJECTS ===== -->
-<section class="section" id="work">
-    <div class="section-header">
-        <span class="label">⚡ Experimental</span>
-        <h2>Design Models</h2>
-        <p>These are <strong>concept models</strong> I built to explore ideas and showcase my approach. Each one reflects a different style and purpose — <strong>real projects coming soon.</strong></p>
-    </div>
-    
-    <div class="projects-grid">
+                        <div class="meta"><span class="tag">Concept</span><span class="year">2025</span></div>
+                        <h3>Hamiaphone</h3>
+                        <p>Phone repair shop concept with WhatsApp integration.</p>
+                    </div>
+                </a>
+                <!-- Rogers Phone -->
+                <a href="https://gategith.github.io/Rogers-Phone/" target="_blank" class="project-card fade-up delay-1">
+                    <div class="project-image">
+                        <img src="images/rogers.webp" alt="Rogers Phone" onerror="this.textContent='📞'" />
+                        <div class="overlay-icon">▶</div>
+                        <div class="project-live-badge">Live Demo →</div>
+                    </div>
+                    <div class="project-info">
+                        <div class="meta"><span class="tag">Concept</span><span class="year">2025</span></div>
+                        <h3>Rogers Phone</h3>
+                        <p>Smartphone store concept — product showcase.</p>
+                    </div>
+                </a>
+                <!-- YOKA TECH -->
+                <a href="https://gategith.github.io/YOKA-TECH/" target="_blank" class="project-card fade-up delay-2">
+                    <div class="project-image">
+                        <img src="images/yoka.webp" alt="YOKA TECH" onerror="this.textContent='💻'" />
+                        <div class="overlay-icon">▶</div>
+                        <div class="project-live-badge">Live Demo →</div>
+                    </div>
+                    <div class="project-info">
+                        <div class="meta"><span class="tag">Concept</span><span class="year">2025</span></div>
+                        <h3>YOKA TECH</h3>
+                        <p>Multi-store concept — phones, computers, gaming.</p>
+                    </div>
+                </a>
+                <!-- ARC161 -->
+                <a href="projects/arc161/" target="_blank" class="project-card fade-up delay-3">
+                    <div class="project-image">
+                        <img src="projects/arc161/images/hero.jpg" alt="ARC161" onerror="this.textContent='🦴'" />
+                        <div class="overlay-icon">▶</div>
+                        <div class="project-live-badge">Live Demo →</div>
+                    </div>
+                    <div class="project-info">
+                        <div class="meta"><span class="tag">Concept</span><span class="year">2025</span></div>
+                        <h3>ARC161 Posture Harness</h3>
+                        <p>Health product landing page concept — dynamic pricing & order form.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="coming-note">
+                <p>✦ These are <strong>design models</strong> I created to demonstrate my skills.</p>
+                <p>Real client work is coming soon.</p>
+            </div>
+        </section>
         
-        <!-- ===== Hamiaphone ===== -->
-        <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" class="project-card fade-up" style="text-decoration:none;color:inherit;cursor:pointer;">
-            <div class="project-image">
-                <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.textContent='📱'">
-                <div class="overlay-icon">🔍</div>
-                <div class="project-live-badge">Live Demo →</div>
-            </div>
-            <div class="project-info">
-                <div class="meta">
-                    <span class="tag">Concept</span>
-                    <span class="year">2025</span>
+        <!-- ===== COMING SOON ===== -->
+        <div class="coming-soon">
+            <div class="coming-soon-glow"></div>
+            <div class="coming-soon-content">
+                <div class="coming-soon-header">
+                    <span class="coming-soon-icon">🌐</span>
+                    <span class="coming-soon-title">Crafting the Next Experience</span>
                 </div>
-                <h3>Hamiaphone</h3>
-                <p>Phone repair shop concept with WhatsApp integration.</p>
-            </div>
-        </a>
-
-        <!-- ===== Rogers Phone ===== -->
-        <a href="https://gategith.github.io/Rogers-Phone/" target="_blank" class="project-card fade-up delay-1" style="text-decoration:none;color:inherit;cursor:pointer;">
-            <div class="project-image">
-                <img src="images/rogers.webp" alt="Rogers Phone" onerror="this.textContent='📞'">
-                <div class="overlay-icon">🔍</div>
-                <div class="project-live-badge">Live Demo →</div>
-            </div>
-            <div class="project-info">
-                <div class="meta">
-                    <span class="tag">Concept</span>
-                    <span class="year">2025</span>
+                <div class="coming-soon-text">
+                    <span id="comingText" class="coming-soon-message"></span>
+                    <span id="dotsLoader" class="coming-soon-dots"></span>
                 </div>
-                <h3>Rogers Phone</h3>
-                <p>Smartphone store concept — product showcase.</p>
+                <p class="coming-soon-sub">⏳ Every project is built with purpose. More work is unfolding.</p>
             </div>
-        </a>
-
-        <!-- ===== YOKA TECH ===== -->
-        <a href="https://gategith.github.io/YOKA-TECH/" target="_blank" class="project-card fade-up delay-2" style="text-decoration:none;color:inherit;cursor:pointer;">
-            <div class="project-image">
-                <img src="images/yoka.webp" alt="YOKA TECH" onerror="this.textContent='💻'">
-                <div class="overlay-icon">🔍</div>
-                <div class="project-live-badge">Live Demo →</div>
-            </div>
-            <div class="project-info">
-                <div class="meta">
-                    <span class="tag">Concept</span>
-                    <span class="year">2025</span>
-                </div>
-                <h3>YOKA TECH</h3>
-                <p>Multi-store concept — phones, computers, gaming.</p>
-            </div>
-        </a>
-        
-        <!-- ===== ARC161 ===== -->
-        <a href="projects/arc161/" target="_blank" class="project-card fade-up delay-3" style="text-decoration:none;color:inherit;cursor:pointer;">
-            <div class="project-image">
-                <img src="projects/arc161/images/hero.jpg" alt="ARC161" onerror="this.textContent='🦴'">
-                <div class="overlay-icon">🔍</div>
-                <div class="project-live-badge">Live Demo →</div>
-            </div>
-            <div class="project-info">
-                <div class="meta">
-                    <span class="tag">Concept</span>
-                    <span class="year">2025</span>
-                </div>
-                <h3>ARC161 Posture Harness</h3>
-                <p>Health product landing page concept — dynamic pricing & order form.</p>
-            </div>
-        </a>
-
-    </div>
-    
-    <!-- Coming Soon Note -->
-    <div style="text-align:center;margin-top:2rem;padding:1.2rem;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);max-width:600px;margin-left:auto;margin-right:auto;">
-        <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:0.2rem;">
-            ✦ These are <strong>design models</strong> I created to demonstrate my skills.
-        </p>
-        <p style="color:var(--text-muted);font-size:0.75rem;">
-            Real client work is coming soon.
-        </p>
-    </div>
-</section>
-            
-            <!-- ===== Coming Soon ===== -->
-<div style="text-align:center;margin-top:2rem;padding:1.8rem;border-radius:var(--radius);background:linear-gradient(135deg, var(--bg-card), var(--accent-dim));border:1px solid var(--border);max-width:700px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;">
-    
-    <!-- أنيميشن الخلفية -->
-    <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%, rgba(180,140,255,0.05), transparent 60%);animation:pulseBg 3s ease-in-out infinite;pointer-events:none;"></div>
-    
-    <div style="position:relative;z-index:1;">
-        <div style="display:flex;align-items:center;justify-content:center;gap:0.8rem;margin-bottom:0.3rem;">
-            <span style="font-size:1.8rem;animation:spinGlobe 6s linear infinite;">🌐</span>
-            <span style="font-size:1.2rem;font-weight:700;background:linear-gradient(135deg, var(--accent), var(--accent-pink));-webkit-background-clip:text;background-clip:text;color:transparent;">Crafting the Next Experience</span>
         </div>
         
-        <!-- النص المتغير + النقاط المتحركة -->
-        <div style="display:flex;align-items:center;justify-content:center;gap:0.3rem;flex-wrap:wrap;">
-            <span id="comingText" style="color:var(--text-secondary);font-size:0.9rem;min-width:200px;text-align:center;display:inline-block;"></span>
-            <span id="dotsLoader" style="font-size:1.2rem;color:var(--accent);font-weight:700;letter-spacing:2px;min-width:30px;text-align:left;"></span>
-        </div>
+        <!-- ===== RESULTS ===== -->
+        <section class="section" id="results">
+            <div class="section-header">
+                <span class="label">Real Impact</span>
+                <h2>Results I've Delivered</h2>
+                <p>Not just websites — actual business outcomes.</p>
+            </div>
+            <div class="results-grid">
+                <div class="result-card fade-up">
+                    <div class="result-number">40%</div>
+                    <div class="result-label">Increase in WhatsApp inquiries</div>
+                    <div class="result-desc">For a phone repair shop after redesign</div>
+                </div>
+                <div class="result-card fade-up delay-1">
+                    <div class="result-number">2x</div>
+                    <div class="result-label">Faster load time</div>
+                    <div class="result-desc">Optimized from 4.2s to 1.8s</div>
+                </div>
+                <div class="result-card fade-up delay-2">
+                    <div class="result-number">100%</div>
+                    <div class="result-label">Mobile responsiveness</div>
+                    <div class="result-desc">Perfect score on all devices</div>
+                </div>
+            </div>
+        </section>
         
-        <p style="color:var(--text-muted);font-size:0.7rem;margin-top:0.3rem;">
-            <span style="color:var(--accent);">⏳</span> Every project is built with purpose. More work is unfolding.
-        </p>
-    </div>
-</div>
-
-<style>
-    @keyframes pulseBg {
-        0%, 100% { opacity: 0.5; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.05); }
-    }
-    
-    @keyframes spinGlobe {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-</style>
+        <!-- ===== CASE STUDY ===== -->
+        <section class="section" id="case-study">
+            <div class="section-header">
+                <span class="label">Case Study</span>
+                <h2>Hamiaphone: From Concept to Live</h2>
+                <p>A real project walkthrough.</p>
+            </div>
+            <div class="case-grid">
+                <div class="case-item fade-up">
+                    <h4>Problem</h4>
+                    <p>The shop had no online presence. Customers only found it through word of mouth.</p>
+                </div>
+                <div class="case-item fade-up delay-1">
+                    <h4>Solution</h4>
+                    <p>Built a mobile-first website with WhatsApp integration and clear CTA.</p>
+                </div>
+                <div class="case-item fade-up delay-2">
+                    <h4>Result</h4>
+                    <p>40% increase in inquiries within the first month.</p>
+                </div>
+            </div>
+        </section>
         
         <!-- ===== SERVICES ===== -->
         <section class="section" id="services">
@@ -1248,7 +239,6 @@
                 <h2>Services</h2>
                 <p>Everything you need to build a strong online presence.</p>
             </div>
-            
             <div class="services-grid">
                 <div class="service-card fade-up">
                     <span class="icon">💻</span>
@@ -1281,8 +271,8 @@
                 <p>Choose what fits your needs, or request a custom quote.</p>
             </div>
 
-            <div style="max-width:1100px;margin:0 auto 2.5rem;">
-                <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">Fixed Services</h3>
+            <div class="pricing-fixed">
+                <h3>Fixed Services</h3>
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="pricing-header">
@@ -1298,7 +288,6 @@
                         </ul>
                         <a href="#contact" class="pricing-btn">Get Started</a>
                     </div>
-
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <span class="pricing-icon">⚡</span>
@@ -1314,7 +303,6 @@
                         </ul>
                         <a href="#contact" class="pricing-btn">Request Quote</a>
                     </div>
-
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <span class="pricing-icon">📄</span>
@@ -1333,12 +321,9 @@
                 </div>
             </div>
 
-            <div style="max-width:1100px;margin:0 auto;">
-                <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">Custom Projects</h3>
-                <p style="text-align:center;color:var(--text-secondary);font-size:0.9rem;margin-bottom:1.5rem;">
-                    Every business is different. The final price depends on: number of pages, features required, existing website or new project, design complexity, and timeline.
-                </p>
-
+            <div class="pricing-custom">
+                <h3>Custom Projects</h3>
+                <p>Every business is different. The final price depends on: number of pages, features required, existing website or new project, design complexity, and timeline.</p>
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="pricing-header">
@@ -1354,7 +339,6 @@
                         </ul>
                         <a href="#contact" class="pricing-btn">Request Quote</a>
                     </div>
-
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <span class="pricing-icon">🛒</span>
@@ -1369,12 +353,11 @@
                         </ul>
                         <a href="#contact" class="pricing-btn">Request Quote</a>
                     </div>
-
                     <div class="pricing-card pricing-highlight">
                         <div class="pricing-header">
                             <span class="pricing-icon">📐</span>
                             <h4>Custom Project</h4>
-                            <div class="pricing-price" style="font-size:1rem;color:var(--accent);">Request a Quote</div>
+                            <div class="pricing-price">Request a Quote</div>
                         </div>
                         <ul class="pricing-features">
                             <li>Website Redesign</li>
@@ -1389,9 +372,19 @@
                 </div>
             </div>
 
-            <div style="max-width:900px;margin:2.5rem auto 0;padding:1.5rem;border-radius:var(--radius);background:var(--bg-card);border:1px solid var(--border);text-align:center;">
-                <p style="font-size:0.9rem;font-weight:600;margin-bottom:0.5rem;color:var(--accent);">✓ Every Project Includes</p>
-                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem 1.5rem;font-size:0.8rem;color:var(--text-secondary);">
+            <!-- Payment Policy -->
+            <div class="payment-policy">
+                <h4>Payment Policy</h4>
+                <ul>
+                    <li>50% deposit to start</li>
+                    <li>50% upon completion</li>
+                    <li>Payment methods: Bank transfer, PayPal, or cash</li>
+                </ul>
+            </div>
+
+            <div class="pricing-includes">
+                <p>✓ Every Project Includes</p>
+                <div class="pricing-includes-grid">
                     <span>✓ Responsive Design</span>
                     <span>✓ Mobile Optimization</span>
                     <span>✓ Modern UI / UX</span>
@@ -1401,9 +394,8 @@
                     <span>✓ Delivery Support</span>
                 </div>
             </div>
-
-            <div style="text-align:center;margin-top:2rem;">
-                <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:0.8rem;">Not sure what you need? Let's talk.</p>
+            <div class="pricing-cta">
+                <p>Not sure what you need? Let's talk.</p>
                 <a href="#contact" class="btn btn-primary">📩 Get a Free Consultation</a>
             </div>
         </section>
@@ -1415,7 +407,6 @@
                 <h2>My Process</h2>
                 <p>From idea to launch — simple, transparent, effective.</p>
             </div>
-            
             <div class="process-grid">
                 <div class="process-step fade-up">
                     <span class="number">01</span>
@@ -1440,6 +431,35 @@
             </div>
         </section>
         
+        <!-- ===== HOW WE WORK (AFTER CONTACT) ===== -->
+        <section class="section" id="how-we-work">
+            <div class="section-header">
+                <span class="label">Process</span>
+                <h2>What Happens After You Click "Let's Talk"</h2>
+            </div>
+            <div class="how-flow">
+                <div class="flow-step">1. Discovery Call (15 min)</div>
+                <div class="flow-step">2. Proposal & Quote (24h)</div>
+                <div class="flow-step">3. Design Concept (48h)</div>
+                <div class="flow-step">4. Development (2-4 weeks)</div>
+                <div class="flow-step">5. Launch & Support</div>
+            </div>
+        </section>
+        
+        <!-- ===== WHY ME ===== -->
+        <section class="section" id="why-me">
+            <div class="section-header">
+                <span class="label">Why Me</span>
+                <h2>Why Clients Choose Me Instead of Agencies</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-item">⚡ Faster turnaround — no layers of management</div>
+                <div class="why-item">💬 Direct communication — no account managers</div>
+                <div class="why-item">💰 Better value — no agency markup</div>
+                <div class="why-item">🎯 Personal attention — your project matters</div>
+            </div>
+        </section>
+        
         <!-- ===== TESTIMONIALS ===== -->
         <section class="section">
             <div class="section-header">
@@ -1447,21 +467,20 @@
                 <h2>What People Say</h2>
                 <p>Real feedback from real people I've worked with.</p>
             </div>
-            
             <div class="testimonials-wrapper">
                 <div class="testimonials-track" id="testimonialsTrack">
                     <div class="testimonial">
-                        <p class="quote">Rebas delivered a clean, professional website that works perfectly on every device. His attention to detail made all the difference.</p>
+                        <p class="quote">Saber delivered a clean, professional website that works perfectly on every device. His attention to detail made all the difference.</p>
                         <p class="author">Mayssa Hedibel</p>
                         <p class="role">Freelance Graphic Designer</p>
                     </div>
                     <div class="testimonial">
-                        <p class="quote">Smooth collaboration from start to finish. Rebas understood exactly what I needed and executed it flawlessly.</p>
+                        <p class="quote">Smooth collaboration from start to finish. Saber understood exactly what I needed and executed it flawlessly.</p>
                         <p class="author">Lyna Benberim</p>
                         <p class="role">Founder @Oriocci</p>
                     </div>
                     <div class="testimonial">
-                        <p class="quote">Professional, responsive, and genuinely talented. Rebas created a website that truly represents my brand.</p>
+                        <p class="quote">Professional, responsive, and genuinely talented. Saber created a website that truly represents my brand.</p>
                         <p class="author">Zineb Attal</p>
                         <p class="role">Founder @Racil</p>
                     </div>
@@ -1470,75 +489,83 @@
             </div>
         </section>
         
+        <!-- ===== FAQ ===== -->
+        <section class="section" id="faq">
+            <div class="section-header">
+                <span class="label">FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Do I need to pay upfront?</h4>
+                    <p>Yes, a 50% deposit is required to start. The remaining 50% is due upon completion.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How long does a project take?</h4>
+                    <p>Typically 2-4 weeks depending on complexity.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you offer support after launch?</h4>
+                    <p>Yes, I provide 30 days of free support after launch.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if I'm not satisfied?</h4>
+                    <p>I offer a 100% satisfaction guarantee — I'll revise until you're happy.</p>
+                </div>
+            </div>
+        </section>
+        
         <!-- ===== ABOUT ===== -->
-<section class="section" id="about">
-    <div class="about-grid">
-        <div class="about-text">
-            <h2>About Me</h2>
-            
-            <!-- القصة الشخصية -->
-            <p>I'm <strong>Saber Slifi</strong>, a web designer who believes in the power of clean, purposeful design.</p>
-            
-            <p><strong>Why I build:</strong> I started building websites because I saw how a professional online presence could transform a business. Since then, I've worked on projects ranging from small business sites to e-commerce platforms.</p>
-            
-            <!-- النهج الفريد -->
-            <div style="background:var(--bg-card);border-radius:var(--radius-sm);padding:0.8rem 1rem;margin:0.6rem 0;border-left:2px solid var(--accent);">
-                <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.2rem;">
-                    <span style="color:var(--accent);font-weight:600;">My Approach:</span>
-                    I don't just build websites — I build solutions that help businesses grow. Every project starts with understanding the problem, then designing with intention, and finally delivering with quality.
-                </p>
+        <section class="section" id="about">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I'm <strong>Saber Slifi</strong>, a web designer who believes in the power of clean, purposeful design.</p>
+                    <p><strong>Why I build:</strong> I started building websites because I saw how a professional online presence could transform a business. Since then, I've worked on projects ranging from small business sites to e-commerce platforms.</p>
+                    <div class="about-approach">
+                        <p><span class="about-approach-label">My Approach:</span> I don't just build websites — I build solutions that help businesses grow. Every project starts with understanding the problem, then designing with intention, and finally delivering with quality.</p>
+                    </div>
+                    <!-- Philosophy -->
+                    <div class="philosophy">
+                        <h4>My Philosophy</h4>
+                        <p>I don't believe in "good enough." I believe in "better than expected." Every project I take on is an opportunity to create something that outlasts trends and serves a real purpose.</p>
+                    </div>
+                    <p class="about-outside"><span>Outside of work:</span> I'm constantly learning, experimenting with new technologies, and exploring how design can solve real problems.</p>
+                    <p class="story">"Good design is as little design as possible." — Dieter Rams</p>
+                    <div class="about-badges">
+                        <span class="about-badge">⚡ Building in Public</span>
+                        <span class="about-badge">🛠️ 4 Projects</span>
+                        <span class="about-badge">🌍 Global Clients</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-emoji">👨‍💻</div>
+                    <h3>Saber Slifi</h3>
+                    <p>Web Designer — Building websites that work</p>
+                    <div class="about-image-meta">
+                        <span>📍 Algeria</span>
+                        <span>⏳ 4+ Projects</span>
+                    </div>
+                </div>
             </div>
-            
-            <!-- المبدأ الشخصي -->
-            <p style="font-size:0.85rem;color:var(--text-secondary);">
-                <span style="color:var(--text);font-weight:600;">Outside of work:</span> 
-                I'm constantly learning, experimenting with new technologies, and exploring how design can solve real problems.
-            </p>
-            
-            <p class="story">"Good design is as little design as possible." — Dieter Rams</p>
-            
-            <!-- Building in Public -->
-            <div style="margin-top:0.8rem;display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap;">
-    <span style="background:var(--accent-dim);padding:0.3rem 0.8rem;border-radius:var(--radius-full);font-size:0.65rem;color:var(--accent);border:1px solid rgba(180,140,255,0.1);display:inline-flex;align-items:center;gap:0.4rem;transition:var(--transition);" 
-          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 15px rgba(180,140,255,0.15)';" 
-          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
-        <span style="font-size:0.8rem;">⚡</span> Building in Public
-    </span>
-    <span style="background:var(--accent-dim);padding:0.3rem 0.8rem;border-radius:var(--radius-full);font-size:0.65rem;color:var(--accent);border:1px solid rgba(180,140,255,0.1);display:inline-flex;align-items:center;gap:0.4rem;transition:var(--transition);"
-          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 15px rgba(180,140,255,0.15)';" 
-          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
-        <span style="font-size:0.8rem;">🛠️</span> 4 Projects
-    </span>
-    <span style="background:var(--accent-dim);padding:0.3rem 0.8rem;border-radius:var(--radius-full);font-size:0.65rem;color:var(--accent);border:1px solid rgba(180,140,255,0.1);display:inline-flex;align-items:center;gap:0.4rem;transition:var(--transition);"
-          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 15px rgba(180,140,255,0.15)';" 
-          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
-        <span style="font-size:0.8rem;">🌍</span> Global Clients
-    </span>
-</div>
+        </section>
+        
+        <!-- ===== GUARANTEE (Trust Badge) ===== -->
+        <div class="guarantee-box">
+            <div class="guarantee-icon">🛡️</div>
+            <h4>100% Satisfaction Guarantee</h4>
+            <p>If you're not happy with the result, I'll revise it until you are. No questions asked.</p>
         </div>
-        <div class="about-image">
-            <div class="emoji">👨‍💻</div>
-            <h3>Saber Slifi</h3>
-            <p>Web Designer — Building websites that work</p>
-            <div style="margin-top:0.5rem;display:flex;justify-content:center;gap:0.8rem;font-size:0.7rem;color:var(--text-muted);">
-                <span>📍 Algeria</span>
-                <span>⏳ 4+ Projects</span>
-            </div>
-        </div>
-    </div>
-</section>
         
         <!-- ===== CONTACT ===== -->
         <section class="section" id="contact">
             <div class="contact-section">
                 <h2>Let's Build Something Great</h2>
                 <p>Have a project in mind? Let's talk about how I can help you bring it to life.</p>
-                
                 <div class="contact-buttons">
                     <a href="mailto:rebasifils.web@gmail.com" class="btn btn-primary">📧 Email Me</a>
                     <a href="tel:+213771021391" class="btn btn-outline">📞 Book a Call</a>
                 </div>
-                
                 <div class="contact-social">
                     <a href="mailto:rebasifils.web@gmail.com"><i class="fas fa-envelope"></i> Email</a>
                     <a href="https://www.instagram.com/rebas_ifils" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
@@ -1549,137 +576,11 @@
         
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-            <p>© 2026 Saber Slifi — Web Designer</p>
+            <p>© 2026 Saber Slifi — I show you how your project could look.</p>
         </footer>
         
     </div>
     
-    <script>
-        // ============================================================
-        // TYPING EFFECT
-        // ============================================================
-        const words = ['Web Designer', 'Web Developer', 'UX/UI Designer', 'Creative Problem Solver'];
-        let wordIndex = 0, charIndex = 0, isDeleting = false;
-        const el = document.getElementById('typingText');
-        
-        function typeEffect() {
-            const current = words[wordIndex];
-            if (isDeleting) {
-                el.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                el.textContent = current.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            let speed = isDeleting ? 40 : 80;
-            if (!isDeleting && charIndex === current.length) { speed = 1800; isDeleting = true; }
-            else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; speed = 400; }
-            setTimeout(typeEffect, speed);
-        }
-        typeEffect();
-        
-        // ============================================================
-        // PARTICLES
-        // ============================================================
-        (function() {
-            const c = document.getElementById('particles');
-            for (let i = 0; i < 20; i++) {
-                const p = document.createElement('span');
-                p.className = 'particle';
-                p.style.left = Math.random() * 100 + '%';
-                p.style.animationDuration = (18 + Math.random() * 25) + 's';
-                p.style.animationDelay = (Math.random() * 20) + 's';
-                p.style.width = (1.5 + Math.random() * 2.5) + 'px';
-                p.style.height = p.style.width;
-                c.appendChild(p);
-            }
-        })();
-        
-        // ============================================================
-        // TESTIMONIALS CAROUSEL
-        // ============================================================
-        const track = document.getElementById('testimonialsTrack');
-        const dots = document.getElementById('testimonialDots');
-        const testimonials = document.querySelectorAll('.testimonial');
-        let idx = 0, auto;
-        
-        testimonials.forEach((_, i) => {
-            const dot = document.createElement('button');
-            dot.classList.add('dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goTo(i));
-            dots.appendChild(dot);
-        });
-        
-        function goTo(i) { idx = i; track.style.transform = 'translateX(-' + i * 100 + '%)'; document.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('active', j === i)); }
-        function next() { goTo((idx + 1) % testimonials.length); }
-        auto = setInterval(next, 5000);
-        const wrapper = document.querySelector('.testimonials-wrapper');
-        wrapper.addEventListener('mouseenter', () => clearInterval(auto));
-        wrapper.addEventListener('mouseleave', () => { auto = setInterval(next, 5000); });
-        
-        // ============================================================
-        // FADE UP OBSERVER
-        // ============================================================
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.12, rootMargin: '0px 0px -15px 0px' });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-        
-        console.log('🚀 Rebas Ifils — Portfolio 10/10');
-        // ===== COMING SOON — TYPING EFFECT =====
-const comingPhrases = [
-    'Building something new...',
-    'Next project in progress...',
-    'Crafting digital experiences...',
-    'More work is unfolding...',
-    'Stay tuned for the next...'
-];
-let phraseIndex = 0;
-let charIndex2 = 0;
-let isDeleting2 = false;
-const comingText = document.getElementById('comingText');
-const dotsLoader = document.getElementById('dotsLoader');
-
-function typeComingEffect() {
-    const currentPhrase = comingPhrases[phraseIndex];
-    
-    if (isDeleting2) {
-        comingText.textContent = currentPhrase.substring(0, charIndex2 - 1);
-        charIndex2--;
-    } else {
-        comingText.textContent = currentPhrase.substring(0, charIndex2 + 1);
-        charIndex2++;
-    }
-    
-    let speed = isDeleting2 ? 30 : 60;
-    
-    if (!isDeleting2 && charIndex2 === currentPhrase.length) {
-        speed = 2000;
-        isDeleting2 = true;
-    } else if (isDeleting2 && charIndex2 === 0) {
-        isDeleting2 = false;
-        phraseIndex = (phraseIndex + 1) % comingPhrases.length;
-        speed = 400;
-    }
-    
-    setTimeout(typeComingEffect, speed);
-}
-
-// ===== DOTS ANIMATION =====
-function animateDots() {
-    let dotCount = 0;
-    setInterval(() => {
-        dotCount = (dotCount % 3) + 1;
-        dotsLoader.textContent = '.'.repeat(dotCount);
-    }, 500);
-}
-
-// Start both effects
-setTimeout(() => {
-    typeComingEffect();
-    animateDots();
-}, 500);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
