@@ -6,7 +6,6 @@
     
     <title>Saber Slifi — I Show You How Your Project Could Look</title>
     <meta name="description" content="I don't sell websites — I show you how your project could look. Web designer creating modern, responsive websites that help businesses grow." />
-    <meta name="keywords" content="web designer, web developer, freelance, responsive design, UI/UX, landing page" />
     <meta name="author" content="Saber Slifi" />
     <link rel="canonical" href="https://saberslifi.com" />
     <meta name="robots" content="index, follow" />
@@ -14,7 +13,6 @@
     <meta property="og:title" content="Saber Slifi — I Show You How Your Project Could Look" />
     <meta property="og:description" content="I don't sell websites — I show you how your project could look." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="images/og-image.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     
     <script type="application/ld+json">
@@ -33,19 +31,17 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" as="style" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     
-    <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <!-- Lenis -->
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js" defer></script>
     
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    
     <!-- PRELOADER -->
     <div id="preloader">
         <div class="loader-logo">SS</div>
@@ -55,16 +51,16 @@
     <!-- SCROLL PROGRESS -->
     <div id="scroll-progress"></div>
     
-    <!-- CUSTOM CURSOR -->
+    <!-- CURSOR -->
     <div class="cursor-dot"></div>
     <div class="cursor-follower"></div>
     
-    <!-- NOISE OVERLAY -->
+    <!-- NOISE -->
     <div class="noise-overlay"></div>
     
     <div class="container">
         
-        <!-- NAVBAR -->
+        <!-- ===== NAVBAR ===== -->
         <nav class="navbar" id="navbar">
             <div class="navbar-left">
                 <a href="#" class="logo-wrapper">
@@ -82,7 +78,7 @@
             </ul>
         </nav>
         
-        <!-- HERO -->
+        <!-- ===== HERO ===== -->
         <section class="hero" id="hero">
             <div class="hero-glow"></div>
             <div class="hero-rays"></div>
@@ -111,7 +107,7 @@
             </div>
         </section>
         
-        <!-- STATS -->
+        <!-- ===== STATS ===== -->
         <div class="stats" id="stats">
             <div class="stat-item">
                 <div class="number" data-count="4">0</div>
@@ -129,7 +125,7 @@
             </div>
         </div>
         
-        <!-- WORK -->
+        <!-- ===== WORK ===== -->
         <section class="section" id="work">
             <div class="section-header">
                 <span class="label">⚡ Experimental</span>
@@ -137,10 +133,11 @@
                 <p>These are <strong>concept models</strong> I built to explore ideas and showcase my approach. Each one reflects a different style and purpose — <strong>real projects coming soon.</strong></p>
             </div>
             <div class="projects-grid">
+                
                 <!-- Hamiaphone -->
                 <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" class="project-card" data-tilt>
                     <div class="project-image">
-                        <img src="images/hamiaphone.webp" alt="Hamiaphone" loading="lazy" onerror="this.parentElement.textContent='📱'" />
+                        <img src="images/hamiaphone.webp" alt="Hamiaphone" loading="lazy" />
                         <div class="overlay-icon">▶</div>
                         <div class="project-live-badge">Live Demo →</div>
                     </div>
@@ -150,10 +147,11 @@
                         <p>Phone repair shop concept with WhatsApp integration.</p>
                     </div>
                 </a>
+                
                 <!-- Rogers Phone -->
                 <a href="https://gategith.github.io/Rogers-Phone/" target="_blank" class="project-card" data-tilt>
                     <div class="project-image">
-                        <img src="images/rogers.webp" alt="Rogers Phone" loading="lazy" onerror="this.parentElement.textContent='📞'" />
+                        <img src="images/rogers.webp" alt="Rogers Phone" loading="lazy" />
                         <div class="overlay-icon">▶</div>
                         <div class="project-live-badge">Live Demo →</div>
                     </div>
@@ -163,10 +161,11 @@
                         <p>Smartphone store concept — product showcase.</p>
                     </div>
                 </a>
+                
                 <!-- YOKA TECH -->
                 <a href="https://gategith.github.io/YOKA-TECH/" target="_blank" class="project-card" data-tilt>
                     <div class="project-image">
-                        <img src="images/yoka.webp" alt="YOKA TECH" loading="lazy" onerror="this.parentElement.textContent='💻'" />
+                        <img src="images/yoka.webp" alt="YOKA TECH" loading="lazy" />
                         <div class="overlay-icon">▶</div>
                         <div class="project-live-badge">Live Demo →</div>
                     </div>
@@ -176,10 +175,11 @@
                         <p>Multi-store concept — phones, computers, gaming.</p>
                     </div>
                 </a>
+                
                 <!-- ARC161 -->
                 <a href="projects/arc161/" target="_blank" class="project-card" data-tilt>
                     <div class="project-image">
-                        <img src="projects/arc161/images/hero.jpg" alt="ARC161" loading="lazy" onerror="this.parentElement.textContent='🦴'" />
+                        <img src="projects/arc161/images/hero.jpg" alt="ARC161" loading="lazy" />
                         <div class="overlay-icon">▶</div>
                         <div class="project-live-badge">Live Demo →</div>
                     </div>
@@ -189,6 +189,7 @@
                         <p>Health product landing page concept — dynamic pricing & order form.</p>
                     </div>
                 </a>
+                
             </div>
             <div class="coming-note">
                 <p>✦ These are <strong>design models</strong> I created to demonstrate my skills.</p>
@@ -196,7 +197,7 @@
             </div>
         </section>
         
-        <!-- COMING SOON -->
+        <!-- ===== COMING SOON ===== -->
         <div class="coming-soon" id="coming-soon">
             <div class="coming-soon-glow"></div>
             <div class="coming-soon-content">
@@ -212,7 +213,7 @@
             </div>
         </div>
         
-        <!-- RESULTS -->
+        <!-- ===== RESULTS ===== -->
         <section class="section" id="results">
             <div class="section-header">
                 <span class="label">Real Impact</span>
@@ -238,7 +239,7 @@
             </div>
         </section>
         
-        <!-- CASE STUDY -->
+        <!-- ===== CASE STUDY ===== -->
         <section class="section" id="case-study">
             <div class="section-header">
                 <span class="label">Case Study</span>
@@ -261,7 +262,7 @@
             </div>
         </section>
         
-        <!-- SERVICES -->
+        <!-- ===== SERVICES ===== -->
         <section class="section" id="services">
             <div class="section-header">
                 <span class="label">What I Do</span>
@@ -292,7 +293,7 @@
             </div>
         </section>
         
-        <!-- PRICING -->
+        <!-- ===== PRICING ===== -->
         <section class="section" id="pricing">
             <div class="section-header">
                 <span class="label">Pricing</span>
@@ -424,7 +425,7 @@
             </div>
         </section>
         
-        <!-- PROCESS -->
+        <!-- ===== PROCESS ===== -->
         <section class="section" id="process">
             <div class="section-header">
                 <span class="label">How It Works</span>
@@ -462,7 +463,7 @@
             </div>
         </section>
         
-        <!-- WHY ME -->
+        <!-- ===== WHY ME ===== -->
         <section class="section" id="why-me">
             <div class="section-header">
                 <span class="label">Why Me</span>
@@ -476,7 +477,7 @@
             </div>
         </section>
         
-        <!-- TESTIMONIALS -->
+        <!-- ===== TESTIMONIALS ===== -->
         <section class="section" id="testimonials">
             <div class="section-header">
                 <span class="label">Testimonials</span>
@@ -505,7 +506,7 @@
             </div>
         </section>
         
-        <!-- FAQ -->
+        <!-- ===== FAQ ===== -->
         <section class="section" id="faq">
             <div class="section-header">
                 <span class="label">FAQ</span>
@@ -531,7 +532,7 @@
             </div>
         </section>
         
-        <!-- ABOUT -->
+        <!-- ===== ABOUT ===== -->
         <section class="section" id="about">
             <div class="about-grid">
                 <div class="about-text">
@@ -554,19 +555,25 @@
                     </div>
                 </div>
                 <div class="about-image glass">
-                    <img src="images/profile.webp" alt="Saber Slifi" class="about-profile-img" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'about-image-emoji\'>👨‍💻</div><h3>Saber Slifi</h3><p>Web Designer — Building websites that work</p><div class=\'about-image-meta\'><span>📍 Algeria</span><span>⏳ 4+ Projects</span></div>'">
+                    <img src="images/profile.webp" alt="Saber Slifi" class="about-profile-img" />
+                    <h3>Saber Slifi</h3>
+                    <p>Web Designer — Building websites that work</p>
+                    <div class="about-image-meta">
+                        <span>📍 Algeria</span>
+                        <span>⏳ 4+ Projects</span>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <!-- GUARANTEE -->
+        <!-- ===== GUARANTEE ===== -->
         <div class="guarantee-box glass">
             <div class="guarantee-icon">🛡️</div>
             <h4>100% Satisfaction Guarantee</h4>
             <p>If you're not happy with the result, I'll revise it until you are. No questions asked.</p>
         </div>
         
-        <!-- MARQUEE -->
+        <!-- ===== MARQUEE ===== -->
         <div class="marquee">
             <div class="marquee-track">
                 <span>Web Design</span><span>✦</span><span>UI/UX</span><span>✦</span>
@@ -582,7 +589,7 @@
             </div>
         </div>
         
-        <!-- CONTACT -->
+        <!-- ===== CONTACT ===== -->
         <section class="section" id="contact">
             <div class="contact-section glass">
                 <h2>Let's Build Something Great</h2>
@@ -599,7 +606,7 @@
             </div>
         </section>
         
-        <!-- FOOTER -->
+        <!-- ===== FOOTER ===== -->
         <footer class="footer animated-footer">
             <div class="footer-content">
                 <p>© 2026 Saber Slifi — I show you how your project could look.</p>
