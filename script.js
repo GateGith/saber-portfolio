@@ -4,17 +4,13 @@
 
 console.log('🚀 Saber Portfolio — Complete');
 
-// ============================================================
-// PRELOADER
-// ============================================================
+// ===== PRELOADER =====
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     setTimeout(() => preloader.classList.add('hide'), 1200);
 });
 
-// ============================================================
-// LENIS SMOOTH SCROLL
-// ============================================================
+// ===== LENIS SMOOTH SCROLL =====
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -29,9 +25,7 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// ============================================================
-// GSAP + SCROLLTRIGGER
-// ============================================================
+// ===== GSAP + SCROLLTRIGGER =====
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -212,13 +206,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ============================================================
-// TYPING EFFECT (Hero)
-// ============================================================
+// ===== TYPING EFFECT =====
 const words = ['Web Designer', 'Web Developer', 'UX/UI Designer', 'Creative Problem Solver'];
-let wordIndex = 0,
-    charIndex = 0,
-    isDeleting = false;
+let wordIndex = 0, charIndex = 0, isDeleting = false;
 const el = document.getElementById('typingText');
 
 function typeEffect() {
@@ -244,9 +234,7 @@ function typeEffect() {
 }
 setTimeout(typeEffect, 1500);
 
-// ============================================================
-// ANIMATED NUMBERS
-// ============================================================
+// ===== ANIMATED NUMBERS =====
 document.querySelectorAll('.stat-item .number').forEach((el) => {
     const target = parseInt(el.dataset.count);
     if (isNaN(target)) return;
@@ -271,15 +259,10 @@ document.querySelectorAll('.stat-item .number').forEach((el) => {
     observer.observe(el);
 });
 
-// ============================================================
-// CUSTOM CURSOR
-// ============================================================
+// ===== CURSOR =====
 const dot = document.querySelector('.cursor-dot');
 const follower = document.querySelector('.cursor-follower');
-let mouseX = 0,
-    mouseY = 0,
-    followerX = 0,
-    followerY = 0;
+let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -308,9 +291,7 @@ document.querySelectorAll('a, button, .project-card, .btn, .pricing-btn, .nav-ct
     });
 });
 
-// ============================================================
-// MOUSE SPOTLIGHT
-// ============================================================
+// ===== SPOTLIGHT =====
 const spotlight = document.getElementById('heroSpotlight');
 if (spotlight) {
     document.addEventListener('mousemove', (e) => {
@@ -323,9 +304,7 @@ if (spotlight) {
     });
 }
 
-// ============================================================
-// MAGNETIC BUTTONS
-// ============================================================
+// ===== MAGNETIC BUTTONS =====
 document.querySelectorAll('.magnetic').forEach((btn) => {
     btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
@@ -339,9 +318,7 @@ document.querySelectorAll('.magnetic').forEach((btn) => {
     });
 });
 
-// ============================================================
-// 3D TILT
-// ============================================================
+// ===== 3D TILT =====
 document.querySelectorAll('.project-card[data-tilt]').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -358,9 +335,7 @@ document.querySelectorAll('.project-card[data-tilt]').forEach((card) => {
     });
 });
 
-// ============================================================
-// RIPPLE EFFECT
-// ============================================================
+// ===== RIPPLE EFFECT =====
 document.querySelectorAll('.btn, .pricing-btn').forEach((btn) => {
     btn.addEventListener('click', function(e) {
         const rect = this.getBoundingClientRect();
@@ -382,9 +357,7 @@ document.querySelectorAll('.btn, .pricing-btn').forEach((btn) => {
     });
 });
 
-// ============================================================
-// SCROLL PROGRESS
-// ============================================================
+// ===== SCROLL PROGRESS =====
 window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -392,9 +365,7 @@ window.addEventListener('scroll', () => {
     document.getElementById('scroll-progress').style.width = progress + '%';
 });
 
-// ============================================================
-// ACTIVE NAV LINK
-// ============================================================
+// ===== ACTIVE NAV LINK =====
 const sections = document.querySelectorAll('.section');
 const navLinks = document.querySelectorAll('.nav-link');
 
@@ -414,14 +385,11 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ============================================================
-// TESTIMONIALS CAROUSEL
-// ============================================================
+// ===== TESTIMONIALS CAROUSEL =====
 const track = document.getElementById('testimonialsTrack');
 const dots = document.getElementById('testimonialDots');
 const testimonials = document.querySelectorAll('.testimonial');
-let idx = 0,
-    auto;
+let idx = 0, auto;
 
 if (track && dots && testimonials.length) {
     testimonials.forEach((_, i) => {
@@ -448,9 +416,7 @@ if (track && dots && testimonials.length) {
     wrapper.addEventListener('mouseleave', () => { auto = setInterval(next, 5000); });
 }
 
-// ============================================================
-// COMING SOON TYPING EFFECT
-// ============================================================
+// ===== COMING SOON TYPING =====
 const comingPhrases = [
     'Building something new...',
     'Next project in progress...',
@@ -458,9 +424,7 @@ const comingPhrases = [
     'More work is unfolding...',
     'Stay tuned for the next...'
 ];
-let phraseIndex = 0,
-    charIndex2 = 0,
-    isDeleting2 = false;
+let phraseIndex = 0, charIndex2 = 0, isDeleting2 = false;
 const comingText = document.getElementById('comingText');
 const dotsLoader = document.getElementById('dotsLoader');
 
@@ -500,9 +464,7 @@ setTimeout(() => {
     animateDots();
 }, 1000);
 
-// ============================================================
-// LAZY LOADING
-// ============================================================
+// ===== LAZY LOADING =====
 const lazyImages = document.querySelectorAll('img[loading="lazy"]');
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
@@ -517,9 +479,7 @@ if ('IntersectionObserver' in window) {
     lazyImages.forEach((img) => imageObserver.observe(img));
 }
 
-// ============================================================
-// REDUCED MOTION PREFERENCE
-// ============================================================
+// ===== REDUCED MOTION =====
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (prefersReducedMotion.matches) {
     document.querySelectorAll('.fade-up, .project-card, .service-card, .pricing-card, .result-card, .case-item, .process-step, .flow-step, .why-item, .faq-item').forEach(el => {
