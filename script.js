@@ -1,17 +1,15 @@
 // ============================================================
-// SABER PORTFOLIO V3 — ELITE EDITION
+// SABER PORTFOLIO — ELITE EDITION
 // ============================================================
 
-console.log('🚀 Saber Portfolio V3 — Elite Edition');
+console.log('🚀 Saber Portfolio — Elite Edition');
 
 // ============================================================
 // PRELOADER
 // ============================================================
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    setTimeout(() => {
-        preloader.classList.add('hide');
-    }, 1200);
+    setTimeout(() => preloader.classList.add('hide'), 1200);
 });
 
 // ============================================================
@@ -37,6 +35,19 @@ requestAnimationFrame(raf);
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Parallax for Hero Background
+    gsap.to('.hero::before', {
+        scrollTrigger: {
+            trigger: '.hero',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+        },
+        y: 80,
+        scale: 1.12,
+        ease: 'none',
+    });
+
     // Hero Lines
     gsap.from('.hero-title .line', {
         y: 60,
@@ -45,46 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         stagger: 0.2,
         ease: 'power3.out',
     });
-
-    // Hero Typing
-    gsap.from('.hero-typing', {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.6,
-        ease: 'power3.out',
-    });
-
-    gsap.from('.hero-description', {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.8,
-        ease: 'power3.out',
-    });
-
-    gsap.from('.hero-buttons', {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        delay: 1,
-        ease: 'power3.out',
-    });
-
-    gsap.from('.scroll-indicator', {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        delay: 1.2,
-        ease: 'power3.out',
-    });
+    gsap.from('.hero-typing', { y: 30, opacity: 0, duration: 0.8, delay: 0.6, ease: 'power3.out' });
+    gsap.from('.hero-description', { y: 30, opacity: 0, duration: 0.8, delay: 0.8, ease: 'power3.out' });
+    gsap.from('.hero-buttons', { y: 30, opacity: 0, duration: 0.8, delay: 1, ease: 'power3.out' });
+    gsap.from('.scroll-indicator', { y: 20, opacity: 0, duration: 0.8, delay: 1.2, ease: 'power3.out' });
 
     // Stats
     gsap.from('.stat-item', {
-        scrollTrigger: {
-            trigger: '#stats',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#stats', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -92,12 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
     });
 
-    // Project Cards
+    // Projects
     gsap.from('.project-card', {
-        scrollTrigger: {
-            trigger: '#work',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#work', start: 'top 80%' },
         y: 40,
         opacity: 0,
         duration: 0.7,
@@ -107,10 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Results
     gsap.from('.result-card', {
-        scrollTrigger: {
-            trigger: '#results',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#results', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -120,10 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Case Study
     gsap.from('.case-item', {
-        scrollTrigger: {
-            trigger: '#case-study',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#case-study', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -133,10 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Services
     gsap.from('.service-card', {
-        scrollTrigger: {
-            trigger: '#services',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#services', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -144,12 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
     });
 
-    // Pricing Cards
+    // Pricing
     gsap.from('.pricing-card', {
-        scrollTrigger: {
-            trigger: '#pricing',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#pricing', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -157,25 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
     });
 
-    // Process Steps
+    // Process
     gsap.from('.process-step', {
-        scrollTrigger: {
-            trigger: '#process',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#process', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.6,
         stagger: 0.12,
         ease: 'power3.out',
     });
-
-    // Flow Steps
     gsap.from('.flow-step', {
-        scrollTrigger: {
-            trigger: '#process',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#process', start: 'top 80%' },
         y: 20,
         opacity: 0,
         duration: 0.5,
@@ -185,10 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Why Me
     gsap.from('.why-item', {
-        scrollTrigger: {
-            trigger: '#why-me',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#why-me', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -198,10 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Testimonials
     gsap.from('.testimonials-wrapper', {
-        scrollTrigger: {
-            trigger: '#testimonials',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#testimonials', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.7,
@@ -210,10 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // FAQ
     gsap.from('.faq-item', {
-        scrollTrigger: {
-            trigger: '#faq',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#faq', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -223,20 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // About
     gsap.from('.about-text', {
-        scrollTrigger: {
-            trigger: '#about',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#about', start: 'top 80%' },
         x: -30,
         opacity: 0,
         duration: 0.8,
         ease: 'power3.out',
     });
     gsap.from('.about-image', {
-        scrollTrigger: {
-            trigger: '#about',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#about', start: 'top 80%' },
         x: 30,
         opacity: 0,
         duration: 0.8,
@@ -245,10 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Guarantee
     gsap.from('.guarantee-box', {
-        scrollTrigger: {
-            trigger: '.guarantee-box',
-            start: 'top 85%',
-        },
+        scrollTrigger: { trigger: '.guarantee-box', start: 'top 85%' },
         y: 30,
         opacity: 0,
         duration: 0.7,
@@ -257,10 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact
     gsap.from('.contact-section', {
-        scrollTrigger: {
-            trigger: '#contact',
-            start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '#contact', start: 'top 80%' },
         y: 30,
         opacity: 0,
         duration: 0.7,
@@ -269,10 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Footer
     gsap.from('.footer', {
-        scrollTrigger: {
-            trigger: '.footer',
-            start: 'top 90%',
-        },
+        scrollTrigger: { trigger: '.footer', start: 'top 90%' },
         y: 20,
         opacity: 0,
         duration: 0.6,
@@ -377,6 +309,21 @@ document.querySelectorAll('a, button, .project-card, .btn, .pricing-btn, .nav-ct
 });
 
 // ============================================================
+// MOUSE SPOTLIGHT (Hero)
+// ============================================================
+const spotlight = document.getElementById('heroSpotlight');
+if (spotlight) {
+    document.addEventListener('mousemove', (e) => {
+        spotlight.style.left = e.clientX - 250 + 'px';
+        spotlight.style.top = e.clientY - 250 + 'px';
+        spotlight.classList.add('active');
+    });
+    document.addEventListener('mouseleave', () => {
+        spotlight.classList.remove('active');
+    });
+}
+
+// ============================================================
 // MAGNETIC BUTTONS
 // ============================================================
 document.querySelectorAll('.magnetic').forEach((btn) => {
@@ -412,7 +359,7 @@ document.querySelectorAll('.project-card[data-tilt]').forEach((card) => {
 });
 
 // ============================================================
-// RIPPLE EFFECT ON BUTTONS
+// RIPPLE EFFECT
 // ============================================================
 document.querySelectorAll('.btn, .pricing-btn').forEach((btn) => {
     btn.addEventListener('click', function(e) {
@@ -422,10 +369,8 @@ document.querySelectorAll('.btn, .pricing-btn').forEach((btn) => {
         const ripple = document.createElement('span');
         ripple.style.cssText = `
             position: absolute;
-            top: ${y}px;
-            left: ${x}px;
-            width: 0;
-            height: 0;
+            top: ${y}px; left: ${x}px;
+            width: 0; height: 0;
             border-radius: 50%;
             background: rgba(255,255,255,0.3);
             transform: translate(-50%, -50%);
@@ -436,16 +381,6 @@ document.querySelectorAll('.btn, .pricing-btn').forEach((btn) => {
         setTimeout(() => ripple.remove(), 600);
     });
 });
-
-// Add keyframe for ripple
-const styleSheet = document.createElement('style');
-styleSheet.textContent = `
-    @keyframes rippleAnim {
-        0% { width: 0; height: 0; opacity: 1; }
-        100% { width: 200px; height: 200px; opacity: 0; }
-    }
-`;
-document.head.appendChild(styleSheet);
 
 // ============================================================
 // SCROLL PROGRESS
@@ -578,7 +513,6 @@ if (typeof THREE !== 'undefined') {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         container.appendChild(renderer.domElement);
 
-        // Particles
         const particlesGeo = new THREE.BufferGeometry();
         const particlesCount = 800;
         const posArray = new Float32Array(particlesCount * 3);
@@ -597,10 +531,8 @@ if (typeof THREE !== 'undefined') {
         });
         const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
         scene.add(particlesMesh);
-
         camera.position.z = 10;
 
-        // Mouse interaction for subtle rotation
         let mouseX = 0,
             mouseY = 0;
         document.addEventListener('mousemove', (e) => {
@@ -625,7 +557,7 @@ if (typeof THREE !== 'undefined') {
 }
 
 // ============================================================
-// PERFORMANCE: LAZY LOADING (Intersection Observer)
+// LAZY LOADING
 // ============================================================
 const lazyImages = document.querySelectorAll('img[loading="lazy"]');
 if ('IntersectionObserver' in window) {
@@ -633,7 +565,7 @@ if ('IntersectionObserver' in window) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.src = img.src; // triggers load
+                img.src = img.src;
                 imageObserver.unobserve(img);
             }
         });
@@ -642,7 +574,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================================
-// ACCESSIBILITY: Keyboard navigation
+// KEYBOARD NAVIGATION & REDUCED MOTION
 // ============================================================
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {
@@ -653,9 +585,6 @@ document.addEventListener('mousedown', () => {
     document.body.classList.remove('keyboard-nav');
 });
 
-// ============================================================
-// REDUCED MOTION PREFERENCE
-// ============================================================
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (prefersReducedMotion.matches) {
     document.querySelectorAll('.fade-up, .project-card, .service-card, .pricing-card, .result-card, .case-item, .process-step, .flow-step, .why-item, .faq-item').forEach(el => {
@@ -664,8 +593,7 @@ if (prefersReducedMotion.matches) {
         el.style.animation = 'none';
         el.style.transition = 'none';
     });
-    // Also disable GSAP animations
     gsap.globalTimeline.pause();
 }
 
-console.log('✅ Saber Portfolio V3 — Elite Edition loaded.');
+console.log('✅ Saber Portfolio — Elite Edition loaded.');
