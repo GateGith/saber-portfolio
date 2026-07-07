@@ -1,13 +1,13 @@
 // ============================================================
-// SABER PORTFOLIO — SCRIPT COMPLETE
+// SABER PORTFOLIO — SCRIPT COMPLETE (FIXED)
 // ============================================================
 
-console.log('🚀 Saber Portfolio — Complete');
+console.log('🚀 Saber Portfolio — Loading...');
 
 // ===== PRELOADER =====
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    setTimeout(() => preloader.classList.add('hide'), 1200);
+    setTimeout(() => preloader.classList.add('hide'), 800);
 });
 
 // ===== LENIS SMOOTH SCROLL =====
@@ -28,21 +28,14 @@ requestAnimationFrame(raf);
 // ===== GSAP + SCROLLTRIGGER =====
 gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Hero Parallax
-    gsap.to('.hero::before', {
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1,
-        },
-        y: 80,
-        scale: 1.12,
-        ease: 'none',
-    });
+// Wait for everything to load, then initialize animations
+window.addEventListener('load', function() {
+    // Force a refresh of ScrollTrigger after a small delay to ensure proper layout
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 200);
 
-    // Hero Lines
+    // Hero animations (without scrollTrigger)
     gsap.from('.hero-title .line', {
         y: 60,
         opacity: 0,
@@ -55,9 +48,25 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('.hero-buttons', { y: 30, opacity: 0, duration: 0.8, delay: 1, ease: 'power3.out' });
     gsap.from('.scroll-indicator', { y: 20, opacity: 0, duration: 0.8, delay: 1.2, ease: 'power3.out' });
 
+    // Hero Parallax (scrollTrigger)
+    gsap.to('.hero::before', {
+        scrollTrigger: {
+            trigger: '.hero',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+        },
+        y: 80,
+        scale: 1.12,
+        ease: 'none',
+    });
+
     // Stats
     gsap.from('.stat-item', {
-        scrollTrigger: { trigger: '#stats', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#stats',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -67,7 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Projects
     gsap.from('.project-card', {
-        scrollTrigger: { trigger: '#work', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#work',
+            start: 'top 80%',
+        },
         y: 40,
         opacity: 0,
         duration: 0.7,
@@ -77,7 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Results
     gsap.from('.result-card', {
-        scrollTrigger: { trigger: '#results', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#results',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -87,7 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Case Study
     gsap.from('.case-item', {
-        scrollTrigger: { trigger: '#case-study', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#case-study',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -97,7 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Services
     gsap.from('.service-card', {
-        scrollTrigger: { trigger: '#services', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#services',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -107,7 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Pricing
     gsap.from('.pricing-card', {
-        scrollTrigger: { trigger: '#pricing', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#pricing',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -117,7 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Process
     gsap.from('.process-step', {
-        scrollTrigger: { trigger: '#process', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#process',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -125,7 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
     });
     gsap.from('.flow-step', {
-        scrollTrigger: { trigger: '#process', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#process',
+            start: 'top 80%',
+        },
         y: 20,
         opacity: 0,
         duration: 0.5,
@@ -135,7 +165,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Why Me
     gsap.from('.why-item', {
-        scrollTrigger: { trigger: '#why-me', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#why-me',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -145,7 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Testimonials
     gsap.from('.testimonials-wrapper', {
-        scrollTrigger: { trigger: '#testimonials', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#testimonials',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.7,
@@ -154,7 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // FAQ
     gsap.from('.faq-item', {
-        scrollTrigger: { trigger: '#faq', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#faq',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.6,
@@ -164,14 +203,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // About
     gsap.from('.about-text', {
-        scrollTrigger: { trigger: '#about', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#about',
+            start: 'top 80%',
+        },
         x: -30,
         opacity: 0,
         duration: 0.8,
         ease: 'power3.out',
     });
     gsap.from('.about-image', {
-        scrollTrigger: { trigger: '#about', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#about',
+            start: 'top 80%',
+        },
         x: 30,
         opacity: 0,
         duration: 0.8,
@@ -180,7 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Guarantee
     gsap.from('.guarantee-box', {
-        scrollTrigger: { trigger: '.guarantee-box', start: 'top 85%' },
+        scrollTrigger: {
+            trigger: '.guarantee-box',
+            start: 'top 85%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.7,
@@ -189,7 +237,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact
     gsap.from('.contact-section', {
-        scrollTrigger: { trigger: '#contact', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#contact',
+            start: 'top 80%',
+        },
         y: 30,
         opacity: 0,
         duration: 0.7,
@@ -198,12 +249,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Footer
     gsap.from('.footer', {
-        scrollTrigger: { trigger: '.footer', start: 'top 90%' },
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 90%',
+        },
         y: 20,
         opacity: 0,
         duration: 0.6,
         ease: 'power3.out',
     });
+
+    // After all animations are set, refresh ScrollTrigger
+    ScrollTrigger.refresh();
 });
 
 // ===== TYPING EFFECT =====
