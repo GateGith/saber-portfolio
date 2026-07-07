@@ -145,22 +145,28 @@ function typeEffect() {
 }
 setTimeout(typeEffect, 1500);
 
-// ===== ANIMATED NUMBERS =====
+// ===== ANIMATED NUMBERS (مع الحفاظ على % و h) =====
 document.querySelectorAll('.stat-item .number').forEach((el) => {
-    const target = parseInt(el.dataset.count);
-    if (isNaN(target)) return;
+    const targetText = el.textContent.trim();
+    // استخراج الرقم من النص (مثلاً: "100%" → 100)
+    const targetNum = parseInt(targetText);
+    if (isNaN(targetNum)) return;
+    
+    // حفظ النص الأصلي مع الرمز (مثلاً: "100%" أو "24h")
+    const suffix = targetText.replace(/[0-9]/g, '');
     let current = 0;
-    const increment = target / 80;
+    const increment = targetNum / 80;
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const timer = setInterval(() => {
                     current += increment;
-                    if (current >= target) {
-                        el.textContent = target;
+                    if (current >= targetNum) {
+                        el.textContent = targetNum + suffix;
                         clearInterval(timer);
                     } else {
-                        el.textContent = Math.floor(current);
+                        el.textContent = Math.floor(current) + suffix;
                     }
                 }, 20);
                 observer.unobserve(el);
