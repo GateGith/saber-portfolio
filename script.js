@@ -1,8 +1,8 @@
 // ============================================================
-// SABER PORTFOLIO — ELITE EDITION
+// SABER PORTFOLIO — LIGHTWEIGHT & RESPONSIVE
 // ============================================================
 
-console.log('🚀 Saber Portfolio — Elite Edition');
+console.log('🚀 Saber Portfolio — Lightweight Edition');
 
 // ============================================================
 // PRELOADER
@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 });
 
 // ============================================================
-// LENIS SMOOTH SCROLL
+// LENIS SMOOTH SCROLL (خفيف)
 // ============================================================
 const lenis = new Lenis({
     duration: 1.2,
@@ -30,12 +30,12 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 // ============================================================
-// GSAP + SCROLLTRIGGER
+// GSAP + SCROLLTRIGGER (أساسي)
 // ============================================================
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Parallax for Hero Background
+    // Hero Parallax
     gsap.to('.hero::before', {
         scrollTrigger: {
             trigger: '.hero',
@@ -61,111 +61,31 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('.hero-buttons', { y: 30, opacity: 0, duration: 0.8, delay: 1, ease: 'power3.out' });
     gsap.from('.scroll-indicator', { y: 20, opacity: 0, duration: 0.8, delay: 1.2, ease: 'power3.out' });
 
-    // Stats
-    gsap.from('.stat-item', {
-        scrollTrigger: { trigger: '#stats', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'power3.out',
-    });
+    // All other sections with basic fade-up
+    const sections = [
+        { trigger: '#stats', target: '.stat-item', stagger: 0.15 },
+        { trigger: '#work', target: '.project-card', stagger: 0.12 },
+        { trigger: '#results', target: '.result-card', stagger: 0.15 },
+        { trigger: '#case-study', target: '.case-item', stagger: 0.15 },
+        { trigger: '#services', target: '.service-card', stagger: 0.12 },
+        { trigger: '#pricing', target: '.pricing-card', stagger: 0.12 },
+        { trigger: '#process', target: '.process-step', stagger: 0.12 },
+        { trigger: '#why-me', target: '.why-item', stagger: 0.15 },
+        { trigger: '#faq', target: '.faq-item', stagger: 0.12 },
+    ];
 
-    // Projects
-    gsap.from('.project-card', {
-        scrollTrigger: { trigger: '#work', start: 'top 80%' },
-        y: 40,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: 'power3.out',
-    });
-
-    // Results
-    gsap.from('.result-card', {
-        scrollTrigger: { trigger: '#results', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'power3.out',
-    });
-
-    // Case Study
-    gsap.from('.case-item', {
-        scrollTrigger: { trigger: '#case-study', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'power3.out',
-    });
-
-    // Services
-    gsap.from('.service-card', {
-        scrollTrigger: { trigger: '#services', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: 'power3.out',
-    });
-
-    // Pricing
-    gsap.from('.pricing-card', {
-        scrollTrigger: { trigger: '#pricing', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: 'power3.out',
-    });
-
-    // Process
-    gsap.from('.process-step', {
-        scrollTrigger: { trigger: '#process', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: 'power3.out',
-    });
-    gsap.from('.flow-step', {
-        scrollTrigger: { trigger: '#process', start: 'top 80%' },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power3.out',
-    });
-
-    // Why Me
-    gsap.from('.why-item', {
-        scrollTrigger: { trigger: '#why-me', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'power3.out',
-    });
-
-    // Testimonials
-    gsap.from('.testimonials-wrapper', {
-        scrollTrigger: { trigger: '#testimonials', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-    });
-
-    // FAQ
-    gsap.from('.faq-item', {
-        scrollTrigger: { trigger: '#faq', start: 'top 80%' },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: 'power3.out',
+    sections.forEach(({ trigger, target, stagger }) => {
+        gsap.from(target, {
+            scrollTrigger: {
+                trigger: trigger,
+                start: 'top 80%',
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: stagger,
+            ease: 'power3.out',
+        });
     });
 
     // About
@@ -184,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
     });
 
-    // Guarantee
+    // Guarantee, Contact, Footer
     gsap.from('.guarantee-box', {
         scrollTrigger: { trigger: '.guarantee-box', start: 'top 85%' },
         y: 30,
@@ -192,8 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.7,
         ease: 'power3.out',
     });
-
-    // Contact
     gsap.from('.contact-section', {
         scrollTrigger: { trigger: '#contact', start: 'top 80%' },
         y: 30,
@@ -201,8 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.7,
         ease: 'power3.out',
     });
-
-    // Footer
     gsap.from('.footer', {
         scrollTrigger: { trigger: '.footer', start: 'top 90%' },
         y: 20,
@@ -272,7 +188,7 @@ document.querySelectorAll('.stat-item .number').forEach((el) => {
 });
 
 // ============================================================
-// CUSTOM CURSOR
+// CUSTOM CURSOR (خفيف)
 // ============================================================
 const dot = document.querySelector('.cursor-dot');
 const follower = document.querySelector('.cursor-follower');
@@ -296,7 +212,7 @@ function updateFollower() {
     follower.style.top = followerY - 20 + 'px';
 }
 
-// Cursor hover effects
+// Hover effects
 document.querySelectorAll('a, button, .project-card, .btn, .pricing-btn, .nav-cta, .social-link').forEach((el) => {
     el.addEventListener('mouseenter', () => {
         dot.classList.add('hover');
@@ -309,7 +225,7 @@ document.querySelectorAll('a, button, .project-card, .btn, .pricing-btn, .nav-ct
 });
 
 // ============================================================
-// MOUSE SPOTLIGHT (Hero)
+// MOUSE SPOTLIGHT
 // ============================================================
 const spotlight = document.getElementById('heroSpotlight');
 if (spotlight) {
@@ -340,7 +256,7 @@ document.querySelectorAll('.magnetic').forEach((btn) => {
 });
 
 // ============================================================
-// 3D TILT ON PROJECT CARDS
+// 3D TILT
 // ============================================================
 document.querySelectorAll('.project-card[data-tilt]').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
@@ -501,63 +417,7 @@ setTimeout(() => {
 }, 1000);
 
 // ============================================================
-// THREE.JS — PARTICLES BACKGROUND
-// ============================================================
-if (typeof THREE !== 'undefined') {
-    const container = document.getElementById('three-bg');
-    if (container) {
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        container.appendChild(renderer.domElement);
-
-        const particlesGeo = new THREE.BufferGeometry();
-        const particlesCount = 800;
-        const posArray = new Float32Array(particlesCount * 3);
-        for (let i = 0; i < particlesCount * 3; i += 3) {
-            posArray[i] = (Math.random() - 0.5) * 30;
-            posArray[i + 1] = (Math.random() - 0.5) * 20;
-            posArray[i + 2] = (Math.random() - 0.5) * 20;
-        }
-        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-        const particlesMat = new THREE.PointsMaterial({
-            size: 0.05,
-            color: 0xb48cff,
-            transparent: true,
-            opacity: 0.4,
-        });
-        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
-        scene.add(particlesMesh);
-        camera.position.z = 10;
-
-        let mouseX = 0,
-            mouseY = 0;
-        document.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX / window.innerWidth - 0.5) * 0.2;
-            mouseY = (e.clientY / window.innerHeight - 0.5) * 0.2;
-        });
-
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            particlesMesh.rotation.x += 0.0005 + mouseY * 0.002;
-            particlesMesh.rotation.y += 0.0008 + mouseX * 0.002;
-            renderer.render(scene, camera);
-        }
-        animateParticles();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-    }
-}
-
-// ============================================================
-// LAZY LOADING
+// LAZY LOADING (Intersection Observer)
 // ============================================================
 const lazyImages = document.querySelectorAll('img[loading="lazy"]');
 if ('IntersectionObserver' in window) {
@@ -574,17 +434,8 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================================
-// KEYBOARD NAVIGATION & REDUCED MOTION
+// REDUCED MOTION PREFERENCE
 // ============================================================
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-nav');
-    }
-});
-document.addEventListener('mousedown', () => {
-    document.body.classList.remove('keyboard-nav');
-});
-
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (prefersReducedMotion.matches) {
     document.querySelectorAll('.fade-up, .project-card, .service-card, .pricing-card, .result-card, .case-item, .process-step, .flow-step, .why-item, .faq-item').forEach(el => {
@@ -596,4 +447,4 @@ if (prefersReducedMotion.matches) {
     gsap.globalTimeline.pause();
 }
 
-console.log('✅ Saber Portfolio — Elite Edition loaded.');
+console.log('✅ Saber Portfolio — Lightweight Edition loaded.');
