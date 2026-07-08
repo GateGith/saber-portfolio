@@ -13,15 +13,8 @@ window.addEventListener('load', () => {
 // ===== GSAP + SCROLLTRIGGER =====
 gsap.registerPlugin(ScrollTrigger);
 
-// Ensure all elements are visible first
-document.querySelectorAll('.fade-up, .project-card, .service-card, .pricing-card, .result-card, .case-item, .process-step, .flow-step, .why-item, .faq-item').forEach(el => {
-    el.style.opacity = '1';
-    el.style.transform = 'none';
-});
-
-// After page loads, apply animations
 window.addEventListener('load', function() {
-    // Hero animations (without ScrollTrigger)
+    // Hero animations
     gsap.from('.hero-title .line', {
         y: 60,
         opacity: 0,
@@ -58,7 +51,7 @@ window.addEventListener('load', function() {
         ease: 'power3.out'
     });
 
-    // Hero Parallax (with ScrollTrigger)
+    // Hero Parallax
     gsap.to('.hero::before', {
         scrollTrigger: {
             trigger: '.hero',
@@ -71,7 +64,7 @@ window.addEventListener('load', function() {
         ease: 'none',
     });
 
-    // Sections using ScrollTrigger
+    // Sections
     const sections = [
         { trigger: '#stats', target: '.stat-item', stagger: 0.15 },
         { trigger: '#work', target: '.project-card', stagger: 0.12 },
@@ -151,7 +144,6 @@ window.addEventListener('load', function() {
         ease: 'power3.out',
     });
 
-    // Refresh ScrollTrigger after everything
     ScrollTrigger.refresh();
 });
 
@@ -190,7 +182,6 @@ document.querySelectorAll('.stat-item .number').forEach((el) => {
     const targetText = el.textContent.trim();
     const targetNum = parseInt(targetText);
     if (isNaN(targetNum)) return;
-
     const suffix = targetText.replace(/[0-9]/g, '');
     let current = 0;
     const increment = targetNum / 80;
@@ -237,7 +228,6 @@ function updateFollower() {
     follower.style.top = followerY - 20 + 'px';
 }
 
-// Hover effects
 document.querySelectorAll('a, button, .project-card, .btn, .pricing-btn, .nav-cta, .social-link').forEach((el) => {
     el.addEventListener('mouseenter', () => {
         dot.classList.add('hover');
@@ -316,6 +306,16 @@ document.querySelectorAll('.btn, .pricing-btn').forEach((btn) => {
     });
 });
 
+// Add ripple animation
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `
+    @keyframes rippleAnim {
+        0% { width: 0; height: 0; opacity: 1; }
+        100% { width: 200px; height: 200px; opacity: 0; }
+    }
+`;
+document.head.appendChild(styleSheet);
+
 // ===== SCROLL PROGRESS =====
 window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
@@ -344,7 +344,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ===== COMING SOON TYPING =====
+// ===== COMING SOON =====
 const comingPhrases = [
     'Building something new...',
     'Next project in progress...',
