@@ -845,3 +845,80 @@ body {
         font-size: 1.2rem;
     }
 }
+/* ============================================================
+   PROJECT META (Goal, Result, Tools)
+   ============================================================ */
+
+.project-meta {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.meta-item {
+    display: flex;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    color: #8a8a9a;
+    margin-bottom: 0.2rem;
+    flex-wrap: wrap;
+}
+
+.meta-label {
+    color: #b48cff;
+    font-weight: 600;
+    min-width: 45px;
+}
+
+.meta-item span:last-child {
+    color: #f1f1f1;
+}
+
+/* ============================================================
+   OFFER BOX (بدون "First Client")
+   ============================================================ */
+
+.offer-box {
+    max-width: 700px;
+    margin: 2rem auto 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(180, 140, 255, 0.06), rgba(255, 107, 157, 0.03));
+    border: 1px solid rgba(180, 140, 255, 0.12);
+    border-radius: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.offer-box:hover {
+    border-color: rgba(180, 140, 255, 0.25);
+}
+
+.offer-box h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.offer-box p {
+    color: #8a8a9a;
+    font-size: 0.9rem;
+    max-width: 500px;
+    margin: 0 auto 1.2rem;
+    line-height: 1.7;
+}
+
+/* ============================================================
+   RESPONSIVE — PROJECT META
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .meta-item {
+        font-size: 0.65rem;
+    }
+    .offer-box h3 {
+        font-size: 1.2rem;
+    }
+    .offer-box p {
+        font-size: 0.8rem;
+    }
+}
