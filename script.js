@@ -38,61 +38,129 @@ function startAnimations() {
             .from('.hero .subtitle', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
             .from('.hero .buttons', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4');
 
-        // Sections
-        var sections = [
-            { trigger: '.stats', target: '.stat-item', stagger: 0.15 },
-            { trigger: '#benefits', target: '.benefit-card', stagger: 0.12 },
-            { trigger: '#work', target: '.project-card', stagger: 0.12 },
-            { trigger: '#why-choose', target: '.choose-item', stagger: 0.12 },
-            { trigger: '#services', target: '.service-card', stagger: 0.08 },
-            { trigger: '#process', target: '.process-step', stagger: 0.1 },
-            { trigger: '#promise', target: '.promise-item', stagger: 0.12 },
-        ];
-
-        sections.forEach(function(item) {
-            var targetEl = document.querySelector(item.trigger);
-            if (!targetEl) return;
-            gsap.from(item.target, {
-                scrollTrigger: { trigger: item.trigger, start: 'top 85%' },
+        // Stats
+        if (document.querySelector('.stats')) {
+            gsap.from('.stat-item', {
+                scrollTrigger: { trigger: '.stats', start: 'top 85%' },
                 y: 40,
                 opacity: 0,
                 duration: 0.6,
-                stagger: item.stagger,
+                stagger: 0.15,
                 ease: 'power3.out'
             });
-        });
+        }
+
+        // Benefits
+        if (document.querySelector('#benefits')) {
+            gsap.from('.benefit-card', {
+                scrollTrigger: { trigger: '#benefits', start: 'top 85%' },
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.12,
+                ease: 'power3.out'
+            });
+        }
+
+        // Projects
+        if (document.querySelector('#work')) {
+            gsap.from('.project-card', {
+                scrollTrigger: { trigger: '#work', start: 'top 85%' },
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.12,
+                ease: 'power3.out'
+            });
+        }
+
+        // Why Choose Me
+        if (document.querySelector('#why-choose')) {
+            gsap.from('.choose-item', {
+                scrollTrigger: { trigger: '#why-choose', start: 'top 85%' },
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.12,
+                ease: 'power3.out'
+            });
+        }
+
+        // Services
+        if (document.querySelector('#services')) {
+            gsap.from('.service-card', {
+                scrollTrigger: { trigger: '#services', start: 'top 85%' },
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.08,
+                ease: 'power3.out'
+            });
+        }
+
+        // Process
+        if (document.querySelector('#process')) {
+            gsap.from('.process-step', {
+                scrollTrigger: { trigger: '#process', start: 'top 85%' },
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power3.out'
+            });
+        }
+
+        // Promise
+        if (document.querySelector('#promise')) {
+            gsap.from('.promise-item', {
+                scrollTrigger: { trigger: '#promise', start: 'top 85%' },
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.12,
+                ease: 'power3.out'
+            });
+        }
 
         // About
-        gsap.from('.about-text', {
-            scrollTrigger: { trigger: '#about', start: 'top 85%' },
-            x: -40,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        });
-        gsap.from('.about-image', {
-            scrollTrigger: { trigger: '#about', start: 'top 85%' },
-            x: 40,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        });
+        if (document.querySelector('#about')) {
+            gsap.from('.about-text', {
+                scrollTrigger: { trigger: '#about', start: 'top 85%' },
+                x: -40,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            gsap.from('.about-image', {
+                scrollTrigger: { trigger: '#about', start: 'top 85%' },
+                x: 40,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        }
 
-        // Offer & Contact
-        gsap.from('.offer-box', {
-            scrollTrigger: { trigger: '.offer-box', start: 'top 88%' },
-            y: 40,
-            opacity: 0,
-            duration: 0.7,
-            ease: 'power3.out'
-        });
-        gsap.from('.contact-section', {
-            scrollTrigger: { trigger: '#contact', start: 'top 85%' },
-            y: 40,
-            opacity: 0,
-            duration: 0.7,
-            ease: 'power3.out'
-        });
+        // Offer Box
+        if (document.querySelector('.offer-box')) {
+            gsap.from('.offer-box', {
+                scrollTrigger: { trigger: '.offer-box', start: 'top 88%' },
+                y: 40,
+                opacity: 0,
+                duration: 0.7,
+                ease: 'power3.out'
+            });
+        }
+
+        // Contact
+        if (document.querySelector('#contact')) {
+            gsap.from('.contact-section', {
+                scrollTrigger: { trigger: '#contact', start: 'top 85%' },
+                y: 40,
+                opacity: 0,
+                duration: 0.7,
+                ease: 'power3.out'
+            });
+        }
 
         if (typeof ScrollTrigger !== 'undefined') {
             ScrollTrigger.refresh();
@@ -183,13 +251,13 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================================
-// OFFER BUTTONS — WITH FEEDBACK (RIPPLE + MESSAGES)
+// OFFER BUTTONS — FEEDBACK + RIPPLE
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    var cta1 = document.getElementById('offerCta1');
-    var cta2 = document.getElementById('offerCta2');
-    var feedback = document.getElementById('offerFeedback');
+    var cta1 = document.getElementById('cta1');
+    var cta2 = document.getElementById('cta2');
+    var feedback = document.getElementById('feedback');
 
     var messages = {
         talk: [
@@ -224,10 +292,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showFeedback(message, type) {
         feedback.textContent = message;
-        feedback.className = 'offer-feedback show ' + type;
+        feedback.className = 'feedback show ' + type;
         clearTimeout(feedback._timeout);
         feedback._timeout = setTimeout(function() {
-            feedback.className = 'offer-feedback';
+            feedback.className = 'feedback';
         }, 4000);
     }
 
