@@ -8,11 +8,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-    overflow-x: hidden !important;
-    max-width: 100% !important;
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -36,10 +31,6 @@ body {
     position: relative;
     z-index: 1;
     overflow-x: hidden;
-}
-
-* {
-    max-width: 100% !important;
 }
 
 ::-webkit-scrollbar {
@@ -79,7 +70,8 @@ body {
     animation: loaderPulse 1.5s ease-in-out infinite;
 }
 @keyframes loaderPulse {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.8;
     }
@@ -265,7 +257,8 @@ body {
     animation: logoPulse 2.5s ease-in-out infinite;
 }
 @keyframes logoPulse {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.3;
     }
@@ -397,7 +390,8 @@ body {
     z-index: -1;
 }
 @keyframes floatGlow {
-    0%, 100% {
+    0%,
+    100% {
         transform: translate(-80px, -40px);
     }
     50% {
@@ -413,8 +407,7 @@ body {
             transparent 0px, transparent 50px,
             rgba(180, 140, 255, 0.03) 50px,
             rgba(180, 140, 255, 0.03) 51px,
-            transparent 51px, transparent 100px
-        );
+            transparent 51px, transparent 100px);
     animation: rayMove 20s linear infinite;
 }
 @keyframes rayMove {
@@ -474,7 +467,8 @@ body {
     animation: pulseDot 2s infinite;
 }
 @keyframes pulseDot {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 1;
         transform: scale(1);
     }
@@ -501,7 +495,8 @@ body {
     animation: gradientShift 5s ease-in-out infinite;
 }
 @keyframes gradientShift {
-    0%, 100% {
+    0%,
+    100% {
         background-position: 0% 50%;
     }
     50% {
@@ -527,7 +522,8 @@ body {
     font-weight: 300;
 }
 @keyframes blink {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 1;
     }
     50% {
@@ -624,7 +620,8 @@ body {
     opacity: 0.3;
 }
 @keyframes bounceDown {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {
@@ -656,11 +653,6 @@ body {
     font-weight: 800;
     color: #f1f1f1;
     letter-spacing: -1px;
-}
-.stat-item .percent,
-.stat-item .hours {
-    color: #b48cff;
-    font-weight: 800;
 }
 .stat-item .label {
     color: #8a8a9a;
@@ -872,7 +864,8 @@ body {
     pointer-events: none;
 }
 @keyframes pulseBg {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 0.5;
         transform: scale(1);
     }
@@ -1342,7 +1335,8 @@ body {
 .about-approach {
     padding: 0.8rem 1rem;
     margin: 0.6rem 0;
-    border-left: 2px solid #b48cff;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-sm);
 }
 .about-approach p {
     font-size: 0.85rem;
@@ -1357,7 +1351,8 @@ body {
 .philosophy {
     margin: 0.6rem 0;
     padding: 0.8rem 1rem;
-    border-left: 2px solid #ff6b9d;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-sm);
 }
 .philosophy h4 {
     font-size: 0.9rem;
@@ -1383,8 +1378,6 @@ body {
 .about-text .story {
     color: #8a8a9a;
     font-style: italic;
-    border-left: 2px solid #b48cff;
-    padding-left: 0.8rem;
     margin-top: 0.3rem;
     font-size: 0.85rem;
 }
@@ -1623,12 +1616,6 @@ body {
     color: #b48cff;
     transform: translateY(-2px);
 }
-.animated-footer {
-    transition: background 0.5s ease;
-}
-.animated-footer:hover {
-    background: rgba(180, 140, 255, 0.02);
-}
 
 /* ============================================================
    RESPONSIVE
@@ -1653,12 +1640,6 @@ body {
     .about-text {
         text-align: center;
     }
-    .about-text .story {
-        border-left: none;
-        border-top: 2px solid #b48cff;
-        padding-left: 0;
-        padding-top: 0.6rem;
-    }
     .about-badges {
         justify-content: center;
     }
@@ -1675,7 +1656,6 @@ body {
         padding: 0 !important;
     }
 
-    /* Navbar */
     .navbar {
         padding: 0.6rem 0.8rem !important;
         border-radius: 0.8rem !important;
@@ -1711,7 +1691,6 @@ body {
         font-size: 0.55rem;
     }
 
-    /* Hero */
     .hero {
         padding: 0.5rem 0 1.5rem !important;
         min-height: 80vh !important;
@@ -1757,7 +1736,6 @@ body {
         height: 12px !important;
     }
 
-    /* Stats */
     .stats {
         grid-template-columns: 1fr !important;
         gap: 0.6rem !important;
@@ -1778,23 +1756,23 @@ body {
         font-size: 1.4rem !important;
         display: inline !important;
     }
-    .stat-item .percent,
-    .stat-item .hours {
-        font-size: 1rem !important;
-        display: inline !important;
-    }
     .stat-item .label {
         font-size: 0.6rem !important;
         display: inline !important;
         margin-top: 0 !important;
     }
 
-    /* Projects */
-    .projects-grid {
+    .projects-grid,
+    .services-grid,
+    .pricing-grid,
+    .process-grid,
+    .value-grid,
+    .promise-grid {
         grid-template-columns: 1fr !important;
         gap: 0.8rem !important;
         padding: 0 0.2rem !important;
     }
+
     .project-card {
         border-radius: 0.8rem !important;
     }
@@ -1820,7 +1798,6 @@ body {
         right: 0.5rem !important;
     }
 
-    /* Coming Soon */
     .coming-soon {
         padding: 1.2rem !important;
         margin: 1rem auto !important;
@@ -1846,12 +1823,6 @@ body {
         font-size: 0.6rem !important;
     }
 
-    /* Services */
-    .services-grid {
-        grid-template-columns: 1fr !important;
-        gap: 0.8rem !important;
-        padding: 0 0.2rem !important;
-    }
     .service-card {
         padding: 1rem !important;
     }
@@ -1865,12 +1836,6 @@ body {
         font-size: 0.7rem !important;
     }
 
-    /* Pricing */
-    .pricing-grid {
-        grid-template-columns: 1fr !important;
-        gap: 0.8rem !important;
-        padding: 0 0.2rem !important;
-    }
     .pricing-card {
         padding: 1rem !important;
     }
@@ -1891,12 +1856,6 @@ body {
         padding: 0.4rem 0.8rem !important;
     }
 
-    /* Process */
-    .process-grid {
-        grid-template-columns: 1fr !important;
-        gap: 0.8rem !important;
-        padding: 0 0.2rem !important;
-    }
     .process-step {
         padding: 1rem !important;
     }
@@ -1913,7 +1872,6 @@ body {
         display: none !important;
     }
 
-    /* How Flow */
     .how-flow {
         flex-direction: column !important;
         align-items: stretch !important;
@@ -1926,13 +1884,6 @@ body {
         text-align: center !important;
     }
 
-    /* Value & Promise */
-    .value-grid,
-    .promise-grid {
-        grid-template-columns: 1fr !important;
-        max-width: 400px !important;
-        margin: 0 auto !important;
-    }
     .value-item,
     .promise-item {
         padding: 1.2rem !important;
@@ -1950,7 +1901,6 @@ body {
         font-size: 0.75rem !important;
     }
 
-    /* FAQ */
     .faq-grid {
         grid-template-columns: 1fr !important;
         gap: 0.8rem !important;
@@ -1966,7 +1916,6 @@ body {
         font-size: 0.75rem !important;
     }
 
-    /* About */
     .about-grid {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
@@ -1983,16 +1932,12 @@ body {
     }
     .about-approach {
         padding: 0.6rem 0.8rem !important;
-        border-left: 2px solid #b48cff !important;
-        text-align: right !important;
     }
     .about-approach p {
         font-size: 0.75rem !important;
     }
     .philosophy {
         padding: 0.6rem 0.8rem !important;
-        border-left: 2px solid #ff6b9d !important;
-        text-align: right !important;
     }
     .philosophy h4 {
         font-size: 0.8rem !important;
@@ -2005,7 +1950,6 @@ body {
     }
     .about-text .story {
         font-size: 0.75rem !important;
-        padding-left: 0.5rem !important;
     }
     .about-badges {
         justify-content: center !important;
@@ -2033,7 +1977,6 @@ body {
         gap: 0.5rem !important;
     }
 
-    /* Guarantee */
     .guarantee-box {
         padding: 1rem !important;
         margin: 1rem auto !important;
@@ -2048,7 +1991,6 @@ body {
         font-size: 0.8rem !important;
     }
 
-    /* Marquee */
     .marquee {
         padding: 0.8rem 0 !important;
         margin: 1rem 0 !important;
@@ -2061,7 +2003,6 @@ body {
         font-size: 0.7rem !important;
     }
 
-    /* Contact */
     .contact-section {
         padding: 1.5rem !important;
         margin: 0 0.2rem !important;
@@ -2092,7 +2033,6 @@ body {
         font-size: 0.7rem !important;
     }
 
-    /* Footer */
     .footer {
         padding: 1rem 0 0.5rem !important;
         margin-top: 2rem !important;
@@ -2105,7 +2045,6 @@ body {
         font-size: 1rem !important;
     }
 
-    /* Sections */
     .section {
         margin: 1.5rem auto !important;
     }
@@ -2124,25 +2063,21 @@ body {
         padding: 0 0.5rem !important;
     }
 
-    /* Glass cards on mobile */
     .glass {
         backdrop-filter: blur(8px) !important;
         -webkit-backdrop-filter: blur(8px) !important;
     }
 
-    /* Hide cursor on mobile */
     .cursor-dot,
     .cursor-follower {
         display: none !important;
     }
 
-    /* Scroll progress */
     #scroll-progress {
         height: 2px !important;
     }
 }
 
-/* ===== Small phones (max-width: 400px) ===== */
 @media (max-width: 400px) {
     .hero-title {
         font-size: 1.3rem !important;
@@ -2183,9 +2118,6 @@ body {
     }
 }
 
-/* ============================================================
-   TABLET FIX (768px - 1024px)
-   ============================================================ */
 @media (min-width: 769px) and (max-width: 1024px) {
     .projects-grid,
     .services-grid,
