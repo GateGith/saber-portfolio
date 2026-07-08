@@ -1655,3 +1655,720 @@ body {
     opacity: 1 !important;
     visibility: visible !important;
 }
+/* ============================================================
+   MOBILE MODE FIX — 100% RESPONSIVE
+   ============================================================ */
+
+/* الهيرو على الجوال */
+@media (max-width: 768px) {
+    body {
+        padding: 0.8rem !important;
+    }
+    
+    .container {
+        padding: 0 !important;
+    }
+    
+    /* Navbar */
+    .navbar {
+        padding: 0.6rem 0.8rem !important;
+        border-radius: 0.8rem !important;
+        gap: 0.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .navbar-left {
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
+    
+    .logo-icon {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.6rem !important;
+    }
+    
+    .logo-text {
+        font-size: 0.85rem !important;
+    }
+    
+    .nav-links {
+        gap: 0.5rem !important;
+        padding-top: 0.5rem !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .nav-links a {
+        font-size: 0.6rem !important;
+        padding: 0.2rem 0.4rem !important;
+    }
+    
+    .nav-cta {
+        padding: 0.2rem 0.6rem !important;
+        font-size: 0.55rem !important;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 0.5rem 0 1.5rem !important;
+        min-height: 80vh !important;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem !important;
+        letter-spacing: -1px !important;
+    }
+    
+    .hero-title .line {
+        display: block !important;
+        font-size: 1.4rem !important;
+    }
+    
+    .hero-typing {
+        font-size: 0.9rem !important;
+        min-height: 1.8rem !important;
+    }
+    
+    .hero-description {
+        font-size: 0.85rem !important;
+        max-width: 100% !important;
+        padding: 0 0.5rem !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.6rem !important;
+        width: 100% !important;
+    }
+    
+    .hero-buttons .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        justify-content: center !important;
+        font-size: 0.75rem !important;
+        padding: 0.6rem 1.2rem !important;
+    }
+    
+    .scroll-indicator {
+        margin-top: 0.5rem !important;
+    }
+    
+    .scroll-indicator span {
+        font-size: 0.45rem !important;
+    }
+    
+    .scroll-indicator .arrow {
+        width: 12px !important;
+        height: 12px !important;
+    }
+    
+    /* Stats */
+    .stats {
+        grid-template-columns: 1fr !important;
+        gap: 0.6rem !important;
+        padding: 1rem 0 !important;
+        max-width: 100% !important;
+        margin: 0.5rem auto 1.5rem !important;
+    }
+    
+    .stat-item {
+        padding: 0.8rem !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .stat-item .number {
+        font-size: 1.4rem !important;
+        display: inline !important;
+    }
+    
+    .stat-item .percent,
+    .stat-item .hours {
+        font-size: 1rem !important;
+        display: inline !important;
+    }
+    
+    .stat-item .label {
+        font-size: 0.6rem !important;
+        display: inline !important;
+        margin-top: 0 !important;
+    }
+    
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .project-card {
+        border-radius: 0.8rem !important;
+    }
+    
+    .project-image {
+        height: 150px !important;
+    }
+    
+    .project-image img {
+        height: 150px !important;
+    }
+    
+    .project-info {
+        padding: 0.8rem !important;
+    }
+    
+    .project-info h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .project-info p {
+        font-size: 0.7rem !important;
+    }
+    
+    .project-live-badge {
+        font-size: 0.5rem !important;
+        padding: 0.15rem 0.5rem !important;
+        bottom: 0.5rem !important;
+        right: 0.5rem !important;
+    }
+    
+    /* Coming Soon */
+    .coming-soon {
+        padding: 1.2rem !important;
+        margin: 1rem auto !important;
+    }
+    
+    .coming-soon-header {
+        flex-wrap: wrap !important;
+        gap: 0.3rem !important;
+    }
+    
+    .coming-soon-icon {
+        font-size: 1.4rem !important;
+    }
+    
+    .coming-soon-title {
+        font-size: 1rem !important;
+    }
+    
+    .coming-soon-message {
+        font-size: 0.8rem !important;
+        min-width: 120px !important;
+    }
+    
+    .coming-soon-dots {
+        font-size: 1rem !important;
+    }
+    
+    .coming-soon-sub {
+        font-size: 0.6rem !important;
+    }
+    
+    /* Results */
+    .results-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .result-card {
+        padding: 1.2rem !important;
+    }
+    
+    .result-number {
+        font-size: 2.2rem !important;
+    }
+    
+    .result-label {
+        font-size: 0.9rem !important;
+    }
+    
+    .result-desc {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Case Study */
+    .case-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .case-item {
+        padding: 1rem !important;
+    }
+    
+    .case-item h4 {
+        font-size: 0.9rem !important;
+    }
+    
+    .case-item p {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .service-card {
+        padding: 1rem !important;
+    }
+    
+    .service-card .icon {
+        font-size: 1.6rem !important;
+    }
+    
+    .service-card h3 {
+        font-size: 0.8rem !important;
+    }
+    
+    .service-card p {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Pricing */
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .pricing-card {
+        padding: 1rem !important;
+    }
+    
+    .pricing-icon {
+        font-size: 1.6rem !important;
+    }
+    
+    .pricing-header h4 {
+        font-size: 0.9rem !important;
+    }
+    
+    .pricing-price {
+        font-size: 1rem !important;
+    }
+    
+    .pricing-features li {
+        font-size: 0.65rem !important;
+    }
+    
+    .pricing-btn {
+        font-size: 0.6rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+    
+    /* Process */
+    .process-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .process-step {
+        padding: 1rem !important;
+    }
+    
+    .process-step .number {
+        font-size: 2rem !important;
+    }
+    
+    .process-step h4 {
+        font-size: 0.8rem !important;
+    }
+    
+    .process-step p {
+        font-size: 0.65rem !important;
+    }
+    
+    .process-step::after {
+        display: none !important;
+    }
+    
+    /* How Flow */
+    .how-flow {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.6rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .flow-step {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.75rem !important;
+        text-align: center !important;
+    }
+    
+    /* Why Me */
+    .why-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .why-item {
+        padding: 0.8rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Testimonials */
+    .testimonials-wrapper {
+        padding: 1rem !important;
+        margin: 0 0.2rem !important;
+    }
+    
+    .testimonial .quote {
+        font-size: 0.8rem !important;
+        padding: 0 0.5rem !important;
+    }
+    
+    .testimonial .author {
+        font-size: 0.75rem !important;
+    }
+    
+    .testimonial .role {
+        font-size: 0.6rem !important;
+    }
+    
+    .testimonial-dots .dot {
+        width: 5px !important;
+        height: 5px !important;
+    }
+    
+    .testimonial-dots .dot.active {
+        width: 18px !important;
+    }
+    
+    /* FAQ */
+    .faq-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .faq-item {
+        padding: 0.8rem !important;
+    }
+    
+    .faq-item h4 {
+        font-size: 0.85rem !important;
+    }
+    
+    .faq-item p {
+        font-size: 0.75rem !important;
+    }
+    
+    /* About */
+    .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 0 0.2rem !important;
+    }
+    
+    .about-text {
+        text-align: center !important;
+    }
+    
+    .about-text h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    .about-text p {
+        font-size: 0.8rem !important;
+    }
+    
+    .about-approach {
+        padding: 0.6rem 0.8rem !important;
+        border-left: 2px solid #b48cff !important;
+        text-align: right !important;
+    }
+    
+    .about-approach p {
+        font-size: 0.75rem !important;
+    }
+    
+    .philosophy {
+        padding: 0.6rem 0.8rem !important;
+        border-left: 2px solid #ff6b9d !important;
+        text-align: right !important;
+    }
+    
+    .philosophy h4 {
+        font-size: 0.8rem !important;
+    }
+    
+    .philosophy p {
+        font-size: 0.75rem !important;
+    }
+    
+    .about-outside {
+        font-size: 0.75rem !important;
+    }
+    
+    .about-text .story {
+        font-size: 0.75rem !important;
+        padding-left: 0.5rem !important;
+    }
+    
+    .about-badges {
+        justify-content: center !important;
+        gap: 0.5rem !important;
+    }
+    
+    .about-badge {
+        font-size: 0.55rem !important;
+        padding: 0.2rem 0.6rem !important;
+    }
+    
+    .about-image {
+        padding: 1rem !important;
+    }
+    
+    .about-profile-img {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .about-image h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .about-image p {
+        font-size: 0.7rem !important;
+    }
+    
+    .about-image-meta {
+        font-size: 0.6rem !important;
+        gap: 0.5rem !important;
+    }
+    
+    /* Guarantee */
+    .guarantee-box {
+        padding: 1rem !important;
+        margin: 1rem auto !important;
+    }
+    
+    .guarantee-icon {
+        font-size: 2.5rem !important;
+    }
+    
+    .guarantee-box h4 {
+        font-size: 1rem !important;
+    }
+    
+    .guarantee-box p {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Marquee */
+    .marquee {
+        padding: 0.8rem 0 !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .marquee-track {
+        gap: 1.5rem !important;
+        animation-duration: 20s !important;
+    }
+    
+    .marquee-track span {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Contact */
+    .contact-section {
+        padding: 1.5rem !important;
+        margin: 0 0.2rem !important;
+    }
+    
+    .contact-section h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    .contact-section p {
+        font-size: 0.8rem !important;
+    }
+    
+    .contact-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.6rem !important;
+    }
+    
+    .contact-buttons .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        justify-content: center !important;
+        font-size: 0.75rem !important;
+        padding: 0.6rem 1.2rem !important;
+    }
+    
+    .contact-social {
+        gap: 0.8rem !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .contact-social a {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 1rem 0 0.5rem !important;
+        margin-top: 2rem !important;
+        font-size: 0.55rem !important;
+    }
+    
+    .footer-social {
+        gap: 0.8rem !important;
+    }
+    
+    .footer-social a {
+        font-size: 1rem !important;
+    }
+    
+    /* Sections */
+    .section {
+        margin: 1.5rem auto !important;
+    }
+    
+    .section-header {
+        margin-bottom: 1rem !important;
+    }
+    
+    .section-header .label {
+        font-size: 0.45rem !important;
+    }
+    
+    .section-header h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    .section-header p {
+        font-size: 0.8rem !important;
+        max-width: 100% !important;
+        padding: 0 0.5rem !important;
+    }
+    
+    /* Glass cards on mobile */
+    .glass {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+    
+    /* Hide cursor on mobile */
+    .cursor-dot,
+    .cursor-follower {
+        display: none !important;
+    }
+    
+    /* Scroll progress */
+    #scroll-progress {
+        height: 2px !important;
+    }
+}
+
+/* ===== Small phones (max-width: 400px) ===== */
+@media (max-width: 400px) {
+    .hero-title {
+        font-size: 1.3rem !important;
+    }
+    
+    .hero-title .line {
+        font-size: 1.2rem !important;
+    }
+    
+    .hero-typing {
+        font-size: 0.8rem !important;
+    }
+    
+    .hero-description {
+        font-size: 0.75rem !important;
+    }
+    
+    .stat-item .number {
+        font-size: 1.2rem !important;
+    }
+    
+    .stat-item .label {
+        font-size: 0.5rem !important;
+    }
+    
+    .nav-links a {
+        font-size: 0.5rem !important;
+    }
+    
+    .nav-cta {
+        font-size: 0.5rem !important;
+        padding: 0.15rem 0.5rem !important;
+    }
+    
+    .logo-icon {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.5rem !important;
+    }
+    
+    .logo-text {
+        font-size: 0.75rem !important;
+    }
+    
+    .btn {
+        font-size: 0.7rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+}
+
+/* ============================================================
+   TABLET FIX (768px - 1024px)
+   ============================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .case-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .faq-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .stats {
+        max-width: 500px !important;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem !important;
+    }
+}
