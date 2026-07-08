@@ -1,5 +1,5 @@
 // ============================================================
-// SABER PORTFOLIO — SCRIPT (بدون Lenis)
+// SABER PORTFOLIO — SCRIPT COMPLETE
 // ============================================================
 
 console.log('🚀 Saber Portfolio — Loading...');
@@ -13,15 +13,15 @@ window.addEventListener('load', () => {
 // ===== GSAP + SCROLLTRIGGER =====
 gsap.registerPlugin(ScrollTrigger);
 
-// تأكد من أن جميع العناصر مرئية أولاً
+// Ensure all elements are visible first
 document.querySelectorAll('.fade-up, .project-card, .service-card, .pricing-card, .result-card, .case-item, .process-step, .flow-step, .why-item, .faq-item').forEach(el => {
     el.style.opacity = '1';
     el.style.transform = 'none';
 });
 
-// بعد تحميل الصفحة، نطبق الأنيميشن
+// After page loads, apply animations
 window.addEventListener('load', function() {
-    // Hero animations (بدون ScrollTrigger)
+    // Hero animations (without ScrollTrigger)
     gsap.from('.hero-title .line', {
         y: 60,
         opacity: 0,
@@ -29,12 +29,36 @@ window.addEventListener('load', function() {
         stagger: 0.2,
         ease: 'power3.out',
     });
-    gsap.from('.hero-typing', { y: 30, opacity: 0, duration: 0.8, delay: 0.6, ease: 'power3.out' });
-    gsap.from('.hero-description', { y: 30, opacity: 0, duration: 0.8, delay: 0.8, ease: 'power3.out' });
-    gsap.from('.hero-buttons', { y: 30, opacity: 0, duration: 0.8, delay: 1, ease: 'power3.out' });
-    gsap.from('.scroll-indicator', { y: 20, opacity: 0, duration: 0.8, delay: 1.2, ease: 'power3.out' });
+    gsap.from('.hero-typing', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.6,
+        ease: 'power3.out'
+    });
+    gsap.from('.hero-description', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.8,
+        ease: 'power3.out'
+    });
+    gsap.from('.hero-buttons', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        delay: 1,
+        ease: 'power3.out'
+    });
+    gsap.from('.scroll-indicator', {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        delay: 1.2,
+        ease: 'power3.out'
+    });
 
-    // Hero Parallax (مع ScrollTrigger)
+    // Hero Parallax (with ScrollTrigger)
     gsap.to('.hero::before', {
         scrollTrigger: {
             trigger: '.hero',
@@ -47,16 +71,15 @@ window.addEventListener('load', function() {
         ease: 'none',
     });
 
-    // باقي الأقسام باستخدام ScrollTrigger
+    // Sections using ScrollTrigger
     const sections = [
         { trigger: '#stats', target: '.stat-item', stagger: 0.15 },
         { trigger: '#work', target: '.project-card', stagger: 0.12 },
-        { trigger: '#results', target: '.result-card', stagger: 0.15 },
-        { trigger: '#case-study', target: '.case-item', stagger: 0.15 },
         { trigger: '#services', target: '.service-card', stagger: 0.12 },
         { trigger: '#pricing', target: '.pricing-card', stagger: 0.12 },
         { trigger: '#process', target: '.process-step', stagger: 0.12 },
-        { trigger: '#why-me', target: '.why-item', stagger: 0.15 },
+        { trigger: '#value', target: '.value-item', stagger: 0.15 },
+        { trigger: '#promise', target: '.promise-item', stagger: 0.15 },
         { trigger: '#faq', target: '.faq-item', stagger: 0.12 },
     ];
 
@@ -76,14 +99,20 @@ window.addEventListener('load', function() {
 
     // About
     gsap.from('.about-text', {
-        scrollTrigger: { trigger: '#about', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#about',
+            start: 'top 80%'
+        },
         x: -30,
         opacity: 0,
         duration: 0.8,
         ease: 'power3.out',
     });
     gsap.from('.about-image', {
-        scrollTrigger: { trigger: '#about', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#about',
+            start: 'top 80%'
+        },
         x: 30,
         opacity: 0,
         duration: 0.8,
@@ -92,34 +121,45 @@ window.addEventListener('load', function() {
 
     // Guarantee, Contact, Footer
     gsap.from('.guarantee-box', {
-        scrollTrigger: { trigger: '.guarantee-box', start: 'top 85%' },
+        scrollTrigger: {
+            trigger: '.guarantee-box',
+            start: 'top 85%'
+        },
         y: 30,
         opacity: 0,
         duration: 0.7,
         ease: 'power3.out',
     });
     gsap.from('.contact-section', {
-        scrollTrigger: { trigger: '#contact', start: 'top 80%' },
+        scrollTrigger: {
+            trigger: '#contact',
+            start: 'top 80%'
+        },
         y: 30,
         opacity: 0,
         duration: 0.7,
         ease: 'power3.out',
     });
     gsap.from('.footer', {
-        scrollTrigger: { trigger: '.footer', start: 'top 90%' },
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 90%'
+        },
         y: 20,
         opacity: 0,
         duration: 0.6,
         ease: 'power3.out',
     });
 
-    // تحديث ScrollTrigger بعد كل شيء
+    // Refresh ScrollTrigger after everything
     ScrollTrigger.refresh();
 });
 
 // ===== TYPING EFFECT =====
 const words = ['Web Designer', 'Web Developer', 'UX/UI Designer', 'Creative Problem Solver'];
-let wordIndex = 0, charIndex = 0, isDeleting = false;
+let wordIndex = 0,
+    charIndex = 0,
+    isDeleting = false;
 const el = document.getElementById('typingText');
 
 function typeEffect() {
@@ -145,18 +185,16 @@ function typeEffect() {
 }
 setTimeout(typeEffect, 1500);
 
-// ===== ANIMATED NUMBERS (مع الحفاظ على % و h) =====
+// ===== ANIMATED NUMBERS =====
 document.querySelectorAll('.stat-item .number').forEach((el) => {
     const targetText = el.textContent.trim();
-    // استخراج الرقم من النص (مثلاً: "100%" → 100)
     const targetNum = parseInt(targetText);
     if (isNaN(targetNum)) return;
-    
-    // حفظ النص الأصلي مع الرمز (مثلاً: "100%" أو "24h")
+
     const suffix = targetText.replace(/[0-9]/g, '');
     let current = 0;
     const increment = targetNum / 80;
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -179,7 +217,10 @@ document.querySelectorAll('.stat-item .number').forEach((el) => {
 // ===== CURSOR =====
 const dot = document.querySelector('.cursor-dot');
 const follower = document.querySelector('.cursor-follower');
-let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+let mouseX = 0,
+    mouseY = 0,
+    followerX = 0,
+    followerY = 0;
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -245,7 +286,8 @@ document.querySelectorAll('.project-card[data-tilt]').forEach((card) => {
         const centerY = rect.height / 2;
         const rotateX = (y - centerY) / 10;
         const rotateY = (centerX - x) / 10;
-        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+        card.style.transform =
+            `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
     });
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
@@ -302,37 +344,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ===== TESTIMONIALS CAROUSEL =====
-const track = document.getElementById('testimonialsTrack');
-const dots = document.getElementById('testimonialDots');
-const testimonials = document.querySelectorAll('.testimonial');
-let idx = 0, auto;
-
-if (track && dots && testimonials.length) {
-    testimonials.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goTo(i));
-        dots.appendChild(dot);
-    });
-
-    function goTo(i) {
-        idx = i;
-        track.style.transform = 'translateX(-' + i * 100 + '%)';
-        document.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('active', j === i));
-    }
-
-    function next() {
-        goTo((idx + 1) % testimonials.length);
-    }
-
-    auto = setInterval(next, 5000);
-    const wrapper = document.querySelector('.testimonials-wrapper');
-    wrapper.addEventListener('mouseenter', () => clearInterval(auto));
-    wrapper.addEventListener('mouseleave', () => { auto = setInterval(next, 5000); });
-}
-
 // ===== COMING SOON TYPING =====
 const comingPhrases = [
     'Building something new...',
@@ -341,7 +352,9 @@ const comingPhrases = [
     'More work is unfolding...',
     'Stay tuned for the next...'
 ];
-let phraseIndex = 0, charIndex2 = 0, isDeleting2 = false;
+let phraseIndex = 0,
+    charIndex2 = 0,
+    isDeleting2 = false;
 const comingText = document.getElementById('comingText');
 const dotsLoader = document.getElementById('dotsLoader');
 
@@ -399,31 +412,14 @@ if ('IntersectionObserver' in window) {
 // ===== REDUCED MOTION =====
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (prefersReducedMotion.matches) {
-    document.querySelectorAll('.fade-up, .project-card, .service-card, .pricing-card, .result-card, .case-item, .process-step, .flow-step, .why-item, .faq-item').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        el.style.animation = 'none';
-        el.style.transition = 'none';
-    });
+    document.querySelectorAll('.fade-up, .project-card, .service-card, .pricing-card, .result-card, .case-item, .process-step, .flow-step, .why-item, .faq-item')
+        .forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            el.style.animation = 'none';
+            el.style.transition = 'none';
+        });
     gsap.globalTimeline.pause();
 }
 
 console.log('✅ Saber Portfolio — Ready.');
-
-// ===== FORCE STATS TO APPEAR CORRECTLY =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Set the numbers directly
-    document.querySelectorAll('.stat-item .number[data-count]').forEach(function(el) {
-        var target = parseInt(el.getAttribute('data-count'));
-        if (!isNaN(target)) {
-            el.textContent = target;
-            // Re-add percent or hours if needed
-            var parent = el.parentNode;
-            if (target === 100 && !el.querySelector('.percent')) {
-                el.innerHTML = target + '<span class="percent">%</span>';
-            } else if (target === 24 && !el.querySelector('.hours')) {
-                el.innerHTML = target + '<span class="hours">h</span>';
-            }
-        }
-    });
-});
