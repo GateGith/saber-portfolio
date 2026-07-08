@@ -1,5 +1,5 @@
 /* ============================================================
-   SABER PORTFOLIO — UNIQUE & AUTHENTIC
+   SABER PORTFOLIO — ADVANCED WITH GSAP
    ============================================================ */
 
 * {
@@ -19,6 +19,7 @@ body {
     line-height: 1.6;
     padding: 1rem;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
@@ -27,7 +28,93 @@ body {
     margin: 0 auto;
 }
 
-/* ----- SCROLLBAR ----- */
+/* ============================================================
+   PRELOADER
+   ============================================================ */
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #07090d;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-logo {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #b48cff, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: preloaderPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes preloaderPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+.preloader-bar {
+    width: 150px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    margin: 16px auto 8px;
+    overflow: hidden;
+}
+
+.preloader-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #b48cff, #ff6b9d);
+    border-radius: 2px;
+    animation: preloaderProgress 1.2s ease-in-out forwards;
+}
+
+@keyframes preloaderProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.preloader-text {
+    font-size: 0.7rem;
+    color: #5a5a6a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   SCROLL PROGRESS
+   ============================================================ */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #b48cff, #ff6b9d);
+    z-index: 1000;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -39,7 +126,10 @@ body {
     border-radius: 10px;
 }
 
-/* ----- NAVBAR ----- */
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -72,6 +162,22 @@ body {
     font-size: 0.8rem;
     font-weight: 500;
     transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: #b48cff;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
@@ -86,15 +192,44 @@ body {
     font-weight: 600;
 }
 
-.nav-links .cta:hover {
-    background: #c4a0ff;
-    color: #fff;
+.nav-links .cta::after {
+    display: none;
 }
 
-/* ----- HERO ----- */
+.nav-links .cta:hover {
+    background: #c4a0ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(180, 140, 255, 0.2);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
 .hero {
+    position: relative;
     padding: 4rem 0 3rem;
     text-align: center;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(180, 140, 255, 0.08), transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255, 107, 157, 0.05), transparent 50%);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 .hero .badge {
@@ -127,6 +262,13 @@ body {
     background: linear-gradient(135deg, #b48cff, #ff6b9d, #4ecdc4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-size: 300% 300%;
+    animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .hero .subtitle {
@@ -147,6 +289,40 @@ body {
     flex-wrap: wrap;
 }
 
+.hero-scroll {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    color: #5a5a6a;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+    width: 16px;
+    height: 16px;
+    border-right: 1.5px solid #5a5a6a;
+    border-bottom: 1.5px solid #5a5a6a;
+    transform: rotate(45deg);
+    opacity: 0.4;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ============================================================
+   BTN
+   ============================================================ */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -160,15 +336,37 @@ body {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn.primary {
     background: linear-gradient(135deg, #b48cff, #a070ff);
     color: #fff;
+    box-shadow: 0 4px 20px rgba(180, 140, 255, 0.15);
 }
+
+.btn.primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #c4a0ff, #b48cff);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn.primary:hover::before {
+    opacity: 1;
+}
+
 .btn.primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(180, 140, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(180, 140, 255, 0.25);
+}
+
+.btn.primary span {
+    position: relative;
+    z-index: 1;
 }
 
 .btn.secondary {
@@ -176,13 +374,17 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.06);
     color: #f1f1f1;
 }
+
 .btn.secondary:hover {
     border-color: #b48cff;
     background: rgba(180, 140, 255, 0.06);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-/* ----- STATS ----- */
+/* ============================================================
+   STATS
+   ============================================================ */
+
 .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -195,20 +397,39 @@ body {
     text-align: center;
 }
 
+.stat-item .icon {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
 .stat-item .number {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: #f1f1f1;
     display: block;
 }
 
 .stat-item .label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #8a8a9a;
-    margin-top: 0.1rem;
+    display: block;
+    margin-top: 0.05rem;
 }
 
-/* ----- SECTIONS ----- */
+.stat-item {
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+
 .section {
     margin: 4rem auto;
 }
@@ -241,7 +462,78 @@ body {
     margin: 0.2rem auto 0;
 }
 
-/* ----- PROJECTS ----- */
+/* ============================================================
+   BENEFITS
+   ============================================================ */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 1.2rem;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(180, 140, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.benefit-card .icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.benefit-card p {
+    font-size: 0.8rem;
+    color: #8a8a9a;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   TRUST BANNER
+   ============================================================ */
+
+.trust-banner {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    margin: -0.5rem auto 2rem;
+    font-size: 0.75rem;
+    color: #8a8a9a;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.trust-banner span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -255,90 +547,161 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: 1.2rem;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     text-decoration: none;
     color: inherit;
     display: block;
+    position: relative;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(180, 140, 255, 0.15);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(180, 140, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .project-image {
     width: 100%;
-    height: 200px;
+    height: 220px;
     background: linear-gradient(135deg, #111122, #1a1a2e);
     overflow: hidden;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-image img {
     transform: scale(1.05);
 }
 
-.project-image .overlay {
+.project-overlay {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(7, 9, 13, 0.6);
+    background: rgba(7, 9, 13, 0.7);
+    backdrop-filter: blur(6px);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
     font-size: 0.85rem;
     font-weight: 600;
     color: #fff;
-    backdrop-filter: blur(4px);
 }
 
-.project-card:hover .project-image .overlay {
+.project-overlay span {
+    padding: 0.5rem 1.5rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.project-overlay span:hover {
+    border-color: #b48cff;
+    background: rgba(180, 140, 255, 0.1);
+}
+
+.project-card:hover .project-overlay {
     opacity: 1;
 }
 
 .project-info {
-    padding: 1rem 1.2rem 1.2rem;
-}
-
-.project-info .tag {
-    font-size: 0.55rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #b48cff;
-    background: rgba(180, 140, 255, 0.08);
-    padding: 0.1rem 0.5rem;
-    border-radius: 1rem;
-    display: inline-block;
+    padding: 1.2rem 1.2rem 1.2rem;
 }
 
 .project-info h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    margin: 0.3rem 0 0.1rem;
+    margin-bottom: 0.2rem;
 }
 
 .project-info p {
     font-size: 0.8rem;
     color: #8a8a9a;
+    margin-bottom: 0.6rem;
 }
 
-/* ----- SERVICES ----- */
-.services-grid {
+.project-meta {
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.meta-item {
+    display: flex;
+    gap: 0.4rem;
+    font-size: 0.65rem;
+    color: #8a8a9a;
+    margin-bottom: 0.15rem;
+    flex-wrap: wrap;
+}
+
+.meta-label {
+    color: #b48cff;
+    font-weight: 600;
+    min-width: 42px;
+}
+
+.meta-item span:last-child {
+    color: #f1f1f1;
+}
+
+/* ============================================================
+   WHY CHOOSE ME
+   ============================================================ */
+
+.choose-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.choose-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 1.2rem;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.choose-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(180, 140, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.choose-item .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.choose-item h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.choose-item p {
+    font-size: 0.8rem;
+    color: #8a8a9a;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 1.2rem;
     max-width: 1100px;
     margin: 0 auto;
@@ -354,29 +717,33 @@ body {
 }
 
 .service-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
+    transform: translateY(-6px);
+    border-color: rgba(180, 140, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .service-card .icon {
-    font-size: 2.2rem;
+    font-size: 2rem;
     display: block;
     margin-bottom: 0.5rem;
 }
 
 .service-card h3 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 0.2rem;
 }
 
 .service-card p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #8a8a9a;
     line-height: 1.6;
 }
 
-/* ----- PROCESS ----- */
+/* ============================================================
+   PROCESS
+   ============================================================ */
+
 .process-flow {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -395,8 +762,9 @@ body {
 }
 
 .process-step:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
+    transform: translateY(-6px);
+    border-color: rgba(180, 140, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .process-step .step-number {
@@ -421,48 +789,10 @@ body {
     line-height: 1.5;
 }
 
-/* ----- WHY ME ----- */
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
+/* ============================================================
+   PROMISE
+   ============================================================ */
 
-.why-item {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 1.2rem;
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.why-item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
-}
-
-.why-item .icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.why-item h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.why-item p {
-    font-size: 0.8rem;
-    color: #8a8a9a;
-    line-height: 1.6;
-}
-
-/* ----- PROMISE ----- */
 .promise-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -481,8 +811,9 @@ body {
 }
 
 .promise-item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 107, 157, 0.1);
+    transform: translateY(-6px);
+    border-color: rgba(255, 107, 157, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .promise-item .icon {
@@ -503,7 +834,10 @@ body {
     line-height: 1.6;
 }
 
-/* ----- ABOUT ----- */
+/* ============================================================
+   ABOUT
+   ============================================================ */
+
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -564,15 +898,6 @@ body {
     border: 1px solid rgba(180, 140, 255, 0.06);
 }
 
-.about-text .quote {
-    color: #8a8a9a;
-    font-style: italic;
-    font-size: 0.85rem;
-    margin-top: 0.8rem;
-    border-left: 2px solid #b48cff;
-    padding-left: 0.8rem;
-}
-
 .about-image {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.04);
@@ -608,7 +933,10 @@ body {
     color: #5a5a6a;
 }
 
-/* ----- OFFER BOX ----- */
+/* ============================================================
+   OFFER BOX
+   ============================================================ */
+
 .offer-box {
     max-width: 700px;
     margin: 2rem auto 3rem;
@@ -622,20 +950,7 @@ body {
 
 .offer-box:hover {
     border-color: rgba(180, 140, 255, 0.25);
-}
-
-.offer-box .offer-badge {
-    display: inline-block;
-    font-size: 0.55rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: rgba(255, 107, 157, 0.12);
-    padding: 0.2rem 1rem;
-    border-radius: 2rem;
-    border: 1px solid rgba(255, 107, 157, 0.1);
-    color: #ff6b9d;
-    margin-bottom: 0.8rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .offer-box h3 {
@@ -652,7 +967,17 @@ body {
     line-height: 1.7;
 }
 
-/* ----- CONTACT ----- */
+.offer-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
 .contact-section {
     background: linear-gradient(135deg, rgba(180, 140, 255, 0.04), rgba(255, 107, 157, 0.02));
     border: 1px solid rgba(255, 255, 255, 0.04);
@@ -697,9 +1022,13 @@ body {
 
 .contact-section .social a:hover {
     color: #f1f1f1;
+    transform: translateY(-2px);
 }
 
-/* ----- FOOTER ----- */
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
 .footer {
     text-align: center;
     padding: 2rem 0 1rem;
@@ -720,28 +1049,23 @@ body {
    ============================================================ */
 
 @media (max-width: 1024px) {
-    .projects-grid,
-    .services-grid,
-    .process-flow,
-    .why-grid,
+    .benefits-grid,
+    .choose-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .process-flow {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .promise-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .about-text {
-        text-align: center;
-    }
-    .about-text .badges {
-        justify-content: center;
-    }
-    .about-text .quote {
-        border-left: none;
-        border-top: 2px solid #b48cff;
-        padding-left: 0;
-        padding-top: 0.8rem;
+    .trust-banner {
+        gap: 1rem;
+        font-size: 0.65rem;
+        padding: 0.8rem 0;
     }
 }
 
@@ -749,7 +1073,7 @@ body {
     body {
         padding: 0.8rem;
     }
-    
+
     .navbar {
         flex-direction: column;
         align-items: center;
@@ -762,9 +1086,10 @@ body {
     .nav-links a {
         font-size: 0.7rem;
     }
-    
+
     .hero {
         padding: 2rem 0;
+        min-height: 70vh;
     }
     .hero h1 {
         font-size: 1.8rem;
@@ -775,10 +1100,19 @@ body {
     .hero h1 .line:first-child::after {
         content: ' ';
     }
-    
+
+    .hero .buttons .btn,
+    .offer-buttons .btn,
+    .contact-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
     .stats {
         grid-template-columns: 1fr;
         gap: 0.8rem;
+        padding: 1.2rem 0;
         max-width: 100%;
     }
     .stat-item {
@@ -788,8 +1122,12 @@ body {
         gap: 0.5rem;
         flex-wrap: wrap;
     }
+    .stat-item .icon {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
     .stat-item .number {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         display: inline;
     }
     .stat-item .label {
@@ -797,20 +1135,44 @@ body {
         display: inline;
         margin-top: 0;
     }
-    
+
     .projects-grid,
+    .benefits-grid,
+    .choose-grid,
     .services-grid,
-    .process-flow,
-    .why-grid,
     .promise-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
+    .process-flow {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     .project-image {
         height: 180px;
     }
-    
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-text {
+        text-align: center;
+    }
+    .about-text .badges {
+        justify-content: center;
+    }
+
+    .trust-banner {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.6rem 0;
+        font-size: 0.6rem;
+    }
+
     .offer-box {
         padding: 1.5rem;
         margin: 1.5rem auto;
@@ -818,7 +1180,10 @@ body {
     .offer-box h3 {
         font-size: 1.2rem;
     }
-    
+    .offer-box p {
+        font-size: 0.8rem;
+    }
+
     .contact-section {
         padding: 1.5rem;
     }
@@ -826,10 +1191,9 @@ body {
         flex-direction: column;
         align-items: center;
     }
-    .contact-buttons .btn {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
+
+    .hero-scroll {
+        display: none;
     }
 }
 
@@ -837,850 +1201,7 @@ body {
     .hero h1 {
         font-size: 1.5rem;
     }
-    .hero .buttons .btn {
-        width: 100%;
-        justify-content: center;
-    }
     .logo {
         font-size: 1.2rem;
-    }
-}
-/* ============================================================
-   PROJECT META (Goal, Result, Tools)
-   ============================================================ */
-
-.project-meta {
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.meta-item {
-    display: flex;
-    gap: 0.4rem;
-    font-size: 0.7rem;
-    color: #8a8a9a;
-    margin-bottom: 0.2rem;
-    flex-wrap: wrap;
-}
-
-.meta-label {
-    color: #b48cff;
-    font-weight: 600;
-    min-width: 45px;
-}
-
-.meta-item span:last-child {
-    color: #f1f1f1;
-}
-
-/* ============================================================
-   OFFER BOX (بدون "First Client")
-   ============================================================ */
-
-.offer-box {
-    max-width: 700px;
-    margin: 2rem auto 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(180, 140, 255, 0.06), rgba(255, 107, 157, 0.03));
-    border: 1px solid rgba(180, 140, 255, 0.12);
-    border-radius: 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.offer-box:hover {
-    border-color: rgba(180, 140, 255, 0.25);
-}
-
-.offer-box h3 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-}
-
-.offer-box p {
-    color: #8a8a9a;
-    font-size: 0.9rem;
-    max-width: 500px;
-    margin: 0 auto 1.2rem;
-    line-height: 1.7;
-}
-
-/* ============================================================
-   RESPONSIVE — PROJECT META
-   ============================================================ */
-
-@media (max-width: 768px) {
-    .meta-item {
-        font-size: 0.65rem;
-    }
-    .offer-box h3 {
-        font-size: 1.2rem;
-    }
-    .offer-box p {
-        font-size: 0.8rem;
-    }
-}
-/* ============================================================
-   TRUST BANNER (SOCIAL PROOF)
-   ============================================================ */
-
-.trust-banner {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-    margin: -0.5rem auto 2rem;
-    font-size: 0.75rem;
-    color: #8a8a9a;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.trust-banner span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-/* ============================================================
-   WHY CHOOSE ME
-   ============================================================ */
-
-.choose-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.choose-item {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 1.2rem;
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.choose-item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
-}
-
-.choose-item .icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.choose-item h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.choose-item p {
-    font-size: 0.8rem;
-    color: #8a8a9a;
-    line-height: 1.6;
-}
-
-/* ============================================================
-   PROJECT META
-   ============================================================ */
-
-.project-meta {
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.meta-item {
-    display: flex;
-    gap: 0.4rem;
-    font-size: 0.7rem;
-    color: #8a8a9a;
-    margin-bottom: 0.2rem;
-    flex-wrap: wrap;
-}
-
-.meta-label {
-    color: #b48cff;
-    font-weight: 600;
-    min-width: 45px;
-}
-
-.meta-item span:last-child {
-    color: #f1f1f1;
-}
-
-/* ============================================================
-   OFFER BOX
-   ============================================================ */
-
-.offer-box {
-    max-width: 700px;
-    margin: 2rem auto 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(180, 140, 255, 0.06), rgba(255, 107, 157, 0.03));
-    border: 1px solid rgba(180, 140, 255, 0.12);
-    border-radius: 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.offer-box:hover {
-    border-color: rgba(180, 140, 255, 0.25);
-}
-
-.offer-box h3 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-}
-
-.offer-box p {
-    color: #8a8a9a;
-    font-size: 0.9rem;
-    max-width: 500px;
-    margin: 0 auto 1.2rem;
-    line-height: 1.7;
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 1024px) {
-    .choose-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .trust-banner {
-        gap: 1rem;
-        font-size: 0.65rem;
-        padding: 0.8rem 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .choose-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .trust-banner {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.3rem;
-        padding: 0.6rem 0;
-        font-size: 0.6rem;
-    }
-    .meta-item {
-        font-size: 0.6rem;
-    }
-    .offer-box h3 {
-        font-size: 1.2rem;
-    }
-    .offer-box p {
-        font-size: 0.8rem;
-    }
-}
-/* ============================================================
-   BENEFITS SECTION
-   ============================================================ */
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.benefit-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 1.2rem;
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.benefit-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
-}
-
-.benefit-card .icon {
-    font-size: 2.2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.benefit-card h4 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.benefit-card p {
-    font-size: 0.8rem;
-    color: #8a8a9a;
-    line-height: 1.6;
-}
-
-/* ============================================================
-   STATS — NEW STYLE
-   ============================================================ */
-
-.stats .stat-item .icon {
-    font-size: 1.2rem;
-    display: block;
-    margin-bottom: 0.1rem;
-}
-
-.stats .stat-item .number {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #f1f1f1;
-    display: block;
-}
-
-.stats .stat-item .label {
-    font-size: 0.65rem;
-    color: #8a8a9a;
-    display: block;
-    margin-top: 0.05rem;
-}
-
-/* ============================================================
-   TRUST BANNER
-   ============================================================ */
-
-.trust-banner {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-    margin: -0.5rem auto 2rem;
-    font-size: 0.75rem;
-    color: #8a8a9a;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.trust-banner span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-/* ============================================================
-   WHY CHOOSE ME
-   ============================================================ */
-
-.choose-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.choose-item {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 1.2rem;
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.choose-item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
-}
-
-.choose-item .icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.choose-item h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.choose-item p {
-    font-size: 0.8rem;
-    color: #8a8a9a;
-    line-height: 1.6;
-}
-
-/* ============================================================
-   PROJECT META (Problem / Solution)
-   ============================================================ */
-
-.project-meta {
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.meta-item {
-    display: flex;
-    gap: 0.4rem;
-    font-size: 0.7rem;
-    color: #8a8a9a;
-    margin-bottom: 0.2rem;
-    flex-wrap: wrap;
-}
-
-.meta-label {
-    color: #b48cff;
-    font-weight: 600;
-    min-width: 45px;
-}
-
-.meta-item span:last-child {
-    color: #f1f1f1;
-}
-
-/* ============================================================
-   OFFER BOX
-   ============================================================ */
-
-.offer-box {
-    max-width: 700px;
-    margin: 2rem auto 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(180, 140, 255, 0.06), rgba(255, 107, 157, 0.03));
-    border: 1px solid rgba(180, 140, 255, 0.12);
-    border-radius: 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.offer-box:hover {
-    border-color: rgba(180, 140, 255, 0.25);
-}
-
-.offer-box h3 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-}
-
-.offer-box p {
-    color: #8a8a9a;
-    font-size: 0.9rem;
-    max-width: 500px;
-    margin: 0 auto 1.2rem;
-    line-height: 1.7;
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 1024px) {
-    .benefits-grid,
-    .choose-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .trust-banner {
-        gap: 1rem;
-        font-size: 0.65rem;
-        padding: 0.8rem 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .benefits-grid,
-    .choose-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .trust-banner {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.3rem;
-        padding: 0.6rem 0;
-        font-size: 0.6rem;
-    }
-    .stats {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-        padding: 1.2rem 0;
-    }
-    .stat-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-    .stat-item .icon {
-        font-size: 1rem;
-        margin-bottom: 0;
-    }
-    .stat-item .number {
-        font-size: 1.2rem;
-        display: inline;
-    }
-    .stat-item .label {
-        font-size: 0.6rem;
-        display: inline;
-        margin-top: 0;
-    }
-    .meta-item {
-        font-size: 0.6rem;
-    }
-    .offer-box h3 {
-        font-size: 1.2rem;
-    }
-    .offer-box p {
-        font-size: 0.8rem;
-    }
-}
-/* ============================================================
-   BENEFITS SECTION
-   ============================================================ */
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.benefit-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 1.2rem;
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.benefit-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
-}
-
-.benefit-card .icon {
-    font-size: 2.2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.benefit-card h4 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.benefit-card p {
-    font-size: 0.8rem;
-    color: #8a8a9a;
-    line-height: 1.6;
-}
-
-/* ============================================================
-   STATS — NEW STYLE
-   ============================================================ */
-
-.stats .stat-item .icon {
-    font-size: 1.2rem;
-    display: block;
-    margin-bottom: 0.1rem;
-}
-
-.stats .stat-item .number {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #f1f1f1;
-    display: block;
-}
-
-.stats .stat-item .label {
-    font-size: 0.65rem;
-    color: #8a8a9a;
-    display: block;
-    margin-top: 0.05rem;
-}
-
-/* ============================================================
-   TRUST BANNER
-   ============================================================ */
-
-.trust-banner {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-    margin: -0.5rem auto 2rem;
-    font-size: 0.75rem;
-    color: #8a8a9a;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.trust-banner span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-/* ============================================================
-   PROJECT META
-   ============================================================ */
-
-.project-meta {
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.meta-item {
-    display: flex;
-    gap: 0.4rem;
-    font-size: 0.7rem;
-    color: #8a8a9a;
-    margin-bottom: 0.2rem;
-    flex-wrap: wrap;
-}
-
-.meta-label {
-    color: #b48cff;
-    font-weight: 600;
-    min-width: 45px;
-}
-
-.meta-item span:last-child {
-    color: #f1f1f1;
-}
-
-/* ============================================================
-   WHY CHOOSE ME
-   ============================================================ */
-
-.choose-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.choose-item {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 1.2rem;
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.choose-item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
-}
-
-.choose-item .icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.choose-item h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.choose-item p {
-    font-size: 0.8rem;
-    color: #8a8a9a;
-    line-height: 1.6;
-}
-
-/* ============================================================
-   SERVICES
-   ============================================================ */
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.service-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 1.2rem;
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(180, 140, 255, 0.1);
-}
-
-.service-card .icon {
-    font-size: 2.2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.service-card h3 {
-    font-size: 0.85rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.service-card p {
-    font-size: 0.7rem;
-    color: #8a8a9a;
-    line-height: 1.6;
-}
-
-/* ============================================================
-   OFFER BOX
-   ============================================================ */
-
-.offer-box {
-    max-width: 700px;
-    margin: 2rem auto 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(180, 140, 255, 0.06), rgba(255, 107, 157, 0.03));
-    border: 1px solid rgba(180, 140, 255, 0.12);
-    border-radius: 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.offer-box:hover {
-    border-color: rgba(180, 140, 255, 0.25);
-}
-
-.offer-box h3 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-}
-
-.offer-box p {
-    color: #8a8a9a;
-    font-size: 0.9rem;
-    max-width: 500px;
-    margin: 0 auto 1.2rem;
-    line-height: 1.7;
-}
-
-.offer-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 1024px) {
-    .benefits-grid,
-    .choose-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .trust-banner {
-        gap: 1rem;
-        font-size: 0.65rem;
-        padding: 0.8rem 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .benefits-grid,
-    .choose-grid,
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .trust-banner {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.3rem;
-        padding: 0.6rem 0;
-        font-size: 0.6rem;
-    }
-    .stats {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-        padding: 1.2rem 0;
-    }
-    .stat-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-    .stat-item .icon {
-        font-size: 1rem;
-        margin-bottom: 0;
-    }
-    .stat-item .number {
-        font-size: 1.2rem;
-        display: inline;
-    }
-    .stat-item .label {
-        font-size: 0.6rem;
-        display: inline;
-        margin-top: 0;
-    }
-    .meta-item {
-        font-size: 0.6rem;
-    }
-    .offer-box h3 {
-        font-size: 1.2rem;
-    }
-    .offer-box p {
-        font-size: 0.8rem;
-    }
-    .offer-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    .offer-buttons .btn {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 400px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    .hero .buttons .btn {
-        width: 100%;
-        justify-content: center;
     }
 }
