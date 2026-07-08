@@ -15,19 +15,40 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     
+    <!-- Preconnect for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     
+    <!-- ===== PRELOADER ===== -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">SS</div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+            <p class="preloader-text">Loading...</p>
+        </div>
+    </div>
+    
+    <!-- ===== SCROLL PROGRESS ===== -->
+    <div id="scroll-progress"></div>
+    
     <div class="container">
         
         <!-- ===== NAVBAR ===== -->
-        <nav class="navbar">
+        <nav class="navbar" id="navbar">
             <div class="logo">
                 <span>Saber</span><span class="dot">.</span>
             </div>
@@ -43,22 +64,27 @@
         
         <!-- ===== HERO ===== -->
         <section class="hero" id="hero">
+            <div class="hero-bg-overlay"></div>
             <div class="hero-content">
-                <span class="badge">✦ Helping local businesses earn trust online.</span>
-                <h1>
+                <span class="badge reveal-1">✦ Helping local businesses earn trust online.</span>
+                <h1 class="reveal-1">
                     <span class="line">Professional websites that help customers</span>
                     <span class="line highlight">trust your business, contact you faster, and find you online.</span>
                 </h1>
-                <p class="subtitle"><strong>Built specifically for your business.</strong> Every website is designed around your business.</p>
-                <div class="buttons">
+                <p class="subtitle reveal-2"><strong>Built specifically for your business.</strong> Every website is designed around your business.</p>
+                <div class="buttons reveal-3">
                     <a href="#work" class="btn primary">See My Work</a>
-                    <a href="#contact" class="btn secondary">See Your Business Website Before Paying</a>
+                    <a href="#contact" class="btn secondary">See Your Website Before Paying</a>
                 </div>
+            </div>
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <div class="scroll-arrow"></div>
             </div>
         </section>
         
         <!-- ===== STATS ===== -->
-        <div class="stats">
+        <div class="stats" id="stats">
             <div class="stat-item">
                 <span class="icon">📱</span>
                 <span class="number">Mobile First</span>
@@ -126,8 +152,10 @@
                 <!-- Hamiaphone -->
                 <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" class="project-card">
                     <div class="project-image">
-                        <img src="images/hamiaphone.webp" alt="Hamiaphone" loading="lazy" />
-                        <div class="overlay">Live Demo →</div>
+                        <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=600&h=400&fit=crop&auto=format" alt="Hamiaphone" loading="lazy" />
+                        <div class="project-overlay">
+                            <span>Live Demo →</span>
+                        </div>
                     </div>
                     <div class="project-info">
                         <h3>Hamiaphone</h3>
@@ -141,10 +169,6 @@
                                 <span class="meta-label">Solution</span>
                                 <span>Landing page with WhatsApp integration — one click to contact.</span>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Built with</span>
-                                <span>HTML • CSS • JavaScript</span>
-                            </div>
                         </div>
                     </div>
                 </a>
@@ -152,8 +176,10 @@
                 <!-- Rogers Phone -->
                 <a href="https://gategith.github.io/Rogers-Phone/" target="_blank" class="project-card">
                     <div class="project-image">
-                        <img src="images/rogers.webp" alt="Rogers Phone" loading="lazy" />
-                        <div class="overlay">Live Demo →</div>
+                        <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=600&h=400&fit=crop&auto=format" alt="Rogers Phone" loading="lazy" />
+                        <div class="project-overlay">
+                            <span>Live Demo →</span>
+                        </div>
                     </div>
                     <div class="project-info">
                         <h3>Rogers Phone</h3>
@@ -167,10 +193,6 @@
                                 <span class="meta-label">Solution</span>
                                 <span>Clean product display with easy contact options.</span>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Built with</span>
-                                <span>HTML • CSS • JavaScript</span>
-                            </div>
                         </div>
                     </div>
                 </a>
@@ -178,8 +200,10 @@
                 <!-- YOKA TECH -->
                 <a href="https://gategith.github.io/YOKA-TECH/" target="_blank" class="project-card">
                     <div class="project-image">
-                        <img src="images/yoka.webp" alt="YOKA TECH" loading="lazy" />
-                        <div class="overlay">Live Demo →</div>
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop&auto=format" alt="YOKA TECH" loading="lazy" />
+                        <div class="project-overlay">
+                            <span>Live Demo →</span>
+                        </div>
                     </div>
                     <div class="project-info">
                         <h3>YOKA TECH</h3>
@@ -193,10 +217,6 @@
                                 <span class="meta-label">Solution</span>
                                 <span>Centralized hub for all products and services.</span>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Built with</span>
-                                <span>HTML • CSS • JavaScript</span>
-                            </div>
                         </div>
                     </div>
                 </a>
@@ -204,8 +224,10 @@
                 <!-- ARC161 -->
                 <a href="projects/arc161/" target="_blank" class="project-card">
                     <div class="project-image">
-                        <img src="projects/arc161/images/hero.jpg" alt="ARC161" loading="lazy" />
-                        <div class="overlay">Live Demo →</div>
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=400&fit=crop&auto=format" alt="ARC161" loading="lazy" />
+                        <div class="project-overlay">
+                            <span>Live Demo →</span>
+                        </div>
                     </div>
                     <div class="project-info">
                         <h3>ARC161</h3>
@@ -218,10 +240,6 @@
                             <div class="meta-item">
                                 <span class="meta-label">Solution</span>
                                 <span>High-converting landing page with clear call to action.</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Built with</span>
-                                <span>HTML • CSS • JavaScript</span>
                             </div>
                         </div>
                     </div>
@@ -389,7 +407,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/profile.webp" alt="Saber Slifi" />
+                    <img src="images/profile.webp" alt="Saber Slifi" loading="lazy" />
                     <h3>Saber Slifi</h3>
                     <p>Web Designer for Local Businesses</p>
                     <div class="meta">
@@ -418,7 +436,6 @@
                 <div class="contact-buttons">
                     <a href="mailto:rebasifils.web@gmail.com" class="btn primary">📧 Email Me</a>
                     <a href="tel:+213771021391" class="btn secondary">📞 Book a Call</a>
-                    <a href="#contact" class="btn secondary">See Your Website Before Paying</a>
                 </div>
                 <div class="social">
                     <a href="mailto:rebasifils.web@gmail.com"><i class="fas fa-envelope"></i></a>
