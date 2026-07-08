@@ -317,3 +317,126 @@ if ('IntersectionObserver' in window) {
 }
 
 console.log('✅ Saber Portfolio — 9.8/10 Stable');
+/* ============================================================
+   OFFER BOX — BUTTONS WITH FEEDBACK
+   ============================================================ */
+
+.offer-box {
+    max-width: 700px;
+    margin: 2rem auto 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(180, 140, 255, 0.06), rgba(255, 107, 157, 0.03));
+    border: 1px solid rgba(180, 140, 255, 0.12);
+    border-radius: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-box:hover {
+    border-color: rgba(180, 140, 255, 0.25);
+}
+
+.offer-box h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.offer-box p {
+    color: #8a8a9a;
+    font-size: 0.9rem;
+    max-width: 500px;
+    margin: 0 auto 1.2rem;
+    line-height: 1.7;
+}
+
+.offer-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ----- RIPPLE EFFECT ON BUTTONS ----- */
+.offer-buttons .btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.offer-buttons .btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: rippleAnim 0.6s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes rippleAnim {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ----- BUTTON PRESS FEEDBACK ----- */
+.offer-buttons .btn:active {
+    transform: scale(0.92);
+}
+
+/* ----- FEEDBACK MESSAGE ----- */
+.offer-feedback {
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    min-height: 1.5rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+}
+
+.offer-feedback.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.offer-feedback.success {
+    color: #4ade80;
+}
+
+.offer-feedback.info {
+    color: #b48cff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .offer-box {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+    .offer-box h3 {
+        font-size: 1.2rem;
+    }
+    .offer-box p {
+        font-size: 0.8rem;
+    }
+    .offer-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .offer-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
