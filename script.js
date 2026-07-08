@@ -1,5 +1,5 @@
 // ============================================================
-// SABER PORTFOLIO — SIMPLE & STABLE
+// SABER PORTFOLIO — UNIQUE & AUTHENTIC
 // ============================================================
 
 console.log('🚀 Saber Portfolio — Ready');
@@ -18,25 +18,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===== SCROLL REVEAL =====
-const revealElements = document.querySelectorAll('.project-card, .service-card, .pricing-card, .value-item, .stat-item');
+const revealElements = document.querySelectorAll(
+    '.project-card, .service-card, .process-step, .why-item, .promise-item, .stat-item'
+);
 
 const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
             revealObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
 
-revealElements.forEach((el, i) => {
+revealElements.forEach((el) => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    el.style.transitionDelay = (i * 0.05) + 's';
     revealObserver.observe(el);
 });
 
@@ -55,4 +54,4 @@ if ('IntersectionObserver' in window) {
     lazyImages.forEach(img => imageObserver.observe(img));
 }
 
-console.log('✅ Saber Portfolio — Stable');
+console.log('✅ Saber Portfolio — Authentic & Ready');
