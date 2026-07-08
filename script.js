@@ -1,217 +1,194 @@
 // ============================================================
-// SABER PORTFOLIO — GSAP + ADVANCED ANIMATIONS
+// SABER PORTFOLIO — STABLE & RELIABLE
 // ============================================================
 
-console.log('🚀 Saber Portfolio — Advanced Edition');
+console.log('🚀 Saber Portfolio — Stable');
 
 // ===== PRELOADER =====
-window.addEventListener('load', () => {
+window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
-    setTimeout(() => {
+    setTimeout(function() {
         preloader.classList.add('hide');
-        // Start animations after preloader
-        initAnimations();
-    }, 1200);
+        // Start GSAP animations after preloader hides
+        startAnimations();
+    }, 1000);
 });
 
-// ===== GSAP + SCROLLTRIGGER =====
-function initAnimations() {
-    gsap.registerPlugin(ScrollTrigger);
+// ===== GSAP ANIMATIONS =====
+function startAnimations() {
+    // Check if GSAP is loaded
+    if (typeof gsap === 'undefined') {
+        console.warn('GSAP not loaded. Using fallback animations.');
+        fallbackAnimations();
+        return;
+    }
+
+    // Register ScrollTrigger if available
+    if (typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
 
     // ---- Hero Animations ----
-    const heroTl = gsap.timeline();
-
-    heroTl
-        .from('.hero .badge', {
+    try {
+        gsap.from('.hero .badge', {
             opacity: 0,
             y: 30,
             duration: 0.8,
             ease: 'power3.out',
-        })
-        .from('.hero h1 .line', {
+            delay: 0.2
+        });
+        
+        gsap.from('.hero h1 .line', {
             y: 50,
             opacity: 0,
             duration: 0.8,
             stagger: 0.15,
             ease: 'power3.out',
-        }, '-=0.4')
-        .from('.hero .subtitle', {
+            delay: 0.2
+        });
+        
+        gsap.from('.hero .subtitle', {
             y: 30,
             opacity: 0,
             duration: 0.8,
             ease: 'power3.out',
-        }, '-=0.4')
-        .from('.hero .buttons', {
+            delay: 0.4
+        });
+        
+        gsap.from('.hero .buttons', {
             y: 30,
             opacity: 0,
             duration: 0.8,
             ease: 'power3.out',
-        }, '-=0.4');
+            delay: 0.5
+        });
+    } catch (e) {
+        console.warn('Hero animation error:', e);
+        fallbackAnimations();
+    }
 
-    // ---- Stats Animation ----
-    gsap.from('.stat-item', {
-        scrollTrigger: {
-            trigger: '.stats',
-            start: 'top 80%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'power3.out',
-    });
+    // ---- Scroll Animations ----
+    const elements = [
+        { selector: '.stat-item', trigger: '.stats', stagger: 0.15 },
+        { selector: '.benefit-card', trigger: '#benefits', stagger: 0.12 },
+        { selector: '.project-card', trigger: '#work', stagger: 0.12 },
+        { selector: '.choose-item', trigger: '#why-choose', stagger: 0.12 },
+        { selector: '.service-card', trigger: '#services', stagger: 0.08 },
+        { selector: '.process-step', trigger: '#process', stagger: 0.1 },
+        { selector: '.promise-item', trigger: '#promise', stagger: 0.12 },
+    ];
 
-    // ---- Benefits Animation ----
-    gsap.from('.benefit-card', {
-        scrollTrigger: {
-            trigger: '#benefits',
-            start: 'top 80%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: 'power3.out',
-    });
+    elements.forEach(function(item) {
+        try {
+            const target = document.querySelector(item.trigger);
+            if (!target) return;
 
-    // ---- Projects Animation ----
-    gsap.from('.project-card', {
-        scrollTrigger: {
-            trigger: '#work',
-            start: 'top 80%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: 'power3.out',
-    });
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: item.trigger,
+                    start: 'top 85%',
+                }
+            });
 
-    // ---- Why Choose Me Animation ----
-    gsap.from('.choose-item', {
-        scrollTrigger: {
-            trigger: '#why-choose',
-            start: 'top 80%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: 'power3.out',
-    });
-
-    // ---- Services Animation ----
-    gsap.from('.service-card', {
-        scrollTrigger: {
-            trigger: '#services',
-            start: 'top 80%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: 'power3.out',
-    });
-
-    // ---- Process Animation ----
-    gsap.from('.process-step', {
-        scrollTrigger: {
-            trigger: '#process',
-            start: 'top 80%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power3.out',
-    });
-
-    // ---- Promise Animation ----
-    gsap.from('.promise-item', {
-        scrollTrigger: {
-            trigger: '#promise',
-            start: 'top 80%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: 'power3.out',
+            tl.from(item.selector, {
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                stagger: item.stagger,
+                ease: 'power3.out',
+            });
+        } catch (e) {
+            console.warn('Animation error for', item.trigger, e);
+        }
     });
 
     // ---- About Animation ----
-    gsap.from('.about-text', {
-        scrollTrigger: {
-            trigger: '#about',
-            start: 'top 80%',
-        },
-        x: -40,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out',
+    try {
+        gsap.from('.about-text', {
+            scrollTrigger: { trigger: '#about', start: 'top 85%' },
+            x: -40,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+        });
+        
+        gsap.from('.about-image', {
+            scrollTrigger: { trigger: '#about', start: 'top 85%' },
+            x: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+        });
+    } catch (e) {
+        console.warn('About animation error:', e);
+    }
+
+    // ---- Offer Box & Contact ----
+    try {
+        gsap.from('.offer-box', {
+            scrollTrigger: { trigger: '.offer-box', start: 'top 88%' },
+            y: 40,
+            opacity: 0,
+            duration: 0.7,
+            ease: 'power3.out',
+        });
+        
+        gsap.from('.contact-section', {
+            scrollTrigger: { trigger: '#contact', start: 'top 85%' },
+            y: 40,
+            opacity: 0,
+            duration: 0.7,
+            ease: 'power3.out',
+        });
+    } catch (e) {
+        console.warn('Contact animation error:', e);
+    }
+
+    // Refresh ScrollTrigger if available
+    if (typeof ScrollTrigger !== 'undefined') {
+        try {
+            ScrollTrigger.refresh();
+        } catch (e) {
+            console.warn('ScrollTrigger refresh error:', e);
+        }
+    }
+}
+
+// ===== FALLBACK ANIMATIONS (if GSAP fails) =====
+function fallbackAnimations() {
+    const elements = document.querySelectorAll(
+        '.stat-item, .benefit-card, .project-card, .choose-item, .service-card, .process-step, .promise-item'
+    );
+    
+    elements.forEach(function(el, i) {
+        setTimeout(function() {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, i * 100);
     });
 
-    gsap.from('.about-image', {
-        scrollTrigger: {
-            trigger: '#about',
-            start: 'top 80%',
-        },
-        x: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out',
+    // Hero elements
+    document.querySelectorAll('.hero .badge, .hero h1 .line, .hero .subtitle, .hero .buttons').forEach(function(el, i) {
+        setTimeout(function() {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, i * 200);
     });
-
-    // ---- Offer Box Animation ----
-    gsap.from('.offer-box', {
-        scrollTrigger: {
-            trigger: '.offer-box',
-            start: 'top 85%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-    });
-
-    // ---- Contact Animation ----
-    gsap.from('.contact-section', {
-        scrollTrigger: {
-            trigger: '#contact',
-            start: 'top 80%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-    });
-
-    // ---- Footer Animation ----
-    gsap.from('.footer', {
-        scrollTrigger: {
-            trigger: '.footer',
-            start: 'top 90%',
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-    });
-
-    // ---- Refresh ScrollTrigger ----
-    ScrollTrigger.refresh();
 }
 
 // ===== SCROLL PROGRESS =====
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', function() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = (scrollTop / docHeight) * 100;
-    document.getElementById('scroll-progress').style.width = progress + '%';
+    const bar = document.getElementById('scroll-progress');
+    if (bar) {
+        bar.style.width = progress + '%';
+    }
 });
 
 // ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href === '#') return;
@@ -223,31 +200,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== NAVBAR ACTIVE LINK =====
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.nav-links a:not(.cta)');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-        }
-    });
-    navLinks.forEach((link) => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-        }
-    });
-});
-
 // ===== LAZY LOADING =====
 const lazyImages = document.querySelectorAll('img[loading="lazy"]');
 if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
+    const imageObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 const img = entry.target;
                 img.src = img.src;
@@ -255,20 +212,29 @@ if ('IntersectionObserver' in window) {
             }
         });
     });
-    lazyImages.forEach((img) => imageObserver.observe(img));
-}
-
-// ===== REDUCED MOTION PREFERENCE =====
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (prefersReducedMotion.matches) {
-    document.querySelectorAll('.benefit-card, .project-card, .service-card, .choose-item, .promise-item, .process-step').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
+    lazyImages.forEach(function(img) {
+        imageObserver.observe(img);
     });
-    // Remove GSAP animations
-    if (typeof gsap !== 'undefined') {
-        gsap.globalTimeline.pause();
-    }
 }
 
-console.log('✅ Saber Portfolio — Advanced Edition Ready');
+// ===== SET INITIAL OPACITY (prevent flash) =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Set initial opacity for animated elements
+    const animatedElements = document.querySelectorAll(
+        '.stat-item, .benefit-card, .project-card, .choose-item, .service-card, .process-step, .promise-item'
+    );
+    animatedElements.forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+
+    // Hero elements start hidden
+    document.querySelectorAll('.hero .badge, .hero h1 .line, .hero .subtitle, .hero .buttons').forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+});
+
+console.log('✅ Saber Portfolio — Stable & Ready');
