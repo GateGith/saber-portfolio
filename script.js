@@ -1,8 +1,8 @@
 // ============================================================
-// SABER PORTFOLIO — 9.8/10 STABLE
+// SABER PORTFOLIO — SIMPLE & RELIABLE
 // ============================================================
 
-console.log('🚀 Saber Portfolio — 9.8/10 Stable');
+console.log('🚀 Saber Portfolio — Ready');
 
 // ===== PRELOADER =====
 window.addEventListener('load', function() {
@@ -10,207 +10,44 @@ window.addEventListener('load', function() {
     if (preloader) {
         setTimeout(function() {
             preloader.classList.add('hide');
-            setTimeout(startAnimations, 300);
-        }, 1000);
-    } else {
-        startAnimations();
+        }, 800);
     }
 });
 
-// ===== GSAP ANIMATIONS =====
-function startAnimations() {
-    if (typeof gsap === 'undefined') {
-        console.warn('GSAP not loaded — using fallback');
-        fallbackAnimations();
-        return;
-    }
-
-    try {
-        if (typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-        }
-
-        // Hero
-        var heroTl = gsap.timeline();
-        heroTl
-            .from('.hero .badge', { opacity: 0, y: 30, duration: 0.8, ease: 'power3.out' })
-            .from('.hero h1 .line', { y: 50, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' }, '-=0.4')
-            .from('.hero .subtitle', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
-            .from('.hero .buttons', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4');
-
-        // Stats
-        if (document.querySelector('.stats')) {
-            gsap.from('.stat-item', {
-                scrollTrigger: { trigger: '.stats', start: 'top 85%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.15,
-                ease: 'power3.out'
-            });
-        }
-
-        // Benefits
-        if (document.querySelector('#benefits')) {
-            gsap.from('.benefit-card', {
-                scrollTrigger: { trigger: '#benefits', start: 'top 85%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.12,
-                ease: 'power3.out'
-            });
-        }
-
-        // Projects
-        if (document.querySelector('#work')) {
-            gsap.from('.project-card', {
-                scrollTrigger: { trigger: '#work', start: 'top 85%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.12,
-                ease: 'power3.out'
-            });
-        }
-
-        // Why Choose Me
-        if (document.querySelector('#why-choose')) {
-            gsap.from('.choose-item', {
-                scrollTrigger: { trigger: '#why-choose', start: 'top 85%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.12,
-                ease: 'power3.out'
-            });
-        }
-
-        // Services
-        if (document.querySelector('#services')) {
-            gsap.from('.service-card', {
-                scrollTrigger: { trigger: '#services', start: 'top 85%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.08,
-                ease: 'power3.out'
-            });
-        }
-
-        // Process
-        if (document.querySelector('#process')) {
-            gsap.from('.process-step', {
-                scrollTrigger: { trigger: '#process', start: 'top 85%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: 'power3.out'
-            });
-        }
-
-        // Promise
-        if (document.querySelector('#promise')) {
-            gsap.from('.promise-item', {
-                scrollTrigger: { trigger: '#promise', start: 'top 85%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.12,
-                ease: 'power3.out'
-            });
-        }
-
-        // About
-        if (document.querySelector('#about')) {
-            gsap.from('.about-text', {
-                scrollTrigger: { trigger: '#about', start: 'top 85%' },
-                x: -40,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.out'
-            });
-            gsap.from('.about-image', {
-                scrollTrigger: { trigger: '#about', start: 'top 85%' },
-                x: 40,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.out'
-            });
-        }
-
-        // Offer Box
-        if (document.querySelector('.offer-box')) {
-            gsap.from('.offer-box', {
-                scrollTrigger: { trigger: '.offer-box', start: 'top 88%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.7,
-                ease: 'power3.out'
-            });
-        }
-
-        // Contact
-        if (document.querySelector('#contact')) {
-            gsap.from('.contact-section', {
-                scrollTrigger: { trigger: '#contact', start: 'top 85%' },
-                y: 40,
-                opacity: 0,
-                duration: 0.7,
-                ease: 'power3.out'
-            });
-        }
-
-        if (typeof ScrollTrigger !== 'undefined') {
-            ScrollTrigger.refresh();
-        }
-    } catch (e) {
-        console.warn('GSAP error:', e);
-        fallbackAnimations();
-    }
-}
-
-// ===== FALLBACK =====
-function fallbackAnimations() {
+// ===== SCROLL REVEAL (Intersection Observer) =====
+function revealElements() {
     var elements = document.querySelectorAll(
         '.stat-item, .benefit-card, .project-card, .choose-item, .service-card, .process-step, .promise-item'
     );
-    elements.forEach(function(el, i) {
-        setTimeout(function() {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        }, i * 100);
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -20px 0px'
     });
-    var heroEls = document.querySelectorAll('.hero .badge, .hero h1 .line, .hero .subtitle, .hero .buttons');
-    heroEls.forEach(function(el, i) {
-        setTimeout(function() {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        }, i * 200);
+
+    elements.forEach(function(el) {
+        observer.observe(el);
     });
 }
 
-// ===== SET INITIAL STATE =====
-document.addEventListener('DOMContentLoaded', function() {
-    var animatedEls = document.querySelectorAll(
-        '.stat-item, .benefit-card, .project-card, .choose-item, .service-card, .process-step, .promise-item'
-    );
-    animatedEls.forEach(function(el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+// ===== HERO ANIMATION (CSS classes) =====
+function heroAnimation() {
+    var heroElements = document.querySelectorAll('.hero .badge, .hero h1 .line, .hero .subtitle, .hero .buttons');
+    heroElements.forEach(function(el, index) {
+        setTimeout(function() {
+            el.classList.add('visible');
+        }, 200 + index * 200);
     });
-    var heroEls = document.querySelectorAll('.hero .badge, .hero h1 .line, .hero .subtitle, .hero .buttons');
-    heroEls.forEach(function(el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-});
+}
 
 // ===== SCROLL PROGRESS =====
-window.addEventListener('scroll', function() {
+function updateScrollProgress() {
     var scrollTop = window.scrollY;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
     var progress = (scrollTop / docHeight) * 100;
@@ -218,46 +55,49 @@ window.addEventListener('scroll', function() {
     if (bar) {
         bar.style.width = progress + '%';
     }
-});
+}
 
 // ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-        var href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        var target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-// ===== LAZY LOADING =====
-var lazyImages = document.querySelectorAll('img[loading="lazy"]');
-if ('IntersectionObserver' in window) {
-    var imageObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                var img = entry.target;
-                img.src = img.src;
-                imageObserver.unobserve(img);
+function smoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            var href = this.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            var target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
-    lazyImages.forEach(function(img) {
-        imageObserver.observe(img);
-    });
 }
 
-// ============================================================
-// OFFER BUTTONS — FEEDBACK + RIPPLE
-// ============================================================
+// ===== LAZY LOADING =====
+function lazyLoadImages() {
+    var lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    if ('IntersectionObserver' in window) {
+        var imageObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var img = entry.target;
+                    img.src = img.src;
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        lazyImages.forEach(function(img) {
+            imageObserver.observe(img);
+        });
+    }
+}
 
-document.addEventListener('DOMContentLoaded', function() {
+// ===== OFFER BUTTONS (Feedback + Ripple) =====
+function offerButtons() {
     var cta1 = document.getElementById('cta1');
     var cta2 = document.getElementById('cta2');
     var feedback = document.getElementById('feedback');
+
+    if (!cta1 || !cta2 || !feedback) return;
 
     var messages = {
         talk: [
@@ -299,33 +139,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 4000);
     }
 
-    if (cta1) {
-        cta1.addEventListener('click', function(e) {
-            createRipple(e, this);
-            showFeedback(getRandomMessage(messages.talk), 'info');
-            var originalText = this.textContent;
-            this.textContent = '↻ Redirecting...';
-            this.style.opacity = '0.7';
-            setTimeout(function() {
-                cta1.textContent = originalText;
-                cta1.style.opacity = '1';
-            }, 2000);
-        });
-    }
+    cta1.addEventListener('click', function(e) {
+        createRipple(e, this);
+        showFeedback(getRandomMessage(messages.talk), 'info');
+        var originalText = this.textContent;
+        this.textContent = '↻ Redirecting...';
+        this.style.opacity = '0.7';
+        setTimeout(function() {
+            cta1.textContent = originalText;
+            cta1.style.opacity = '1';
+        }, 2000);
+    });
 
-    if (cta2) {
-        cta2.addEventListener('click', function(e) {
-            createRipple(e, this);
-            showFeedback(getRandomMessage(messages.preview), 'info');
-            var originalText = this.textContent;
-            this.textContent = '↻ Preparing preview...';
-            this.style.opacity = '0.7';
-            setTimeout(function() {
-                cta2.textContent = originalText;
-                cta2.style.opacity = '1';
-            }, 2000);
-        });
-    }
+    cta2.addEventListener('click', function(e) {
+        createRipple(e, this);
+        showFeedback(getRandomMessage(messages.preview), 'info');
+        var originalText = this.textContent;
+        this.textContent = '↻ Preparing preview...';
+        this.style.opacity = '0.7';
+        setTimeout(function() {
+            cta2.textContent = originalText;
+            cta2.style.opacity = '1';
+        }, 2000);
+    });
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Hero animation
+    heroAnimation();
+
+    // Scroll reveal
+    revealElements();
+
+    // Scroll progress
+    window.addEventListener('scroll', updateScrollProgress);
+
+    // Smooth scroll
+    smoothScroll();
+
+    // Lazy loading
+    lazyLoadImages();
+
+    // Offer buttons
+    offerButtons();
+
+    console.log('✅ Saber Portfolio — Fully Functional');
 });
-
-console.log('✅ Saber Portfolio — Fully Loaded');
