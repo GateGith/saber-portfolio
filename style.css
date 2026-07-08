@@ -1349,3 +1349,338 @@ body {
         font-size: 0.8rem;
     }
 }
+/* ============================================================
+   BENEFITS SECTION
+   ============================================================ */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 1.2rem;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(180, 140, 255, 0.1);
+}
+
+.benefit-card .icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.benefit-card p {
+    font-size: 0.8rem;
+    color: #8a8a9a;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   STATS — NEW STYLE
+   ============================================================ */
+
+.stats .stat-item .icon {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.stats .stat-item .number {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #f1f1f1;
+    display: block;
+}
+
+.stats .stat-item .label {
+    font-size: 0.65rem;
+    color: #8a8a9a;
+    display: block;
+    margin-top: 0.05rem;
+}
+
+/* ============================================================
+   TRUST BANNER
+   ============================================================ */
+
+.trust-banner {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    margin: -0.5rem auto 2rem;
+    font-size: 0.75rem;
+    color: #8a8a9a;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.trust-banner span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* ============================================================
+   PROJECT META
+   ============================================================ */
+
+.project-meta {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.meta-item {
+    display: flex;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    color: #8a8a9a;
+    margin-bottom: 0.2rem;
+    flex-wrap: wrap;
+}
+
+.meta-label {
+    color: #b48cff;
+    font-weight: 600;
+    min-width: 45px;
+}
+
+.meta-item span:last-child {
+    color: #f1f1f1;
+}
+
+/* ============================================================
+   WHY CHOOSE ME
+   ============================================================ */
+
+.choose-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.choose-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 1.2rem;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.choose-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(180, 140, 255, 0.1);
+}
+
+.choose-item .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.choose-item h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.choose-item p {
+    font-size: 0.8rem;
+    color: #8a8a9a;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 1.2rem;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(180, 140, 255, 0.1);
+}
+
+.service-card .icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.service-card h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.service-card p {
+    font-size: 0.7rem;
+    color: #8a8a9a;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   OFFER BOX
+   ============================================================ */
+
+.offer-box {
+    max-width: 700px;
+    margin: 2rem auto 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(180, 140, 255, 0.06), rgba(255, 107, 157, 0.03));
+    border: 1px solid rgba(180, 140, 255, 0.12);
+    border-radius: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.offer-box:hover {
+    border-color: rgba(180, 140, 255, 0.25);
+}
+
+.offer-box h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.offer-box p {
+    color: #8a8a9a;
+    font-size: 0.9rem;
+    max-width: 500px;
+    margin: 0 auto 1.2rem;
+    line-height: 1.7;
+}
+
+.offer-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .benefits-grid,
+    .choose-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .trust-banner {
+        gap: 1rem;
+        font-size: 0.65rem;
+        padding: 0.8rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid,
+    .choose-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .trust-banner {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.6rem 0;
+        font-size: 0.6rem;
+    }
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 1.2rem 0;
+    }
+    .stat-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .stat-item .icon {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+    .stat-item .number {
+        font-size: 1.2rem;
+        display: inline;
+    }
+    .stat-item .label {
+        font-size: 0.6rem;
+        display: inline;
+        margin-top: 0;
+    }
+    .meta-item {
+        font-size: 0.6rem;
+    }
+    .offer-box h3 {
+        font-size: 1.2rem;
+    }
+    .offer-box p {
+        font-size: 0.8rem;
+    }
+    .offer-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .offer-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero .buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
