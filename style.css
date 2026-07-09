@@ -1,5 +1,5 @@
 /* ============================================================
-   SABER PORTFOLIO — CLEAN & STABLE
+   SABER PORTFOLIO — 10/10 PREMIUM
    ============================================================ */
 
 * {
@@ -175,7 +175,7 @@ body {
 }
 
 /* ============================================================
-   HERO
+   HERO — CINEMATIC BACKGROUND
    ============================================================ */
 
 .hero {
@@ -187,11 +187,44 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+/* — Deep gradient background — */
+.hero-bg-glow {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at 30% 40%, rgba(180, 140, 255, 0.06), transparent 55%),
+        radial-gradient(ellipse at 70% 60%, rgba(255, 107, 157, 0.04), transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(78, 205, 196, 0.03), transparent 45%);
+    animation: heroGlow 30s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+/* — Film grain overlay — */
+.hero-bg-grain {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.025;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
 }
 
 .hero-content {
     max-width: 850px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .hero .badge {
@@ -205,15 +238,15 @@ body {
     border-radius: 2rem;
     border: 1px solid rgba(180, 140, 255, 0.08);
     color: #b48cff;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -2px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .hero h1 .line {
@@ -225,7 +258,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 300% 300%;
-    animation: gradientShift 4s ease-in-out infinite;
+    animation: gradientShift 6s ease-in-out infinite;
 }
 
 @keyframes gradientShift {
@@ -265,6 +298,7 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
     animation: scrollBounce 2s ease-in-out infinite;
+    z-index: 1;
 }
 
 .scroll-down .arrow {
@@ -463,7 +497,7 @@ body {
 }
 
 /* ============================================================
-   PROJECTS
+   PROJECTS — CASE STUDY STYLE
    ============================================================ */
 
 .projects-grid {
@@ -479,21 +513,21 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: 1.2rem;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     text-decoration: none;
     color: inherit;
     display: block;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(180, 140, 255, 0.15);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    border-color: rgba(180, 140, 255, 0.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
 }
 
 .project-image {
     width: 100%;
-    height: 200px;
+    height: 220px;
     background: linear-gradient(135deg, #111122, #1a1a2e);
     overflow: hidden;
     position: relative;
@@ -503,7 +537,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-image img {
@@ -516,9 +550,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(7, 9, 13, 0.6);
+    background: rgba(7, 9, 13, 0.7);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
     font-size: 0.85rem;
     font-weight: 600;
     color: #fff;
@@ -530,19 +564,19 @@ body {
 }
 
 .project-info {
-    padding: 1rem 1.2rem 1.2rem;
+    padding: 1.2rem 1.2rem 1.2rem;
 }
 
 .project-info h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 0.2rem;
 }
 
-.project-info p {
-    font-size: 0.8rem;
+.project-info > p {
+    font-size: 0.85rem;
     color: #8a8a9a;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
 }
 
 .project-meta {
@@ -553,16 +587,18 @@ body {
 .project-meta div {
     display: flex;
     gap: 0.4rem;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     color: #8a8a9a;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.2rem;
     flex-wrap: wrap;
+    line-height: 1.5;
 }
 
 .meta-label {
     color: #b48cff;
     font-weight: 600;
-    min-width: 42px;
+    min-width: 48px;
+    flex-shrink: 0;
 }
 
 /* ============================================================
@@ -996,6 +1032,57 @@ body {
 }
 
 /* ============================================================
+   SCROLL REVEAL — ANIMATIONS
+   ============================================================ */
+
+.stat-item,
+.benefit-card,
+.project-card,
+.choose-item,
+.service-card,
+.process-step,
+.promise-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.stat-item.visible,
+.benefit-card.visible,
+.project-card.visible,
+.choose-item.visible,
+.service-card.visible,
+.process-step.visible,
+.promise-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero elements */
+.hero .badge,
+.hero h1 .line,
+.hero .subtitle,
+.hero .buttons {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.hero .badge.visible,
+.hero h1 .line.visible,
+.hero .subtitle.visible,
+.hero .buttons.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero h1 .line:nth-child(1) { transition-delay: 0.1s; }
+.hero h1 .line:nth-child(2) { transition-delay: 0.2s; }
+.hero h1 .line:nth-child(3) { transition-delay: 0.3s; }
+.hero .subtitle { transition-delay: 0.4s; }
+.hero .buttons { transition-delay: 0.5s; }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 
@@ -1038,7 +1125,7 @@ body {
         min-height: 70vh;
     }
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     .hero h1 .line {
         display: inline;
@@ -1145,7 +1232,7 @@ body {
 
 @media (max-width: 400px) {
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     .logo {
         font-size: 1.2rem;
