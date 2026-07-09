@@ -1,8 +1,8 @@
 // ============================================================
-// SABER PORTFOLIO — SIMPLE & RELIABLE
+// SABER PORTFOLIO — 10/10 PREMIUM
 // ============================================================
 
-console.log('🚀 Saber Portfolio — Ready');
+console.log('🚀 Saber Portfolio — Premium Edition');
 
 // ===== PRELOADER =====
 window.addEventListener('load', function() {
@@ -36,13 +36,13 @@ function revealElements() {
     });
 }
 
-// ===== HERO ANIMATION (CSS classes) =====
+// ===== HERO ANIMATION =====
 function heroAnimation() {
     var heroElements = document.querySelectorAll('.hero .badge, .hero h1 .line, .hero .subtitle, .hero .buttons');
     heroElements.forEach(function(el, index) {
         setTimeout(function() {
             el.classList.add('visible');
-        }, 200 + index * 200);
+        }, 200 + index * 150);
     });
 }
 
@@ -91,7 +91,7 @@ function lazyLoadImages() {
     }
 }
 
-// ===== OFFER BUTTONS (Feedback + Ripple) =====
+// ===== OFFER BUTTONS =====
 function offerButtons() {
     var cta1 = document.getElementById('cta1');
     var cta2 = document.getElementById('cta2');
@@ -166,23 +166,11 @@ function offerButtons() {
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Hero animation
     heroAnimation();
-
-    // Scroll reveal
     revealElements();
-
-    // Scroll progress
     window.addEventListener('scroll', updateScrollProgress);
-
-    // Smooth scroll
     smoothScroll();
-
-    // Lazy loading
     lazyLoadImages();
-
-    // Offer buttons
     offerButtons();
-
-    console.log('✅ Saber Portfolio — Fully Functional');
+    console.log('✅ Saber Portfolio — Premium Edition Ready');
 });
