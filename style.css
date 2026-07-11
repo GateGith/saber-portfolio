@@ -1082,6 +1082,205 @@ body {
 .hero .subtitle { transition-delay: 0.4s; }
 .hero .buttons { transition-delay: 0.5s; }
 
+/* ===== PACKAGES SECTION STYLES (مستقل وآمن) ===== */
+.packages-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 24px;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    text-align: center;
+}
+
+.packages-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 30px;
+}
+
+/* بطاقة الباقة */
+.package-card {
+    background: #12121a;  /* لون surface متناسق مع الخلفية الداكنة */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 36px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    color: #e0e0eb;
+}
+
+.package-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(180, 140, 255, 0.2);
+}
+
+/* الباقة المميزة */
+.package-featured {
+    border: 2px solid #b48cff;
+    box-shadow: 0 8px 30px rgba(180, 140, 255, 0.12);
+    transform: scale(1.03);
+}
+
+.package-featured:hover {
+    transform: scale(1.03) translateY(-6px);
+    box-shadow: 0 22px 44px rgba(180, 140, 255, 0.16);
+}
+
+.package-badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #b48cff;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 6px 18px;
+    border-radius: 100px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+/* رأس البطاقة */
+.package-header {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.package-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 0 0 8px;
+    color: #fff;
+}
+
+.package-subtitle {
+    font-size: 0.9rem;
+    color: #8a8a9a;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* قائمة الميزات */
+.package-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.package-features li {
+    padding: 10px 0;
+    font-size: 0.9rem;
+    color: #c0c0d0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.package-features li:last-child {
+    border-bottom: none;
+}
+
+.package-features li::before {
+    content: "✓";
+    color: #b48cff;
+    font-weight: bold;
+    font-size: 1rem;
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+}
+
+.package-features li:first-child {
+    color: #b48cff;
+    font-weight: 600;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    margin-bottom: 4px;
+}
+
+.package-features li:first-child::before {
+    content: "";  /* إخفاء علامة الصح من السطر الأول */
+    width: 0;
+}
+
+/* الأزرار */
+.package-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: auto;
+    width: fit-content;
+}
+
+.package-btn-solid {
+    background: #b48cff;
+    color: #fff;
+    border: 2px solid #b48cff;
+}
+
+.package-btn-solid:hover {
+    background: #9f6efc;
+    border-color: #9f6efc;
+}
+
+.package-btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.package-btn-outline:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* الجملة الاستشارية */
+.packages-disclaimer {
+    color: #8a8a9a;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* ===== استجابة للجوال ===== */
+@media (max-width: 900px) {
+    .packages-container {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 24px;
+    }
+
+    .package-featured {
+        transform: scale(1);
+    }
+
+    .package-featured:hover {
+        transform: translateY(-6px);
+    }
+
+    .package-card {
+        padding: 28px 22px 24px;
+    }
+}
 /* ============================================================
    RESPONSIVE
    ============================================================ */
