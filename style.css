@@ -659,3 +659,24 @@ body {
         justify-content: center;
     }
 }
+/* ===== تأثيرات الظهور (لـ Scroll Reveal و Hero) ===== */
+.stat-item,
+.benefit-card,
+.project-card,
+.choose-item,
+.service-card,
+.process-step,
+.promise-item,
+.hero .badge,
+.hero .typing-line,
+.hero .subtitle,
+.hero .buttons {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
