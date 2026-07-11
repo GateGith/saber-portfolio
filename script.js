@@ -56,7 +56,7 @@ function handleTyping() {
             line.style.animation = 'none';
             line.style.opacity = '1';
         });
-    }, 7500); // 4.8s delay + 2s typing + margin
+    }, 7500);
 }
 
 // INIT
