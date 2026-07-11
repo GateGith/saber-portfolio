@@ -1,124 +1,68 @@
 // ============================================================
-// SABER PORTFOLIO — 10/10 PREMIUM (مدمج مع التعديلات الجديدة)
+// SABER PORTFOLIO — PREMIUM SCRIPT
 // ============================================================
+console.log('🚀 Saber Portfolio Ready');
 
-console.log('🚀 Saber Portfolio — Premium Edition');
-
-// ===== PRELOADER =====
+// PRELOADER
 window.addEventListener('load', function() {
     var preloader = document.getElementById('preloader');
-    if (preloader) {
-        setTimeout(function() {
-            preloader.classList.add('hidden'); // متوافق مع CSS الجديد
-        }, 800);
-    }
+    if (preloader) setTimeout(function() { preloader.classList.add('hidden'); }, 800);
 });
 
-// ===== SCROLL REVEAL (Intersection Observer) =====
+// SCROLL REVEAL
 function revealElements() {
-    var elements = document.querySelectorAll(
-        '.stat-item, .benefit-card, .project-card, .choose-item, .service-card, .process-step, .promise-item'
-    );
-
+    var elements = document.querySelectorAll('.stat-item, .benefit-card, .project-card, .choose-item, .service-card, .process-step, .promise-item');
     if (!elements.length) return;
-
     var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -20px 0px'
-    });
-
-    elements.forEach(function(el) {
-        observer.observe(el);
-    });
+        entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+    elements.forEach(function(el) { observer.observe(el); });
 }
 
-// ===== HERO ANIMATION (تأثير ظهور عناصر الهيرو) =====
+// HERO ANIMATION
 function heroAnimation() {
-    var heroElements = document.querySelectorAll('.hero .badge, .hero .typing-line, .hero .subtitle, .hero .buttons');
-    heroElements.forEach(function(el, index) {
-        setTimeout(function() {
-            el.classList.add('visible');
-        }, 200 + index * 150);
-    });
+    var items = document.querySelectorAll('.hero .badge, .hero .typing-line, .hero .subtitle, .hero .buttons');
+    items.forEach(function(el, i) { setTimeout(function() { el.classList.add('visible'); }, 200 + i * 150); });
 }
 
-// ===== SCROLL PROGRESS BAR =====
-function updateScrollProgress() {
+// SCROLL PROGRESS
+window.addEventListener('scroll', function() {
     var scrollTop = window.scrollY;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
     var progress = (scrollTop / docHeight) * 100;
     var bar = document.getElementById('scroll-progress');
-    if (bar) {
-        bar.style.width = progress + '%';
-    }
-}
+    if (bar) bar.style.width = progress + '%';
+});
 
-// ===== SMOOTH SCROLL =====
-function smoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-            var href = this.getAttribute('href');
-            if (href === '#') return;
-            e.preventDefault();
-            var target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
-}
+});
 
-// ===== LAZY LOADING =====
-function lazyLoadImages() {
-    var lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    if (!lazyImages.length || !('IntersectionObserver' in window)) return;
-
-    var imageObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                var img = entry.target;
-                // تفعيل التحميل عن طريق إزالة lazy ثم تعيين src مرة أخرى إذا لزم
-                img.src = img.src; // كافي لإعادة التحميل في حال استخدام loading="lazy"
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    lazyImages.forEach(function(img) {
-        imageObserver.observe(img);
-    });
-}
-
-// ===== إزالة مؤشر الكتابة بعد انتهاء الأنيميشن =====
-function handleTypingCursor() {
-    var typingLines = document.querySelectorAll('.typing-line');
-    if (!typingLines.length) return;
-
-    // إجمالي الوقت: آخر تأخير (4.8s) + مدة الكتابة (2s) + هامش
-    var totalTime = 4800 + 2000 + 600; // ~7.4 ثانية
+// REMOVE TYPING CURSOR
+function handleTyping() {
+    var lines = document.querySelectorAll('.typing-line');
+    if (!lines.length) return;
     setTimeout(function() {
-        typingLines.forEach(function(line) {
+        lines.forEach(function(line) {
             line.style.borderRight = 'none';
             line.style.width = 'auto';
             line.style.animation = 'none';
             line.style.opacity = '1';
         });
-    }, totalTime);
+    }, 7500); // 4.8s delay + 2s typing + margin
 }
 
-// ===== INIT =====
+// INIT
 document.addEventListener('DOMContentLoaded', function() {
     heroAnimation();
     revealElements();
-    window.addEventListener('scroll', updateScrollProgress);
-    smoothScroll();
-    lazyLoadImages();
-    handleTypingCursor();
-    console.log('✅ Saber Portfolio — Premium Edition Ready');
+    handleTyping();
+    console.log('✅ All systems ready');
 });
