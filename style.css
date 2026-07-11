@@ -880,68 +880,194 @@ body {
     color: #5a5a6a;
 }
 
-/* ============================================================
-   OFFER BOX
-   ============================================================ */
-
-.offer-box {
-    max-width: 700px;
-    margin: 2rem auto 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(180, 140, 255, 0.06), rgba(255, 107, 157, 0.03));
-    border: 1px solid rgba(180, 140, 255, 0.12);
-    border-radius: 1.2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+/* ===== PACKAGES SECTION STYLES ===== */
+.packages-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-.offer-box:hover {
-    border-color: rgba(180, 140, 255, 0.25);
+.packages-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 36px;
 }
 
-.offer-box h3 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-}
-
-.offer-box p {
-    color: #8a8a9a;
-    font-size: 0.9rem;
-    max-width: 500px;
-    margin: 0 auto 1.2rem;
-    line-height: 1.7;
-}
-
-.offer-buttons {
+.package-card {
+    background: #fff;
+    border: 1px solid #e8ecf1;
+    border-radius: 16px;
+    padding: 36px 28px 32px;
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.offer-buttons .btn {
+    flex-direction: column;
     position: relative;
-    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-/* RIPPLE EFFECT */
-.offer-buttons .btn .ripple {
+.package-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: #d0d7e0;
+}
+
+.package-featured {
+    border: 2px solid #1a73e8;
+    box-shadow: 0 8px 30px rgba(26, 115, 232, 0.12);
+    transform: scale(1.03);
+}
+
+.package-featured:hover {
+    transform: scale(1.03) translateY(-6px);
+    box-shadow: 0 22px 44px rgba(26, 115, 232, 0.16);
+    border-color: #1557b0;
+}
+
+.package-badge {
     position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(0);
-    animation: rippleAnim 0.6s ease-out forwards;
-    pointer-events: none;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 6px 18px;
+    border-radius: 100px;
+    white-space: nowrap;
+    text-transform: uppercase;
 }
 
-@keyframes rippleAnim {
-    0% { transform: scale(0); opacity: 0.8; }
-    100% { transform: scale(4); opacity: 0; }
+.package-header {
+    margin-bottom: 24px;
+    text-align: center;
 }
 
+.package-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1f2b;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+}
+
+.package-subtitle {
+    font-size: 0.95rem;
+    color: #5f6b7d;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.package-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    flex-grow: 1;
+}
+
+.package-features li {
+    padding: 8px 0;
+    font-size: 0.92rem;
+    color: #3a4556;
+    border-bottom: 1px solid #f2f4f7;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.4;
+}
+
+.package-features li:last-child {
+    border-bottom: none;
+}
+
+.package-features li::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a73e8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+.package-features li:first-child {
+    color: #1a73e8;
+    font-weight: 600;
+    border-bottom: 1px dashed #dce3ec;
+    margin-bottom: 4px;
+}
+
+.package-features li:first-child::before {
+    display: none;
+}
+
+.package-btn {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+}
+
+.package-btn-solid {
+    background: #1a73e8;
+    color: #fff;
+    border: 2px solid #1a73e8;
+}
+
+.package-btn-solid:hover {
+    background: #1557b0;
+    border-color: #1557b0;
+}
+
+.package-btn-outline {
+    background: transparent;
+    color: #1a73e8;
+    border: 2px solid #d0d7e0;
+}
+
+.package-btn-outline:hover {
+    border-color: #1a73e8;
+    background: #f7f9fc;
+}
+
+.packages-disclaimer {
+    text-align: center;
+    font-size: 1rem;
+    color: #5f6b7d;
+    margin: 0;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .packages-container {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 24px;
+    }
+
+    .package-featured {
+        transform: scale(1);
+    }
+
+    .package-featured:hover {
+        transform: translateY(-6px);
+    }
+
+    .package-card {
+        padding: 28px 22px 24px;
+    }
+}
 /* FEEDBACK */
 .feedback {
     margin-top: 0.8rem;
