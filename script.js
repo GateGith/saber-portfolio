@@ -1,49 +1,24 @@
-// ============================================================
-// SABER PORTFOLIO — 10/10 PREMIUM
-// ============================================================
-
-console.log('🚀 Saber Portfolio — Premium Edition');
-
 // ===== PRELOADER =====
 window.addEventListener('load', function() {
     var preloader = document.getElementById('preloader');
     if (preloader) {
         setTimeout(function() {
             preloader.classList.add('hide');
-        }, 800);
+        }, 1400); // متزامن مع مدة الـ loader animation
     }
 });
 
-// ===== SCROLL REVEAL (Intersection Observer) =====
+// ===== SCROLL REVEAL =====
 function revealElements() {
-    var elements = document.querySelectorAll(
-        '.stat-item, .benefit-card, .project-card, .choose-item, .service-card, .process-step, .promise-item'
-    );
-
+    var elements = document.querySelectorAll('.stat-item, .project-card');
     var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -20px 0px'
-    });
-
-    elements.forEach(function(el) {
-        observer.observe(el);
-    });
-}
-
-// ===== HERO ANIMATION =====
-function heroAnimation() {
-    var heroElements = document.querySelectorAll('.hero .badge, .hero h1 .line, .hero .subtitle, .hero .buttons');
-    heroElements.forEach(function(el, index) {
-        setTimeout(function() {
-            el.classList.add('visible');
-        }, 200 + index * 150);
-    });
+    }, { threshold: 0.1 });
+    elements.forEach(function(el) { observer.observe(el); });
 }
 
 // ===== SCROLL PROGRESS =====
@@ -52,9 +27,7 @@ function updateScrollProgress() {
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
     var progress = (scrollTop / docHeight) * 100;
     var bar = document.getElementById('scroll-progress');
-    if (bar) {
-        bar.style.width = progress + '%';
-    }
+    if (bar) bar.style.width = progress + '%';
 }
 
 // ===== SMOOTH SCROLL =====
@@ -65,112 +38,100 @@ function smoothScroll() {
             if (href === '#') return;
             e.preventDefault();
             var target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 }
 
-// ===== LAZY LOADING =====
-function lazyLoadImages() {
-    var lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    if ('IntersectionObserver' in window) {
-        var imageObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var img = entry.target;
-                    img.src = img.src;
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        lazyImages.forEach(function(img) {
-            imageObserver.observe(img);
-        });
+// ===== TYPEWRITER + 3D PARALLAX =====
+const heroText = "Professional websites that help customers trust your business.";
+const textElement = document.querySelector('.hero h1');
+const heroContainer = document.querySelector('.hero');
+let charIndex = 0;
+
+function typeWriter() {
+    if (charIndex < heroText.length) {
+        textElement.innerHTML = heroText.substring(0, charIndex + 1) + '<span class="cursor">|</span>';
+        charIndex++;
+        setTimeout(typeWriter, 35); // سرعة الكتابة
+    } else {
+        document.querySelector('.cursor').style.display = 'none';
+        startBrowserLoop(); // تشغيل المتصفح
     }
 }
 
-// ===== OFFER BUTTONS =====
-function offerButtons() {
-    var cta1 = document.getElementById('cta1');
-    var cta2 = document.getElementById('cta2');
-    var feedback = document.getElementById('feedback');
+// حركة الماوس 3D
+document.addEventListener('mousemove', (e) => {
+    const x = (window.innerWidth - e.clientX * 2) / 100;
+    const y = (window.innerHeight - e.clientY * 2) / 100;
+    heroContainer.style.transform = `rotateY(${x * 0.5}deg) rotateX(${y * 0.5}deg)`;
+    heroContainer.style.transition = 'transform 0.1s ease-out';
+});
 
-    if (!cta1 || !cta2 || !feedback) return;
+// ===== BROWSER LOOP =====
+const projects = [
+    'projects/mazen/',
+    'projects/arc161/',
+    'https://gategith.github.io/hamiaphone-pro/',
+    'https://gategith.github.io/YOKA-TECH/'
+];
+let projectIndex = 0;
+const browserWindow = document.getElementById('browser-loop');
+const iframe = document.getElementById('live-iframe');
 
-    var messages = {
-        talk: [
-            "📞 Booking a call... redirecting you now.",
-            "⏳ One moment, taking you to the contact section.",
-            "✨ Ready to talk? You're almost there!",
-            "📬 Opening contact form in 3... 2... 1..."
-        ],
-        preview: [
-            "👀 Preparing your preview... almost there!",
-            "🖌️ You're about to see how your site could look.",
-            "🚀 Let's see what we can build together!",
-            "📱 Scroll down to book your free consultation."
-        ]
-    };
+function startBrowserLoop() {
+    browserWindow.classList.add('active');
+    loopProjects();
+}
 
-    function getRandomMessage(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
-    }
+function loopProjects() {
+    if (projectIndex >= projects.length) projectIndex = 0;
+    const url = projects[projectIndex];
+    
+    iframe.style.opacity = '0';
+    setTimeout(() => {
+        iframe.src = url;
+        iframe.style.opacity = '1';
+    }, 400);
+    
+    projectIndex++;
+    setTimeout(loopProjects, 4500); // مدة عرض كل مشروع
+}
 
-    function createRipple(e, button) {
-        var rect = button.getBoundingClientRect();
-        var ripple = document.createElement('span');
-        ripple.className = 'ripple';
-        var size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-        button.appendChild(ripple);
-        setTimeout(function() { ripple.remove(); }, 600);
-    }
+// ===== PARTICLES =====
+const canvas = document.createElement('canvas');
+canvas.style.cssText = 'position:absolute;top:0;left:0;z-index:-1;pointer-events:none;';
+document.querySelector('.hero').appendChild(canvas);
+const ctx = canvas.getContext('2d');
+let w, h;
+function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+window.addEventListener('resize', resize); resize();
 
-    function showFeedback(message, type) {
-        feedback.textContent = message;
-        feedback.className = 'feedback show ' + type;
-        clearTimeout(feedback._timeout);
-        feedback._timeout = setTimeout(function() {
-            feedback.className = 'feedback';
-        }, 4000);
-    }
+const particles = Array.from({ length: 30 }, () => ({
+    x: Math.random() * w, y: Math.random() * h,
+    vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+    r: Math.random() * 2 + 1
+}));
 
-    cta1.addEventListener('click', function(e) {
-        createRipple(e, this);
-        showFeedback(getRandomMessage(messages.talk), 'info');
-        var originalText = this.textContent;
-        this.textContent = '↻ Redirecting...';
-        this.style.opacity = '0.7';
-        setTimeout(function() {
-            cta1.textContent = originalText;
-            cta1.style.opacity = '1';
-        }, 2000);
+function animateParticles() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if(p.x < 0) p.x = w; if(p.x > w) p.x = 0;
+        if(p.y < 0) p.y = h; if(p.y > h) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(180, 140, 255, 0.15)';
+        ctx.fill();
     });
-
-    cta2.addEventListener('click', function(e) {
-        createRipple(e, this);
-        showFeedback(getRandomMessage(messages.preview), 'info');
-        var originalText = this.textContent;
-        this.textContent = '↻ Preparing preview...';
-        this.style.opacity = '0.7';
-        setTimeout(function() {
-            cta2.textContent = originalText;
-            cta2.style.opacity = '1';
-        }, 2000);
-    });
+    requestAnimationFrame(animateParticles);
 }
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', function() {
-    heroAnimation();
+    typeWriter();
     revealElements();
     window.addEventListener('scroll', updateScrollProgress);
     smoothScroll();
-    lazyLoadImages();
-    offerButtons();
-    console.log('✅ Saber Portfolio — Premium Edition Ready');
+    animateParticles();
 });
