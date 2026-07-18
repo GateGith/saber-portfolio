@@ -3,21 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <title>Saber Slifi — Websites for Local Businesses</title>
     <meta name="description" content="Saber Slifi — Web designer building professional, trustworthy websites for local businesses." />
-    <meta name="author" content="Saber Slifi" />
-    <meta name="robots" content="index, follow" />
-    
-    <meta property="og:title" content="Saber Slifi — Websites for Local Businesses" />
-    <meta property="og:description" content="Professional websites that help small businesses look trustworthy and grow online." />
-    <meta property="og:type" content="website" />
-    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -39,14 +30,10 @@
         
         <!-- ===== NAVBAR ===== -->
         <nav class="navbar">
-            <div class="logo">
-                Saber<span class="dot">.</span>
-            </div>
+            <div class="logo">Saber<span class="dot">.</span></div>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
-                <li><a href="#benefits">Benefits</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#process">Process</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact" class="cta">Book a Call</a></li>
             </ul>
@@ -54,82 +41,37 @@
         
         <!-- ===== HERO ===== -->
         <section class="hero" id="hero">
-            <div class="hero-bg-glow"></div>
-            <div class="hero-bg-grain"></div>
+            <div class="hero-bg-image"></div>
+            <div class="hero-grid"></div>
             <div class="hero-content">
                 <span class="badge">✦ Helping local businesses earn trust online.</span>
-                <h1>
-                    <span class="line">Professional websites</span>
-                    <span class="line">that help customers</span>
-                    <span class="line highlight">trust your business.</span>
-                </h1>
+                <h1></h1> <!-- يملأه الـ Typewriter -->
                 <p class="subtitle"><strong>Every project starts with your business, not with a template.</strong></p>
                 <div class="buttons">
                     <a href="#work" class="btn primary">Explore My Work</a>
                     <a href="#contact" class="btn secondary">Book a Free Call</a>
                 </div>
             </div>
-            <div class="scroll-down">
-                <span>Scroll</span>
-                <div class="arrow"></div>
+
+            <!-- ===== BROWSER WINDOW LOOP ===== -->
+            <div class="browser-window" id="browser-loop">
+                <div class="browser-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="address-bar">saberslifi.com/projects</span>
+                </div>
+                <div class="browser-body">
+                    <iframe id="live-iframe" src="about:blank" loading="lazy"></iframe>
+                </div>
             </div>
         </section>
         
         <!-- ===== STATS ===== -->
         <div class="stats">
-            <div class="stat-item">
-                <span class="icon">📱</span>
-                <span class="number">Mobile First</span>
-                <span class="label">Perfect on every device</span>
-            </div>
-            <div class="stat-item">
-                <span class="icon">⚡</span>
-                <span class="number">Fast Loading</span>
-                <span class="label">No waiting. No frustration.</span>
-            </div>
-            <div class="stat-item">
-                <span class="icon">💬</span>
-                <span class="number">WhatsApp Ready</span>
-                <span class="label">Connect with customers instantly</span>
-            </div>
-        </div>
-        
-        <!-- ===== BENEFITS ===== -->
-        <section class="section" id="benefits">
-            <div class="section-header">
-                <span class="label">Benefits</span>
-                <h2>What a Website Can Do for Your Business</h2>
-                <p>It's not just a page — it's a tool that helps you grow.</p>
-            </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <span class="icon">📍</span>
-                    <h4>More Visibility</h4>
-                    <p>Help customers find your business online.</p>
-                </div>
-                <div class="benefit-card">
-                    <span class="icon">💬</span>
-                    <h4>Easier Contact</h4>
-                    <p>Customers contact you instantly through WhatsApp.</p>
-                </div>
-                <div class="benefit-card">
-                    <span class="icon">⭐</span>
-                    <h4>More Trust</h4>
-                    <p>A professional website builds confidence in your business.</p>
-                </div>
-                <div class="benefit-card">
-                    <span class="icon">📱</span>
-                    <h4>Available 24/7</h4>
-                    <p>Your business is online even when your shop is closed.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ===== TRUST BANNER ===== -->
-        <div class="trust-banner">
-            <span>✦ Designed for local businesses</span>
-            <span>✦ Built with real business scenarios</span>
-            <span>✦ Ready to help you grow</span>
+            <div class="stat-item"><span class="icon">📱</span><span class="number">Mobile First</span><span class="label">Perfect on every device</span></div>
+            <div class="stat-item"><span class="icon">⚡</span><span class="number">Fast Loading</span><span class="label">No waiting. No frustration.</span></div>
+            <div class="stat-item"><span class="icon">💬</span><span class="number">WhatsApp Ready</span><span class="label">Connect with customers instantly</span></div>
         </div>
         
         <!-- ===== WORK ===== -->
@@ -141,7 +83,7 @@
             </div>
             <div class="projects-grid">
                 
-                <!-- ===== MAZEN (FIRST) ===== -->
+                <!-- ===== Mazen ===== -->
                 <a href="projects/mazen/" target="_blank" class="project-card">
                     <div class="project-image">
                         <img src="images/mazen.webp" alt="Mazen Accessoires" />
@@ -151,9 +93,11 @@
                         <h3>Mazen Accessoires</h3>
                         <p>Accessories & Smartphone Store</p>
                         <div class="project-meta">
-                            <div><span class="meta-label">Problem</span> The business needed a cleaner way to present products and make customers trust the brand.</div>
-                            <div><span class="meta-label">Solution</span> A modern storefront with clear navigation, WhatsApp contact and a professional identity.</div>
-                            <div><span class="meta-label">Built with</span> HTML • CSS • JavaScript</div>
+                            <div class="transformation">
+                                <span class="before">Before: Simple store</span>
+                                <span class="arrow">→</span>
+                                <span class="after">After: Trusted brand</span>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -168,9 +112,11 @@
                         <h3>Hamiaphone</h3>
                         <p>Phone repair shop with WhatsApp integration.</p>
                         <div class="project-meta">
-                            <div><span class="meta-label">Problem</span> Customers couldn't easily reach the shop.</div>
-                            <div><span class="meta-label">Solution</span> WhatsApp integration — one click to contact.</div>
-                            <div><span class="meta-label">Built with</span> HTML • CSS • JavaScript</div>
+                            <div class="transformation">
+                                <span class="before">Before: Hard to reach</span>
+                                <span class="arrow">→</span>
+                                <span class="after">After: One-click contact</span>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -185,9 +131,11 @@
                         <h3>Rogers Phone</h3>
                         <p>Smartphone store — product showcase.</p>
                         <div class="project-meta">
-                            <div><span class="meta-label">Problem</span> Products were hard to browse and compare.</div>
-                            <div><span class="meta-label">Solution</span> Clean product display with easy contact.</div>
-                            <div><span class="meta-label">Built with</span> HTML • CSS • JavaScript</div>
+                            <div class="transformation">
+                                <span class="before">Before: Hard to browse</span>
+                                <span class="arrow">→</span>
+                                <span class="after">After: Clean showcase</span>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -202,9 +150,11 @@
                         <h3>YOKA TECH</h3>
                         <p>Multi-store — phones, computers, gaming.</p>
                         <div class="project-meta">
-                            <div><span class="meta-label">Problem</span> Multiple stores, no central online presence.</div>
-                            <div><span class="meta-label">Solution</span> Centralized hub for all products.</div>
-                            <div><span class="meta-label">Built with</span> HTML • CSS • JavaScript</div>
+                            <div class="transformation">
+                                <span class="before">Before: No central hub</span>
+                                <span class="arrow">→</span>
+                                <span class="after">After: Unified presence</span>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -219,251 +169,17 @@
                         <h3>ARC161</h3>
                         <p>Health product landing page.</p>
                         <div class="project-meta">
-                            <div><span class="meta-label">Problem</span> Product needed better visibility and sales.</div>
-                            <div><span class="meta-label">Solution</span> High-converting landing page with clear CTA.</div>
-                            <div><span class="meta-label">Built with</span> HTML • CSS • JavaScript</div>
+                            <div class="transformation">
+                                <span class="before">Before: Low visibility</span>
+                                <span class="arrow">→</span>
+                                <span class="after">After: High-converting</span>
+                            </div>
                         </div>
                     </div>
                 </a>
                 
             </div>
         </section>
-        
-        <!-- ===== WHY CHOOSE ME ===== -->
-        <section class="section" id="why-choose">
-            <div class="section-header">
-                <span class="label">Why Choose Me</span>
-                <h2>I Help Local Businesses Look Trustworthy Online</h2>
-            </div>
-            <div class="choose-grid">
-                <div class="choose-item">
-                    <span class="icon">📍</span>
-                    <h4>I Understand Local Businesses</h4>
-                    <p>I know what a shop owner needs — not just a website, but a tool that brings customers.</p>
-                </div>
-                <div class="choose-item">
-                    <span class="icon">🛠️</span>
-                    <h4>Built for Real Results</h4>
-                    <p>Every project is designed to help you get more inquiries, more calls, and more customers.</p>
-                </div>
-                <div class="choose-item">
-                    <span class="icon">💬</span>
-                    <h4>Clear Communication</h4>
-                    <p>You talk to me directly. No account managers, no middlemen.</p>
-                </div>
-                <div class="choose-item">
-                    <span class="icon">💰</span>
-                    <h4>Fair Pricing</h4>
-                    <p>You pay for the work, not for office rent, coffee machines, or agency overhead.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ===== SERVICES ===== -->
-        <section class="section" id="services">
-            <div class="section-header">
-                <span class="label">What I Do</span>
-                <h2>Services</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <span class="icon">💻</span>
-                    <h3>Web Design</h3>
-                    <p>Clean, modern, and tailored to your brand.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">📱</span>
-                    <h3>Responsive</h3>
-                    <p>Perfect on every screen.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">⚡</span>
-                    <h3>Performance</h3>
-                    <p>Fast loading times.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">💬</span>
-                    <h3>WhatsApp Integration</h3>
-                    <p>Instant communication with customers.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">📍</span>
-                    <h3>Google Business Profile</h3>
-                    <p>Get found on Google Maps.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">🛡️</span>
-                    <h3>Maintenance</h3>
-                    <p>Keep your website secure and updated.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ===== PROCESS ===== -->
-        <section class="section" id="process">
-            <div class="section-header">
-                <span class="label">How We Work</span>
-                <h2>What Happens After You Book a Call</h2>
-            </div>
-            <div class="process-flow">
-                <div class="process-step">
-                    <span class="step-number">01</span>
-                    <h4>Discovery Call</h4>
-                    <p>15 minutes. We talk about your goals.</p>
-                </div>
-                <div class="process-step">
-                    <span class="step-number">02</span>
-                    <h4>Proposal</h4>
-                    <p>I send you a clear quote and timeline.</p>
-                </div>
-                <div class="process-step">
-                    <span class="step-number">03</span>
-                    <h4>Design</h4>
-                    <p>I create mockups and share them with you.</p>
-                </div>
-                <div class="process-step">
-                    <span class="step-number">04</span>
-                    <h4>Build</h4>
-                    <p>I develop your site with care.</p>
-                </div>
-                <div class="process-step">
-                    <span class="step-number">05</span>
-                    <h4>Launch</h4>
-                    <p>We go live. I provide 30 days of free support.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ===== PROMISE ===== -->
-        <section class="section" id="promise">
-            <div class="section-header">
-                <span class="label">My Promise</span>
-                <h2>What I Stand For</h2>
-            </div>
-            <div class="promise-grid">
-                <div class="promise-item">
-                    <span class="icon">🛡️</span>
-                    <h4>100% Satisfaction</h4>
-                    <p>If you're not happy, I revise until you are.</p>
-                </div>
-                <div class="promise-item">
-                    <span class="icon">📱</span>
-                    <h4>Mobile First</h4>
-                    <p>Your site will look stunning on every device.</p>
-                </div>
-                <div class="promise-item">
-                    <span class="icon">⚡</span>
-                    <h4>Performance Obsessed</h4>
-                    <p>I optimize everything for fast loading.</p>
-                </div>
-                <div class="promise-item">
-                    <span class="icon">🤝</span>
-                    <h4>Support After Launch</h4>
-                    <p>I don't disappear after delivery.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ===== ABOUT ===== -->
-        <section class="section" id="about">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2>My name is Saber Slifi.</h2>
-                    <p>I focus on building clean, modern websites that help small businesses present themselves professionally online.</p>
-                    <p>I believe that when a customer searches for a business, they should find a website that looks trustworthy and professional. That's what I help businesses achieve.</p>
-                    <p>Every project I take on receives my full attention. <strong>Quality over quantity.</strong></p>
-                    <div class="philosophy">
-                        <h4>Why I Do This</h4>
-                        <p>A good website should make your business easier to trust. That's what I focus on.</p>
-                    </div>
-                    <div class="badges">
-                        <span class="badge">📱 Mobile First</span>
-                        <span class="badge">⚡ Fast Performance</span>
-                        <span class="badge">📍 Local Business Focus</span>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="images/profile.webp" alt="Saber Slifi" />
-                    <h3>Saber Slifi</h3>
-                    <p>Web Designer for Local Businesses</p>
-                    <div class="meta">
-                        <span>📍 Algeria</span>
-                        <span>⏳ Ready to build</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ===== PACKAGES SECTION ===== -->
-<section class="packages-section">
-    <div class="packages-container">
-        
-        <!-- Starter -->
-        <div class="package-card">
-            <div class="package-header">
-                <h3 class="package-name">Starter</h3>
-                <p class="package-subtitle">Perfect for small local businesses.</p>
-            </div>
-            <ul class="package-features">
-                <li>Professional Website</li>
-                <li>Mobile Responsive</li>
-                <li>WhatsApp Integration</li>
-                <li>Contact Form</li>
-                <li>Google Maps</li>
-                <li>Basic SEO</li>
-            </ul>
-            <a href="https://wa.me/213771021391?text=Hi%2C%20I'm%20interested%20in%20the%20Starter%20package.%20Can%20you%20share%20more%20details%3F" 
-               class="package-btn package-btn-outline" 
-               target="_blank" 
-               rel="noopener noreferrer">Get a Quote</a>
-        </div>
-
-        <!-- Business (مميز) -->
-        <div class="package-card package-featured">
-            <div class="package-badge">Most Popular</div>
-            <div class="package-header">
-                <h3 class="package-name">Business</h3>
-                <p class="package-subtitle">Ideal for businesses ready to grow online.</p>
-            </div>
-            <ul class="package-features">
-                <li>Everything in Starter, plus:</li>
-                <li>More Pages</li>
-                <li>Google Business Profile Setup</li>
-                <li>Better SEO</li>
-                <li>Faster Performance</li>
-                <li>Enhanced User Experience</li>
-            </ul>
-            <a href="https://wa.me/213771021391?text=Hi%2C%20I'd%20like%20to%20discuss%20the%20Business%20package.%20Let's%20talk." 
-               class="package-btn package-btn-solid" 
-               target="_blank" 
-               rel="noopener noreferrer">Let's Talk</a>
-        </div>
-
-        <!-- Premium -->
-        <div class="package-card">
-            <div class="package-header">
-                <h3 class="package-name">Premium</h3>
-                <p class="package-subtitle">For businesses that need a complete online presence.</p>
-            </div>
-            <ul class="package-features">
-                <li>Everything in Business, plus:</li>
-                <li>Advanced Features</li>
-                <li>Booking / Ordering Options</li>
-                <li>Priority Support</li>
-                <li>Ongoing Maintenance</li>
-            </ul>
-            <a href="https://wa.me/213771021391?text=Hi%2C%20I'm%20interested%20in%20the%20Premium%20package.%20I'd%20like%20to%20book%20a%20free%20call." 
-               class="package-btn package-btn-outline" 
-               target="_blank" 
-               rel="noopener noreferrer">Book a Free Call</a>
-        </div>
-
-    </div>
-
-    <p class="packages-disclaimer">
-        Every business is different. I'll recommend the best solution based on your goals.
-    </p>
-</section>
         
         <!-- ===== CONTACT ===== -->
         <section class="section" id="contact">
@@ -485,7 +201,6 @@
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
             <p>© 2026 Saber Slifi — Web Designer for Local Businesses</p>
-            <p class="small">Helping local businesses earn trust online.</p>
         </footer>
         
     </div>
