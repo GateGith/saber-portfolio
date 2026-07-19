@@ -35,17 +35,27 @@ function typeWriter() {
     }
 }
 
-// ===== 404 FIX: استخدام الروابط المباشرة بدلاً من saberslifi.com =====
+// ===== 404 FIX: لا يوجد أي أثر لـ saberslifi.com =====
+// تم وضع روابط GitHub الحقيقية أولاً لضمان ظهور المحتوى، وروابط محلية كاحتياط.
 var projects = [
     'https://gategith.github.io/hamiaphone-pro/',
     'https://gategith.github.io/Rogers-Phone/',
     'https://gategith.github.io/YOKA-TECH/',
-    'projects/mazen/',
-    'projects/arc161/'
+    'projects/mazen/index.html',
+    'projects/arc161/index.html'
 ];
+var projectNames = [
+    'Hamiaphone',
+    'Rogers Phone',
+    'YOKA TECH',
+    'Mazen Accessoires',
+    'ARC161'
+];
+
 var projectIndex = 0;
 var browserWindow = document.getElementById('browser-loop');
 var iframe = document.getElementById('live-iframe');
+var addressBar = document.getElementById('address-bar');
 
 function startBrowserLoop() {
     if (!browserWindow || !iframe) return;
@@ -56,11 +66,16 @@ function startBrowserLoop() {
 function loopProjects() {
     if (projectIndex >= projects.length) projectIndex = 0;
     var url = projects[projectIndex];
+    var name = projectNames[projectIndex];
+    
     iframe.style.opacity = '0';
+    if(addressBar) addressBar.textContent = 'Preview: ' + name;
+    
     setTimeout(function() {
         iframe.src = url;
         iframe.style.opacity = '1';
     }, 400);
+    
     projectIndex++;
     setTimeout(loopProjects, 4500);
 }
