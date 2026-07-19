@@ -33,23 +33,56 @@ body {
     padding: 1rem;
 }
 
-/* ===== PRELOADER (تمركز مطلق 100%) ===== */
+/* ===== إصلاح تمركز الـ PRELOADER نهائياً ===== */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 #preloader {
     position: fixed;
-    inset: 0; /* يملأ الشاشة بالكامل من الزوايا الأربع */
-    background: var(--bg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #07090d;
     z-index: 9999;
-    display: grid; /* أقوى نظام للتمركز */
-    place-items: center; /* يضع المحتوى في المنتصف أفقياً وعمودياً */
+    display: flex; /* استخدام Flex المباشر */
+    justify-content: center; /* في الوسط أفقياً */
+    align-items: center; /* في الوسط عمودياً */
     transition: opacity 0.6s ease;
     pointer-events: none;
 }
-#preloader.hide { opacity: 0; pointer-events: none; }
-.loader-content { text-align: center; } /* تأكد من تمركز النص */
-.loader-logo { font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse 1.2s infinite; }
-@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
-.loader-bar { width: 150px; height: 2px; background: rgba(255,255,255,0.06); margin: 16px auto 0; overflow: hidden; }
-.loader-progress { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); animation: loadProgress 1.2s forwards; }
+#preloader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+.loader-content {
+    text-align: center;
+}
+.loader-logo {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #b48cff, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 1.2s infinite;
+}
+@keyframes pulse { 
+    0%, 100% { transform: scale(1); opacity: 0.8; } 
+    50% { transform: scale(1.1); opacity: 1; } 
+}
+.loader-bar {
+    width: 150px; height: 2px;
+    background: rgba(255,255,255,0.06);
+    margin: 16px auto 0;
+    overflow: hidden;
+}
+.loader-progress {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, #b48cff, #ff6b9d);
+    animation: loadProgress 1.2s forwards;
+}
 @keyframes loadProgress { 0% { width: 0%; } 100% { width: 100%; } }
 
 #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary)); z-index: 1000; width: 0%; }
