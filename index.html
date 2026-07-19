@@ -12,7 +12,7 @@
 </head>
 <body>
     
-    <!-- PRELOADER (سيختفي تلقائياً بعد ثانية) -->
+    <!-- PRELOADER -->
     <div id="preloader">
         <div class="loader-content">
             <div class="loader-logo">SS</div>
@@ -42,7 +42,7 @@
             <div class="hero-grid"></div>
             <div class="hero-content">
                 <span class="badge">✦ Helping local businesses earn trust online.</span>
-                <h1></h1>
+                <h1></h1> <!-- Typewriter fills this -->
                 <p class="subtitle"><strong>Every project starts with your business, not with a template.</strong></p>
                 <div class="buttons">
                     <a href="#work" class="btn primary">Explore My Work</a>
@@ -80,10 +80,10 @@
         <section class="section" id="why-choose">
             <div class="section-header"><span class="label">Why Choose Me</span><h2>I Help Local Businesses Look Trustworthy</h2></div>
             <div class="grid" style="--cols: 4;">
-                <div class="card"><span class="icon">📍</span><h4>Local Focus</h4><p>I know what a shop owner needs — not just a website, but a tool that brings customers.</p></div>
-                <div class="card"><span class="icon">🛠️</span><h4>Real Results</h4><p>Every project is designed to get you more inquiries, calls, and customers.</p></div>
-                <div class="card"><span class="icon">💬</span><h4>Direct Communication</h4><p>You talk to me directly. No account managers or middlemen.</p></div>
-                <div class="card"><span class="icon">💰</span><h4>Fair Pricing</h4><p>You pay for the work, not for office rent or agency overhead.</p></div>
+                <div class="card"><span class="icon">📍</span><h4>Local Focus</h4><p>I know what a shop owner needs.</p></div>
+                <div class="card"><span class="icon">🛠️</span><h4>Real Results</h4><p>Designed to get you more inquiries.</p></div>
+                <div class="card"><span class="icon">💬</span><h4>Direct Communication</h4><p>You talk to me directly. No middlemen.</p></div>
+                <div class="card"><span class="icon">💰</span><h4>Fair Pricing</h4><p>You pay for the work, not overhead.</p></div>
             </div>
         </section>
 
@@ -91,7 +91,7 @@
         <section class="section" id="services">
             <div class="section-header"><span class="label">Services</span><h2>What I Do</h2></div>
             <div class="grid" style="--cols: 6;">
-                <div class="card"><span class="icon">💻</span><h3>Web Design</h3><p>Clean & tailored to your brand.</p></div>
+                <div class="card"><span class="icon">💻</span><h3>Web Design</h3><p>Clean & tailored.</p></div>
                 <div class="card"><span class="icon">📱</span><h3>Responsive</h3><p>Perfect on every screen.</p></div>
                 <div class="card"><span class="icon">⚡</span><h3>Performance</h3><p>Lightning fast loading.</p></div>
                 <div class="card"><span class="icon">💬</span><h3>WhatsApp</h3><p>Instant customer communication.</p></div>
@@ -116,9 +116,9 @@
         <section class="section" id="promise">
             <div class="section-header"><span class="label">My Promise</span><h2>What I Stand For</h2></div>
             <div class="grid" style="--cols: 4;">
-                <div class="card"><span class="icon">🛡️</span><h4>100% Satisfaction</h4><p>If you're not happy, I revise until you are.</p></div>
-                <div class="card"><span class="icon">📱</span><h4>Mobile First</h4><p>Your site will look stunning on every device.</p></div>
-                <div class="card"><span class="icon">⚡</span><h4>Performance Obsessed</h4><p>I optimize everything for fast loading.</p></div>
+                <div class="card"><span class="icon">🛡️</span><h4>100% Satisfaction</h4><p>Revise until you're happy.</p></div>
+                <div class="card"><span class="icon">📱</span><h4>Mobile First</h4><p>Stunning on every device.</p></div>
+                <div class="card"><span class="icon">⚡</span><h4>Performance</h4><p>Optimized for fast loading.</p></div>
                 <div class="card"><span class="icon">🤝</span><h4>Support After Launch</h4><p>I don't disappear after delivery.</p></div>
             </div>
         </section>
@@ -133,39 +133,59 @@
             </div>
         </section>
 
-        <!-- WORK (5 PROJECTS) -->
+        <!-- WORK (5 PROJECTS - 404 FIXED) -->
         <section class="section" id="work">
             <div class="section-header"><span class="label">⚡ Work</span><h2>Projects & Design Concepts</h2></div>
             <div class="grid projects-grid" style="--cols: 3;">
                 <!-- Mazen -->
                 <a href="projects/mazen/" target="_blank" class="project-card">
-                    <div class="project-image"><img src="images/mazen.webp" alt="Mazen" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNiNDhjZmYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik00IDh2MTJoMTZWMTYiLz48cGF0aCBkPSJNMjAgMTZsLTQgNC00LTQiLz48cGF0aCBkPSJNMTIgMTZWM2wxMCAxMC02IDYiLz48L3N2Zz4='; this.style.objectFit='contain'; this.style.width='60%'; this.style.height='60%';"><div class="project-overlay"><span>Explore →</span></div></div>
+                    <div class="project-image">
+                        <img src="images/mazen.webp" alt="Mazen" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="fallback"><i class="fas fa-store"></i></div>
+                        <div class="project-overlay"><span>Explore →</span></div>
+                    </div>
                     <div class="project-info"><h3>Mazen Accessoires</h3><p>Accessories Store</p><div class="project-meta"><div class="transformation"><span class="before">Before: Simple store</span><span class="arrow">→</span><span class="after">After: Trusted brand</span></div></div></div>
                 </a>
                 <!-- Hamiaphone -->
                 <a href="https://gategith.github.io/hamiaphone-pro/" target="_blank" class="project-card">
-                    <div class="project-image"><img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNiNDhjZmYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xNCAySDZhMiAyIDAgMCAwLTIgMnYxNmEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJWOHoiLz48cG9seWxpbmUgcG9pbnRzPSIxNCAyIDE0IDggMjAgOCIvPjxsaW5lIHgxPSIxNiIgeTE9IjEzIiB4Mj0iOCIgeTI9IjEzIi8+PGxpbmUgeDE9IjE2IiB5MT0iMTciIHgyPSI4IiB5Mj0iMTciLz48cG9seWxpbmUgcG9pbnRzPSIxMCA5IDkgOSA4IDggOSA3IDEwIDciLz48L3N2Zz4='; this.style.objectFit='contain'; this.style.width='60%'; this.style.height='60%';"><div class="project-overlay"><span>Explore →</span></div></div>
+                    <div class="project-image">
+                        <img src="images/hamiaphone.webp" alt="Hamiaphone" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="fallback"><i class="fas fa-tools"></i></div>
+                        <div class="project-overlay"><span>Explore →</span></div>
+                    </div>
                     <div class="project-info"><h3>Hamiaphone</h3><p>Repair + WhatsApp</p><div class="project-meta"><div class="transformation"><span class="before">Before: Hard to reach</span><span class="arrow">→</span><span class="after">After: One-click contact</span></div></div></div>
                 </a>
                 <!-- Rogers -->
                 <a href="https://gategith.github.io/Rogers-Phone/" target="_blank" class="project-card">
-                    <div class="project-image"><img src="images/rogers.webp" alt="Rogers" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNiNDhjZmYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMCAxM2E0IDQgMCAwIDAgNCAwIi8+PHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIgcnk9IjIiLz48bGluZSB4MT0iOSIgeTE9IjUiIHgyPSI5IiB5Mj0iMTkiLz48bGluZSB4MT0iMTUiIHkxPSI1IiB4Mj0iMTUiIHkyPSIxOSIvPjwvc3ZnPg=='; this.style.objectFit='contain'; this.style.width='60%'; this.style.height='60%';"><div class="project-overlay"><span>Explore →</span></div></div>
+                    <div class="project-image">
+                        <img src="images/rogers.webp" alt="Rogers" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="fallback"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="project-overlay"><span>Explore →</span></div>
+                    </div>
                     <div class="project-info"><h3>Rogers Phone</h3><p>Smartphone Showcase</p><div class="project-meta"><div class="transformation"><span class="before">Before: Hard to browse</span><span class="arrow">→</span><span class="after">After: Clean showcase</span></div></div></div>
                 </a>
                 <!-- Yoka -->
                 <a href="https://gategith.github.io/YOKA-TECH/" target="_blank" class="project-card">
-                    <div class="project-image"><img src="images/yoka.webp" alt="Yoka" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNiNDhjZmYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0yMCAxN2EyIDIgMCAwIDAtMi0ySDZhMiAyIDAgMCAwLTIgMnYyYTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMnYtMnoiLz48cGF0aCBkPSJNMTAgMTJsLTItMi0yIDIiLz48cGF0aCBkPSJNMTAgMTJsMi0yIDIgMiIvPjxwYXRoIGQ9Ik0xMCAxMnYxMCIvPjwvc3ZnPg=='; this.style.objectFit='contain'; this.style.width='60%'; this.style.height='60%';"><div class="project-overlay"><span>Explore →</span></div></div>
+                    <div class="project-image">
+                        <img src="images/yoka.webp" alt="Yoka" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="fallback"><i class="fas fa-server"></i></div>
+                        <div class="project-overlay"><span>Explore →</span></div>
+                    </div>
                     <div class="project-info"><h3>YOKA TECH</h3><p>Multi-store Hub</p><div class="project-meta"><div class="transformation"><span class="before">Before: No central hub</span><span class="arrow">→</span><span class="after">After: Unified presence</span></div></div></div>
                 </a>
                 <!-- Arc161 -->
                 <a href="projects/arc161/" target="_blank" class="project-card">
-                    <div class="project-image"><img src="projects/arc161/images/hero.jpg" alt="Arc161" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNiNDhjZmYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMiAydjEwIi8+PHBhdGggZD0iTTEyIDIybDQgLTRMOCA0Ii8+PHBhdGggZD0iTTIgMTJsMTAgMCAxMCAwIi8+PHBhdGggZD0iTTIgMTJsMTAgMCAxMCAwIi8+PC9zdmc+'; this.style.objectFit='contain'; this.style.width='60%'; this.style.height='60%';"><div class="project-overlay"><span>Explore →</span></div></div>
+                    <div class="project-image">
+                        <img src="projects/arc161/images/hero.jpg" alt="Arc161" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="fallback"><i class="fas fa-heartbeat"></i></div>
+                        <div class="project-overlay"><span>Explore →</span></div>
+                    </div>
                     <div class="project-info"><h3>ARC161</h3><p>Health Landing Page</p><div class="project-meta"><div class="transformation"><span class="before">Before: Low visibility</span><span class="arrow">→</span><span class="after">After: High-converting</span></div></div></div>
                 </a>
             </div>
         </section>
         
-        <!-- ABOUT -->
+        <!-- ABOUT (404 FIXED) -->
         <section class="section" id="about">
             <div class="about-grid">
                 <div class="about-text">
@@ -175,9 +195,9 @@
                     <div class="badges"><span class="badge">📱 Mobile First</span><span class="badge">⚡ Fast Performance</span><span class="badge">📍 Local Business Focus</span></div>
                 </div>
                 <div class="about-image">
-                    <!-- 404 نهائياً: صورة دائرية بحجم ثابت 140px -->
                     <div class="profile-wrapper">
-                        <img src="images/profile.webp" alt="Saber Slifi" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I0OGNmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRIOGE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjciIHI9IjQiLz48L3N2Zz4='; this.style.objectFit='contain'; this.style.width='100%'; this.style.height='100%'; this.style.backgroundColor='rgba(180, 140, 255, 0.05)'; this.style.borderRadius='0';" />
+                        <img src="images/profile.webp" alt="Saber Slifi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="fallback-profile"><i class="fas fa-user"></i></div>
                     </div>
                     <h3>Saber Slifi</h3>
                     <p>Web Designer for Local Businesses</p>
