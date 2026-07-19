@@ -1,14 +1,26 @@
-// ===== PRELOADER (يختفي بأمان) =====
 window.addEventListener('load', function() {
     var preloader = document.getElementById('preloader');
     if (preloader) {
         setTimeout(function() {
             preloader.classList.add('hide');
-        }, 1200);
+        }, 1400);
     }
 });
 
-// ===== SCROLL PROGRESS =====
+var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.stat-item, .card, .project-card').forEach(function(el) {
+        observer.observe(el);
+    });
+});
+
 window.addEventListener('scroll', function() {
     var scrollTop = window.scrollY;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -17,7 +29,6 @@ window.addEventListener('scroll', function() {
     if (bar) bar.style.width = progress + '%';
 });
 
-// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
         var target = document.querySelector(this.getAttribute('href'));
@@ -28,7 +39,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     });
 });
 
-// ===== TYPEWRITER (مع حماية ضد الأخطاء) =====
 var textElement = document.querySelector('.hero h1');
 var heroText = "Professional websites that help customers trust your business.";
 var charIndex = 0;
@@ -46,7 +56,6 @@ function typeWriter() {
     }
 }
 
-// ===== BROWSER LOOP (مع 5 مشاريع) =====
 var projects = [
     'projects/mazen/',
     'projects/arc161/',
@@ -78,7 +87,6 @@ function loopProjects() {
     setTimeout(loopProjects, 4500);
 }
 
-// ===== 3D PARALLAX =====
 function initParallax() {
     if (window.innerWidth <= 768) return;
     var heroContainer = document.querySelector('.hero');
@@ -90,7 +98,6 @@ function initParallax() {
     });
 }
 
-// ===== PARTICLES =====
 function initParticles() {
     var hero = document.querySelector('.hero');
     if (!hero) return;
@@ -138,7 +145,6 @@ function initParticles() {
     animate();
 }
 
-// ===== INIT =====
 document.addEventListener('DOMContentLoaded', function() {
     typeWriter();
     initParallax();
