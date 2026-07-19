@@ -1,8 +1,16 @@
+// ===== إخفاء الـ Preloader بقوة (يعمل حتى لو فشل التحميل) =====
+setTimeout(function() {
+    var preloader = document.getElementById('preloader');
+    if (preloader) preloader.classList.add('hide');
+}, 1500); // يختفي بعد 1.5 ثانية حتماً
+
+// ===== إخفاء الـ Preloader عند اكتمال التحميل (كإجراء احتياطي) =====
 window.addEventListener('load', function() {
     var preloader = document.getElementById('preloader');
-    if (preloader) setTimeout(function() { preloader.classList.add('hide'); }, 1200);
+    if (preloader) preloader.classList.add('hide');
 });
 
+// ===== بقية الكود =====
 window.addEventListener('scroll', function() {
     var scrollTop = window.scrollY;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -35,20 +43,19 @@ function typeWriter() {
     }
 }
 
-// ===== 404 FIX: لا يوجد أي أثر لـ saberslifi.com =====
-// تم وضع روابط GitHub الحقيقية أولاً لضمان ظهور المحتوى، وروابط محلية كاحتياط.
+// ===== الروابط المحدثة (تم إصلاح رابط Mazen) =====
 var projects = [
+    'https://gategith.github.io/mazen-accessoires/', // تم الإصلاح هنا
     'https://gategith.github.io/hamiaphone-pro/',
     'https://gategith.github.io/Rogers-Phone/',
     'https://gategith.github.io/YOKA-TECH/',
-    'projects/mazen/index.html',
     'projects/arc161/index.html'
 ];
 var projectNames = [
+    'Mazen Accessoires',
     'Hamiaphone',
     'Rogers Phone',
     'YOKA TECH',
-    'Mazen Accessoires',
     'ARC161'
 ];
 
