@@ -1,34 +1,37 @@
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    if (preloader) setTimeout(() => preloader.classList.add('hide'), 1400);
+// ===== PRELOADER (سيختفي بعد ثانية واحدة حتى لو تعطل شيء) =====
+window.addEventListener('load', function() {
+    var preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(function() {
+            preloader.classList.add('hide');
+        }, 1000);
+    }
 });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-}, { threshold: 0.1 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.stat-item, .card, .project-card').forEach(el => observer.observe(el));
+// ===== SCROLL PROGRESS =====
+window.addEventListener('scroll', function() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = (scrollTop / docHeight) * 100;
+    var bar = document.getElementById('scroll-progress');
+    if (bar) bar.style.width = progress + '%';
 });
 
-window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    document.getElementById('scroll-progress').style.width = (scrollTop / docHeight) * 100 + '%';
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 });
 
-const heroText = "Professional websites that help customers trust your business.";
-const textElement = document.querySelector('.hero h1');
-let charIndex = 0;
+// ===== TYPEWRITER =====
+var heroText = "Professional websites that help customers trust your business.";
+var textElement = document.querySelector('.hero h1');
+var charIndex = 0;
 
 function typeWriter() {
     if (charIndex < heroText.length) {
@@ -36,22 +39,23 @@ function typeWriter() {
         charIndex++;
         setTimeout(typeWriter, 35);
     } else {
-        document.querySelector('.cursor').style.display = 'none';
+        var cursor = document.querySelector('.cursor');
+        if (cursor) cursor.style.display = 'none';
         startBrowserLoop();
     }
 }
 
-// ===== BROWSER LOOP (5 مشاريع كاملة) =====
-const projects = [
+// ===== BROWSER LOOP =====
+var projects = [
     'projects/mazen/',
     'projects/arc161/',
     'https://gategith.github.io/hamiaphone-pro/',
     'https://gategith.github.io/Rogers-Phone/',
     'https://gategith.github.io/YOKA-TECH/'
 ];
-let projectIndex = 0;
-const browserWindow = document.getElementById('browser-loop');
-const iframe = document.getElementById('live-iframe');
+var projectIndex = 0;
+var browserWindow = document.getElementById('browser-loop');
+var iframe = document.getElementById('live-iframe');
 
 function startBrowserLoop() {
     if (!browserWindow || !iframe) return;
@@ -61,9 +65,14 @@ function startBrowserLoop() {
 
 function loopProjects() {
     if (projectIndex >= projects.length) projectIndex = 0;
-    const url = projects[projectIndex];
+    var url = projects[projectIndex];
+    
     iframe.style.opacity = '0';
-    setTimeout(() => { iframe.src = url; iframe.style.opacity = '1'; }, 400);
+    setTimeout(function() {
+        iframe.src = url;
+        iframe.style.opacity = '1';
+    }, 400);
+    
     projectIndex++;
     setTimeout(loopProjects, 4500);
 }
@@ -71,45 +80,63 @@ function loopProjects() {
 // ===== 3D PARALLAX =====
 function initParallax() {
     if (window.innerWidth <= 768) return;
-    const heroContainer = document.querySelector('.hero');
-    document.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth - e.clientX * 2) / 100;
-        const y = (window.innerHeight - e.clientY * 2) / 100;
-        heroContainer.style.transform = `rotateY(${x * 0.5}deg) rotateX(${y * 0.5}deg)`;
+    var heroContainer = document.querySelector('.hero');
+    document.addEventListener('mousemove', function(e) {
+        var x = (window.innerWidth - e.clientX * 2) / 100;
+        var y = (window.innerHeight - e.clientY * 2) / 100;
+        heroContainer.style.transform = 'rotateY(' + (x * 0.5) + 'deg) rotateX(' + (y * 0.5) + 'deg)';
     });
 }
 
 // ===== PARTICLES =====
 function initParticles() {
-    const canvas = document.createElement('canvas');
+    var canvas = document.createElement('canvas');
     canvas.style.cssText = 'position:absolute;top:0;left:0;z-index:-1;pointer-events:none;';
-    document.querySelector('.hero').appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    let w, h;
-    function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
-    window.addEventListener('resize', resize); resize();
-    const particles = Array.from({ length: 25 }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-        r: Math.random() * 2 + 1
-    }));
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+    hero.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    var w, h;
+    
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    var particles = [];
+    for (var i = 0; i < 25; i++) {
+        particles.push({
+            x: Math.random() * w, y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+            r: Math.random() * 2 + 1
+        });
+    }
+
     function animate() {
         ctx.clearRect(0, 0, w, h);
-        particles.forEach(p => {
-            p.x += p.vx; p.y += p.vy;
-            if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-            if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+        for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0) p.x = w;
+            if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h;
+            if (p.y > h) p.y = 0;
+            
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
             ctx.fillStyle = 'rgba(180, 140, 255, 0.15)';
             ctx.fill();
-        });
+        }
         requestAnimationFrame(animate);
     }
     animate();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', function() {
     typeWriter();
     initParallax();
     initParticles();
