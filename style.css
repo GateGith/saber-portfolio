@@ -26,8 +26,20 @@ body {
 }
 .container { max-width: 1200px; width: 100%; }
 
-/* Preloader */
-#preloader { position: fixed; inset: 0; background: var(--bg); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s ease; }
+/* ===== PRELOADER (إصلاح نهائي: الآن في منتصف الشاشة 100%) ===== */
+#preloader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: var(--bg);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; padding: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none; /* لمنع النقر الخاطئ */
+}
 #preloader.hide { opacity: 0; pointer-events: none; }
 .loader-logo { font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse 1.2s infinite; }
 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
