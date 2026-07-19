@@ -1,10 +1,10 @@
-// ===== PRELOADER (سيختفي بعد ثانية واحدة حتى لو تعطل شيء) =====
+// ===== PRELOADER (يختفي بأمان) =====
 window.addEventListener('load', function() {
     var preloader = document.getElementById('preloader');
     if (preloader) {
         setTimeout(function() {
             preloader.classList.add('hide');
-        }, 1000);
+        }, 1200);
     }
 });
 
@@ -28,12 +28,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     });
 });
 
-// ===== TYPEWRITER =====
-var heroText = "Professional websites that help customers trust your business.";
+// ===== TYPEWRITER (مع حماية ضد الأخطاء) =====
 var textElement = document.querySelector('.hero h1');
+var heroText = "Professional websites that help customers trust your business.";
 var charIndex = 0;
 
 function typeWriter() {
+    if (!textElement) return;
     if (charIndex < heroText.length) {
         textElement.innerHTML = heroText.substring(0, charIndex + 1) + '<span class="cursor">|</span>';
         charIndex++;
@@ -45,7 +46,7 @@ function typeWriter() {
     }
 }
 
-// ===== BROWSER LOOP =====
+// ===== BROWSER LOOP (مع 5 مشاريع) =====
 var projects = [
     'projects/mazen/',
     'projects/arc161/',
@@ -81,6 +82,7 @@ function loopProjects() {
 function initParallax() {
     if (window.innerWidth <= 768) return;
     var heroContainer = document.querySelector('.hero');
+    if (!heroContainer) return;
     document.addEventListener('mousemove', function(e) {
         var x = (window.innerWidth - e.clientX * 2) / 100;
         var y = (window.innerHeight - e.clientY * 2) / 100;
@@ -90,10 +92,11 @@ function initParallax() {
 
 // ===== PARTICLES =====
 function initParticles() {
-    var canvas = document.createElement('canvas');
-    canvas.style.cssText = 'position:absolute;top:0;left:0;z-index:-1;pointer-events:none;';
     var hero = document.querySelector('.hero');
     if (!hero) return;
+    
+    var canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;top:0;left:0;z-index:-1;pointer-events:none;';
     hero.appendChild(canvas);
     var ctx = canvas.getContext('2d');
     var w, h;
