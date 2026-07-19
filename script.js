@@ -1,8 +1,8 @@
-// ===== إخفاء الـ Preloader بقوة (يعمل حتى لو فشل التحميل) =====
+// ===== إخفاء الـ Preloader بقوة (يعمل بنسبة 100% حتى لو فشل التحميل) =====
 setTimeout(function() {
     var preloader = document.getElementById('preloader');
     if (preloader) preloader.classList.add('hide');
-}, 1500); // يختفي بعد 1.5 ثانية حتماً
+}, 1500); // سيختفي بعد ثانية ونصف حتماً
 
 // ===== إخفاء الـ Preloader عند اكتمال التحميل (كإجراء احتياطي) =====
 window.addEventListener('load', function() {
@@ -45,7 +45,7 @@ function typeWriter() {
 
 // ===== الروابط المحدثة (تم إصلاح رابط Mazen) =====
 var projects = [
-    'https://gategith.github.io/mazen-accessoires/', // تم الإصلاح هنا
+    'https://gategith.github.io/mazen-accessoires/',
     'https://gategith.github.io/hamiaphone-pro/',
     'https://gategith.github.io/Rogers-Phone/',
     'https://gategith.github.io/YOKA-TECH/',
